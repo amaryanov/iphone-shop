@@ -11,9 +11,11 @@
 @implementation iShopAppDelegate
 
 @synthesize window;
+@synthesize navController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {	
 	
+	[window addSubview:[navController view]];
 	// Override point for customization after app launch	
     [window makeKeyAndVisible];
 }
