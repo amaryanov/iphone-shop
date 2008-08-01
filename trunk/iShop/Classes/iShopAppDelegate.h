@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class iShopViewController;
 
 @interface iShopAppDelegate : NSObject <UIApplicationDelegate> {
 	IBOutlet UIWindow *window;
+	IBOutlet UINavigationController *navController;
 }
 
 @property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) UINavigationController *navController;
 
 @end
 

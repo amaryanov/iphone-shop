@@ -16,6 +16,9 @@
 		550428500E42F8E500071821 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550428480E42F8E500071821 /* soapC.cpp */; };
 		550428510E42F8E500071821 /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550428490E42F8E500071821 /* soapClient.cpp */; };
 		550428530E42F8E500071821 /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5504284D0E42F8E500071821 /* stdsoap2.cpp */; };
+		550429040E432EEE00071821 /* navigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550429030E432EEE00071821 /* navigation.xib */; };
+		5504296B0E433A0E00071821 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504296A0E433A0E00071821 /* RootViewController.m */; };
+		550429890E433BB500071821 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550429880E433BB500071821 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,10 @@
 		5504284C0E42F8E500071821 /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
 		5504284D0E42F8E500071821 /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
 		5504284E0E42F8E500071821 /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
+		550429030E432EEE00071821 /* navigation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = navigation.xib; sourceTree = "<group>"; };
+		550429690E433A0E00071821 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		5504296A0E433A0E00071821 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		550429880E433BB500071821 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +52,7 @@
 			files = (
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				550429890E433BB500071821 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +64,8 @@
 			children = (
 				1D3623240D0F684500981E51 /* iShopAppDelegate.h */,
 				1D3623250D0F684500981E51 /* iShopAppDelegate.m */,
+				550429690E433A0E00071821 /* RootViewController.h */,
+				5504296A0E433A0E00071821 /* RootViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -95,6 +105,7 @@
 			children = (
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				550429030E432EEE00071821 /* navigation.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -102,6 +113,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				550429880E433BB500071821 /* CoreGraphics.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 			);
@@ -167,6 +179,7 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				5504284F0E42F8E500071821 /* AmazonSearchBinding.nsmap in Resources */,
+				550429040E432EEE00071821 /* navigation.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +195,7 @@
 				550428500E42F8E500071821 /* soapC.cpp in Sources */,
 				550428510E42F8E500071821 /* soapClient.cpp in Sources */,
 				550428530E42F8E500071821 /* stdsoap2.cpp in Sources */,
+				5504296B0E433A0E00071821 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
