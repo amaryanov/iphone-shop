@@ -1,0 +1,127 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* iShop */ = {
+		activeExec = 0;
+		executables = (
+			5504281E0E42F67000071821 /* iShop */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 5504281E0E42F67000071821 /* iShop */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* iShop */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* iShop */,
+		);
+		codeSenseManager = 550428290E42F67400071821 /* Code sense */;
+		executables = (
+			5504281E0E42F67000071821 /* iShop */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 239269488;
+			PBXWorkspaceStateSaveDate = 239269488;
+		};
+		sourceControlManager = 550428280E42F67400071821 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	5504281E0E42F67000071821 /* iShop */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = iShop;
+		sourceDirectories = (
+		);
+	};
+	550428280E42F67400071821 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	550428290E42F67400071821 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	550428460E42F8E500071821 /* AmazonSearchBinding.nsmap */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 637}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 535}";
+		};
+	};
+	550428470E42F8E500071821 /* soapAmazonSearchBindingProxy.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1937, 1488}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 3364}";
+		};
+	};
+	550428480E42F8E500071821 /* soapC.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 450256}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1135}";
+		};
+	};
+	550428490E42F8E500071821 /* soapClient.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1601, 20256}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1826}";
+		};
+	};
+	5504284D0E42F8E500071821 /* stdsoap2.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 239376}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1881}";
+		};
+	};
+	5504284E0E42F8E500071821 /* stdsoap2.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 36624}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1850}";
+		};
+	};
+}
