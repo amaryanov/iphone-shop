@@ -11,7 +11,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {894, 644}}";
 			sepNavSelRange = "{454, 0}";
-			sepNavVisRange = "{260, 665}";
+			sepNavVisRange = "{259, 666}";
 		};
 	};
 	1D6058900D05DD3D006BFB54 /* iShop */ = {
@@ -62,14 +62,14 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 239578292;
-			PBXWorkspaceStateSaveDate = 239578292;
+			PBXPerProjectTemplateStateSaveDate = 239579093;
+			PBXWorkspaceStateSaveDate = 239579093;
 		};
 		perUserProjectItems = {
+			3A4F131E0E47AFF400F96286 /* PBXTextBookmark */ = 3A4F131E0E47AFF400F96286 /* PBXTextBookmark */;
 			3AAE31D50E47ABCF00309F97 /* PBXTextBookmark */ = 3AAE31D50E47ABCF00309F97 /* PBXTextBookmark */;
 			3AAE31D60E47ABCF00309F97 /* PBXTextBookmark */ = 3AAE31D60E47ABCF00309F97 /* PBXTextBookmark */;
 			3AAE31D70E47ABCF00309F97 /* PBXTextBookmark */ = 3AAE31D70E47ABCF00309F97 /* PBXTextBookmark */;
-			3AAE31D90E47ABCF00309F97 /* PBXTextBookmark */ = 3AAE31D90E47ABCF00309F97 /* PBXTextBookmark */;
 			3AAF7B280E47AD5C000717ED /* PBXTextBookmark */ = 3AAF7B280E47AD5C000717ED /* PBXTextBookmark */;
 			3ABCE76B0E477ACF00CC4F64 /* PBXTextBookmark */ = 3ABCE76B0E477ACF00CC4F64 /* PBXTextBookmark */;
 			3ABCE7750E477ACF00CC4F64 /* PBXTextBookmark */ = 3ABCE7750E477ACF00CC4F64 /* PBXTextBookmark */;
@@ -77,6 +77,16 @@
 		sourceControlManager = 3ABCE74F0E47769F00CC4F64 /* Source Control */;
 		userBuildSettings = {
 		};
+	};
+	3A4F131E0E47AFF400F96286 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* iShopAppDelegate.m */;
+		name = "iShopAppDelegate.m: 25";
+		rLen = 0;
+		rLoc = 454;
+		rType = 0;
+		vrLen = 666;
+		vrLoc = 259;
 	};
 	3AAE31D50E47ABCF00309F97 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -107,16 +117,6 @@
 		rType = 0;
 		vrLen = 173;
 		vrLoc = 0;
-	};
-	3AAE31D90E47ABCF00309F97 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1D3623250D0F684500981E51 /* iShopAppDelegate.m */;
-		name = "iShopAppDelegate.m: 25";
-		rLen = 0;
-		rLoc = 454;
-		rType = 0;
-		vrLen = 596;
-		vrLoc = 329;
 	};
 	3AAF7B280E47AD5C000717ED /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
