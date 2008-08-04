@@ -1,0 +1,246 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* iShopAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {755, 387}}";
+			sepNavSelRange = "{217, 0}";
+			sepNavVisRange = "{0, 462}";
+		};
+	};
+	1D3623250D0F684500981E51 /* iShopAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {894, 644}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{259, 666}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* iShop */ = {
+		activeExec = 0;
+		executables = (
+			3ABCE73F0E47769500CC4F64 /* iShop */,
+		);
+	};
+	28A0AB4B0D9B1048005BE974 /* iShop_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {755, 387}}";
+			sepNavSelRange = "{88, 0}";
+			sepNavVisRange = "{0, 173}";
+			sepNavWindowFrame = "{{15, 52}, {899, 692}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 3ABCE73F0E47769500CC4F64 /* iShop */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* iShop */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* iShop */,
+		);
+		codeSenseManager = 3ABCE7500E47769F00CC4F64 /* Code sense */;
+		executables = (
+			3ABCE73F0E47769500CC4F64 /* iShop */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					577,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 239574835;
+			PBXWorkspaceStateSaveDate = 239574835;
+		};
+		perUserProjectItems = {
+			3ABCE76B0E477ACF00CC4F64 /* PBXTextBookmark */ = 3ABCE76B0E477ACF00CC4F64 /* PBXTextBookmark */;
+			3ABCE7750E477ACF00CC4F64 /* PBXTextBookmark */ = 3ABCE7750E477ACF00CC4F64 /* PBXTextBookmark */;
+			3ABCE87A0E479A3100CC4F64 /* PBXTextBookmark */ = 3ABCE87A0E479A3100CC4F64 /* PBXTextBookmark */;
+			3ABCE8840E479BC400CC4F64 /* PBXTextBookmark */ = 3ABCE8840E479BC400CC4F64 /* PBXTextBookmark */;
+			3ABCE8850E479BC400CC4F64 /* PBXTextBookmark */ = 3ABCE8850E479BC400CC4F64 /* PBXTextBookmark */;
+			3ABCE8860E479BC400CC4F64 /* PBXTextBookmark */ = 3ABCE8860E479BC400CC4F64 /* PBXTextBookmark */;
+			3ABCE8870E479BC400CC4F64 /* PBXTextBookmark */ = 3ABCE8870E479BC400CC4F64 /* PBXTextBookmark */;
+			3ABCE8890E479BC400CC4F64 /* PBXTextBookmark */ = 3ABCE8890E479BC400CC4F64 /* PBXTextBookmark */;
+			3ABCE88C0E479BC400CC4F64 /* PBXTextBookmark */ = 3ABCE88C0E479BC400CC4F64 /* PBXTextBookmark */;
+			3ABCE8C80E479F0400CC4F64 /* PBXTextBookmark */ = 3ABCE8C80E479F0400CC4F64 /* PBXTextBookmark */;
+			3ABCE8E00E479F4D00CC4F64 /* PBXTextBookmark */ = 3ABCE8E00E479F4D00CC4F64 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 3ABCE74F0E47769F00CC4F64 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	3ABCE73F0E47769500CC4F64 /* iShop */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = iShop;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+	};
+	3ABCE74F0E47769F00CC4F64 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	3ABCE7500E47769F00CC4F64 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	3ABCE76B0E477ACF00CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* iShopAppDelegate.h */;
+		name = "iShopAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 462;
+		vrLoc = 0;
+	};
+	3ABCE7750E477ACF00CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* iShopAppDelegate.m */;
+		name = "iShopAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 626;
+		vrLoc = 0;
+	};
+	3ABCE86A0E4797A900CC4F64 /* ViewControllerWithNav.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {755, 387}}";
+			sepNavSelRange = "{348, 0}";
+			sepNavVisRange = "{0, 355}";
+		};
+	};
+	3ABCE86B0E4797A900CC4F64 /* ViewControllerWithNav.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {755, 686}}";
+			sepNavSelRange = "{561, 0}";
+			sepNavVisRange = "{222, 700}";
+		};
+	};
+	3ABCE87A0E479A3100CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABCE86A0E4797A900CC4F64 /* ViewControllerWithNav.h */;
+		name = "ViewControllerWithNav.h: 17";
+		rLen = 0;
+		rLoc = 308;
+		rType = 0;
+		vrLen = 299;
+		vrLoc = 0;
+	};
+	3ABCE8840E479BC400CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* iShopAppDelegate.h */;
+		name = "iShopAppDelegate.h: 11";
+		rLen = 0;
+		rLoc = 217;
+		rType = 0;
+		vrLen = 462;
+		vrLoc = 0;
+	};
+	3ABCE8850E479BC400CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* iShopAppDelegate.m */;
+		name = "iShopAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 666;
+		vrLoc = 259;
+	};
+	3ABCE8860E479BC400CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28A0AB4B0D9B1048005BE974 /* iShop_Prefix.pch */;
+		name = "iShop_Prefix.pch: 3";
+		rLen = 0;
+		rLoc = 88;
+		rType = 0;
+		vrLen = 173;
+		vrLoc = 0;
+	};
+	3ABCE8870E479BC400CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABCE86A0E4797A900CC4F64 /* ViewControllerWithNav.h */;
+		name = "ViewControllerWithNav.h: 17";
+		rLen = 0;
+		rLoc = 348;
+		rType = 0;
+		vrLen = 355;
+		vrLoc = 0;
+	};
+	3ABCE8890E479BC400CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABCE86B0E4797A900CC4F64 /* ViewControllerWithNav.m */;
+		name = "ViewControllerWithNav.m: 30";
+		rLen = 0;
+		rLoc = 561;
+		rType = 0;
+		vrLen = 674;
+		vrLoc = 250;
+	};
+	3ABCE88C0E479BC400CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28A0AB4B0D9B1048005BE974 /* iShop_Prefix.pch */;
+		name = "iShop_Prefix.pch: 3";
+		rLen = 0;
+		rLoc = 88;
+		rType = 0;
+		vrLen = 173;
+		vrLoc = 0;
+	};
+	3ABCE8C80E479F0400CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABCE86B0E4797A900CC4F64 /* ViewControllerWithNav.m */;
+		name = "ViewControllerWithNav.m: 30";
+		rLen = 0;
+		rLoc = 561;
+		rType = 0;
+		vrLen = 700;
+		vrLoc = 222;
+	};
+	3ABCE8E00E479F4D00CC4F64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABCE86B0E4797A900CC4F64 /* ViewControllerWithNav.m */;
+		name = "ViewControllerWithNav.m: 30";
+		rLen = 0;
+		rLoc = 561;
+		rType = 0;
+		vrLen = 700;
+		vrLoc = 222;
+	};
+}
