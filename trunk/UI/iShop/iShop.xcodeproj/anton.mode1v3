@@ -326,12 +326,12 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3AAF7B280E47AD5C000717ED</string>
+										<string>3A4F131E0E47AFF400F96286</string>
 										<key>history</key>
 										<array>
 											<string>3AAE31D50E47ABCF00309F97</string>
 											<string>3AAE31D60E47ABCF00309F97</string>
-											<string>3AAE31D90E47ABCF00309F97</string>
+											<string>3AAF7B280E47AD5C000717ED</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -395,9 +395,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>3AAF7B1A0E47ACBC000717ED</string>
+				<string>3A4F13110E47AFDD00F96286</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>3AAF7B1B0E47ACBC000717ED</string>
+				<string>3A4F13120E47AFDD00F96286</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -534,7 +534,7 @@
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>3ABCE7460E47769F00CC4F64</string>
-		<string>/Users/anton/Documents/svn/iphone-shop2/anton/iShop/iShop.xcodeproj</string>
+		<string>/Users/anton/Documents/svn/iphone-shop/UI/iShop/iShop.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 112 1024 634 0 0 1024 746 </string>
@@ -614,7 +614,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>3ABCE7460E47769F00CC4F64</string>
-				<string>3AAF7B1C0E47ACBC000717ED</string>
+				<string>3A4F13130E47AFDD00F96286</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -734,13 +734,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>3AAF7B1D0E47ACBC000717ED</string>
+				<string>3A4F13140E47AFDD00F96286</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>3AAF7B1E0E47ACBC000717ED</string>
-				<string>3AAF7B1F0E47ACBC000717ED</string>
-				<string>3AAF7B200E47ACBC000717ED</string>
-				<string>3AAF7B210E47ACBC000717ED</string>
-				<string>3AAF7B220E47ACBC000717ED</string>
+				<string>3A4F13150E47AFDD00F96286</string>
+				<string>3A4F13160E47AFDD00F96286</string>
+				<string>3A4F13170E47AFDD00F96286</string>
+				<string>3A4F13180E47AFDD00F96286</string>
+				<string>3A4F13190E47AFDD00F96286</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -902,7 +902,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>3AAF7B230E47ACBC000717ED</string>
+				<string>3A4F131A0E47AFDD00F96286</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
