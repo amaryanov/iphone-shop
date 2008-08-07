@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface RootViewController : UIViewController {
 	IBOutlet UITableView *myDinamicalyTable;
 }

@@ -71,6 +71,7 @@ RootViewController *root;
 {
 static int i=0;
 	self.navigationItem.title=[NSString stringWithFormat:@"My title %d",i++];
+
 }
 
 
