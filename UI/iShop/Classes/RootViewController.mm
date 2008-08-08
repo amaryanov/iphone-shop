@@ -5,10 +5,12 @@
 //  Created by Andrey Konovalov on 05.08.08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
+#include <iostream>
 
 #import "RootViewController.h"
 
-
+#include "soapAmazonSearchBindingProxy.h"
+using namespace std;
 @implementation RootViewController
 
 @synthesize myDinamicalyTable;
@@ -70,7 +72,20 @@ RootViewController *root;
 - (void)viewDidLoad 
 {
 static int i=0;
+AmazonSearchBinding amazon;
+ns1__BrowseNodeRequest sr;
+struct ns1__BrowseNodeSearchRequestResponse resp;
+int retVal;
 	self.navigationItem.title=[NSString stringWithFormat:@"My title %d",i++];
+	sr.
+	retVal=amazon.ns1__BrowseNodeSearchRequest(&sr,resp);
+	if(retVal == SOAP_OK)
+	{
+	}
+	else
+	{
+		cout<<retVal<<endl;
+	}
 
 }
 
