@@ -77,7 +77,7 @@ ns1__BrowseNodeRequest sr;
 struct ns1__BrowseNodeSearchRequestResponse resp;
 int retVal;
 	self.navigationItem.title=[NSString stringWithFormat:@"My title %d",i++];
-	sr.
+///	sr.
 	retVal=amazon.ns1__BrowseNodeSearchRequest(&sr,resp);
 	if(retVal == SOAP_OK)
 	{
