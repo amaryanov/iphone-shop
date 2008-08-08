@@ -109,12 +109,12 @@
 		3AF0695F0E4A54AA00670BC7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF0695E0E4A54AA00670BC7 /* MediaPlayer.framework */; };
 		5585F5930E48700F00CD7F8A /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5585F5920E48700F00CD7F8A /* RootViewController.xib */; };
 		5585F5DA0E4872EA00CD7F8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5585F5D90E4872EA00CD7F8A /* CoreGraphics.framework */; };
-		558E1A190E4AD9F600FFE537 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558E1A180E4AD9F600FFE537 /* RootViewController.m */; };
 		558E1A1B0E4ADA0300FFE537 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 558E1A1A0E4ADA0300FFE537 /* main.mm */; };
 		558E1A3D0E4ADA6B00FFE537 /* AmazonSearchBinding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 558E1A350E4ADA6B00FFE537 /* AmazonSearchBinding.nsmap */; };
 		558E1A3E0E4ADA6B00FFE537 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558E1A370E4ADA6B00FFE537 /* soapC.cpp */; };
 		558E1A3F0E4ADA6B00FFE537 /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558E1A380E4ADA6B00FFE537 /* soapClient.cpp */; };
 		558E1A400E4ADA6B00FFE537 /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558E1A3B0E4ADA6B00FFE537 /* stdsoap2.cpp */; };
+		559B7FA60E4C3E7E00B453FE /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 559B7FA50E4C3E7E00B453FE /* RootViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,7 +324,6 @@
 		5585F5920E48700F00CD7F8A /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		5585F5D90E4872EA00CD7F8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		558E1A170E4AD9F600FFE537 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		558E1A180E4AD9F600FFE537 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		558E1A1A0E4ADA0300FFE537 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		558E1A350E4ADA6B00FFE537 /* AmazonSearchBinding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AmazonSearchBinding.nsmap; path = soap/AmazonSearchBinding.nsmap; sourceTree = "<group>"; };
 		558E1A360E4ADA6B00FFE537 /* soapAmazonSearchBindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = soapAmazonSearchBindingProxy.h; path = soap/soapAmazonSearchBindingProxy.h; sourceTree = "<group>"; };
@@ -334,6 +333,7 @@
 		558E1A3A0E4ADA6B00FFE537 /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = soapStub.h; path = soap/soapStub.h; sourceTree = "<group>"; };
 		558E1A3B0E4ADA6B00FFE537 /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stdsoap2.cpp; path = soap/stdsoap2.cpp; sourceTree = "<group>"; };
 		558E1A3C0E4ADA6B00FFE537 /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdsoap2.h; path = soap/stdsoap2.h; sourceTree = "<group>"; };
+		559B7FA50E4C3E7E00B453FE /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -355,8 +355,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				559B7FA50E4C3E7E00B453FE /* RootViewController.mm */,
 				558E1A170E4AD9F600FFE537 /* RootViewController.h */,
-				558E1A180E4AD9F600FFE537 /* RootViewController.m */,
 				3AF0654E0E4A3BF000670BC7 /* YoutubeViewController.h */,
 				3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */,
 				1D3623240D0F684500981E51 /* iShopAppDelegate.h */,
@@ -847,11 +847,11 @@
 				3AF068290E4A3FB700670BC7 /* GDataYouTubeStatistics.m in Sources */,
 				3AF0682A0E4A3FB700670BC7 /* GDataQueryYouTube.m in Sources */,
 				3AF0682B0E4A3FB700670BC7 /* GDataServiceGoogleYouTube.m in Sources */,
-				558E1A190E4AD9F600FFE537 /* RootViewController.m in Sources */,
 				558E1A1B0E4ADA0300FFE537 /* main.mm in Sources */,
 				558E1A3E0E4ADA6B00FFE537 /* soapC.cpp in Sources */,
 				558E1A3F0E4ADA6B00FFE537 /* soapClient.cpp in Sources */,
 				558E1A400E4ADA6B00FFE537 /* stdsoap2.cpp in Sources */,
+				559B7FA60E4C3E7E00B453FE /* RootViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
