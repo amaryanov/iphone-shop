@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "soap/AmazonSearchBinding.nsmap"
+#include "soapMobile/IMobileSoap12Binding.nsmap"
 
 int main(int argc, char *argv[]) {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];

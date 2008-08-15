@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+class CCategories;
 @interface RootViewController : UIViewController {
 	IBOutlet UITableView *myDinamicalyTable;
+	CCategories *pCategs;
 }
 @property (nonatomic, retain) UITableView *myDinamicalyTable;
 
