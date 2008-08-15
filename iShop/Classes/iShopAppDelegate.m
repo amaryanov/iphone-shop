@@ -7,21 +7,28 @@
 //
 
 #import "iShopAppDelegate.h"
+#import "RootViewController.h"
 
 @implementation iShopAppDelegate
 
 @synthesize window;
 @synthesize navController;
+@synthesize tabController;
+@synthesize rootController;
+
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {	
 	
-	[window addSubview:[navController view]];
+//	[rootController initWithStyle:
+	[window addSubview:[tabController view]];
 	// Override point for customization after app launch	
     [window makeKeyAndVisible];
 }
 
 
-- (void)dealloc {
+- (void)dealloc 
+{
+	[navController release];
 	[window release];
 	[super dealloc];
 }

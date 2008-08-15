@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 55001E7B0E5060FA00EB64D3 /* soapSrv */;
+		activeTarget = 8DD76F620486A84900D96B5E /* soapSrv */;
+		addToTargets = (
+			8DD76F620486A84900D96B5E /* soapSrv */,
+		);
+		breakpoints = (
+			55001FB10E507BD500EB64D3 /* servicesImpl.cpp:259 */,
+			55F79A180E51808000A2F915 /* servicesImpl.cpp:259 */,
+			55B3814B0E543C6F0046FFD8 /* servicesImpl.cpp:111 */,
+		);
+		codeSenseManager = 55001E870E50610E00EB64D3 /* Code sense */;
+		executables = (
+			55001E7B0E5060FA00EB64D3 /* soapSrv */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					729,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 240489550;
+			PBXWorkspaceStateSaveDate = 240489550;
+		};
+		perUserProjectItems = {
+			5578CD610E5582BB008D50E4 /* PBXTextBookmark */ = 5578CD610E5582BB008D50E4 /* PBXTextBookmark */;
+			5578CD620E5582BB008D50E4 /* PBXTextBookmark */ = 5578CD620E5582BB008D50E4 /* PBXTextBookmark */;
+			5578CD630E5582BB008D50E4 /* PBXTextBookmark */ = 5578CD630E5582BB008D50E4 /* PBXTextBookmark */;
+			5578CDB60E558B0F008D50E4 /* PBXTextBookmark */ = 5578CDB60E558B0F008D50E4 /* PBXTextBookmark */;
+			5578CDB70E558B0F008D50E4 /* PBXTextBookmark */ = 5578CDB70E558B0F008D50E4 /* PBXTextBookmark */;
+			5578CDBA0E558B0F008D50E4 /* PBXTextBookmark */ = 5578CDBA0E558B0F008D50E4 /* PBXTextBookmark */;
+			5578CDBB0E558B0F008D50E4 /* PBXTextBookmark */ = 5578CDBB0E558B0F008D50E4 /* PBXTextBookmark */;
+			5578CDBC0E558B0F008D50E4 /* PBXTextBookmark */ = 5578CDBC0E558B0F008D50E4 /* PBXTextBookmark */;
+			55CD59520E55A54E006A7038 /* PBXTextBookmark */ = 55CD59520E55A54E006A7038 /* PBXTextBookmark */;
+			55CD59530E55A54E006A7038 /* PBXTextBookmark */ = 55CD59530E55A54E006A7038 /* PBXTextBookmark */;
+			55CD59540E55A54E006A7038 /* PBXTextBookmark */ = 55CD59540E55A54E006A7038 /* PBXTextBookmark */;
+			55CD59550E55A54E006A7038 /* PBXTextBookmark */ = 55CD59550E55A54E006A7038 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 55001E860E50610E00EB64D3 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {907, 637}}";
+			sepNavSelRange = "{381, 0}";
+			sepNavVisRange = "{0, 454}";
+			sepNavWindowFrame = "{{15, 63}, {750, 934}}";
+		};
+	};
+	55001E7B0E5060FA00EB64D3 /* soapSrv */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = soapSrv;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	55001E860E50610E00EB64D3 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	55001E870E50610E00EB64D3 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	55001EAF0E5068AC00EB64D3 /* servicesImpl.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = servicesImpl.cpp;
+		path = "/Users/andrey/projects/iShop/iphone-shop/soapSrv/srvSrc/servicesImpl.cpp";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1293, 4160}}";
+			sepNavSelRange = "{3240, 0}";
+			sepNavVisRange = "{2358, 1114}";
+		};
+	};
+	55001FB10E507BD500EB64D3 /* servicesImpl.cpp:259 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 55001EAF0E5068AC00EB64D3 /* servicesImpl.cpp */;
+		functionName = "__ns4__getCategoryList(struct soap*, _ns1__getCategoryList *ns1__getCategoryList, _ns1__getCategoryListResponse *ns1__getCategoryListResponse)";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 259;
+		modificationTime = 240489785.835575;
+		state = 1;
+	};
+	55030D650E52D2990034EDA4 /* soapIMobileSoap11BindingObject.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {907, 1248}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 2174}";
+		};
+	};
+	55030D680E52D2990034EDA4 /* soapStub.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1433, 11504}}";
+			sepNavSelRange = "{15982, 37}";
+			sepNavVisRange = "{15079, 1831}";
+		};
+	};
+	55030D730E52D2F70034EDA4 /* servicesImpl.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {907, 637}}";
+			sepNavSelRange = "{178, 51}";
+			sepNavVisRange = "{0, 229}";
+		};
+	};
+	55030D740E52D2F70034EDA4 /* servicesImpl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1293, 4160}}";
+			sepNavSelRange = "{3240, 0}";
+			sepNavVisRange = "{2358, 1114}";
+		};
+	};
+	5578CD610E5582BB008D50E4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 55030D680E52D2990034EDA4 /* soapStub.h */;
+		name = "soapStub.h: 367";
+		rLen = 37;
+		rLoc = 15982;
+		rType = 0;
+		vrLen = 1831;
+		vrLoc = 15079;
+	};
+	5578CD620E5582BB008D50E4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 55030D650E52D2990034EDA4 /* soapIMobileSoap11BindingObject.h */;
+		name = "soapIMobileSoap11BindingObject.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2174;
+		vrLoc = 0;
+	};
+	5578CD630E5582BB008D50E4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6859E8B029090EE04C91782 /* soapSrv.1 */;
+		name = "soapSrv.1: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1793;
+		vrLoc = 0;
+	};
+	5578CDB60E558B0F008D50E4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 55030D730E52D2F70034EDA4 /* servicesImpl.h */;
+		name = "servicesImpl.h: 11";
+		rLen = 51;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 229;
+		vrLoc = 0;
+	};
+	5578CDB70E558B0F008D50E4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 55B3811E0E5428EF0046FFD8 /* tabelsCreateRequests.sql */;
+		name = "tabelsCreateRequests.sql: 9";
+		rLen = 7;
+		rLoc = 360;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 0;
+	};
+	5578CDBA0E558B0F008D50E4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 55B3811E0E5428EF0046FFD8 /* tabelsCreateRequests.sql */;
+		name = "tabelsCreateRequests.sql: 9";
+		rLen = 7;
+		rLoc = 360;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 0;
+	};
+	5578CDBB0E558B0F008D50E4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 55001EAF0E5068AC00EB64D3 /* servicesImpl.cpp */;
+		name = "servicesImpl.cpp: 98";
+		rLen = 0;
+		rLoc = 2274;
+		rType = 0;
+		vrLen = 1157;
+		vrLoc = 1745;
+	};
+	5578CDBC0E558B0F008D50E4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 9";
+		rLen = 0;
+		rLoc = 201;
+		rType = 0;
+		vrLen = 412;
+		vrLoc = 0;
+	};
+	55B3811E0E5428EF0046FFD8 /* tabelsCreateRequests.sql */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = tabelsCreateRequests.sql;
+		path = "/Users/andrey/projects/iShop/iphone-shop/database/tabelsCreateRequests.sql";
+		sourceTree = "<absolute>";
+	};
+	55B381490E543C6F0046FFD8 /* servicesImpl.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = servicesImpl.cpp;
+		path = "/Users/andrey/projects/iShop/iphone-shop/soapSrv/srvSrc/servicesImpl.cpp";
+		sourceTree = "<group>";
+	};
+	55B3814B0E543C6F0046FFD8 /* servicesImpl.cpp:111 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 55B381490E543C6F0046FFD8 /* servicesImpl.cpp */;
+		functionName = "testBuildCategs()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 111;
+		modificationTime = 240489786.273562;
+		state = 0;
+	};
+	55CD59520E55A54E006A7038 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 20";
+		rLen = 0;
+		rLoc = 381;
+		rType = 0;
+		vrLen = 454;
+		vrLoc = 0;
+	};
+	55CD59530E55A54E006A7038 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 55B381490E543C6F0046FFD8 /* servicesImpl.cpp */;
+		name = "servicesImpl.cpp: 218";
+		rLen = 0;
+		rLoc = 5594;
+		rType = 0;
+		vrLen = 1112;
+		vrLoc = 4965;
+	};
+	55CD59540E55A54E006A7038 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
+		name = "main.cpp: 20";
+		rLen = 0;
+		rLoc = 381;
+		rType = 0;
+		vrLen = 454;
+		vrLoc = 0;
+	};
+	55CD59550E55A54E006A7038 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 55030D740E52D2F70034EDA4 /* servicesImpl.cpp */;
+		name = "servicesImpl.cpp: 132";
+		rLen = 0;
+		rLoc = 3240;
+		rType = 0;
+		vrLen = 1114;
+		vrLoc = 2358;
+	};
+	55F79A180E51808000A2F915 /* servicesImpl.cpp:259 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 55001EAF0E5068AC00EB64D3 /* servicesImpl.cpp */;
+		functionName = "__ns3__getCategoryList(struct soap*, _ns1__getCategoryList *ns1__getCategoryList, _ns1__getCategoryListResponse *ns1__getCategoryListResponse)";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 259;
+		modificationTime = 240489785.835727;
+		state = 1;
+	};
+	8DD76F620486A84900D96B5E /* soapSrv */ = {
+		activeExec = 0;
+		executables = (
+			55001E7B0E5060FA00EB64D3 /* soapSrv */,
+		);
+	};
+	C6859E8B029090EE04C91782 /* soapSrv.1 */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {907, 1184}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1793}";
+		};
+	};
+}

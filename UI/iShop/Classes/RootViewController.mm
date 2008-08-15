@@ -8,16 +8,50 @@
 #include <iostream>
 
 #import "RootViewController.h"
+#include "soapIMobileSoap12BindingProxy.h"
 
-#include "soapAmazonSearchBindingProxy.h"
+class CCategory
+{
+public:
+	CCategory():ref(1){}
+	CCategory(const CCategory &cl):id(cl.id),name(cl.name),imageUrl(cl.imageUrl),childs(cl.childs),ref(cl.ref+1)
+	{
+	}
+	CCategory &operator =(const ns2__MCategory *ct)
+	{
+		this->id=*(ct->id);
+		name=*(ct->name);
+		if(ct->imageURL)
+			imageUrl=*(ct->imageURL);
+		return *this;
+	}
+	int id;
+	std::string name;
+	std::string imageUrl;
+	std::vector<CCategory> childs;
+protected:
+	int ref;
+};
+class CCategories
+{
+public:
+	CCategories():next(NULL),parent(NULL){}
+	std::vector<CCategory> categs;
+	std::vector<CCategory>::iterator currIter;
+	CCategories *next;
+	CCategories *parent;
+};
 using namespace std;
+void printCategs(std::vector<CCategory> &category,std::string ident);
 @implementation RootViewController
 
 @synthesize myDinamicalyTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) 
+	{
 		// Initialization code
+		self->pCategs=NULL;
 	}
 	return self;
 }
@@ -25,24 +59,34 @@ using namespace std;
  * UITableViewDelegate Protocol Reference
  ****************************************/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 3;
+	return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 10;
+	return pCategs->categs.size();
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	static NSString *MyIdentifier = @"MyIdentifier";
+static NSString *MyIdentifier = @"MyIdentifier";
+NSString *str;
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-	if (cell == nil) {
+	if (cell == nil) 
+	{
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
 	// Configure the cell
+//	in
+	if(pCategs)
+	{
+		cout<<indexPath.row<<endl<<pCategs->categs[indexPath.row].name<<endl;;
+		str=[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()];
+		[cell setText:str];
+//		[str release];
+	}
 	return cell;
 }
 
@@ -55,9 +99,17 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 RootViewController *root;
-	root=[[RootViewController alloc] initWithNibName:self.nibName bundle:self.nibBundle];
+
 	//[targetViewController setDelegate:prefControl];
-	[[self navigationController] pushViewController:root animated:YES];
+	if(pCategs->categs.size() > indexPath.row)
+	{
+		root=[[RootViewController alloc] initWithNibName:self.nibName bundle:nil];
+		root->pCategs=new CCategories();
+		root->pCategs->categs=pCategs->categs[indexPath.row].childs;
+//		printCategs(pCategs->categs,"");
+		[[root navigationItem] setTitle:[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()]];
+		[[self navigationController] pushViewController:root animated:YES];
+	}
 	
 }
 
@@ -67,25 +119,49 @@ RootViewController *root;
 - (void)loadView {
 }
 */
+void printCategs(vector<CCategory> &category,string ident)
+{
+vector<CCategory>::iterator iter=category.begin();
+	for(;iter!=category.end();iter++)
+	{
+		cout<<ident<<iter->id<<endl
+			<<ident<<iter->name<<endl
+			<<ident<<"--------------"<<endl;
+		printCategs(iter->childs,string(ident+"\t"));
+	}
+}
 
 // If you need to do additional setup after loading the view, override viewDidLoad.
+void buildCategs(vector<CCategory> &category,vector<ns2__MCategory*> &val)
+{
+vector<ns2__MCategory*>::iterator iter=val.begin();
+CCategory ct;
+	for(;iter!=val.end();iter++)
+	{
+		ct=*iter;
+//		category.insert(category.end(),ct)
+		buildCategs(category.insert(category.end(),ct)->childs,(*iter)->childCategories);
+	}
+}
+
 - (void)viewDidLoad 
 {
-static int i=0;
-AmazonSearchBinding amazon;
-ns1__BrowseNodeRequest sr;
-struct ns1__BrowseNodeSearchRequestResponse resp;
-int retVal;
-	self.navigationItem.title=[NSString stringWithFormat:@"My title %d",i++];
-///	sr.
-	retVal=amazon.ns1__BrowseNodeSearchRequest(&sr,resp);
-	if(retVal == SOAP_OK)
+	if(pCategs == NULL)
 	{
+	IMobileSoap12Binding client;
+	_ns1__getCategoryList *catList=new _ns1__getCategoryList();
+	static _ns1__getCategoryListResponse *catListResp=new _ns1__getCategoryListResponse();
+
+		catList->param0=new int(-1);
+		if( SOAP_OK == client.__ns4__getCategoryList(catList,catListResp) )
+		{
+			pCategs=new CCategories();
+			buildCategs(pCategs->categs,catListResp->return_);
+			printCategs(pCategs->categs,"");
+		}
+		[self.navigationItem setTitle:@"Root"];
 	}
-	else
-	{
-		cout<<retVal<<endl;
-	}
+	
 
 }
 
