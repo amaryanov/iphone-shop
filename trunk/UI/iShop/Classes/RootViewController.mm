@@ -8,7 +8,11 @@
 #include <iostream>
 
 #import "RootViewController.h"
+#import "ProductViewController.h"
+#import "ProductViewCell.h"
+#import "CategoryViewCell.h"
 #include "soapIMobileSoap12BindingProxy.h"
+
 
 class CCategory
 {
@@ -63,28 +67,38 @@ void printCategs(std::vector<CCategory> &category,std::string ident);
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return pCategs->categs.size();
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+NSInteger retVal=0;
+	if(pCategs)
+		retVal=pCategs->categs.size();
+	return retVal;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-static NSString *MyIdentifier = @"MyIdentifier";
+static NSString *MyIdentifier = @"CategoryCellIdentifier";
 NSString *str;
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if (cell == nil) 
 	{
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+	NSArray *topObjs;
+		topObjs =  [[NSBundle mainBundle] loadNibNamed:@"CategoryCell" owner:self options:nil];
+		if(topObjs)
+		{
+			cell=[topObjs objectAtIndex:1];
+			cout<<"contain"<<endl;
+		}
 	}
 	// Configure the cell
-//	in
-	if(pCategs)
+	if( (pCategs) && (cell) )
 	{
+	CategoryViewCell *categCell=(CategoryViewCell *)cell;
 		cout<<indexPath.row<<endl<<pCategs->categs[indexPath.row].name<<endl;;
 		str=[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()];
-		[cell setText:str];
+		[categCell.name setText:str];
 //		[str release];
 	}
 	return cell;
@@ -98,19 +112,27 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-RootViewController *root;
-
 	//[targetViewController setDelegate:prefControl];
 	if(pCategs->categs.size() > indexPath.row)
 	{
-		root=[[RootViewController alloc] initWithNibName:self.nibName bundle:nil];
-		root->pCategs=new CCategories();
-		root->pCategs->categs=pCategs->categs[indexPath.row].childs;
-//		printCategs(pCategs->categs,"");
-		[[root navigationItem] setTitle:[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()]];
-		[[self navigationController] pushViewController:root animated:YES];
+		if(pCategs->categs[indexPath.row].childs.size())
+		{
+		RootViewController *root;
+			root=[[RootViewController alloc] initWithNibName:self.nibName bundle:nil];
+			root->pCategs=new CCategories();
+			root->pCategs->categs=pCategs->categs[indexPath.row].childs;
+//			printCategs(pCategs->categs,"");
+			[[root navigationItem] setTitle:[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()]];
+			[[self navigationController] pushViewController:root animated:YES];
+		}
+		else
+		{
+		ProductViewController *prods;
+			prods=[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil];
+			prods.categoryId=pCategs->categs[indexPath.row].id;
+			[[self navigationController] pushViewController:prods animated:YES];
+		}
 	}
-	
 }
 
 
