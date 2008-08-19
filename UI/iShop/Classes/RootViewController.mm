@@ -12,6 +12,7 @@
 #import "ProductViewCell.h"
 #import "CategoryViewCell.h"
 #include "soapIMobileSoap12BindingProxy.h"
+//#include "soapMobileServiceSoap12BindingProxy.h"
 
 
 class CCategory
@@ -99,6 +100,11 @@ NSString *str;
 		cout<<indexPath.row<<endl<<pCategs->categs[indexPath.row].name<<endl;;
 		str=[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()];
 		[categCell.name setText:str];
+		if(pCategs->categs[indexPath.row].imageUrl.size())
+		{
+			str=[[NSString stringWithUTF8String:pCategs->categs[indexPath.row].imageUrl.c_str()] autorelease];
+			[categCell loadingImage:str];
+		}
 //		[str release];
 	}
 	return cell;

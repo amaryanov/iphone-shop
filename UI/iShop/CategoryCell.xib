@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="3"/>
+			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -35,7 +35,7 @@
 							<object class="IBUIImageView" id="539680293">
 								<reference key="NSNextResponder" ref="484248324"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 0}, {79, 65}}</string>
+								<string key="NSFrame">{{33, -25}, {77, 127}}</string>
 								<reference key="NSSuperview" ref="484248324"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -45,12 +45,12 @@
 							<object class="IBUILabel" id="507091259">
 								<reference key="NSNextResponder" ref="484248324"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{107, 22}, {154, 21}}</string>
+								<string key="NSFrame">{{140, 28}, {127, 21}}</string>
 								<reference key="NSSuperview" ref="484248324"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="IBUIText"/>
+								<string key="IBUIText">label</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -60,7 +60,7 @@
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{281, 65}</string>
+						<string key="NSFrameSize">{296, 102}</string>
 						<reference key="NSSuperview" ref="97581088"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -72,7 +72,7 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 65}</string>
+				<string key="NSFrameSize">{335, 102}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -89,19 +89,19 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">image</string>
-						<reference key="source" ref="97581088"/>
-						<reference key="destination" ref="539680293"/>
-					</object>
-					<int key="connectionID">7</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">name</string>
 						<reference key="source" ref="97581088"/>
 						<reference key="destination" ref="507091259"/>
 					</object>
 					<int key="connectionID">8</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">categImg</string>
+						<reference key="source" ref="97581088"/>
+						<reference key="destination" ref="539680293"/>
+					</object>
+					<int key="connectionID">9</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -165,7 +165,7 @@
 					<string>CategoryViewCell</string>
 					<string>UIResponder</string>
 					<string>CategoryViewCell</string>
-					<string>{{245, 667}, {320, 65}}</string>
+					<string>{{245, 625}, {335, 102}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -191,7 +191,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">8</int>
+			<int key="maxID">9</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -203,7 +203,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>image</string>
+							<string>categImg</string>
 							<string>name</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
