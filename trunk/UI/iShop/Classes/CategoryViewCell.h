@@ -12,10 +12,12 @@
 @interface CategoryViewCell : UITableViewCell 
 {
 	IBOutlet UILabel		*name;
-	IBOutlet UIImageView	*image;
+	IBOutlet UIImageView	*categImg;
 	
 }
 @property (nonatomic, retain) UILabel		*name;
-@property (nonatomic, retain) UIImageView	*image;
+@property (nonatomic, retain) UIImageView	*categImg;
+
+- (void) loadingImage:(NSString *)urlStr;
 
 @end
