@@ -11,6 +11,7 @@
 
 #import "ProductViewController.h"
 #import "ProductViewCell.h"
+#import "ProductDetailsViewController.h"
 
 #include "soapIMobileSoap12BindingProxy.h"
 
@@ -99,7 +100,13 @@ static NSString *MyIdentifier = @"ProductCellIdentifier";
 
 	return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ProductDetailsViewController *pDetails;
+	pDetails=[[ProductDetailsViewController alloc] initWithNibName:@"ProductDetails" bundle:nil];
+	pDetails.productId=pProducts->products[indexPath.row].id;
+	[[self navigationController] pushViewController:pDetails animated:YES];
+}
 /*
  Implement loadView if you want to create a view hierarchy programmatically
 - (void)loadView {

@@ -111,12 +111,100 @@ sqliteInit sql;
 	buildCategs(val,-1,sql);
 	testPrintCategs(val,"");
 }
+///////////////////////////////////////////////////////////
+void getProductOffers(int id,vector<ns2__MProductOffer * > &offers,sqliteInit &sqlite)
+{
+static const char request[]={"SELECT model,details,maunufacturer,currency,shipmentCost,productURL,price "
+							 "FROM ProductOffer INNER JOIN OffersList ON OffersList.productId=? "
+							 "WHERE ProductOffer.id=OffersList.productOfferId"};
+const char *tail;
+sqlite3_stmt *stmt;
+int rc;
+//int tmpInt;
+const char *tmpStr;
+ns2__MProductOffer *pOffer;
+double tmpDbl;
+	rc = sqlite3_prepare(sqlite.db, request, -1, &stmt, &tail);
+	if(rc == SQLITE_OK)
+	{
+		rc=sqlite3_bind_int(stmt,1,id);
+		if(rc == SQLITE_OK)
+		{
+			for(;sqlite3_step(stmt) == SQLITE_ROW;)
+			{
+				pOffer=new ns2__MProductOffer();
+				tmpStr=(const char*)sqlite3_column_text(stmt,0);//model
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pOffer->model=new string(tmpStr);
+				tmpStr=(const char*)sqlite3_column_text(stmt,1);//details
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pOffer->details=new string(tmpStr);
+				tmpStr=(const char*)sqlite3_column_text(stmt,2);//manufacturer
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pOffer->manufacturer=new string(tmpStr);
+				tmpStr=(const char*)sqlite3_column_text(stmt,3);//currency
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pOffer->currency=new string(tmpStr);
+				tmpDbl=sqlite3_column_double(stmt,4);//shipmentCost
+				pOffer->shipmentCost=new float(tmpDbl);
+				tmpStr=(const char*)sqlite3_column_text(stmt,5);//productURL
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pOffer->productURL=new string(tmpStr);
+				tmpDbl=sqlite3_column_double(stmt,4);//price
+				pOffer->price=new float(tmpDbl);
+				offers.push_back(pOffer);
+			}
+		}
+		sqlite3_finalize(stmt);
+	}
+				
+}
 SOAP_FMAC5 int SOAP_FMAC6 __ns3__getProductDetails(struct soap*, _ns1__getProductDetails *ns1__getProductDetails, _ns1__getProductDetailsResponse *ns1__getProductDetailsResponse)
 {
+static const char request[]={"SELECT DetailedProduct.id,name,imageURL,"
+							 "DetailedProduct.reviewURL,DetailedProduct.amazonURL "
+							 "FROM Product INNER JOIN DetailedProduct ON Product.id=DetailedProduct.productId "
+							 "WHERE DetailedProduct.productId=?;"};
+sqliteInit sqlite;
+const char *tail;
+sqlite3_stmt *stmt;
+int rc;
+int tmpInt;
+const char *tmpStr;
 int retVal=SOAP_OK;
+ns2__MDetailedProduct *pProduct=new ns2__MDetailedProduct();
+	rc = sqlite3_prepare(sqlite.db, request, -1, &stmt, &tail);
+	if(rc == SQLITE_OK)
+	{
+		rc=sqlite3_bind_int(stmt,1,*(ns1__getProductDetails->param0));
+		if(rc == SQLITE_OK)
+		{
+			if(sqlite3_step(stmt) == SQLITE_ROW)
+			{
+				tmpInt=sqlite3_column_int(stmt,0);//id
+				pProduct->id=new int(tmpInt);
+				tmpStr=(const char*)sqlite3_column_text(stmt,1);//name
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pProduct->name=new string(tmpStr);
+				tmpStr=(const char*)sqlite3_column_text(stmt,2);//imageURL
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pProduct->imageURL=new string(tmpStr);
+				tmpStr=(const char*)sqlite3_column_text(stmt,3);//reviewURL
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pProduct->reviewURL=new string(tmpStr);
+				tmpStr=(const char*)sqlite3_column_text(stmt,3);//amazonURL
+				if( (tmpStr) && (tmpStr[0] != '\0') )
+					pProduct->amazonURL=new string(tmpStr);
+				getProductOffers(tmpInt,pProduct->offers,sqlite);
+			}
+		}
+		sqlite3_finalize(stmt);
+	}
+	ns1__getProductDetailsResponse->return_=pProduct;
+	
 	return retVal;
 }
-
+///////////////////////////////////////////////////////////////
 SOAP_FMAC5 int SOAP_FMAC6 __ns3__getCategoryList(struct soap*, _ns1__getCategoryList *ns1__getCategoryList, _ns1__getCategoryListResponse *pRes)
 {
 int retVal=SOAP_OK;
