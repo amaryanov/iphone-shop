@@ -86,6 +86,7 @@ using namespace std;
 @implementation ProductDetailsViewController
 
 @synthesize productId;
+@synthesize firstCell, secondCell, buttonsCell;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -94,6 +95,46 @@ using namespace std;
 	return self;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 2;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+	NSInteger retVal=0;
+	switch (section) {
+		case 0:
+			retVal = 2;
+			break;
+		case 1:
+			retVal = 1;
+		default:
+			break;
+	}
+	return retVal;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	UITableViewCell *cell;
+	switch ([indexPath indexAtPosition:0]) {
+		case 0:
+			switch([indexPath indexAtPosition:1])
+			{
+				case 0:
+					cell = firstCell ;
+					break;
+				case 1:
+					cell = secondCell;
+					break;
+			}
+			break;
+		case 1:
+			cell = buttonsCell;
+			break;
+	}
+	return cell;
+}
 /*
  Implement loadView if you want to create a view hierarchy programmatically
 - (void)loadView {
