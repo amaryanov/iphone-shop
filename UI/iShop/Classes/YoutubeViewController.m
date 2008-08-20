@@ -17,7 +17,7 @@
         service = [[GDataServiceGoogleYouTube alloc] init];
 		[service setUserAgent:@"Apple iPhone v1.1.4 YouTube v1.0.0.4A102"];
         //[service setShouldCacheDatedData:YES];
-		[service setAuthToken:@"AIwbFAS7aUgmNjyR7vdEWxBfesROmLecvwaEiM_PS0yqZP6JnA6y_YTUXSsWBUqm0jYDcWi3V5PFGM3ntDhy96xELY2azLtD7yE66RKbfsNXGRM638T98sd1PgngPT8OBwG1G52I2ExIrz2fI2CYQ2BwwN_l5x4r8Z-xhFHRE37QV4ZCKHJ7m2w"];
+		[service setAuthToken:@"AIwbFAT5d7FIz8ZMy158BEM9eGNRMnodkPtAh2BrxyNx3gksiu95lNW5z9abJoabSmeIQUztXcghhqCw-wxQ9pst1SU5DV0SH1IQNr8KeOCWAVi78WB13S7BxkzYYxATWgaYJyk2Jz214F2icTfV37XavhH39acp5QPa4LwwnZvWJR_y9layHCI\r\n"];
     }
     return service;
 }
@@ -188,15 +188,16 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDetailDisclosureButt
 
 
 // Implement loadView if you want to create a view hierarchy programmatically
-- (void)loadView {
+/*- (void)loadView {
 	self->vfeed = nil;
 	[super loadView];
-}
+}*/
 
 
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void)viewDidLoad 
 {
+	
 	self.navigationItem.title=@"Youtube";
 	GDataServiceGoogleYouTube *service = [self youTubeService];
     GDataServiceTicket *ticket;
@@ -225,7 +226,7 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDetailDisclosureButt
 	[super dealloc];
 	[vfeed release];
 	
-    [mMovieURL release];
+    //[mMovieURL release];
     
     // remove movie notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -239,7 +240,7 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDetailDisclosureButt
                                                   object:mMoviePlayer];
 	
     // free our movie player
-    [mMoviePlayer release];
+    //[mMoviePlayer release];
 }
 //  Notification called when the movie finished preloading.
 - (void) moviePreloadDidFinish:(NSNotification*)notification
