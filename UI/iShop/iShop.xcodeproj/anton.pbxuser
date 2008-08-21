@@ -36,6 +36,7 @@
 			1D6058900D05DD3D006BFB54 /* iShop */,
 		);
 		breakpoints = (
+			3ADD57940E5E206E00477062 /* YoutubeViewController.m:25 */,
 		);
 		codeSenseManager = 3ABCE7500E47769F00CC4F64 /* Code sense */;
 		executables = (
@@ -112,6 +113,10 @@
 			3ADD57620E5E1CCF00477062 /* PBXTextBookmark */ = 3ADD57620E5E1CCF00477062 /* PBXTextBookmark */;
 			3ADD57650E5E1D0000477062 /* PBXTextBookmark */ = 3ADD57650E5E1D0000477062 /* PBXTextBookmark */;
 			3ADD57660E5E1D2F00477062 /* PBXTextBookmark */ = 3ADD57660E5E1D2F00477062 /* PBXTextBookmark */;
+			3ADD578A0E5E203B00477062 /* PBXTextBookmark */ = 3ADD578A0E5E203B00477062 /* PBXTextBookmark */;
+			3ADD578F0E5E204100477062 /* PBXTextBookmark */ = 3ADD578F0E5E204100477062 /* PBXTextBookmark */;
+			3ADD57950E5E207000477062 /* PBXTextBookmark */ = 3ADD57950E5E207000477062 /* PBXTextBookmark */;
+			3ADD57960E5E210900477062 /* PBXTextBookmark */ = 3ADD57960E5E210900477062 /* PBXTextBookmark */;
 			3AF065570E4A3CEB00670BC7 = 3AF065570E4A3CEB00670BC7 /* PBXTextBookmark */;
 			3AF065590E4A3CEB00670BC7 = 3AF065590E4A3CEB00670BC7 /* PBXTextBookmark */;
 			3AF0655F0E4A3CEB00670BC7 = 3AF0655F0E4A3CEB00670BC7 /* PBXTextBookmark */;
@@ -438,7 +443,7 @@
 		fRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
 		name = "YoutubeViewController.m: 202";
 		rLen = 0;
-		rLoc = 7186;
+		rLoc = 7183;
 		rType = 0;
 		vrLen = 996;
 		vrLoc = 6886;
@@ -528,7 +533,7 @@
 		fRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
 		name = "YoutubeViewController.m: 200";
 		rLen = 0;
-		rLoc = 7086;
+		rLoc = 7083;
 		rType = 0;
 		vrLen = 1050;
 		vrLoc = 6927;
@@ -538,7 +543,7 @@
 		fRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
 		name = "YoutubeViewController.m: 200";
 		rLen = 0;
-		rLoc = 7086;
+		rLoc = 7083;
 		rType = 0;
 		vrLen = 1051;
 		vrLoc = 6927;
@@ -558,7 +563,7 @@
 		fRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
 		name = "YoutubeViewController.m: 200";
 		rLen = 0;
-		rLoc = 7086;
+		rLoc = 7083;
 		rType = 0;
 		vrLen = 1050;
 		vrLoc = 6927;
@@ -613,6 +618,63 @@
 		vrLen = 518;
 		vrLoc = 9023;
 	};
+	3ADD578A0E5E203B00477062 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
+		name = "YoutubeViewController.m: 98";
+		rLen = 0;
+		rLoc = 3342;
+		rType = 0;
+		vrLen = 517;
+		vrLoc = 8919;
+	};
+	3ADD578F0E5E204100477062 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
+		name = "YoutubeViewController.m: 98";
+		rLen = 0;
+		rLoc = 3342;
+		rType = 0;
+		vrLen = 517;
+		vrLoc = 8919;
+	};
+	3ADD57940E5E206E00477062 /* YoutubeViewController.m:25 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
+		functionName = "-entryListFetchTicket:finishedWithFeed:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 25;
+		location = iShop;
+		modificationTime = 241049710.251741;
+		state = 1;
+	};
+	3ADD57950E5E207000477062 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
+		name = "YoutubeViewController.m: 98";
+		rLen = 0;
+		rLoc = 3342;
+		rType = 0;
+		vrLen = 1103;
+		vrLoc = 224;
+	};
+	3ADD57960E5E210900477062 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */;
+		name = "YoutubeViewController.m: 98";
+		rLen = 0;
+		rLoc = 3342;
+		rType = 0;
+		vrLen = 632;
+		vrLoc = 8798;
+	};
 	3AF0654E0E4A3BF000670BC7 /* YoutubeViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {693, 405}}";
@@ -622,9 +684,9 @@
 	};
 	3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1320, 3892}}";
-			sepNavSelRange = "{684, 0}";
-			sepNavVisRange = "{9023, 518}";
+			sepNavIntBoundsRect = "{{0, 0}, {1320, 3888}}";
+			sepNavSelRange = "{3342, 0}";
+			sepNavVisRange = "{8798, 632}";
 		};
 	};
 	3AF065570E4A3CEB00670BC7 /* PBXTextBookmark */ = {
