@@ -17,7 +17,7 @@
         service = [[GDataServiceGoogleYouTube alloc] init];
 		[service setUserAgent:@"Apple iPhone v1.1.4 YouTube v1.0.0.4A102"];
         //[service setShouldCacheDatedData:YES];
-		[service setAuthToken:@"AIwbFAT5d7FIz8ZMy158BEM9eGNRMnodkPtAh2BrxyNx3gksiu95lNW5z9abJoabSmeIQUztXcghhqCw-wxQ9pst1SU5DV0SH1IQNr8KeOCWAVi78WB13S7BxkzYYxATWgaYJyk2Jz214F2icTfV37XavhH39acp5QPa4LwwnZvWJR_y9layHCI\r\n"];
+		[service setAuthToken:@"AIwbFAT5d7FIz8ZMy158BEM9eGNRMnodkPtAh2BrxyNx3gksiu95lNW5z9abJoabSmeIQUztXcghhqCw-wxQ9pst1SU5DV0SH1IQNr8KeOCWAVi78WB13S7BxkzYYxATWgaYJyk2Jz214F2icTfV37XavhH39acp5QPa4LwwnZvWJR_y9layHCI"];
     }
     return service;
 }
@@ -197,10 +197,9 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDetailDisclosureButt
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void)viewDidLoad 
 {
-	
+    GDataServiceTicket *ticket;
 	self.navigationItem.title=@"Youtube";
 	GDataServiceGoogleYouTube *service = [self youTubeService];
-    GDataServiceTicket *ticket;
 	
     NSURL *feedURL = [GDataServiceGoogleYouTube youTubeURLForFeedID:@"recently_featured"];
     ticket = [service fetchYouTubeFeedWithURL:feedURL
