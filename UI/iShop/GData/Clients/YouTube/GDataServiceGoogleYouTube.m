@@ -32,32 +32,46 @@
 }
 
 + (NSURL *)youTubeURLForFeedID:(NSString *)feedID {
-  
-  // like
-  //
-  //   http://gdata.youtube.com/feeds/api/videos
-  //
-  // or
-  //
-  //   http://gdata.youtube.com/feeds/api/standardfeeds/feedid
-  //
-  // See http://code.google.com/apis/youtube/reference.html#Feeds for feed IDs
-  
-  NSString *endPart;
-  
-  if (feedID == nil) {
-    endPart = @"videos";
-  } else {
-    endPart = [NSString stringWithFormat:@"standardfeeds/%@", feedID]; 
-  }
-  
-  NSString *root = [self serviceRootURLString];
-  
-  NSString *template = @"%@%@?start-index=1&max-results=25&format=2,3&client=ytapi-apple-iphone";
-  
-  NSString *urlString = [NSString stringWithFormat:template, root, endPart];
-  
-  return [NSURL URLWithString:urlString];
+	
+	// like
+	//
+	//   http://gdata.youtube.com/feeds/api/videos
+	//
+	// or
+	//
+	//   http://gdata.youtube.com/feeds/api/standardfeeds/feedid
+	//
+	// See http://code.google.com/apis/youtube/reference.html#Feeds for feed IDs
+	
+	NSString *endPart;
+	
+	if (feedID == nil) {
+		endPart = @"videos";
+	} else {
+		endPart = [NSString stringWithFormat:@"standardfeeds/%@", feedID]; 
+	}
+	
+	NSString *root = [self serviceRootURLString];
+	
+	NSString *template = @"%@%@?start-index=1&max-results=25&format=2,3&client=ytapi-apple-iphone";
+	
+	NSString *urlString = [NSString stringWithFormat:template, root, endPart];
+	
+	return [NSURL URLWithString:urlString];
+}
++ (NSURL *)youTubeURLForVideoID:(NSString *)videoID {
+	
+	NSString *endPart;
+	
+	endPart = @"videos/";
+	
+	NSString *root = [self serviceRootURLString];
+	
+	NSString *template = @"%@%@%@?client=ytapi-apple-iphone";
+	
+	NSString *urlString = [NSString stringWithFormat:template, root, endPart, videoID];
+	
+	return [NSURL URLWithString:urlString];
 }
 
 + (NSURL *)youTubeURLForUserID:(NSString *)userID

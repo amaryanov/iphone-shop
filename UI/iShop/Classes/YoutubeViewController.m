@@ -8,6 +8,8 @@
 
 #import "YoutubeViewController.h"
 
+
+
 @implementation YoutubeViewController
 
 
@@ -22,7 +24,7 @@
     return service;
 }
 - (void)entryListFetchTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedBase *)feed {
-    self->vfeed = (GDataFeedYouTubeVideo*)feed;
+    self->vfeed = (GDataEntryBase*)feed;
 	[feed retain];
 	[[self view] reloadData];
     /*int i;
@@ -53,7 +55,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 25;
+	return 1;
 }
 
 
@@ -68,9 +70,7 @@
 	}
 	if(vfeed != nil)
 	{
-		int i = indexPath.row;
-        GDataEntryBase *entry = [[vfeed entries] objectAtIndex:i];
-        cell.text = [[entry title] stringValue];
+        cell.text = [[vfeed title] stringValue];
 	}
 	// Configure the cell
 	return cell;
@@ -89,9 +89,9 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDetailDisclosureButt
 	//[targetViewController setDelegate:prefControl];
 	[[self navigationController] pushViewController:root animated:YES];
  */        
-	GDataEntryBase *entry = [[vfeed entries] objectAtIndex:indexPath.row];
-	if (![entry respondsToSelector:@selector(mediaGroup)]) return;
-	GDataEntryYouTubeVideo *video = (GDataEntryYouTubeVideo *)entry;
+	//GDataEntryBase *entry = [[vfeed entries] objectAtIndex:indexPath.row];
+	if (![vfeed respondsToSelector:@selector(mediaGroup)]) return;
+	GDataEntryYouTubeVideo *video = (GDataEntryYouTubeVideo *)vfeed;
 	NSString *url = [[[[video mediaGroup] mediaContents] objectAtIndex:0] URLString];
 	mMovieURL = [NSURL URLWithString:url];
 	[mMovieURL retain];
@@ -201,7 +201,9 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDetailDisclosureButt
 	self.navigationItem.title=@"Youtube";
 	GDataServiceGoogleYouTube *service = [self youTubeService];
 	
-    NSURL *feedURL = [GDataServiceGoogleYouTube youTubeURLForFeedID:@"recently_featured"];
+    //NSURL *feedURL = [GDataServiceGoogleYouTube youTubeURLForFeedID:@"recently_featured"];
+	NSURL *feedURL = [GDataServiceGoogleYouTube youTubeURLForVideoID:@"GJOjrpaVZpk"];
+	//NSLog([videoFeedUrl absoluteString]);
     ticket = [service fetchYouTubeFeedWithURL:feedURL
                                      delegate:self
                             didFinishSelector:@selector(entryListFetchTicket:finishedWithFeed:)

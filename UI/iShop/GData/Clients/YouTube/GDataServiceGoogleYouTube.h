@@ -71,6 +71,7 @@ _EXTERN NSString* kGDataYouTubeUserFeedIDUploads         _INITIALIZE_AS(@"upload
 // feedID may be nil (or equivalently kGDataYouTubeFeedIDFull) 
 
 + (NSURL *)youTubeURLForFeedID:(NSString *)feedID;
++ (NSURL *)youTubeURLForVideoID:(NSString *)videoID;
 
 + (NSURL *)youTubeURLForUserID:(NSString *)userID
                     userFeedID:(NSString *)feedID;

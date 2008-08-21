@@ -6,14 +6,15 @@
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
+
+
 #import <UIKit/UIKit.h>
 #import "GDataYouTube.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-
 @interface YoutubeViewController : UIViewController {
     MPMoviePlayerController *mMoviePlayer;
-	GDataFeedYouTubeVideo *vfeed;
+	GDataEntryBase *vfeed;
     NSURL *mMovieURL;
 }
 -(NSURL *)movieURL;
