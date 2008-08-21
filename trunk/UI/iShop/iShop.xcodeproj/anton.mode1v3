@@ -327,7 +327,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3ADD57660E5E1D2F00477062</string>
+										<string>3ADD57960E5E210900477062</string>
 										<key>history</key>
 										<array>
 											<string>3AAE31D50E47ABCF00309F97</string>
@@ -598,6 +598,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>3ADD57970E5E210900477062</string>
+		<string>3ADD57900E5E204100477062</string>
+		<string>3ADD57910E5E204100477062</string>
+		<string>3ADD57920E5E204100477062</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>3ABCE7460E47769F00CC4F64</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/anton/Documents/svn/iphone-shop/UI/iShop/iShop.xcodeproj</string>
 	</array>
@@ -679,7 +685,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>3ABCE7460E47769F00CC4F64</string>
-				<string>3ACDC3AB0E5DD6D4009DCAC7</string>
+				<string>3ADD578B0E5E203B00477062</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -924,8 +930,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -961,7 +965,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>3ACDC3B20E5DD6D4009DCAC7</string>
+				<string>3ADD578C0E5E203B00477062</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -971,7 +975,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

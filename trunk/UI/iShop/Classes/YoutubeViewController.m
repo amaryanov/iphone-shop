@@ -95,7 +95,7 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDetailDisclosureButt
 	NSString *url = [[[[video mediaGroup] mediaContents] objectAtIndex:0] URLString];
 	mMovieURL = [NSURL URLWithString:url];
 	[mMovieURL retain];
-    [self initMoviePlayer];
+	[self initMoviePlayer];
     
     [mMoviePlayer play];
 	NSLog(url);
@@ -252,13 +252,7 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDetailDisclosureButt
 //  Notification called when the movie finished playing.
 - (void) moviePlayBackDidFinish:(NSNotification*)notification
 {
-    /*     
-	 < add your code here >
-	 
-	 For example:
-	 MPMoviePlayerController* theMovie=[aNotification object];
-	 etc.
-	 */
+	[mMoviePlayer release];
 }
 
 //  Notification called when the movie scaling mode has changed.
