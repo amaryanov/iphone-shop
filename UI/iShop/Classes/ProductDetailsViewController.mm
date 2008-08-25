@@ -162,6 +162,17 @@ _ns1__getProductDetailsResponse srvResp;
 	
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+CGFloat retVal=44;
+	
+	//      retVal=(CGFloat)[super tableView:tableView heightForRowAtIndexPath:indexPath];
+	if( (indexPath.section == 0) && (indexPath.row != 0) )
+		retVal=101;
+	
+	return 101;
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations

@@ -114,6 +114,7 @@
 		5506DB470E5ABFEB000846DB /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5506DB3D0E5ABFEB000846DB /* soapC.cpp */; };
 		5506DB480E5ABFEB000846DB /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5506DB3E0E5ABFEB000846DB /* soapClient.cpp */; };
 		5506DB490E5ABFEB000846DB /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5506DB430E5ABFEB000846DB /* stdsoap2.cpp */; };
+		55175A5E0E634F510094191E /* ProductDescriptCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55175A5D0E634F510094191E /* ProductDescriptCellView.m */; };
 		5555F4B90E5983AC00873B98 /* ProductViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5555F4B80E5983AC00873B98 /* ProductViewCell.m */; };
 		5555F5050E59905100873B98 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5555F5040E59905100873B98 /* ProductViewCell.xib */; };
 		5555F54D0E59973400873B98 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5555F54C0E59973400873B98 /* CategoryCell.xib */; };
@@ -345,6 +346,8 @@
 		5506DB420E5ABFEB000846DB /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
 		5506DB430E5ABFEB000846DB /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
 		5506DB440E5ABFEB000846DB /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
+		55175A5C0E634F510094191E /* ProductDescriptCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDescriptCellView.h; sourceTree = "<group>"; };
+		55175A5D0E634F510094191E /* ProductDescriptCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDescriptCellView.m; sourceTree = "<group>"; };
 		5555F4B70E5983AC00873B98 /* ProductViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewCell.h; sourceTree = "<group>"; };
 		5555F4B80E5983AC00873B98 /* ProductViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewCell.m; sourceTree = "<group>"; };
 		5555F5040E59905100873B98 /* ProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductViewCell.xib; sourceTree = "<group>"; };
@@ -738,6 +741,8 @@
 		5555F4B60E59836400873B98 /* TableCellView */ = {
 			isa = PBXGroup;
 			children = (
+				55175A5C0E634F510094191E /* ProductDescriptCellView.h */,
+				55175A5D0E634F510094191E /* ProductDescriptCellView.m */,
 				5555F4B70E5983AC00873B98 /* ProductViewCell.h */,
 				5555F4B80E5983AC00873B98 /* ProductViewCell.m */,
 				5555F54F0E59975600873B98 /* CategoryViewCell.h */,
@@ -912,6 +917,7 @@
 				5506DB490E5ABFEB000846DB /* stdsoap2.cpp in Sources */,
 				55A6FE870E5C1DF100285F99 /* ProductDetailsViewController.mm in Sources */,
 				3ADD588B0E5E438400477062 /* TestYoutube.m in Sources */,
+				55175A5E0E634F510094191E /* ProductDescriptCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
