@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 
 class CProductDataContainer;
+@class ProductDetailCellView;
 @interface ProductDetailsViewController : UIViewController {
 	int productId;
 	CProductDataContainer *pProdData;
-	IBOutlet UITableViewCell *firstCell;
+	IBOutlet ProductDetailCellView *firstCell;
 	IBOutlet UITableViewCell *secondCell;
 	IBOutlet UITableViewCell *buttonsCell;
 }
 @property(readwrite) int productId;
-@property(retain, nonatomic) UITableViewCell *firstCell;
+@property(retain, nonatomic) ProductDetailCellView *firstCell;
 @property(retain, nonatomic) UITableViewCell *secondCell;
 @property(retain, nonatomic) UITableViewCell *buttonsCell;
 
