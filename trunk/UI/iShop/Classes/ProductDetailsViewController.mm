@@ -7,8 +7,10 @@
 //
 
 #import "ProductDetailsViewController.h"
+#import "ProductDetailCellView.h"
 
 #include "soapIMobileSoap12BindingProxy.h"
+using namespace std;
 
 class CProductOffer
 {
@@ -71,18 +73,35 @@ class CProductDataContainer
 {
 public:
 	CProductDataContainer(){};
-	CProductDataContainer &operator +=(const ns2__MProductOffer *pMp)
+	CProductDataContainer &operator = (const ns2__MDetailedProduct *pProd)
 	{
-		offers.push_back(pMp);
+	std::vector<ns2__MProductOffer * >::const_iterator iter;
+		if(pProd->id)
+			this->id=*(pProd->id);
+		if(pProd->name)
+			name=*(pProd->name);
+		if(pProd->imageURL)
+			imageURL=*(pProd->imageURL);
+		if(pProd->amazonURL)
+			amazonURL=*(pProd->amazonURL);
+		if(pProd->reviewURL)
+			reviewURL=*(pProd->reviewURL);
+		for(iter=pProd->offers.begin();iter != pProd->offers.end();iter++)
+		{
+			offers.push_back(*iter);
+		}
+		
 		return *this;
 	}
 public:
+	int id;
+	std::string name;
+	std::string imageURL;
 	std::string amazonURL;
 	std::string reviewURL;
 	std::vector<CProductOffer> offers;
 };
 
-using namespace std;
 @implementation ProductDetailsViewController
 
 @synthesize productId;
@@ -147,16 +166,13 @@ using namespace std;
 IMobileSoap12Binding client;
 _ns1__getProductDetails srvRequest;
 _ns1__getProductDetailsResponse srvResp;
-	srvRequest.param0=new int(productId);
+//	srvRequest.param0=new int(productId);
+	srvRequest.param0=new int(1);
 	if( SOAP_OK == client.__ns4__getProductDetails(&srvRequest,&srvResp) )
 	{
 	vector<ns2__MProductOffer * >::iterator iter=srvResp.return_->offers.begin();
 		pProdData=new CProductDataContainer();
-		for(;iter != srvResp.return_->offers.end();iter++)
-		{
-			*pProdData+=*iter;
-		}
-		
+		*pProdData=srvResp.return_;
 	}
 	[self.navigationItem setTitle:@"Detail data"];
 	
@@ -165,12 +181,19 @@ _ns1__getProductDetailsResponse srvResp;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 CGFloat retVal=44;
-	
-	//      retVal=(CGFloat)[super tableView:tableView heightForRowAtIndexPath:indexPath];
-	if( (indexPath.section == 0) && (indexPath.row != 0) )
-		retVal=101;
-	
-	return 101;
+	if(indexPath.section == 0)
+	{
+		switch(indexPath.row)
+		{
+			case 0:
+				retVal=firstCell.bounds.size.height;
+				break;
+			case 1:
+				retVal=secondCell.bounds.size.height;
+				break;
+		}
+	}
+	return retVal;
 }
 
 

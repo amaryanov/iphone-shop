@@ -35,7 +35,7 @@
 							<object class="IBUIImageView" id="539680293">
 								<reference key="NSNextResponder" ref="484248324"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{33, -25}, {77, 127}}</string>
+								<string key="NSFrame">{{12, 0}, {127, 77}}</string>
 								<reference key="NSSuperview" ref="484248324"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -45,7 +45,7 @@
 							<object class="IBUILabel" id="507091259">
 								<reference key="NSNextResponder" ref="484248324"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{140, 28}, {127, 21}}</string>
+								<string key="NSFrame">{{147, 28}, {199, 21}}</string>
 								<reference key="NSSuperview" ref="484248324"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -60,7 +60,7 @@
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{296, 102}</string>
+						<string key="NSFrameSize">{281, 79}</string>
 						<reference key="NSSuperview" ref="97581088"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -72,11 +72,11 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{335, 102}</string>
+				<string key="NSFrameSize">{320, 79}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MSAxIDEgMAA</bytes>
+					<bytes key="NSRGB">MSAxIDEAA</bytes>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<int key="IBUIAccessoryType">2</int>
@@ -164,7 +164,7 @@
 					<string>CategoryViewCell</string>
 					<string>UIResponder</string>
 					<string>CategoryViewCell</string>
-					<string>{{38, 415}, {335, 102}}</string>
+					<string>{{349, 617}, {320, 79}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
