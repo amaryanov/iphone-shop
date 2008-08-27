@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //#include "soapMobile/IMobileSoap12Binding.nsmap"
-#include "soapRemote/IMobileSoap12Binding.nsmap"
+#include "soapRemote/MobileServiceSoap12Binding.nsmap"
 
 int main(int argc, char *argv[]) {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];

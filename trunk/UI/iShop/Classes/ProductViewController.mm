@@ -13,7 +13,8 @@
 #import "ProductViewCell.h"
 #import "ProductDetailsViewController.h"
 
-#include "soapIMobileSoap12BindingProxy.h"
+//#include "soapIMobileSoap12BindingProxy.h"
+#include "soapMobileServiceSoap12BindingProxy.h"
 
 
 class CProduct
@@ -125,10 +126,13 @@ CProduct product;
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void)viewDidLoad 
 {
-IMobileSoap12Binding client;
-_ns1__getProductList srvRequest;//=new _ns1__getProductList();
-_ns1__getProductListResponse srvResp;
-	srvRequest.param0=new int(categoryId);
+MobileServiceSoap12Binding client;
+_ns2__getProductList srvRequest;//=new _ns1__getProductList();
+_ns2__getProductListResponse srvResp;
+	srvRequest.categoryId=new int(categoryId);
+	srvRequest.startItemId=new int(0);
+	srvRequest.batchSize=new int(0);
+	srvRequest.languageId=new int(0);
 	if( SOAP_OK == client.__ns4__getProductList(&srvRequest,&srvResp) )
 	{
 		pProducts=new CProductListContainer();

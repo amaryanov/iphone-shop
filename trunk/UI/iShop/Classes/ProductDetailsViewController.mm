@@ -9,7 +9,7 @@
 #import "ProductDetailsViewController.h"
 #import "ProductDetailCellView.h"
 
-#include "soapIMobileSoap12BindingProxy.h"
+#include "soapMobileServiceSoap12BindingProxy.h"
 using namespace std;
 
 
@@ -36,7 +36,8 @@ public:
 	{
 		for(int i=0;i<7;i++)
 			arr[i]=nil;
-		copyMemebers(pMp);
+		if(pMp)
+			copyMemebers(pMp);
 	}
 	~CProductOffer()
 	{
@@ -49,8 +50,8 @@ public:
 	
 	CProductOffer &operator =(const ns2__MProductOffer *pMp)
 	{
-	
-		copyMemebers(pMp);
+		if(pMp)
+			copyMemebers(pMp);
 		return *this;
 	}
 public:
@@ -212,11 +213,13 @@ public:
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void)viewDidLoad 
 {
-IMobileSoap12Binding client;
-_ns1__getProductDetails srvRequest;
-_ns1__getProductDetailsResponse srvResp;
+MobileServiceSoap12Binding client;
+_ns2__getProductDetails srvRequest;
+_ns2__getProductDetailsResponse srvResp;
 //	srvRequest.param0=new int(productId);
-	srvRequest.param0=new int(1);
+	srvRequest.productId=new int(0);
+	srvRequest.languageId=new int(0);
+
 	if( SOAP_OK == client.__ns4__getProductDetails(&srvRequest,&srvResp) )
 	{
 	vector<ns2__MProductOffer * >::iterator iter=srvResp.return_->offers.begin();
@@ -229,6 +232,44 @@ _ns1__getProductDetailsResponse srvResp;
 		[self.navigationItem setTitle:pProdData->name];
 	
 }
+/*
+HTTP/1.1 500 Internal Server Error
+Server: Apache-Coyote/1.1
+Content-Type: application/soap+xml; action="http://www.w3.org/2005/08/addressing/soap/fault";charset=utf-8
+Date:Wed, 27 Aug 2008 19:33:51 GMT..
+Connection: clos
+e....
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+	<soapenv:Body>
+ 		<soapenv:Fault>
+ 			<soapenv:Code>
+				<soapenv:Value>soapenv:Receiver</soapenv:Value>
+</soapenv:Code><s
+oapenv:Reason>
+ <soapenv:Text xml:
+lang="en-US">unknown</soapenv:Text></soapenv:Reason><soapenv:Det
+ail /></soapenv:
+Fault></soapenv:
+Body></soapenv:E
+nvelope>s2="http
+://mobile.kenlo.
+com/xsd" xmlns:n
+s4="http://mobil
+e.kenlo.com/Mobi
+leServiceSoap12B
+inding"><SOAP-EN
+V:Body><ns2:getP
+roductDetails><n
+s2:productId xsi
+:type="xsd:int">
+1</ns2:productId
+></ns2:getProduc
+tDetails></SOAP-
+ENV:Body></SOAP-
+ENV:Envelope
+*/
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
