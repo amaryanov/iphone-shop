@@ -123,11 +123,11 @@
 		55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A6FE820E5C1DC700285F99 /* ProductDetails.xib */; };
 		55A6FE870E5C1DF100285F99 /* ProductDetailsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */; };
 		55B679D00E65C8A300DABBF5 /* BaseCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B679CF0E65C8A300DABBF5 /* BaseCellView.m */; };
-		55B679E50E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B679DB0E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap */; };
-		55B679E60E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B679DC0E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap */; };
-		55B679E70E65CAAA00DABBF5 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B679DD0E65CAAA00DABBF5 /* soapC.cpp */; };
-		55B679E80E65CAAA00DABBF5 /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B679DE0E65CAAA00DABBF5 /* soapClient.cpp */; };
-		55B679E90E65CAAA00DABBF5 /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B679E30E65CAAA00DABBF5 /* stdsoap2.cpp */; };
+		55B67A580E65D83500DABBF5 /* MobileServiceSoap11Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B67A4E0E65D83400DABBF5 /* MobileServiceSoap11Binding.nsmap */; };
+		55B67A590E65D83500DABBF5 /* MobileServiceSoap12Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B67A4F0E65D83400DABBF5 /* MobileServiceSoap12Binding.nsmap */; };
+		55B67A5A0E65D83500DABBF5 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B67A500E65D83400DABBF5 /* soapC.cpp */; };
+		55B67A5B0E65D83500DABBF5 /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B67A510E65D83400DABBF5 /* soapClient.cpp */; };
+		55B67A5C0E65D83500DABBF5 /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B67A560E65D83400DABBF5 /* stdsoap2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -359,16 +359,16 @@
 		55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductDetailsViewController.mm; sourceTree = "<group>"; };
 		55B679CE0E65C8A300DABBF5 /* BaseCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellView.h; sourceTree = "<group>"; };
 		55B679CF0E65C8A300DABBF5 /* BaseCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCellView.m; sourceTree = "<group>"; };
-		55B679DB0E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMobileSoap11Binding.nsmap; sourceTree = "<group>"; };
-		55B679DC0E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMobileSoap12Binding.nsmap; sourceTree = "<group>"; };
-		55B679DD0E65CAAA00DABBF5 /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
-		55B679DE0E65CAAA00DABBF5 /* soapClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapClient.cpp; sourceTree = "<group>"; };
-		55B679DF0E65CAAA00DABBF5 /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
-		55B679E00E65CAAA00DABBF5 /* soapIMobileSoap11BindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapIMobileSoap11BindingProxy.h; sourceTree = "<group>"; };
-		55B679E10E65CAAA00DABBF5 /* soapIMobileSoap12BindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapIMobileSoap12BindingProxy.h; sourceTree = "<group>"; };
-		55B679E20E65CAAA00DABBF5 /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
-		55B679E30E65CAAA00DABBF5 /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
-		55B679E40E65CAAA00DABBF5 /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
+		55B67A4E0E65D83400DABBF5 /* MobileServiceSoap11Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MobileServiceSoap11Binding.nsmap; sourceTree = "<group>"; };
+		55B67A4F0E65D83400DABBF5 /* MobileServiceSoap12Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MobileServiceSoap12Binding.nsmap; sourceTree = "<group>"; };
+		55B67A500E65D83400DABBF5 /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
+		55B67A510E65D83400DABBF5 /* soapClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapClient.cpp; sourceTree = "<group>"; };
+		55B67A520E65D83400DABBF5 /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
+		55B67A530E65D83400DABBF5 /* soapMobileServiceSoap11BindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapMobileServiceSoap11BindingProxy.h; sourceTree = "<group>"; };
+		55B67A540E65D83400DABBF5 /* soapMobileServiceSoap12BindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapMobileServiceSoap12BindingProxy.h; sourceTree = "<group>"; };
+		55B67A550E65D83400DABBF5 /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
+		55B67A560E65D83400DABBF5 /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
+		55B67A570E65D83500DABBF5 /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -418,7 +418,7 @@
 		29B97314FDCFA39411CA2CEA /* iShop */ = {
 			isa = PBXGroup;
 			children = (
-				55B679DA0E65CAAA00DABBF5 /* soapRemote */,
+				55B67A4D0E65D83400DABBF5 /* soapRemote */,
 				3AF066160E4A3FB600670BC7 /* GData Sources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -752,19 +752,19 @@
 			name = TableCellView;
 			sourceTree = "<group>";
 		};
-		55B679DA0E65CAAA00DABBF5 /* soapRemote */ = {
+		55B67A4D0E65D83400DABBF5 /* soapRemote */ = {
 			isa = PBXGroup;
 			children = (
-				55B679DB0E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap */,
-				55B679DC0E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap */,
-				55B679DD0E65CAAA00DABBF5 /* soapC.cpp */,
-				55B679DE0E65CAAA00DABBF5 /* soapClient.cpp */,
-				55B679DF0E65CAAA00DABBF5 /* soapH.h */,
-				55B679E00E65CAAA00DABBF5 /* soapIMobileSoap11BindingProxy.h */,
-				55B679E10E65CAAA00DABBF5 /* soapIMobileSoap12BindingProxy.h */,
-				55B679E20E65CAAA00DABBF5 /* soapStub.h */,
-				55B679E30E65CAAA00DABBF5 /* stdsoap2.cpp */,
-				55B679E40E65CAAA00DABBF5 /* stdsoap2.h */,
+				55B67A4E0E65D83400DABBF5 /* MobileServiceSoap11Binding.nsmap */,
+				55B67A4F0E65D83400DABBF5 /* MobileServiceSoap12Binding.nsmap */,
+				55B67A500E65D83400DABBF5 /* soapC.cpp */,
+				55B67A510E65D83400DABBF5 /* soapClient.cpp */,
+				55B67A520E65D83400DABBF5 /* soapH.h */,
+				55B67A530E65D83400DABBF5 /* soapMobileServiceSoap11BindingProxy.h */,
+				55B67A540E65D83400DABBF5 /* soapMobileServiceSoap12BindingProxy.h */,
+				55B67A550E65D83400DABBF5 /* soapStub.h */,
+				55B67A560E65D83400DABBF5 /* stdsoap2.cpp */,
+				55B67A570E65D83500DABBF5 /* stdsoap2.h */,
 			);
 			path = soapRemote;
 			sourceTree = "<group>";
@@ -817,8 +817,8 @@
 				5555F54D0E59973400873B98 /* CategoryCell.xib in Resources */,
 				5555F5F90E59A3F400873B98 /* ProductViewController.xib in Resources */,
 				55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */,
-				55B679E50E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap in Resources */,
-				55B679E60E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap in Resources */,
+				55B67A580E65D83500DABBF5 /* MobileServiceSoap11Binding.nsmap in Resources */,
+				55B67A590E65D83500DABBF5 /* MobileServiceSoap12Binding.nsmap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,9 +935,9 @@
 				55175A5E0E634F510094191E /* ProductDescriptCellView.m in Sources */,
 				55417D660E647E3F00594296 /* ProductDetailCellView.m in Sources */,
 				55B679D00E65C8A300DABBF5 /* BaseCellView.m in Sources */,
-				55B679E70E65CAAA00DABBF5 /* soapC.cpp in Sources */,
-				55B679E80E65CAAA00DABBF5 /* soapClient.cpp in Sources */,
-				55B679E90E65CAAA00DABBF5 /* stdsoap2.cpp in Sources */,
+				55B67A5A0E65D83500DABBF5 /* soapC.cpp in Sources */,
+				55B67A5B0E65D83500DABBF5 /* soapClient.cpp in Sources */,
+				55B67A5C0E65D83500DABBF5 /* stdsoap2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
