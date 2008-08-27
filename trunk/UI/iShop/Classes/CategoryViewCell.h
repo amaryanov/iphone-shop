@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseCellView.h"
 
 
-@interface CategoryViewCell : UITableViewCell 
+@interface CategoryViewCell : BaseCellView 
 {
 	IBOutlet UILabel		*name;
 	IBOutlet UIImageView	*categImg;
@@ -17,7 +18,4 @@
 }
 @property (nonatomic, retain) UILabel		*name;
 @property (nonatomic, retain) UIImageView	*categImg;
-
-- (void) loadingImage:(NSString *)urlStr;
-
 @end
