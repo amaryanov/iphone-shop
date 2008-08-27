@@ -7,6 +7,7 @@
 //
 
 #import "ProductDetailCellView.h"
+#import "GDataHTTPFetcher.h"
 
 
 @implementation ProductDetailCellView
@@ -30,6 +31,11 @@
 	// Configure the view for the selected state
 }
 
+- (void)imageFetcher:(GDataHTTPFetcher *)fetcher finishedWithData:(NSData *)data 
+{
+//UIImage *image = [[[UIImage alloc] initWithData:data] autorelease];
+	//[imageList addObject:[[MyTubeIKBrowserItem alloc] init:[fetcher userData] image:image]];
+}
 
 - (void)dealloc {
 	[super dealloc];

@@ -12,58 +12,90 @@
 #include "soapIMobileSoap12BindingProxy.h"
 using namespace std;
 
+
 class CProductOffer
 {
 public:
-	CProductOffer():id(-1),price(0),shipmentCost(0){}
-	CProductOffer(const CProductOffer &po):currency(po.currency),details(po.details),id(po.id),imageURL(po.imageURL),
-											manufacturer(po.manufacturer),model(po.model),name(po.name),price(po.price),
-											productURL(po.productURL),shipmentCost(po.shipmentCost){}
+	CProductOffer():id(-1),price(0),shipmentCost(0)
+	{
+		for(int i=0;i<7;i++)
+			arr[i]=nil;
+	}
+	CProductOffer(const CProductOffer &po):currency(po.currency),details(po.details),
+											imageURL(po.imageURL),manufacturer(po.manufacturer),
+											model(po.model),name(po.name),productURL(po.productURL),
+											id(po.id),shipmentCost(po.shipmentCost),price(po.price)
+	{
+		for(int i=0;i<7;i++)
+		{
+			if(arr[i])
+				[arr[i] retain];
+		}
+	}
 	CProductOffer(const ns2__MProductOffer *pMp)
 	{
+		for(int i=0;i<7;i++)
+			arr[i]=nil;
 		copyMemebers(pMp);
 	}
+	~CProductOffer()
+	{
+		for(int i=0;i<7;i++)
+		{
+			if(arr[i])
+				[arr[i] release];
+		}
+	}
+	
 	CProductOffer &operator =(const ns2__MProductOffer *pMp)
 	{
+	
 		copyMemebers(pMp);
 		return *this;
 	}
 public:
-	std::string currency;
-	std::string details;
+	union
+	{
+		struct
+		{
+			NSString *currency;
+			NSString *details;
+			NSString *imageURL;
+			NSString *manufacturer;
+			NSString *model;
+			NSString *name;
+			NSString *productURL;
+		};
+		NSString *arr[7];
+	};
 	int			id;
-	std::string imageURL;
-	std::string manufacturer;
-	std::string model;
-	std::string name;
-	float		price;
-	std::string productURL;
 	float 		shipmentCost;
+	float		price;
 private:
 	void copyMemebers(const ns2__MProductOffer *pMp)
 	{
 		if(pMp->currency)
-			currency=*(pMp->currency);
+			currency=[NSString stringWithUTF8String:pMp->currency->c_str()];
 		if(pMp->details)
-			details=*(pMp->details);
+			details=[NSString stringWithUTF8String:pMp->details->c_str()];
 		if(pMp->id)
 			this->id=*(pMp->id);
 		else
 			this->id=-1;
 		if(pMp->imageURL)
-			imageURL=*(pMp->imageURL);
+			imageURL=[NSString stringWithUTF8String:pMp->imageURL->c_str()];
 		if(pMp->manufacturer)
-			manufacturer=*(pMp->manufacturer);
+			manufacturer=[NSString stringWithUTF8String:pMp->manufacturer->c_str()];
 		if(pMp->model)
-			model=*(pMp->model);
+			model=[NSString stringWithUTF8String:pMp->model->c_str()];
 		if(pMp->name)
-			name=*(pMp->name);
+			name=[NSString stringWithUTF8String:pMp->name->c_str()];
 		if(pMp->price)
 			price=*(pMp->price);
 		else
 			price=0;
 		if(pMp->productURL)
-			productURL=*(pMp->productURL);
+			productURL=[NSString stringWithUTF8String:pMp->productURL->c_str()];
 		if(pMp->shipmentCost)
 			shipmentCost=*(pMp->shipmentCost);
 }
@@ -72,20 +104,30 @@ private:
 class CProductDataContainer
 {
 public:
-	CProductDataContainer(){};
+	CProductDataContainer()
+	{
+		for(int i=0;i<4;i++)
+			arr[i]=nil;
+	}
+	~CProductDataContainer()
+	{
+		for(int i=0;i<4;i++)
+			[arr[i] release];
+	}
 	CProductDataContainer &operator = (const ns2__MDetailedProduct *pProd)
 	{
 	std::vector<ns2__MProductOffer * >::const_iterator iter;
 		if(pProd->id)
 			this->id=*(pProd->id);
 		if(pProd->name)
-			name=*(pProd->name);
+			name=[NSString stringWithUTF8String:pProd->name->c_str()];
 		if(pProd->imageURL)
-			imageURL=*(pProd->imageURL);
+			imageURL=[NSString stringWithUTF8String:pProd->imageURL->c_str()];
 		if(pProd->amazonURL)
-			amazonURL=*(pProd->amazonURL);
+			amazonURL=[NSString stringWithUTF8String:pProd->amazonURL->c_str()];
 		if(pProd->reviewURL)
-			reviewURL=*(pProd->reviewURL);
+			reviewURL=[NSString stringWithUTF8String:pProd->reviewURL->c_str()];
+		NSLog(@"retain cnt %d",[[[NSString alloc] retain] retainCount]);
 		for(iter=pProd->offers.begin();iter != pProd->offers.end();iter++)
 		{
 			offers.push_back(*iter);
@@ -95,10 +137,17 @@ public:
 	}
 public:
 	int id;
-	std::string name;
-	std::string imageURL;
-	std::string amazonURL;
-	std::string reviewURL;
+	union
+	{
+		struct
+		{
+			NSString *name;
+			NSString *imageURL;
+			NSString *amazonURL;
+			NSString *reviewURL;
+		};
+		NSObject *arr[4];
+	};
 	std::vector<CProductOffer> offers;
 };
 
@@ -173,8 +222,11 @@ _ns1__getProductDetailsResponse srvResp;
 	vector<ns2__MProductOffer * >::iterator iter=srvResp.return_->offers.begin();
 		pProdData=new CProductDataContainer();
 		*pProdData=srvResp.return_;
+		firstCell.name.text=pProdData->name;
+		//firstCell.description.text=pProdData->
 	}
-	[self.navigationItem setTitle:@"Detail data"];
+	if(pProdData)
+		[self.navigationItem setTitle:pProdData->name];
 	
 }
 

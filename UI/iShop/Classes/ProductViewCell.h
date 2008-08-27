@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseCellView.h"
 
-
-@interface ProductViewCell : UITableViewCell
+@interface ProductViewCell : BaseCellView
 {
 	IBOutlet UILabel *name;
 	IBOutlet UILabel *description;
