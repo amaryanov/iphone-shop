@@ -110,12 +110,6 @@
 		3AF0695F0E4A54AA00670BC7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF0695E0E4A54AA00670BC7 /* MediaPlayer.framework */; };
 		5506DAFF0E5AB4B9000846DB /* ProductViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5506DAFE0E5AB4B9000846DB /* ProductViewController.mm */; };
 		55175A5E0E634F510094191E /* ProductDescriptCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55175A5D0E634F510094191E /* ProductDescriptCellView.m */; };
-		553EF6FB0E6553AE00F8399C /* IMobileSoap11Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 553EF6F10E6553AD00F8399C /* IMobileSoap11Binding.nsmap */; };
-		553EF6FC0E6553AE00F8399C /* IMobileSoap12Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 553EF6F20E6553AD00F8399C /* IMobileSoap12Binding.nsmap */; };
-		553EF6FD0E6553AE00F8399C /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 553EF6F30E6553AD00F8399C /* soapC.cpp */; };
-		553EF6FE0E6553AE00F8399C /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 553EF6F40E6553AD00F8399C /* soapClient.cpp */; };
-		553EF6FF0E6553AE00F8399C /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 553EF6F90E6553AD00F8399C /* stdsoap2.cpp */; };
-		553EF7A30E65654400F8399C /* BaseCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553EF7A20E65654400F8399C /* BaseCellView.m */; };
 		55417D660E647E3F00594296 /* ProductDetailCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55417D650E647E3F00594296 /* ProductDetailCellView.m */; };
 		5555F4B90E5983AC00873B98 /* ProductViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5555F4B80E5983AC00873B98 /* ProductViewCell.m */; };
 		5555F5050E59905100873B98 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5555F5040E59905100873B98 /* ProductViewCell.xib */; };
@@ -128,6 +122,12 @@
 		559B7FA60E4C3E7E00B453FE /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 559B7FA50E4C3E7E00B453FE /* RootViewController.mm */; };
 		55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A6FE820E5C1DC700285F99 /* ProductDetails.xib */; };
 		55A6FE870E5C1DF100285F99 /* ProductDetailsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */; };
+		55B679D00E65C8A300DABBF5 /* BaseCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B679CF0E65C8A300DABBF5 /* BaseCellView.m */; };
+		55B679E50E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B679DB0E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap */; };
+		55B679E60E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B679DC0E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap */; };
+		55B679E70E65CAAA00DABBF5 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B679DD0E65CAAA00DABBF5 /* soapC.cpp */; };
+		55B679E80E65CAAA00DABBF5 /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B679DE0E65CAAA00DABBF5 /* soapClient.cpp */; };
+		55B679E90E65CAAA00DABBF5 /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B679E30E65CAAA00DABBF5 /* stdsoap2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -340,18 +340,6 @@
 		5506DAFE0E5AB4B9000846DB /* ProductViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductViewController.mm; sourceTree = "<group>"; };
 		55175A5C0E634F510094191E /* ProductDescriptCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDescriptCellView.h; sourceTree = "<group>"; };
 		55175A5D0E634F510094191E /* ProductDescriptCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDescriptCellView.m; sourceTree = "<group>"; };
-		553EF6F10E6553AD00F8399C /* IMobileSoap11Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMobileSoap11Binding.nsmap; sourceTree = "<group>"; };
-		553EF6F20E6553AD00F8399C /* IMobileSoap12Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMobileSoap12Binding.nsmap; sourceTree = "<group>"; };
-		553EF6F30E6553AD00F8399C /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
-		553EF6F40E6553AD00F8399C /* soapClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapClient.cpp; sourceTree = "<group>"; };
-		553EF6F50E6553AD00F8399C /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
-		553EF6F60E6553AD00F8399C /* soapIMobileSoap11BindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapIMobileSoap11BindingProxy.h; sourceTree = "<group>"; };
-		553EF6F70E6553AD00F8399C /* soapIMobileSoap12BindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapIMobileSoap12BindingProxy.h; sourceTree = "<group>"; };
-		553EF6F80E6553AD00F8399C /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
-		553EF6F90E6553AD00F8399C /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
-		553EF6FA0E6553AD00F8399C /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
-		553EF7A10E65654400F8399C /* BaseCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellView.h; sourceTree = "<group>"; };
-		553EF7A20E65654400F8399C /* BaseCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCellView.m; sourceTree = "<group>"; };
 		55417D640E647E3F00594296 /* ProductDetailCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailCellView.h; sourceTree = "<group>"; };
 		55417D650E647E3F00594296 /* ProductDetailCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailCellView.m; sourceTree = "<group>"; };
 		5555F4B70E5983AC00873B98 /* ProductViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewCell.h; sourceTree = "<group>"; };
@@ -369,6 +357,18 @@
 		55A6FE820E5C1DC700285F99 /* ProductDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetails.xib; sourceTree = "<group>"; };
 		55A6FE850E5C1DF100285F99 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductDetailsViewController.mm; sourceTree = "<group>"; };
+		55B679CE0E65C8A300DABBF5 /* BaseCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellView.h; sourceTree = "<group>"; };
+		55B679CF0E65C8A300DABBF5 /* BaseCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCellView.m; sourceTree = "<group>"; };
+		55B679DB0E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMobileSoap11Binding.nsmap; sourceTree = "<group>"; };
+		55B679DC0E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMobileSoap12Binding.nsmap; sourceTree = "<group>"; };
+		55B679DD0E65CAAA00DABBF5 /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
+		55B679DE0E65CAAA00DABBF5 /* soapClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapClient.cpp; sourceTree = "<group>"; };
+		55B679DF0E65CAAA00DABBF5 /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
+		55B679E00E65CAAA00DABBF5 /* soapIMobileSoap11BindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapIMobileSoap11BindingProxy.h; sourceTree = "<group>"; };
+		55B679E10E65CAAA00DABBF5 /* soapIMobileSoap12BindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapIMobileSoap12BindingProxy.h; sourceTree = "<group>"; };
+		55B679E20E65CAAA00DABBF5 /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
+		55B679E30E65CAAA00DABBF5 /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
+		55B679E40E65CAAA00DABBF5 /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -418,7 +418,7 @@
 		29B97314FDCFA39411CA2CEA /* iShop */ = {
 			isa = PBXGroup;
 			children = (
-				553EF6F00E6553AD00F8399C /* soapMobile */,
+				55B679DA0E65CAAA00DABBF5 /* soapRemote */,
 				3AF066160E4A3FB600670BC7 /* GData Sources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -727,23 +727,6 @@
 			name = YouTube;
 			sourceTree = "<group>";
 		};
-		553EF6F00E6553AD00F8399C /* soapMobile */ = {
-			isa = PBXGroup;
-			children = (
-				553EF6F10E6553AD00F8399C /* IMobileSoap11Binding.nsmap */,
-				553EF6F20E6553AD00F8399C /* IMobileSoap12Binding.nsmap */,
-				553EF6F30E6553AD00F8399C /* soapC.cpp */,
-				553EF6F40E6553AD00F8399C /* soapClient.cpp */,
-				553EF6F50E6553AD00F8399C /* soapH.h */,
-				553EF6F60E6553AD00F8399C /* soapIMobileSoap11BindingProxy.h */,
-				553EF6F70E6553AD00F8399C /* soapIMobileSoap12BindingProxy.h */,
-				553EF6F80E6553AD00F8399C /* soapStub.h */,
-				553EF6F90E6553AD00F8399C /* stdsoap2.cpp */,
-				553EF6FA0E6553AD00F8399C /* stdsoap2.h */,
-			);
-			path = soapMobile;
-			sourceTree = "<group>";
-		};
 		55417D630E647D6D00594296 /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,10 +746,27 @@
 				5555F4B80E5983AC00873B98 /* ProductViewCell.m */,
 				5555F54F0E59975600873B98 /* CategoryViewCell.h */,
 				5555F5500E59975600873B98 /* CategoryViewCell.m */,
-				553EF7A10E65654400F8399C /* BaseCellView.h */,
-				553EF7A20E65654400F8399C /* BaseCellView.m */,
+				55B679CE0E65C8A300DABBF5 /* BaseCellView.h */,
+				55B679CF0E65C8A300DABBF5 /* BaseCellView.m */,
 			);
 			name = TableCellView;
+			sourceTree = "<group>";
+		};
+		55B679DA0E65CAAA00DABBF5 /* soapRemote */ = {
+			isa = PBXGroup;
+			children = (
+				55B679DB0E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap */,
+				55B679DC0E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap */,
+				55B679DD0E65CAAA00DABBF5 /* soapC.cpp */,
+				55B679DE0E65CAAA00DABBF5 /* soapClient.cpp */,
+				55B679DF0E65CAAA00DABBF5 /* soapH.h */,
+				55B679E00E65CAAA00DABBF5 /* soapIMobileSoap11BindingProxy.h */,
+				55B679E10E65CAAA00DABBF5 /* soapIMobileSoap12BindingProxy.h */,
+				55B679E20E65CAAA00DABBF5 /* soapStub.h */,
+				55B679E30E65CAAA00DABBF5 /* stdsoap2.cpp */,
+				55B679E40E65CAAA00DABBF5 /* stdsoap2.h */,
+			);
+			path = soapRemote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -817,8 +817,8 @@
 				5555F54D0E59973400873B98 /* CategoryCell.xib in Resources */,
 				5555F5F90E59A3F400873B98 /* ProductViewController.xib in Resources */,
 				55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */,
-				553EF6FB0E6553AE00F8399C /* IMobileSoap11Binding.nsmap in Resources */,
-				553EF6FC0E6553AE00F8399C /* IMobileSoap12Binding.nsmap in Resources */,
+				55B679E50E65CAAA00DABBF5 /* IMobileSoap11Binding.nsmap in Resources */,
+				55B679E60E65CAAA00DABBF5 /* IMobileSoap12Binding.nsmap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,10 +934,10 @@
 				3ADD588B0E5E438400477062 /* TestYoutube.m in Sources */,
 				55175A5E0E634F510094191E /* ProductDescriptCellView.m in Sources */,
 				55417D660E647E3F00594296 /* ProductDetailCellView.m in Sources */,
-				553EF6FD0E6553AE00F8399C /* soapC.cpp in Sources */,
-				553EF6FE0E6553AE00F8399C /* soapClient.cpp in Sources */,
-				553EF6FF0E6553AE00F8399C /* stdsoap2.cpp in Sources */,
-				553EF7A30E65654400F8399C /* BaseCellView.m in Sources */,
+				55B679D00E65C8A300DABBF5 /* BaseCellView.m in Sources */,
+				55B679E70E65CAAA00DABBF5 /* soapC.cpp in Sources */,
+				55B679E80E65CAAA00DABBF5 /* soapClient.cpp in Sources */,
+				55B679E90E65CAAA00DABBF5 /* stdsoap2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
