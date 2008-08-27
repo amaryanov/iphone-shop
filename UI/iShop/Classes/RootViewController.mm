@@ -11,8 +11,8 @@
 #import "ProductViewController.h"
 #import "ProductViewCell.h"
 #import "CategoryViewCell.h"
-#include "soapIMobileSoap12BindingProxy.h"
-//#include "soapMobileServiceSoap12BindingProxy.h"
+//#include "soapIMobileSoap12BindingProxy.h"
+#include "soapMobileServiceSoap12BindingProxy.h"
 
 
 class CCategory
@@ -166,9 +166,11 @@ vector<ns2__MCategory*>::iterator iter=val.begin();
 CCategory ct;
 	for(;iter!=val.end();iter++)
 	{
-		ct=*iter;
-//		category.insert(category.end(),ct)
-		buildCategs(category.insert(category.end(),ct)->childs,(*iter)->childCategories);
+		if(*iter)
+		{
+			ct=*iter;
+			buildCategs(category.insert(category.end(),ct)->childs,(*iter)->childCategories);
+		}
 	}
 }
 
@@ -176,11 +178,11 @@ CCategory ct;
 {
 	if(pCategs == NULL)
 	{
-	IMobileSoap12Binding client;
-	_ns1__getCategoryList *catList=new _ns1__getCategoryList();
-	static _ns1__getCategoryListResponse *catListResp=new _ns1__getCategoryListResponse();
+	MobileServiceSoap12Binding client;
+	_ns2__getCategoryList *catList=new _ns2__getCategoryList();
+	static _ns2__getCategoryListResponse *catListResp=new _ns2__getCategoryListResponse();
 
-		catList->param0=new int(0);
+		catList->categoryType=new int(0);
 		if( SOAP_OK == client.__ns4__getCategoryList(catList,catListResp) )
 		{
 			pCategs=new CCategories();

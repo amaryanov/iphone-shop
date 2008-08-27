@@ -16,7 +16,7 @@ class MobileServiceSoap11Binding
 	const char *endpoint;
 	/// Constructor allocates soap engine context, sets default endpoint URL, and sets namespace mapping table
 	MobileServiceSoap11Binding()
-	{ soap = soap_new(); endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint"; if (soap && !soap->namespaces) { static const struct Namespace namespaces[] = 
+	{ soap = soap_new(); endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint"; if (soap && !soap->namespaces) { static const struct Namespace namespaces[] = 
 {
 	{"SOAP-ENV", "http://www.w3.org/2003/05/soap-envelope", "http://schemas.xmlsoap.org/soap/envelope/", NULL},
 	{"SOAP-ENC", "http://www.w3.org/2003/05/soap-encoding", "http://schemas.xmlsoap.org/soap/encoding/", NULL},

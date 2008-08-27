@@ -6,13 +6,13 @@
 */
 #include "soapH.h"
 
-SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.7.11 2008-08-27 18:38:31 GMT")
+SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.7.11 2008-08-27 19:35:29 GMT")
 
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getProductDetails(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getProductDetails *ns2__getProductDetails, _ns2__getProductDetailsResponse *ns2__getProductDetailsResponse)
 {	struct __ns3__getProductDetails soap_tmp___ns3__getProductDetails;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getProductDetails";
 	soap->encodingStyle = NULL;
@@ -66,7 +66,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getProductDetails(struct soap *soap, 
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getCategoryList(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getCategoryList *ns2__getCategoryList, _ns2__getCategoryListResponse *ns2__getCategoryListResponse)
 {	struct __ns3__getCategoryList soap_tmp___ns3__getCategoryList;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getCategoryList";
 	soap->encodingStyle = NULL;
@@ -120,7 +120,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getCategoryList(struct soap *soap, co
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getBusinessList(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getBusinessList *ns2__getBusinessList, _ns2__getBusinessListResponse *ns2__getBusinessListResponse)
 {	struct __ns3__getBusinessList soap_tmp___ns3__getBusinessList;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getBusinessList";
 	soap->encodingStyle = NULL;
@@ -174,7 +174,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getBusinessList(struct soap *soap, co
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getProductList(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getProductList *ns2__getProductList, _ns2__getProductListResponse *ns2__getProductListResponse)
 {	struct __ns3__getProductList soap_tmp___ns3__getProductList;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getProductList";
 	soap->encodingStyle = NULL;
@@ -228,7 +228,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getProductList(struct soap *soap, con
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getBusinessDetails(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getBusinessDetails *ns2__getBusinessDetails, _ns2__getBusinessDetailsResponse *ns2__getBusinessDetailsResponse)
 {	struct __ns3__getBusinessDetails soap_tmp___ns3__getBusinessDetails;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getBusinessDetails";
 	soap->encodingStyle = NULL;
@@ -282,7 +282,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getBusinessDetails(struct soap *soap,
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getProductDetails(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getProductDetails *ns2__getProductDetails, _ns2__getProductDetailsResponse *ns2__getProductDetailsResponse)
 {	struct __ns4__getProductDetails soap_tmp___ns4__getProductDetails;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getProductDetails";
 	soap->encodingStyle = NULL;
@@ -336,7 +336,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getProductDetails(struct soap *soap, 
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getCategoryList(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getCategoryList *ns2__getCategoryList, _ns2__getCategoryListResponse *ns2__getCategoryListResponse)
 {	struct __ns4__getCategoryList soap_tmp___ns4__getCategoryList;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getCategoryList";
 	soap->encodingStyle = NULL;
@@ -390,7 +390,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getCategoryList(struct soap *soap, co
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getBusinessList(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getBusinessList *ns2__getBusinessList, _ns2__getBusinessListResponse *ns2__getBusinessListResponse)
 {	struct __ns4__getBusinessList soap_tmp___ns4__getBusinessList;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getBusinessList";
 	soap->encodingStyle = NULL;
@@ -444,7 +444,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getBusinessList(struct soap *soap, co
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getProductList(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getProductList *ns2__getProductList, _ns2__getProductListResponse *ns2__getProductListResponse)
 {	struct __ns4__getProductList soap_tmp___ns4__getProductList;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getProductList";
 	soap->encodingStyle = NULL;
@@ -498,7 +498,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getProductList(struct soap *soap, con
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getBusinessDetails(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getBusinessDetails *ns2__getBusinessDetails, _ns2__getBusinessDetailsResponse *ns2__getBusinessDetailsResponse)
 {	struct __ns4__getBusinessDetails soap_tmp___ns4__getBusinessDetails;
 	if (!soap_endpoint)
-		soap_endpoint = "http://10.0.0.10:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
 	if (!soap_action)
 		soap_action = "urn:getBusinessDetails";
 	soap->encodingStyle = NULL;
