@@ -180,7 +180,7 @@ CCategory ct;
 	_ns1__getCategoryList *catList=new _ns1__getCategoryList();
 	static _ns1__getCategoryListResponse *catListResp=new _ns1__getCategoryListResponse();
 
-		catList->param0=new int(-1);
+		catList->param0=new int(0);
 		if( SOAP_OK == client.__ns4__getCategoryList(catList,catListResp) )
 		{
 			pCategs=new CCategories();
