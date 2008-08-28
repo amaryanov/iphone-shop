@@ -2,31 +2,41 @@
 //  BaseCellView.m
 //  iShop
 //
-//  Created by Andrey Konovalov on 8/27/08.
+//  Created by Andrey Konovalov on 27.08.08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
 #import "BaseCellView.h"
+#import "GDataHTTPFetcher.h"
 
 
 @implementation BaseCellView
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
-	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
-		// Initialization code
-	}
-	return self;
+- (void) loadingImage:(NSString *)urlStr
+{
+NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://kenlo.gotdns.com/%@",urlStr]];
+NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+	GDataHTTPFetcher *fetcher = [GDataHTTPFetcher httpFetcherWithRequest:request];
+	//	[fetcher setUserData:urlStr];
+	
+    [fetcher beginFetchWithDelegate:self
+                  didFinishSelector:@selector(imageFetcher:finishedWithData:)
+          didFailWithStatusSelector:@selector(imageFetcher:failedWithStatus:data:)
+           didFailWithErrorSelector:@selector(imageFetcher:failedWithError:)];
 }
-
-- (void) loadingImage:(NSString*)url
+- (void)imageFetcher:(GDataHTTPFetcher *)fetcher finishedWithData:(NSData *)data 
 {
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)imageFetcher:(GDataHTTPFetcher *)fetcher failedWithStatus:(int)status data:(NSData *)data 
+{
+NSString *dataStr = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+	NSLog(@"image fetch error %d with data %@", status, dataStr);
+}
 
-	[super setSelected:selected animated:animated];
-
-	// Configure the view for the selected state
+- (void)imageFetcher:(GDataHTTPFetcher *)fetcher failedWithError:(NSError *)error
+{
+	NSLog(@"Image fetch error %@", error);
 }
 
 
