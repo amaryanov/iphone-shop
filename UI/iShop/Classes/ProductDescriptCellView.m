@@ -10,10 +10,7 @@
 
 
 @implementation ProductDescriptCellView
-@synthesize name;
-@synthesize rang;
-@synthesize description;
-@synthesize prodImg;
+@synthesize details;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
 	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {

@@ -13,8 +13,9 @@
 @implementation ProductDetailCellView
 @synthesize name;
 @synthesize rang;
-@synthesize description;
 @synthesize prodImg;
+@synthesize highlight1;
+@synthesize highlight2;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
 	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
@@ -33,8 +34,9 @@
 
 - (void)imageFetcher:(GDataHTTPFetcher *)fetcher finishedWithData:(NSData *)data 
 {
-//UIImage *image = [[[UIImage alloc] initWithData:data] autorelease];
-	//[imageList addObject:[[MyTubeIKBrowserItem alloc] init:[fetcher userData] image:image]];
+UIImage *image = [[[UIImage alloc] initWithData:data] autorelease];
+	[prodImg setImage:image];
+	
 }
 
 - (void)dealloc {

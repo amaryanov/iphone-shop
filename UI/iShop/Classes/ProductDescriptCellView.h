@@ -10,14 +10,8 @@
 
 
 @interface ProductDescriptCellView : UITableViewCell {
-	IBOutlet UILabel		*name;
-	IBOutlet UILabel		*rang;
-	IBOutlet UITextView		*description;
-	IBOutlet UIImageView	*prodImg;
+	IBOutlet UILabel	*details;
 }
-@property (nonatomic, retain)  UILabel		*name;
-@property (nonatomic, retain)  UILabel		*rang;
-@property (nonatomic, retain)  UITextView	*description;
-@property (nonatomic, retain)  UIImageView	*prodImg;
+@property (nonatomic, retain)  UILabel	*details;
 
 @end

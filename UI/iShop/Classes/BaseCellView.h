@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @class GDataHTTPFetcher;
-@interface BaseCellView : UITableViewCell {
+@interface BaseCellView : UITableViewCell
+{
 
 }
 - (void) loadingImage:(NSString *)urlStr;
