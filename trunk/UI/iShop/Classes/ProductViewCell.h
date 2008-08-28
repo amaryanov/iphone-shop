@@ -11,12 +11,15 @@
 
 @interface ProductViewCell : BaseCellView
 {
-	IBOutlet UILabel *name;
-	IBOutlet UILabel *description;
-	IBOutlet UILabel *price;
+	IBOutlet UILabel	*name;
+	IBOutlet UILabel	*highlight1;
+	IBOutlet UILabel 	*highlight2;
+	IBOutlet UILabel	*price;
 	IBOutlet UIImageView *image;
 }
 @property (nonatomic, retain) UILabel *name;
-@property (nonatomic, retain) UILabel *description;
+@property (nonatomic, retain) UILabel *highlight1;
+@property (nonatomic, retain) UILabel *highlight2;
+@property (nonatomic, retain) UIImageView *image;
 @property (nonatomic, retain) UILabel *price;
 @end

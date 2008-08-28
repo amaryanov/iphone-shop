@@ -10,16 +10,17 @@
 
 class CProductDataContainer;
 @class ProductDetailCellView;
+@class ProductDescriptCellView;
 @interface ProductDetailsViewController : UIViewController {
 	int productId;
 	CProductDataContainer *pProdData;
-	IBOutlet ProductDetailCellView *firstCell;
-	IBOutlet UITableViewCell *secondCell;
-	IBOutlet UITableViewCell *buttonsCell;
+	IBOutlet ProductDetailCellView		*firstCell;
+	IBOutlet ProductDescriptCellView	*secondCell;
+	IBOutlet UITableViewCell			*buttonsCell;
 }
 @property(readwrite) int productId;
-@property(retain, nonatomic) ProductDetailCellView *firstCell;
-@property(retain, nonatomic) UITableViewCell *secondCell;
-@property(retain, nonatomic) UITableViewCell *buttonsCell;
+@property(retain, nonatomic) ProductDetailCellView		*firstCell;
+@property(retain, nonatomic) ProductDescriptCellView	*secondCell;
+@property(retain, nonatomic) UITableViewCell			*buttonsCell;
 
 @end

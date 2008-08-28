@@ -82,6 +82,7 @@
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+				<int key="IBUISelectionStyle">0</int>
 				<int key="IBUIAccessoryType">2</int>
 				<reference key="IBUIContentView" ref="484248324"/>
 			</object>

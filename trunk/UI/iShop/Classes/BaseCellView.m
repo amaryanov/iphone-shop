@@ -11,12 +11,20 @@
 
 
 @implementation BaseCellView
-
+- (NSString*) makeUrl:(NSString *)url
+{
+NSString *ret;
+	if([url rangeOfString:@"http://"].location == NSNotFound)
+		ret=[NSString stringWithFormat:@"http://kenlo.gotdns.com/%@",url];
+	else
+		ret=url;
+	return ret;
+}
 - (void) loadingImage:(NSString *)urlStr
 {
-NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://kenlo.gotdns.com/%@",urlStr]];
+NSURL *imageURL = [NSURL URLWithString:[self makeUrl:urlStr]];
 NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
-	GDataHTTPFetcher *fetcher = [GDataHTTPFetcher httpFetcherWithRequest:request];
+GDataHTTPFetcher *fetcher = [GDataHTTPFetcher httpFetcherWithRequest:request];
 	//	[fetcher setUserData:urlStr];
 	
     [fetcher beginFetchWithDelegate:self

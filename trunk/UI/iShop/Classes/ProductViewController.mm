@@ -20,24 +20,59 @@
 class CProduct
 {
 public:
-	CProduct():id(-1){}
-	CProduct(const CProduct &pr):id(pr.id),name(pr.name),description(pr.description),cost(pr.cost),imageName(pr.imageName){}
+	CProduct():id(-1),stores(0)
+	{
+		memset(arr,0,sizeof(arr));
+	}
+	CProduct(const CProduct &pr):id(pr.id),stores(pr.stores)
+	{
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
+		{
+			arr[i]=pr.arr[i];
+			if(arr[i])
+				[arr[i] retain];
+		}
+	}
+	~CProduct()
+	{
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
+		{
+			if(arr[i])
+				[arr[i] release];
+		}
+	}
 	CProduct(ns2__MProduct *pProd)
 	{
-		this->id=*(pProd->id);
-		name=*(pProd->name);
+		memset(arr,0,sizeof(arr));
+		if(pProd->id)
+			this->id=*(pProd->id);
+		if(pProd->stores)
+			stores=*(pProd->stores);
+		if(pProd->name)
+			name=[[NSString stringWithUTF8String:pProd->name->c_str()] retain];
 		if(pProd->imageURL)
-		{
-			imageName=*(pProd->imageURL);
-		}
+			imageURL=[[NSString stringWithUTF8String:pProd->imageURL->c_str()] retain];
+		if(pProd->highlight1)
+			highlight1=[[NSString stringWithUTF8String:pProd->highlight1->c_str()] retain];
+		if(pProd->highlight2)
+			highlight2=[[NSString stringWithUTF8String:pProd->highlight2->c_str()] retain];
 			
 	}
 public:
 	int id;
-	std::string name;
-	std::string description;
-	std::string cost;
-	std::string imageName;
+	int stores;
+	union
+	{
+		struct
+		{
+			NSString *name;
+			NSString *highlight1;
+			NSString *highlight2;
+			NSString *price;
+			NSString *imageURL;
+		};
+		NSString *arr[5];
+	};
 };
 class CProductListContainer
 {
@@ -87,15 +122,11 @@ static NSString *MyIdentifier = @"ProductCellIdentifier";
 
 	if( (pProducts) && (cell) )
 	{
-	NSString *str;
 	ProductViewCell *prodCell=(ProductViewCell *)cell;
-	UIFont *font;
-		cout<<indexPath.row<<endl<<pProducts->products[indexPath.row].name<<endl;;
-		str=[NSString stringWithUTF8String:pProducts->products[indexPath.row].name.c_str()];
-		[prodCell.name setText:str];
-		font=[prodCell.name.font fontWithSize:15];
-		[prodCell.name setFont:font];
-		[prodCell.description setText:@"This is short product description"];
+		[prodCell.name setText:pProducts->products[indexPath.row].name];
+		[prodCell.highlight1 setText:pProducts->products[indexPath.row].highlight1];
+		[prodCell.highlight2 setText:pProducts->products[indexPath.row].highlight2];
+		[prodCell loadingImage:pProducts->products[indexPath.row].imageURL];
 //		[str release];
 	}
 
