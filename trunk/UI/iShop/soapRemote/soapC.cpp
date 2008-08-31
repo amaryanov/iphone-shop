@@ -7,7 +7,7 @@
 
 #include "soapH.h"
 
-SOAP_SOURCE_STAMP("@(#) soapC.cpp ver 2.7.11 2008-08-27 19:35:29 GMT")
+SOAP_SOURCE_STAMP("@(#) soapC.cpp ver 2.7.11 2008-08-31 19:39:24 GMT")
 
 
 #ifndef WITH_NOGLOBAL
@@ -163,6 +163,8 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_getelement(struct soap *soap, int *type)
 		return soap_in_int(soap, NULL, NULL, "xsd:int");
 	case SOAP_TYPE_float:
 		return soap_in_float(soap, NULL, NULL, "xsd:float");
+	case SOAP_TYPE_bool:
+		return soap_in_bool(soap, NULL, NULL, "xsd:boolean");
 	case SOAP_TYPE_std__string:
 		return soap_in_std__string(soap, NULL, NULL, "xsd:string");
 	case SOAP_TYPE_ns2__MProduct:
@@ -201,10 +203,18 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_getelement(struct soap *soap, int *type)
 		return soap_in_PointerTo_ns2__getCategoryListResponse(soap, NULL, NULL, "ns2:getCategoryListResponse");
 	case SOAP_TYPE_PointerTo_ns2__getCategoryList:
 		return soap_in_PointerTo_ns2__getCategoryList(soap, NULL, NULL, "ns2:getCategoryList");
+	case SOAP_TYPE_PointerTo_ns2__getPopularItemsResponse:
+		return soap_in_PointerTo_ns2__getPopularItemsResponse(soap, NULL, NULL, "ns2:getPopularItemsResponse");
+	case SOAP_TYPE_PointerTo_ns2__getPopularItems:
+		return soap_in_PointerTo_ns2__getPopularItems(soap, NULL, NULL, "ns2:getPopularItems");
 	case SOAP_TYPE_PointerTo_ns2__getProductDetailsResponse:
 		return soap_in_PointerTo_ns2__getProductDetailsResponse(soap, NULL, NULL, "ns2:getProductDetailsResponse");
 	case SOAP_TYPE_PointerTo_ns2__getProductDetails:
 		return soap_in_PointerTo_ns2__getProductDetails(soap, NULL, NULL, "ns2:getProductDetails");
+	case SOAP_TYPE_PointerTo_ns2__getCategoryResponse:
+		return soap_in_PointerTo_ns2__getCategoryResponse(soap, NULL, NULL, "ns2:getCategoryResponse");
+	case SOAP_TYPE_PointerTo_ns2__getCategory:
+		return soap_in_PointerTo_ns2__getCategory(soap, NULL, NULL, "ns2:getCategory");
 	case SOAP_TYPE_PointerTons2__MProductOffer:
 		return soap_in_PointerTons2__MProductOffer(soap, NULL, NULL, "ns2:MProductOffer");
 	case SOAP_TYPE_PointerTons2__MContactInfo:
@@ -213,12 +223,16 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_getelement(struct soap *soap, int *type)
 		return soap_in_PointerTons2__MAddress(soap, NULL, NULL, "ns2:MAddress");
 	case SOAP_TYPE_PointerTons2__MProduct:
 		return soap_in_PointerTons2__MProduct(soap, NULL, NULL, "ns2:MProduct");
+	case SOAP_TYPE_PointerTons2__MItem:
+		return soap_in_PointerTons2__MItem(soap, NULL, NULL, "ns2:MItem");
 	case SOAP_TYPE_PointerTons2__MDetailedProduct:
 		return soap_in_PointerTons2__MDetailedProduct(soap, NULL, NULL, "ns2:MDetailedProduct");
 	case SOAP_TYPE_PointerTons2__MDetailedBusinessCard:
 		return soap_in_PointerTons2__MDetailedBusinessCard(soap, NULL, NULL, "ns2:MDetailedBusinessCard");
 	case SOAP_TYPE_PointerTons2__MBusinessCard:
 		return soap_in_PointerTons2__MBusinessCard(soap, NULL, NULL, "ns2:MBusinessCard");
+	case SOAP_TYPE_PointerTobool:
+		return soap_in_PointerTobool(soap, NULL, NULL, "xsd:boolean");
 	case SOAP_TYPE_PointerTofloat:
 		return soap_in_PointerTofloat(soap, NULL, NULL, "xsd:float");
 	case SOAP_TYPE_PointerTons2__MCategory:
@@ -292,6 +306,10 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_getelement(struct soap *soap, int *type)
 		{	*type = SOAP_TYPE_float;
 			return soap_in_float(soap, NULL, NULL, NULL);
 		}
+		if (!soap_match_tag(soap, t, "xsd:boolean"))
+		{	*type = SOAP_TYPE_bool;
+			return soap_in_bool(soap, NULL, NULL, NULL);
+		}
 		if (!soap_match_tag(soap, t, "xsd:string"))
 		{	char **s;
 			*type = SOAP_TYPE_string;
@@ -306,6 +324,14 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_getelement(struct soap *soap, int *type)
 		if (!soap_match_tag(soap, t, "ns2:getProductList"))
 		{	*type = SOAP_TYPE__ns2__getProductList;
 			return soap_in__ns2__getProductList(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "ns2:getPopularItemsResponse"))
+		{	*type = SOAP_TYPE__ns2__getPopularItemsResponse;
+			return soap_in__ns2__getPopularItemsResponse(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "ns2:getPopularItems"))
+		{	*type = SOAP_TYPE__ns2__getPopularItems;
+			return soap_in__ns2__getPopularItems(soap, NULL, NULL, NULL);
 		}
 		if (!soap_match_tag(soap, t, "ns2:getProductDetailsResponse"))
 		{	*type = SOAP_TYPE__ns2__getProductDetailsResponse;
@@ -330,6 +356,14 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_getelement(struct soap *soap, int *type)
 		if (!soap_match_tag(soap, t, "ns2:getCategoryList"))
 		{	*type = SOAP_TYPE__ns2__getCategoryList;
 			return soap_in__ns2__getCategoryList(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "ns2:getCategoryResponse"))
+		{	*type = SOAP_TYPE__ns2__getCategoryResponse;
+			return soap_in__ns2__getCategoryResponse(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "ns2:getCategory"))
+		{	*type = SOAP_TYPE__ns2__getCategory;
+			return soap_in__ns2__getCategory(soap, NULL, NULL, NULL);
 		}
 		if (!soap_match_tag(soap, t, "ns2:getBusinessListResponse"))
 		{	*type = SOAP_TYPE__ns2__getBusinessListResponse;
@@ -416,12 +450,18 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_putelement(struct soap *soap, const void *ptr, co
 		return soap_out_int(soap, tag, id, (const int *)ptr, "xsd:int");
 	case SOAP_TYPE_float:
 		return soap_out_float(soap, tag, id, (const float *)ptr, "xsd:float");
+	case SOAP_TYPE_bool:
+		return soap_out_bool(soap, tag, id, (const bool *)ptr, "xsd:boolean");
 	case SOAP_TYPE_std__string:
 		return soap_out_std__string(soap, tag, id, (const std::string *)ptr, "xsd:string");
 	case SOAP_TYPE__ns2__getProductListResponse:
 		return ((_ns2__getProductListResponse *)ptr)->soap_out(soap, "ns2:getProductListResponse", id, NULL);
 	case SOAP_TYPE__ns2__getProductList:
 		return ((_ns2__getProductList *)ptr)->soap_out(soap, "ns2:getProductList", id, NULL);
+	case SOAP_TYPE__ns2__getPopularItemsResponse:
+		return ((_ns2__getPopularItemsResponse *)ptr)->soap_out(soap, "ns2:getPopularItemsResponse", id, NULL);
+	case SOAP_TYPE__ns2__getPopularItems:
+		return ((_ns2__getPopularItems *)ptr)->soap_out(soap, "ns2:getPopularItems", id, NULL);
 	case SOAP_TYPE__ns2__getProductDetailsResponse:
 		return ((_ns2__getProductDetailsResponse *)ptr)->soap_out(soap, "ns2:getProductDetailsResponse", id, NULL);
 	case SOAP_TYPE__ns2__getProductDetails:
@@ -434,6 +474,10 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_putelement(struct soap *soap, const void *ptr, co
 		return ((_ns2__getCategoryListResponse *)ptr)->soap_out(soap, "ns2:getCategoryListResponse", id, NULL);
 	case SOAP_TYPE__ns2__getCategoryList:
 		return ((_ns2__getCategoryList *)ptr)->soap_out(soap, "ns2:getCategoryList", id, NULL);
+	case SOAP_TYPE__ns2__getCategoryResponse:
+		return ((_ns2__getCategoryResponse *)ptr)->soap_out(soap, "ns2:getCategoryResponse", id, NULL);
+	case SOAP_TYPE__ns2__getCategory:
+		return ((_ns2__getCategory *)ptr)->soap_out(soap, "ns2:getCategory", id, NULL);
 	case SOAP_TYPE__ns2__getBusinessListResponse:
 		return ((_ns2__getBusinessListResponse *)ptr)->soap_out(soap, "ns2:getBusinessListResponse", id, NULL);
 	case SOAP_TYPE__ns2__getBusinessList:
@@ -474,10 +518,18 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_putelement(struct soap *soap, const void *ptr, co
 		return soap_out_PointerTo_ns2__getCategoryListResponse(soap, tag, id, (_ns2__getCategoryListResponse *const*)ptr, "ns2:getCategoryListResponse");
 	case SOAP_TYPE_PointerTo_ns2__getCategoryList:
 		return soap_out_PointerTo_ns2__getCategoryList(soap, tag, id, (_ns2__getCategoryList *const*)ptr, "ns2:getCategoryList");
+	case SOAP_TYPE_PointerTo_ns2__getPopularItemsResponse:
+		return soap_out_PointerTo_ns2__getPopularItemsResponse(soap, tag, id, (_ns2__getPopularItemsResponse *const*)ptr, "ns2:getPopularItemsResponse");
+	case SOAP_TYPE_PointerTo_ns2__getPopularItems:
+		return soap_out_PointerTo_ns2__getPopularItems(soap, tag, id, (_ns2__getPopularItems *const*)ptr, "ns2:getPopularItems");
 	case SOAP_TYPE_PointerTo_ns2__getProductDetailsResponse:
 		return soap_out_PointerTo_ns2__getProductDetailsResponse(soap, tag, id, (_ns2__getProductDetailsResponse *const*)ptr, "ns2:getProductDetailsResponse");
 	case SOAP_TYPE_PointerTo_ns2__getProductDetails:
 		return soap_out_PointerTo_ns2__getProductDetails(soap, tag, id, (_ns2__getProductDetails *const*)ptr, "ns2:getProductDetails");
+	case SOAP_TYPE_PointerTo_ns2__getCategoryResponse:
+		return soap_out_PointerTo_ns2__getCategoryResponse(soap, tag, id, (_ns2__getCategoryResponse *const*)ptr, "ns2:getCategoryResponse");
+	case SOAP_TYPE_PointerTo_ns2__getCategory:
+		return soap_out_PointerTo_ns2__getCategory(soap, tag, id, (_ns2__getCategory *const*)ptr, "ns2:getCategory");
 	case SOAP_TYPE_PointerTons2__MProductOffer:
 		return soap_out_PointerTons2__MProductOffer(soap, tag, id, (ns2__MProductOffer *const*)ptr, "ns2:MProductOffer");
 	case SOAP_TYPE_PointerTons2__MContactInfo:
@@ -486,12 +538,16 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_putelement(struct soap *soap, const void *ptr, co
 		return soap_out_PointerTons2__MAddress(soap, tag, id, (ns2__MAddress *const*)ptr, "ns2:MAddress");
 	case SOAP_TYPE_PointerTons2__MProduct:
 		return soap_out_PointerTons2__MProduct(soap, tag, id, (ns2__MProduct *const*)ptr, "ns2:MProduct");
+	case SOAP_TYPE_PointerTons2__MItem:
+		return soap_out_PointerTons2__MItem(soap, tag, id, (ns2__MItem *const*)ptr, "ns2:MItem");
 	case SOAP_TYPE_PointerTons2__MDetailedProduct:
 		return soap_out_PointerTons2__MDetailedProduct(soap, tag, id, (ns2__MDetailedProduct *const*)ptr, "ns2:MDetailedProduct");
 	case SOAP_TYPE_PointerTons2__MDetailedBusinessCard:
 		return soap_out_PointerTons2__MDetailedBusinessCard(soap, tag, id, (ns2__MDetailedBusinessCard *const*)ptr, "ns2:MDetailedBusinessCard");
 	case SOAP_TYPE_PointerTons2__MBusinessCard:
 		return soap_out_PointerTons2__MBusinessCard(soap, tag, id, (ns2__MBusinessCard *const*)ptr, "ns2:MBusinessCard");
+	case SOAP_TYPE_PointerTobool:
+		return soap_out_PointerTobool(soap, tag, id, (bool *const*)ptr, "xsd:boolean");
 	case SOAP_TYPE_PointerTofloat:
 		return soap_out_PointerTofloat(soap, tag, id, (float *const*)ptr, "xsd:float");
 	case SOAP_TYPE_PointerTons2__MCategory:
@@ -532,6 +588,12 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_markelement(struct soap *soap, const void *ptr, 
 	case SOAP_TYPE__ns2__getProductList:
 		((_ns2__getProductList *)ptr)->soap_serialize(soap);
 		break;
+	case SOAP_TYPE__ns2__getPopularItemsResponse:
+		((_ns2__getPopularItemsResponse *)ptr)->soap_serialize(soap);
+		break;
+	case SOAP_TYPE__ns2__getPopularItems:
+		((_ns2__getPopularItems *)ptr)->soap_serialize(soap);
+		break;
 	case SOAP_TYPE__ns2__getProductDetailsResponse:
 		((_ns2__getProductDetailsResponse *)ptr)->soap_serialize(soap);
 		break;
@@ -549,6 +611,12 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_markelement(struct soap *soap, const void *ptr, 
 		break;
 	case SOAP_TYPE__ns2__getCategoryList:
 		((_ns2__getCategoryList *)ptr)->soap_serialize(soap);
+		break;
+	case SOAP_TYPE__ns2__getCategoryResponse:
+		((_ns2__getCategoryResponse *)ptr)->soap_serialize(soap);
+		break;
+	case SOAP_TYPE__ns2__getCategory:
+		((_ns2__getCategory *)ptr)->soap_serialize(soap);
 		break;
 	case SOAP_TYPE__ns2__getBusinessListResponse:
 		((_ns2__getBusinessListResponse *)ptr)->soap_serialize(soap);
@@ -598,8 +666,14 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_markelement(struct soap *soap, const void *ptr, 
 	case SOAP_TYPE___ns4__getCategoryList:
 		soap_serialize___ns4__getCategoryList(soap, (const struct __ns4__getCategoryList *)ptr);
 		break;
+	case SOAP_TYPE___ns4__getPopularItems:
+		soap_serialize___ns4__getPopularItems(soap, (const struct __ns4__getPopularItems *)ptr);
+		break;
 	case SOAP_TYPE___ns4__getProductDetails:
 		soap_serialize___ns4__getProductDetails(soap, (const struct __ns4__getProductDetails *)ptr);
+		break;
+	case SOAP_TYPE___ns4__getCategory:
+		soap_serialize___ns4__getCategory(soap, (const struct __ns4__getCategory *)ptr);
 		break;
 	case SOAP_TYPE___ns3__getBusinessDetails:
 		soap_serialize___ns3__getBusinessDetails(soap, (const struct __ns3__getBusinessDetails *)ptr);
@@ -613,8 +687,14 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_markelement(struct soap *soap, const void *ptr, 
 	case SOAP_TYPE___ns3__getCategoryList:
 		soap_serialize___ns3__getCategoryList(soap, (const struct __ns3__getCategoryList *)ptr);
 		break;
+	case SOAP_TYPE___ns3__getPopularItems:
+		soap_serialize___ns3__getPopularItems(soap, (const struct __ns3__getPopularItems *)ptr);
+		break;
 	case SOAP_TYPE___ns3__getProductDetails:
 		soap_serialize___ns3__getProductDetails(soap, (const struct __ns3__getProductDetails *)ptr);
+		break;
+	case SOAP_TYPE___ns3__getCategory:
+		soap_serialize___ns3__getCategory(soap, (const struct __ns3__getCategory *)ptr);
 		break;
 	case SOAP_TYPE_PointerTo_ns2__getBusinessDetailsResponse:
 		soap_serialize_PointerTo_ns2__getBusinessDetailsResponse(soap, (_ns2__getBusinessDetailsResponse *const*)ptr);
@@ -640,11 +720,23 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_markelement(struct soap *soap, const void *ptr, 
 	case SOAP_TYPE_PointerTo_ns2__getCategoryList:
 		soap_serialize_PointerTo_ns2__getCategoryList(soap, (_ns2__getCategoryList *const*)ptr);
 		break;
+	case SOAP_TYPE_PointerTo_ns2__getPopularItemsResponse:
+		soap_serialize_PointerTo_ns2__getPopularItemsResponse(soap, (_ns2__getPopularItemsResponse *const*)ptr);
+		break;
+	case SOAP_TYPE_PointerTo_ns2__getPopularItems:
+		soap_serialize_PointerTo_ns2__getPopularItems(soap, (_ns2__getPopularItems *const*)ptr);
+		break;
 	case SOAP_TYPE_PointerTo_ns2__getProductDetailsResponse:
 		soap_serialize_PointerTo_ns2__getProductDetailsResponse(soap, (_ns2__getProductDetailsResponse *const*)ptr);
 		break;
 	case SOAP_TYPE_PointerTo_ns2__getProductDetails:
 		soap_serialize_PointerTo_ns2__getProductDetails(soap, (_ns2__getProductDetails *const*)ptr);
+		break;
+	case SOAP_TYPE_PointerTo_ns2__getCategoryResponse:
+		soap_serialize_PointerTo_ns2__getCategoryResponse(soap, (_ns2__getCategoryResponse *const*)ptr);
+		break;
+	case SOAP_TYPE_PointerTo_ns2__getCategory:
+		soap_serialize_PointerTo_ns2__getCategory(soap, (_ns2__getCategory *const*)ptr);
 		break;
 	case SOAP_TYPE_PointerTons2__MProductOffer:
 		soap_serialize_PointerTons2__MProductOffer(soap, (ns2__MProductOffer *const*)ptr);
@@ -658,6 +750,9 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_markelement(struct soap *soap, const void *ptr, 
 	case SOAP_TYPE_PointerTons2__MProduct:
 		soap_serialize_PointerTons2__MProduct(soap, (ns2__MProduct *const*)ptr);
 		break;
+	case SOAP_TYPE_PointerTons2__MItem:
+		soap_serialize_PointerTons2__MItem(soap, (ns2__MItem *const*)ptr);
+		break;
 	case SOAP_TYPE_PointerTons2__MDetailedProduct:
 		soap_serialize_PointerTons2__MDetailedProduct(soap, (ns2__MDetailedProduct *const*)ptr);
 		break;
@@ -666,6 +761,9 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_markelement(struct soap *soap, const void *ptr, 
 		break;
 	case SOAP_TYPE_PointerTons2__MBusinessCard:
 		soap_serialize_PointerTons2__MBusinessCard(soap, (ns2__MBusinessCard *const*)ptr);
+		break;
+	case SOAP_TYPE_PointerTobool:
+		soap_serialize_PointerTobool(soap, (bool *const*)ptr);
 		break;
 	case SOAP_TYPE_PointerTofloat:
 		soap_serialize_PointerTofloat(soap, (float *const*)ptr);
@@ -713,6 +811,10 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_instantiate(struct soap *soap, int t, const ch
 		return (void*)soap_instantiate__ns2__getBusinessList(soap, -1, type, arrayType, n);
 	case SOAP_TYPE__ns2__getBusinessListResponse:
 		return (void*)soap_instantiate__ns2__getBusinessListResponse(soap, -1, type, arrayType, n);
+	case SOAP_TYPE__ns2__getCategory:
+		return (void*)soap_instantiate__ns2__getCategory(soap, -1, type, arrayType, n);
+	case SOAP_TYPE__ns2__getCategoryResponse:
+		return (void*)soap_instantiate__ns2__getCategoryResponse(soap, -1, type, arrayType, n);
 	case SOAP_TYPE__ns2__getCategoryList:
 		return (void*)soap_instantiate__ns2__getCategoryList(soap, -1, type, arrayType, n);
 	case SOAP_TYPE__ns2__getCategoryListResponse:
@@ -725,6 +827,10 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_instantiate(struct soap *soap, int t, const ch
 		return (void*)soap_instantiate__ns2__getProductDetails(soap, -1, type, arrayType, n);
 	case SOAP_TYPE__ns2__getProductDetailsResponse:
 		return (void*)soap_instantiate__ns2__getProductDetailsResponse(soap, -1, type, arrayType, n);
+	case SOAP_TYPE__ns2__getPopularItems:
+		return (void*)soap_instantiate__ns2__getPopularItems(soap, -1, type, arrayType, n);
+	case SOAP_TYPE__ns2__getPopularItemsResponse:
+		return (void*)soap_instantiate__ns2__getPopularItemsResponse(soap, -1, type, arrayType, n);
 	case SOAP_TYPE__ns2__getProductList:
 		return (void*)soap_instantiate__ns2__getProductList(soap, -1, type, arrayType, n);
 	case SOAP_TYPE__ns2__getProductListResponse:
@@ -739,8 +845,12 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_instantiate(struct soap *soap, int t, const ch
 		return (void*)soap_instantiate_ns2__MDetailedBusinessCard(soap, -1, type, arrayType, n);
 	case SOAP_TYPE_ns2__MDetailedProduct:
 		return (void*)soap_instantiate_ns2__MDetailedProduct(soap, -1, type, arrayType, n);
+	case SOAP_TYPE___ns3__getCategory:
+		return (void*)soap_instantiate___ns3__getCategory(soap, -1, type, arrayType, n);
 	case SOAP_TYPE___ns3__getProductDetails:
 		return (void*)soap_instantiate___ns3__getProductDetails(soap, -1, type, arrayType, n);
+	case SOAP_TYPE___ns3__getPopularItems:
+		return (void*)soap_instantiate___ns3__getPopularItems(soap, -1, type, arrayType, n);
 	case SOAP_TYPE___ns3__getCategoryList:
 		return (void*)soap_instantiate___ns3__getCategoryList(soap, -1, type, arrayType, n);
 	case SOAP_TYPE___ns3__getBusinessList:
@@ -749,8 +859,12 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_instantiate(struct soap *soap, int t, const ch
 		return (void*)soap_instantiate___ns3__getProductList(soap, -1, type, arrayType, n);
 	case SOAP_TYPE___ns3__getBusinessDetails:
 		return (void*)soap_instantiate___ns3__getBusinessDetails(soap, -1, type, arrayType, n);
+	case SOAP_TYPE___ns4__getCategory:
+		return (void*)soap_instantiate___ns4__getCategory(soap, -1, type, arrayType, n);
 	case SOAP_TYPE___ns4__getProductDetails:
 		return (void*)soap_instantiate___ns4__getProductDetails(soap, -1, type, arrayType, n);
+	case SOAP_TYPE___ns4__getPopularItems:
+		return (void*)soap_instantiate___ns4__getPopularItems(soap, -1, type, arrayType, n);
 	case SOAP_TYPE___ns4__getCategoryList:
 		return (void*)soap_instantiate___ns4__getCategoryList(soap, -1, type, arrayType, n);
 	case SOAP_TYPE___ns4__getBusinessList:
@@ -785,6 +899,8 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_instantiate(struct soap *soap, int t, const ch
 		return (void*)soap_instantiate_std__vectorTemplateOfstd__string(soap, -1, type, arrayType, n);
 	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MProduct:
 		return (void*)soap_instantiate_std__vectorTemplateOfPointerTons2__MProduct(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MItem:
+		return (void*)soap_instantiate_std__vectorTemplateOfPointerTons2__MItem(soap, -1, type, arrayType, n);
 	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MBusinessCard:
 		return (void*)soap_instantiate_std__vectorTemplateOfPointerTons2__MBusinessCard(soap, -1, type, arrayType, n);
 	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MCategory:
@@ -844,6 +960,18 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_fdelete(struct soap_clist *p)
 		else
 			delete[] (_ns2__getBusinessListResponse*)p->ptr;
 		break;
+	case SOAP_TYPE__ns2__getCategory:
+		if (p->size < 0)
+			delete (_ns2__getCategory*)p->ptr;
+		else
+			delete[] (_ns2__getCategory*)p->ptr;
+		break;
+	case SOAP_TYPE__ns2__getCategoryResponse:
+		if (p->size < 0)
+			delete (_ns2__getCategoryResponse*)p->ptr;
+		else
+			delete[] (_ns2__getCategoryResponse*)p->ptr;
+		break;
 	case SOAP_TYPE__ns2__getCategoryList:
 		if (p->size < 0)
 			delete (_ns2__getCategoryList*)p->ptr;
@@ -879,6 +1007,18 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_fdelete(struct soap_clist *p)
 			delete (_ns2__getProductDetailsResponse*)p->ptr;
 		else
 			delete[] (_ns2__getProductDetailsResponse*)p->ptr;
+		break;
+	case SOAP_TYPE__ns2__getPopularItems:
+		if (p->size < 0)
+			delete (_ns2__getPopularItems*)p->ptr;
+		else
+			delete[] (_ns2__getPopularItems*)p->ptr;
+		break;
+	case SOAP_TYPE__ns2__getPopularItemsResponse:
+		if (p->size < 0)
+			delete (_ns2__getPopularItemsResponse*)p->ptr;
+		else
+			delete[] (_ns2__getPopularItemsResponse*)p->ptr;
 		break;
 	case SOAP_TYPE__ns2__getProductList:
 		if (p->size < 0)
@@ -922,11 +1062,23 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_fdelete(struct soap_clist *p)
 		else
 			delete[] (ns2__MDetailedProduct*)p->ptr;
 		break;
+	case SOAP_TYPE___ns3__getCategory:
+		if (p->size < 0)
+			delete (struct __ns3__getCategory*)p->ptr;
+		else
+			delete[] (struct __ns3__getCategory*)p->ptr;
+		break;
 	case SOAP_TYPE___ns3__getProductDetails:
 		if (p->size < 0)
 			delete (struct __ns3__getProductDetails*)p->ptr;
 		else
 			delete[] (struct __ns3__getProductDetails*)p->ptr;
+		break;
+	case SOAP_TYPE___ns3__getPopularItems:
+		if (p->size < 0)
+			delete (struct __ns3__getPopularItems*)p->ptr;
+		else
+			delete[] (struct __ns3__getPopularItems*)p->ptr;
 		break;
 	case SOAP_TYPE___ns3__getCategoryList:
 		if (p->size < 0)
@@ -952,11 +1104,23 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_fdelete(struct soap_clist *p)
 		else
 			delete[] (struct __ns3__getBusinessDetails*)p->ptr;
 		break;
+	case SOAP_TYPE___ns4__getCategory:
+		if (p->size < 0)
+			delete (struct __ns4__getCategory*)p->ptr;
+		else
+			delete[] (struct __ns4__getCategory*)p->ptr;
+		break;
 	case SOAP_TYPE___ns4__getProductDetails:
 		if (p->size < 0)
 			delete (struct __ns4__getProductDetails*)p->ptr;
 		else
 			delete[] (struct __ns4__getProductDetails*)p->ptr;
+		break;
+	case SOAP_TYPE___ns4__getPopularItems:
+		if (p->size < 0)
+			delete (struct __ns4__getPopularItems*)p->ptr;
+		else
+			delete[] (struct __ns4__getPopularItems*)p->ptr;
 		break;
 	case SOAP_TYPE___ns4__getCategoryList:
 		if (p->size < 0)
@@ -1030,6 +1194,12 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_fdelete(struct soap_clist *p)
 		else
 			delete[] (std::vector<ns2__MProduct * >*)p->ptr;
 		break;
+	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MItem:
+		if (p->size < 0)
+			delete (std::vector<ns2__MItem * >*)p->ptr;
+		else
+			delete[] (std::vector<ns2__MItem * >*)p->ptr;
+		break;
 	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MBusinessCard:
 		if (p->size < 0)
 			delete (std::vector<ns2__MBusinessCard * >*)p->ptr;
@@ -1073,6 +1243,10 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_container_insert(struct soap *soap, int st, int 
 	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MProduct:
 		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Container insert type=%d in %d location=%p object=%p len=%lu\n", st, tt, p, q, (unsigned long)len));
 		(*(std::vector<ns2__MProduct * >*)p)[len] = *(ns2__MProduct **)q;
+		break;
+	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MItem:
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Container insert type=%d in %d location=%p object=%p len=%lu\n", st, tt, p, q, (unsigned long)len));
+		(*(std::vector<ns2__MItem * >*)p)[len] = *(ns2__MItem **)q;
 		break;
 	case SOAP_TYPE_std__vectorTemplateOfPointerTons2__MBusinessCard:
 		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Container insert type=%d in %d location=%p object=%p len=%lu\n", st, tt, p, q, (unsigned long)len));
@@ -1193,6 +1367,87 @@ SOAP_FMAC3 float * SOAP_FMAC4 soap_get_float(struct soap *soap, float *p, const 
 SOAP_FMAC3 float * SOAP_FMAC4 soap_in_float(struct soap *soap, const char *tag, float *a, const char *type)
 {
 	return soap_infloat(soap, tag, a, type, SOAP_TYPE_float);
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_bool(struct soap *soap, bool *a)
+{	(void)soap; /* appease -Wall -Werror */
+#ifdef SOAP_DEFAULT_bool
+	*a = SOAP_DEFAULT_bool;
+#else
+	*a = (bool)0;
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_bool(struct soap *soap, const bool *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_bool);
+	if (soap_out_bool(soap, tag, id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+static const struct soap_code_map soap_codes_bool[] =
+{	{ (long)false, "false" },
+	{ (long)true, "true" },
+	{ 0, NULL }
+};
+
+SOAP_FMAC3S const char* SOAP_FMAC4S soap_bool2s(struct soap *soap, bool n)
+{	return soap_code_str(soap_codes_bool, n!=0);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_bool(struct soap *soap, const char *tag, int id, const bool *a, const char *type)
+{	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_bool), type) || soap_send(soap, soap_bool2s(soap, *a)))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 bool * SOAP_FMAC4 soap_get_bool(struct soap *soap, bool *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_bool(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3S int SOAP_FMAC4S soap_s2bool(struct soap *soap, const char *s, bool *a)
+{
+	const struct soap_code_map *map;
+	if (!s)
+		return SOAP_OK;
+	map = soap_code(soap_codes_bool, s);
+	if (map)
+		*a = (bool)(map->code != 0);
+	else
+	{	long n;
+		if (soap_s2long(soap, s, &n) || n < 0 || n > 1)
+			return soap->error = SOAP_TYPE;
+		*a = (bool)(n != 0);
+	}
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 bool * SOAP_FMAC4 soap_in_bool(struct soap *soap, const char *tag, bool *a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 0, NULL))
+		return NULL;
+	if (*soap->type && soap_match_tag(soap, soap->type, type) && soap_match_tag(soap, soap->type, ":boolean"))
+	{	soap->error = SOAP_TYPE;
+		return NULL;
+	}
+	a = (bool *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_bool, sizeof(bool), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	if (soap->body && !*soap->href)
+	{	if (!a || soap_s2bool(soap, soap_value(soap), a) || soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (bool *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_bool, 0, sizeof(bool), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
 }
 
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_std__string(struct soap *soap, std::string *p)
@@ -1593,6 +1848,291 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy__ns2__getProductList(struct soap *soap, int
 {
 	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying _ns2__getProductList %p -> %p\n", q, p));
 	*(_ns2__getProductList*)p = *(_ns2__getProductList*)q;
+}
+
+void _ns2__getPopularItemsResponse::soap_default(struct soap *soap)
+{
+	this->soap = soap;
+	soap_default_std__vectorTemplateOfPointerTons2__MItem(soap, &this->_ns2__getPopularItemsResponse::return_);
+	/* transient soap skipped */
+}
+
+void _ns2__getPopularItemsResponse::soap_serialize(struct soap *soap) const
+{
+	(void)soap; /* appease -Wall -Werror */
+	soap_serialize_std__vectorTemplateOfPointerTons2__MItem(soap, &this->_ns2__getPopularItemsResponse::return_);
+	/* transient soap skipped */
+}
+
+int _ns2__getPopularItemsResponse::soap_put(struct soap *soap, const char *tag, const  char *type) const
+{
+	register int id = soap_embed(soap, (void*)this, NULL, 0, tag, SOAP_TYPE__ns2__getPopularItemsResponse);
+	if (this->soap_out(soap, tag, id, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+int _ns2__getPopularItemsResponse::soap_out(struct soap *soap, const char *tag, int id, const char *type) const
+{
+	return soap_out__ns2__getPopularItemsResponse(soap, tag, id, this, type);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out__ns2__getPopularItemsResponse(struct soap *soap, const char *tag, int id, const _ns2__getPopularItemsResponse *a, const char *type)
+{
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE__ns2__getPopularItemsResponse), type))
+		return soap->error;
+	soap_element_result(soap, "ns2:return");
+	if (soap_out_std__vectorTemplateOfPointerTons2__MItem(soap, "ns2:return", -1, &(a->_ns2__getPopularItemsResponse::return_), "ns2:MItem"))
+		return soap->error;
+	/* transient soap skipped */
+	return soap_element_end_out(soap, tag);
+}
+
+void *_ns2__getPopularItemsResponse::soap_get(struct soap *soap, const char *tag, const char *type)
+{
+	return soap_get__ns2__getPopularItemsResponse(soap, this, tag, type);
+}
+
+SOAP_FMAC3 _ns2__getPopularItemsResponse * SOAP_FMAC4 soap_get__ns2__getPopularItemsResponse(struct soap *soap, _ns2__getPopularItemsResponse *p, const char *tag, const char *type)
+{
+	if ((p = soap_in__ns2__getPopularItemsResponse(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+void *_ns2__getPopularItemsResponse::soap_in(struct soap *soap, const char *tag, const char *type)
+{	return soap_in__ns2__getPopularItemsResponse(soap, tag, this, type);
+}
+
+SOAP_FMAC3 _ns2__getPopularItemsResponse * SOAP_FMAC4 soap_in__ns2__getPopularItemsResponse(struct soap *soap, const char *tag, _ns2__getPopularItemsResponse *a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 0, NULL))
+		return NULL;
+	a = (_ns2__getPopularItemsResponse *)soap_class_id_enter(soap, soap->id, a, SOAP_TYPE__ns2__getPopularItemsResponse, sizeof(_ns2__getPopularItemsResponse), soap->type, soap->arrayType);
+	if (!a)
+		return NULL;
+	if (soap->alloced)
+	{	a->soap_default(soap);
+		if (soap->clist->type != SOAP_TYPE__ns2__getPopularItemsResponse)
+		{	soap_revert(soap);
+			*soap->id = '\0';
+			return (_ns2__getPopularItemsResponse *)a->soap_in(soap, tag, type);
+		}
+	}
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_std__vectorTemplateOfPointerTons2__MItem(soap, "ns2:return", &(a->_ns2__getPopularItemsResponse::return_), "ns2:MItem"))
+					continue;
+			/* transient soap skipped */
+			soap_check_result(soap, "ns2:return");
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (_ns2__getPopularItemsResponse *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE__ns2__getPopularItemsResponse, 0, sizeof(_ns2__getPopularItemsResponse), 0, soap_copy__ns2__getPopularItemsResponse);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC5 _ns2__getPopularItemsResponse * SOAP_FMAC6 soap_new__ns2__getPopularItemsResponse(struct soap *soap, int n)
+{	return soap_instantiate__ns2__getPopularItemsResponse(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete__ns2__getPopularItemsResponse(struct soap *soap, _ns2__getPopularItemsResponse *p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 _ns2__getPopularItemsResponse * SOAP_FMAC4 soap_instantiate__ns2__getPopularItemsResponse(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate__ns2__getPopularItemsResponse(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE__ns2__getPopularItemsResponse, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new _ns2__getPopularItemsResponse;
+		if (size)
+			*size = sizeof(_ns2__getPopularItemsResponse);
+		((_ns2__getPopularItemsResponse*)cp->ptr)->soap = soap;
+	}
+	else
+	{	cp->ptr = (void*)new _ns2__getPopularItemsResponse[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(_ns2__getPopularItemsResponse);
+		for (int i = 0; i < n; i++)
+			((_ns2__getPopularItemsResponse*)cp->ptr)[i].soap = soap;
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (_ns2__getPopularItemsResponse*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy__ns2__getPopularItemsResponse(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying _ns2__getPopularItemsResponse %p -> %p\n", q, p));
+	*(_ns2__getPopularItemsResponse*)p = *(_ns2__getPopularItemsResponse*)q;
+}
+
+void _ns2__getPopularItems::soap_default(struct soap *soap)
+{
+	this->soap = soap;
+	this->_ns2__getPopularItems::categoryType = NULL;
+	this->_ns2__getPopularItems::languageId = NULL;
+	/* transient soap skipped */
+}
+
+void _ns2__getPopularItems::soap_serialize(struct soap *soap) const
+{
+	(void)soap; /* appease -Wall -Werror */
+	soap_serialize_PointerToint(soap, &this->_ns2__getPopularItems::categoryType);
+	soap_serialize_PointerToint(soap, &this->_ns2__getPopularItems::languageId);
+	/* transient soap skipped */
+}
+
+int _ns2__getPopularItems::soap_put(struct soap *soap, const char *tag, const  char *type) const
+{
+	register int id = soap_embed(soap, (void*)this, NULL, 0, tag, SOAP_TYPE__ns2__getPopularItems);
+	if (this->soap_out(soap, tag, id, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+int _ns2__getPopularItems::soap_out(struct soap *soap, const char *tag, int id, const char *type) const
+{
+	return soap_out__ns2__getPopularItems(soap, tag, id, this, type);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out__ns2__getPopularItems(struct soap *soap, const char *tag, int id, const _ns2__getPopularItems *a, const char *type)
+{
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE__ns2__getPopularItems), type))
+		return soap->error;
+	if (soap_out_PointerToint(soap, "ns2:categoryType", -1, &(a->_ns2__getPopularItems::categoryType), "xsd:int"))
+		return soap->error;
+	if (soap_out_PointerToint(soap, "ns2:languageId", -1, &(a->_ns2__getPopularItems::languageId), "xsd:int"))
+		return soap->error;
+	/* transient soap skipped */
+	return soap_element_end_out(soap, tag);
+}
+
+void *_ns2__getPopularItems::soap_get(struct soap *soap, const char *tag, const char *type)
+{
+	return soap_get__ns2__getPopularItems(soap, this, tag, type);
+}
+
+SOAP_FMAC3 _ns2__getPopularItems * SOAP_FMAC4 soap_get__ns2__getPopularItems(struct soap *soap, _ns2__getPopularItems *p, const char *tag, const char *type)
+{
+	if ((p = soap_in__ns2__getPopularItems(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+void *_ns2__getPopularItems::soap_in(struct soap *soap, const char *tag, const char *type)
+{	return soap_in__ns2__getPopularItems(soap, tag, this, type);
+}
+
+SOAP_FMAC3 _ns2__getPopularItems * SOAP_FMAC4 soap_in__ns2__getPopularItems(struct soap *soap, const char *tag, _ns2__getPopularItems *a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 0, NULL))
+		return NULL;
+	a = (_ns2__getPopularItems *)soap_class_id_enter(soap, soap->id, a, SOAP_TYPE__ns2__getPopularItems, sizeof(_ns2__getPopularItems), soap->type, soap->arrayType);
+	if (!a)
+		return NULL;
+	if (soap->alloced)
+	{	a->soap_default(soap);
+		if (soap->clist->type != SOAP_TYPE__ns2__getPopularItems)
+		{	soap_revert(soap);
+			*soap->id = '\0';
+			return (_ns2__getPopularItems *)a->soap_in(soap, tag, type);
+		}
+	}
+	size_t soap_flag_categoryType1 = 1;
+	size_t soap_flag_languageId1 = 1;
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_categoryType1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerToint(soap, "ns2:categoryType", &(a->_ns2__getPopularItems::categoryType), "xsd:int"))
+				{	soap_flag_categoryType1--;
+					continue;
+				}
+			if (soap_flag_languageId1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerToint(soap, "ns2:languageId", &(a->_ns2__getPopularItems::languageId), "xsd:int"))
+				{	soap_flag_languageId1--;
+					continue;
+				}
+			/* transient soap skipped */
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (_ns2__getPopularItems *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE__ns2__getPopularItems, 0, sizeof(_ns2__getPopularItems), 0, soap_copy__ns2__getPopularItems);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC5 _ns2__getPopularItems * SOAP_FMAC6 soap_new__ns2__getPopularItems(struct soap *soap, int n)
+{	return soap_instantiate__ns2__getPopularItems(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete__ns2__getPopularItems(struct soap *soap, _ns2__getPopularItems *p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 _ns2__getPopularItems * SOAP_FMAC4 soap_instantiate__ns2__getPopularItems(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate__ns2__getPopularItems(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE__ns2__getPopularItems, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new _ns2__getPopularItems;
+		if (size)
+			*size = sizeof(_ns2__getPopularItems);
+		((_ns2__getPopularItems*)cp->ptr)->soap = soap;
+	}
+	else
+	{	cp->ptr = (void*)new _ns2__getPopularItems[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(_ns2__getPopularItems);
+		for (int i = 0; i < n; i++)
+			((_ns2__getPopularItems*)cp->ptr)[i].soap = soap;
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (_ns2__getPopularItems*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy__ns2__getPopularItems(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying _ns2__getPopularItems %p -> %p\n", q, p));
+	*(_ns2__getPopularItems*)p = *(_ns2__getPopularItems*)q;
 }
 
 void _ns2__getProductDetailsResponse::soap_default(struct soap *soap)
@@ -2448,6 +2988,285 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy__ns2__getCategoryList(struct soap *soap, in
 	*(_ns2__getCategoryList*)p = *(_ns2__getCategoryList*)q;
 }
 
+void _ns2__getCategoryResponse::soap_default(struct soap *soap)
+{
+	this->soap = soap;
+	this->_ns2__getCategoryResponse::return_ = NULL;
+	/* transient soap skipped */
+}
+
+void _ns2__getCategoryResponse::soap_serialize(struct soap *soap) const
+{
+	(void)soap; /* appease -Wall -Werror */
+	soap_serialize_PointerTons2__MCategory(soap, &this->_ns2__getCategoryResponse::return_);
+	/* transient soap skipped */
+}
+
+int _ns2__getCategoryResponse::soap_put(struct soap *soap, const char *tag, const  char *type) const
+{
+	register int id = soap_embed(soap, (void*)this, NULL, 0, tag, SOAP_TYPE__ns2__getCategoryResponse);
+	if (this->soap_out(soap, tag, id, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+int _ns2__getCategoryResponse::soap_out(struct soap *soap, const char *tag, int id, const char *type) const
+{
+	return soap_out__ns2__getCategoryResponse(soap, tag, id, this, type);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out__ns2__getCategoryResponse(struct soap *soap, const char *tag, int id, const _ns2__getCategoryResponse *a, const char *type)
+{
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE__ns2__getCategoryResponse), type))
+		return soap->error;
+	if (a->return_)
+		soap_element_result(soap, "ns2:return");
+	if (soap_out_PointerTons2__MCategory(soap, "ns2:return", -1, &(a->_ns2__getCategoryResponse::return_), "ns2:MCategory"))
+		return soap->error;
+	/* transient soap skipped */
+	return soap_element_end_out(soap, tag);
+}
+
+void *_ns2__getCategoryResponse::soap_get(struct soap *soap, const char *tag, const char *type)
+{
+	return soap_get__ns2__getCategoryResponse(soap, this, tag, type);
+}
+
+SOAP_FMAC3 _ns2__getCategoryResponse * SOAP_FMAC4 soap_get__ns2__getCategoryResponse(struct soap *soap, _ns2__getCategoryResponse *p, const char *tag, const char *type)
+{
+	if ((p = soap_in__ns2__getCategoryResponse(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+void *_ns2__getCategoryResponse::soap_in(struct soap *soap, const char *tag, const char *type)
+{	return soap_in__ns2__getCategoryResponse(soap, tag, this, type);
+}
+
+SOAP_FMAC3 _ns2__getCategoryResponse * SOAP_FMAC4 soap_in__ns2__getCategoryResponse(struct soap *soap, const char *tag, _ns2__getCategoryResponse *a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 0, NULL))
+		return NULL;
+	a = (_ns2__getCategoryResponse *)soap_class_id_enter(soap, soap->id, a, SOAP_TYPE__ns2__getCategoryResponse, sizeof(_ns2__getCategoryResponse), soap->type, soap->arrayType);
+	if (!a)
+		return NULL;
+	if (soap->alloced)
+	{	a->soap_default(soap);
+		if (soap->clist->type != SOAP_TYPE__ns2__getCategoryResponse)
+		{	soap_revert(soap);
+			*soap->id = '\0';
+			return (_ns2__getCategoryResponse *)a->soap_in(soap, tag, type);
+		}
+	}
+	size_t soap_flag_return_1 = 1;
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_return_1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTons2__MCategory(soap, "ns2:return", &(a->_ns2__getCategoryResponse::return_), "ns2:MCategory"))
+				{	soap_flag_return_1--;
+					continue;
+				}
+			/* transient soap skipped */
+			soap_check_result(soap, "ns2:return");
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (_ns2__getCategoryResponse *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE__ns2__getCategoryResponse, 0, sizeof(_ns2__getCategoryResponse), 0, soap_copy__ns2__getCategoryResponse);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC5 _ns2__getCategoryResponse * SOAP_FMAC6 soap_new__ns2__getCategoryResponse(struct soap *soap, int n)
+{	return soap_instantiate__ns2__getCategoryResponse(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete__ns2__getCategoryResponse(struct soap *soap, _ns2__getCategoryResponse *p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 _ns2__getCategoryResponse * SOAP_FMAC4 soap_instantiate__ns2__getCategoryResponse(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate__ns2__getCategoryResponse(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE__ns2__getCategoryResponse, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new _ns2__getCategoryResponse;
+		if (size)
+			*size = sizeof(_ns2__getCategoryResponse);
+		((_ns2__getCategoryResponse*)cp->ptr)->soap = soap;
+	}
+	else
+	{	cp->ptr = (void*)new _ns2__getCategoryResponse[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(_ns2__getCategoryResponse);
+		for (int i = 0; i < n; i++)
+			((_ns2__getCategoryResponse*)cp->ptr)[i].soap = soap;
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (_ns2__getCategoryResponse*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy__ns2__getCategoryResponse(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying _ns2__getCategoryResponse %p -> %p\n", q, p));
+	*(_ns2__getCategoryResponse*)p = *(_ns2__getCategoryResponse*)q;
+}
+
+void _ns2__getCategory::soap_default(struct soap *soap)
+{
+	this->soap = soap;
+	this->_ns2__getCategory::categoryId = NULL;
+	/* transient soap skipped */
+}
+
+void _ns2__getCategory::soap_serialize(struct soap *soap) const
+{
+	(void)soap; /* appease -Wall -Werror */
+	soap_serialize_PointerToint(soap, &this->_ns2__getCategory::categoryId);
+	/* transient soap skipped */
+}
+
+int _ns2__getCategory::soap_put(struct soap *soap, const char *tag, const  char *type) const
+{
+	register int id = soap_embed(soap, (void*)this, NULL, 0, tag, SOAP_TYPE__ns2__getCategory);
+	if (this->soap_out(soap, tag, id, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+int _ns2__getCategory::soap_out(struct soap *soap, const char *tag, int id, const char *type) const
+{
+	return soap_out__ns2__getCategory(soap, tag, id, this, type);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out__ns2__getCategory(struct soap *soap, const char *tag, int id, const _ns2__getCategory *a, const char *type)
+{
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE__ns2__getCategory), type))
+		return soap->error;
+	if (soap_out_PointerToint(soap, "ns2:categoryId", -1, &(a->_ns2__getCategory::categoryId), "xsd:int"))
+		return soap->error;
+	/* transient soap skipped */
+	return soap_element_end_out(soap, tag);
+}
+
+void *_ns2__getCategory::soap_get(struct soap *soap, const char *tag, const char *type)
+{
+	return soap_get__ns2__getCategory(soap, this, tag, type);
+}
+
+SOAP_FMAC3 _ns2__getCategory * SOAP_FMAC4 soap_get__ns2__getCategory(struct soap *soap, _ns2__getCategory *p, const char *tag, const char *type)
+{
+	if ((p = soap_in__ns2__getCategory(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+void *_ns2__getCategory::soap_in(struct soap *soap, const char *tag, const char *type)
+{	return soap_in__ns2__getCategory(soap, tag, this, type);
+}
+
+SOAP_FMAC3 _ns2__getCategory * SOAP_FMAC4 soap_in__ns2__getCategory(struct soap *soap, const char *tag, _ns2__getCategory *a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 0, NULL))
+		return NULL;
+	a = (_ns2__getCategory *)soap_class_id_enter(soap, soap->id, a, SOAP_TYPE__ns2__getCategory, sizeof(_ns2__getCategory), soap->type, soap->arrayType);
+	if (!a)
+		return NULL;
+	if (soap->alloced)
+	{	a->soap_default(soap);
+		if (soap->clist->type != SOAP_TYPE__ns2__getCategory)
+		{	soap_revert(soap);
+			*soap->id = '\0';
+			return (_ns2__getCategory *)a->soap_in(soap, tag, type);
+		}
+	}
+	size_t soap_flag_categoryId1 = 1;
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_categoryId1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerToint(soap, "ns2:categoryId", &(a->_ns2__getCategory::categoryId), "xsd:int"))
+				{	soap_flag_categoryId1--;
+					continue;
+				}
+			/* transient soap skipped */
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (_ns2__getCategory *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE__ns2__getCategory, 0, sizeof(_ns2__getCategory), 0, soap_copy__ns2__getCategory);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC5 _ns2__getCategory * SOAP_FMAC6 soap_new__ns2__getCategory(struct soap *soap, int n)
+{	return soap_instantiate__ns2__getCategory(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete__ns2__getCategory(struct soap *soap, _ns2__getCategory *p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 _ns2__getCategory * SOAP_FMAC4 soap_instantiate__ns2__getCategory(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate__ns2__getCategory(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE__ns2__getCategory, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new _ns2__getCategory;
+		if (size)
+			*size = sizeof(_ns2__getCategory);
+		((_ns2__getCategory*)cp->ptr)->soap = soap;
+	}
+	else
+	{	cp->ptr = (void*)new _ns2__getCategory[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(_ns2__getCategory);
+		for (int i = 0; i < n; i++)
+			((_ns2__getCategory*)cp->ptr)[i].soap = soap;
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (_ns2__getCategory*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy__ns2__getCategory(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying _ns2__getCategory %p -> %p\n", q, p));
+	*(_ns2__getCategory*)p = *(_ns2__getCategory*)q;
+}
+
 void _ns2__getBusinessListResponse::soap_default(struct soap *soap)
 {
 	this->soap = soap;
@@ -2756,6 +3575,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy__ns2__getBusinessList(struct soap *soap, in
 void ns2__MProduct::soap_default(struct soap *soap)
 {
 	this->soap = soap;
+	this->ns2__MProduct::price = NULL;
 	this->ns2__MProduct::stores = NULL;
 	this->ns2__MItem::highlight1 = NULL;
 	this->ns2__MItem::highlight2 = NULL;
@@ -2768,6 +3588,7 @@ void ns2__MProduct::soap_default(struct soap *soap)
 void ns2__MProduct::soap_serialize(struct soap *soap) const
 {
 	(void)soap; /* appease -Wall -Werror */
+	soap_serialize_PointerTofloat(soap, &this->ns2__MProduct::price);
 	soap_serialize_PointerToint(soap, &this->ns2__MProduct::stores);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MItem::highlight1);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MItem::highlight2);
@@ -2805,6 +3626,8 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_out_ns2__MProduct(struct soap *soap, const char *
 	if (soap_out_PointerTostd__string(soap, "ns2:name", -1, &(a->ns2__MItem::name), "xsd:string"))
 		return soap->error;
 	/* transient soap skipped */
+	if (soap_out_PointerTofloat(soap, "ns2:price", -1, &(a->ns2__MProduct::price), "xsd:float"))
+		return soap->error;
 	if (soap_out_PointerToint(soap, "ns2:stores", -1, &(a->ns2__MProduct::stores), "xsd:int"))
 		return soap->error;
 	return soap_element_end_out(soap, tag);
@@ -2847,6 +3670,7 @@ SOAP_FMAC3 ns2__MProduct * SOAP_FMAC4 soap_in_ns2__MProduct(struct soap *soap, c
 	size_t soap_flag_id2 = 1;
 	size_t soap_flag_imageURL2 = 1;
 	size_t soap_flag_name2 = 1;
+	size_t soap_flag_price1 = 1;
 	size_t soap_flag_stores1 = 1;
 	if (soap->body && !*soap->href)
 	{
@@ -2878,6 +3702,11 @@ SOAP_FMAC3 ns2__MProduct * SOAP_FMAC4 soap_in_ns2__MProduct(struct soap *soap, c
 					continue;
 				}
 			/* transient soap skipped */
+			if (soap_flag_price1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTofloat(soap, "ns2:price", &(a->ns2__MProduct::price), "xsd:float"))
+				{	soap_flag_price1--;
+					continue;
+				}
 			if (soap_flag_stores1 && soap->error == SOAP_TAG_MISMATCH)
 				if (soap_in_PointerToint(soap, "ns2:stores", &(a->ns2__MProduct::stores), "xsd:int"))
 				{	soap_flag_stores1--;
@@ -2944,13 +3773,12 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ns2__MProduct(struct soap *soap, int st, in
 void ns2__MProductOffer::soap_default(struct soap *soap)
 {
 	this->soap = soap;
-	this->ns2__MProductOffer::currency = NULL;
+	this->ns2__MProductOffer::businessCreditPoints = NULL;
+	this->ns2__MProductOffer::businessLogo = NULL;
+	this->ns2__MProductOffer::businessRating = NULL;
 	this->ns2__MProductOffer::details = NULL;
 	this->ns2__MProductOffer::id = NULL;
-	this->ns2__MProductOffer::imageURL = NULL;
-	this->ns2__MProductOffer::manufacturer = NULL;
-	this->ns2__MProductOffer::model = NULL;
-	this->ns2__MProductOffer::name = NULL;
+	this->ns2__MProductOffer::inStock = NULL;
 	this->ns2__MProductOffer::price = NULL;
 	this->ns2__MProductOffer::productURL = NULL;
 	this->ns2__MProductOffer::shipmentCost = NULL;
@@ -2960,13 +3788,12 @@ void ns2__MProductOffer::soap_default(struct soap *soap)
 void ns2__MProductOffer::soap_serialize(struct soap *soap) const
 {
 	(void)soap; /* appease -Wall -Werror */
-	soap_serialize_PointerTostd__string(soap, &this->ns2__MProductOffer::currency);
+	soap_serialize_PointerToint(soap, &this->ns2__MProductOffer::businessCreditPoints);
+	soap_serialize_PointerTostd__string(soap, &this->ns2__MProductOffer::businessLogo);
+	soap_serialize_PointerTofloat(soap, &this->ns2__MProductOffer::businessRating);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MProductOffer::details);
 	soap_serialize_PointerToint(soap, &this->ns2__MProductOffer::id);
-	soap_serialize_PointerTostd__string(soap, &this->ns2__MProductOffer::imageURL);
-	soap_serialize_PointerTostd__string(soap, &this->ns2__MProductOffer::manufacturer);
-	soap_serialize_PointerTostd__string(soap, &this->ns2__MProductOffer::model);
-	soap_serialize_PointerTostd__string(soap, &this->ns2__MProductOffer::name);
+	soap_serialize_PointerTobool(soap, &this->ns2__MProductOffer::inStock);
 	soap_serialize_PointerTofloat(soap, &this->ns2__MProductOffer::price);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MProductOffer::productURL);
 	soap_serialize_PointerTofloat(soap, &this->ns2__MProductOffer::shipmentCost);
@@ -2990,19 +3817,17 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_out_ns2__MProductOffer(struct soap *soap, const c
 {
 	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_ns2__MProductOffer), type))
 		return soap->error;
-	if (soap_out_PointerTostd__string(soap, "ns2:currency", -1, &(a->ns2__MProductOffer::currency), "xsd:string"))
+	if (soap_out_PointerToint(soap, "ns2:businessCreditPoints", -1, &(a->ns2__MProductOffer::businessCreditPoints), "xsd:int"))
+		return soap->error;
+	if (soap_out_PointerTostd__string(soap, "ns2:businessLogo", -1, &(a->ns2__MProductOffer::businessLogo), "xsd:string"))
+		return soap->error;
+	if (soap_out_PointerTofloat(soap, "ns2:businessRating", -1, &(a->ns2__MProductOffer::businessRating), "xsd:float"))
 		return soap->error;
 	if (soap_out_PointerTostd__string(soap, "ns2:details", -1, &(a->ns2__MProductOffer::details), "xsd:string"))
 		return soap->error;
 	if (soap_out_PointerToint(soap, "ns2:id", -1, &(a->ns2__MProductOffer::id), "xsd:int"))
 		return soap->error;
-	if (soap_out_PointerTostd__string(soap, "ns2:imageURL", -1, &(a->ns2__MProductOffer::imageURL), "xsd:string"))
-		return soap->error;
-	if (soap_out_PointerTostd__string(soap, "ns2:manufacturer", -1, &(a->ns2__MProductOffer::manufacturer), "xsd:string"))
-		return soap->error;
-	if (soap_out_PointerTostd__string(soap, "ns2:model", -1, &(a->ns2__MProductOffer::model), "xsd:string"))
-		return soap->error;
-	if (soap_out_PointerTostd__string(soap, "ns2:name", -1, &(a->ns2__MProductOffer::name), "xsd:string"))
+	if (soap_out_PointerTobool(soap, "ns2:inStock", -1, &(a->ns2__MProductOffer::inStock), "xsd:boolean"))
 		return soap->error;
 	if (soap_out_PointerTofloat(soap, "ns2:price", -1, &(a->ns2__MProductOffer::price), "xsd:float"))
 		return soap->error;
@@ -3046,13 +3871,12 @@ SOAP_FMAC3 ns2__MProductOffer * SOAP_FMAC4 soap_in_ns2__MProductOffer(struct soa
 			return (ns2__MProductOffer *)a->soap_in(soap, tag, type);
 		}
 	}
-	size_t soap_flag_currency1 = 1;
+	size_t soap_flag_businessCreditPoints1 = 1;
+	size_t soap_flag_businessLogo1 = 1;
+	size_t soap_flag_businessRating1 = 1;
 	size_t soap_flag_details1 = 1;
 	size_t soap_flag_id1 = 1;
-	size_t soap_flag_imageURL1 = 1;
-	size_t soap_flag_manufacturer1 = 1;
-	size_t soap_flag_model1 = 1;
-	size_t soap_flag_name1 = 1;
+	size_t soap_flag_inStock1 = 1;
 	size_t soap_flag_price1 = 1;
 	size_t soap_flag_productURL1 = 1;
 	size_t soap_flag_shipmentCost1 = 1;
@@ -3060,9 +3884,19 @@ SOAP_FMAC3 ns2__MProductOffer * SOAP_FMAC4 soap_in_ns2__MProductOffer(struct soa
 	{
 		for (;;)
 		{	soap->error = SOAP_TAG_MISMATCH;
-			if (soap_flag_currency1 && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
-				if (soap_in_PointerTostd__string(soap, "ns2:currency", &(a->ns2__MProductOffer::currency), "xsd:string"))
-				{	soap_flag_currency1--;
+			if (soap_flag_businessCreditPoints1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerToint(soap, "ns2:businessCreditPoints", &(a->ns2__MProductOffer::businessCreditPoints), "xsd:int"))
+				{	soap_flag_businessCreditPoints1--;
+					continue;
+				}
+			if (soap_flag_businessLogo1 && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_PointerTostd__string(soap, "ns2:businessLogo", &(a->ns2__MProductOffer::businessLogo), "xsd:string"))
+				{	soap_flag_businessLogo1--;
+					continue;
+				}
+			if (soap_flag_businessRating1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTofloat(soap, "ns2:businessRating", &(a->ns2__MProductOffer::businessRating), "xsd:float"))
+				{	soap_flag_businessRating1--;
 					continue;
 				}
 			if (soap_flag_details1 && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
@@ -3075,24 +3909,9 @@ SOAP_FMAC3 ns2__MProductOffer * SOAP_FMAC4 soap_in_ns2__MProductOffer(struct soa
 				{	soap_flag_id1--;
 					continue;
 				}
-			if (soap_flag_imageURL1 && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
-				if (soap_in_PointerTostd__string(soap, "ns2:imageURL", &(a->ns2__MProductOffer::imageURL), "xsd:string"))
-				{	soap_flag_imageURL1--;
-					continue;
-				}
-			if (soap_flag_manufacturer1 && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
-				if (soap_in_PointerTostd__string(soap, "ns2:manufacturer", &(a->ns2__MProductOffer::manufacturer), "xsd:string"))
-				{	soap_flag_manufacturer1--;
-					continue;
-				}
-			if (soap_flag_model1 && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
-				if (soap_in_PointerTostd__string(soap, "ns2:model", &(a->ns2__MProductOffer::model), "xsd:string"))
-				{	soap_flag_model1--;
-					continue;
-				}
-			if (soap_flag_name1 && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
-				if (soap_in_PointerTostd__string(soap, "ns2:name", &(a->ns2__MProductOffer::name), "xsd:string"))
-				{	soap_flag_name1--;
+			if (soap_flag_inStock1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTobool(soap, "ns2:inStock", &(a->ns2__MProductOffer::inStock), "xsd:boolean"))
+				{	soap_flag_inStock1--;
 					continue;
 				}
 			if (soap_flag_price1 && soap->error == SOAP_TAG_MISMATCH)
@@ -3174,9 +3993,11 @@ void ns2__MDetailedProduct::soap_default(struct soap *soap)
 	this->soap = soap;
 	this->ns2__MDetailedProduct::amazonURL = NULL;
 	soap_default_std__vectorTemplateOfPointerTons2__MProductOffer(soap, &this->ns2__MDetailedProduct::offers);
+	this->ns2__MDetailedProduct::price = NULL;
 	this->ns2__MDetailedProduct::reviewURL = NULL;
 	this->ns2__MDetailedProduct::stores = NULL;
 	this->ns2__MDetailedItem::details = NULL;
+	soap_default_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::features);
 	soap_default_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::galleryImageUrls);
 	this->ns2__MDetailedItem::rating = NULL;
 	this->ns2__MDetailedItem::videoURL = NULL;
@@ -3193,9 +4014,11 @@ void ns2__MDetailedProduct::soap_serialize(struct soap *soap) const
 	(void)soap; /* appease -Wall -Werror */
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MDetailedProduct::amazonURL);
 	soap_serialize_std__vectorTemplateOfPointerTons2__MProductOffer(soap, &this->ns2__MDetailedProduct::offers);
+	soap_serialize_PointerTofloat(soap, &this->ns2__MDetailedProduct::price);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MDetailedProduct::reviewURL);
 	soap_serialize_PointerToint(soap, &this->ns2__MDetailedProduct::stores);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MDetailedItem::details);
+	soap_serialize_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::features);
 	soap_serialize_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::galleryImageUrls);
 	soap_serialize_PointerTofloat(soap, &this->ns2__MDetailedItem::rating);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MDetailedItem::videoURL);
@@ -3237,6 +4060,8 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_out_ns2__MDetailedProduct(struct soap *soap, cons
 	/* transient soap skipped */
 	if (soap_out_PointerTostd__string(soap, "ns2:details", -1, &(a->ns2__MDetailedItem::details), "xsd:string"))
 		return soap->error;
+	if (soap_out_std__vectorTemplateOfstd__string(soap, "ns2:features", -1, &(a->ns2__MDetailedItem::features), "xsd:string"))
+		return soap->error;
 	if (soap_out_std__vectorTemplateOfstd__string(soap, "ns2:galleryImageUrls", -1, &(a->ns2__MDetailedItem::galleryImageUrls), "xsd:string"))
 		return soap->error;
 	if (soap_out_PointerTofloat(soap, "ns2:rating", -1, &(a->ns2__MDetailedItem::rating), "xsd:float"))
@@ -3246,6 +4071,8 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_out_ns2__MDetailedProduct(struct soap *soap, cons
 	if (soap_out_PointerTostd__string(soap, "ns2:amazonURL", -1, &(a->ns2__MDetailedProduct::amazonURL), "xsd:string"))
 		return soap->error;
 	if (soap_out_std__vectorTemplateOfPointerTons2__MProductOffer(soap, "ns2:offers", -1, &(a->ns2__MDetailedProduct::offers), "ns2:MProductOffer"))
+		return soap->error;
+	if (soap_out_PointerTofloat(soap, "ns2:price", -1, &(a->ns2__MDetailedProduct::price), "xsd:float"))
 		return soap->error;
 	if (soap_out_PointerTostd__string(soap, "ns2:reviewURL", -1, &(a->ns2__MDetailedProduct::reviewURL), "xsd:string"))
 		return soap->error;
@@ -3295,6 +4122,7 @@ SOAP_FMAC3 ns2__MDetailedProduct * SOAP_FMAC4 soap_in_ns2__MDetailedProduct(stru
 	size_t soap_flag_rating2 = 1;
 	size_t soap_flag_videoURL2 = 1;
 	size_t soap_flag_amazonURL1 = 1;
+	size_t soap_flag_price1 = 1;
 	size_t soap_flag_reviewURL1 = 1;
 	size_t soap_flag_stores1 = 1;
 	if (soap->body && !*soap->href)
@@ -3333,6 +4161,9 @@ SOAP_FMAC3 ns2__MDetailedProduct * SOAP_FMAC4 soap_in_ns2__MDetailedProduct(stru
 					continue;
 				}
 			if (soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_std__vectorTemplateOfstd__string(soap, "ns2:features", &(a->ns2__MDetailedItem::features), "xsd:string"))
+					continue;
+			if (soap->error == SOAP_TAG_MISMATCH)
 				if (soap_in_std__vectorTemplateOfstd__string(soap, "ns2:galleryImageUrls", &(a->ns2__MDetailedItem::galleryImageUrls), "xsd:string"))
 					continue;
 			if (soap_flag_rating2 && soap->error == SOAP_TAG_MISMATCH)
@@ -3353,6 +4184,11 @@ SOAP_FMAC3 ns2__MDetailedProduct * SOAP_FMAC4 soap_in_ns2__MDetailedProduct(stru
 			if (soap->error == SOAP_TAG_MISMATCH)
 				if (soap_in_std__vectorTemplateOfPointerTons2__MProductOffer(soap, "ns2:offers", &(a->ns2__MDetailedProduct::offers), "ns2:MProductOffer"))
 					continue;
+			if (soap_flag_price1 && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTofloat(soap, "ns2:price", &(a->ns2__MDetailedProduct::price), "xsd:float"))
+				{	soap_flag_price1--;
+					continue;
+				}
 			if (soap_flag_reviewURL1 && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
 				if (soap_in_PointerTostd__string(soap, "ns2:reviewURL", &(a->ns2__MDetailedProduct::reviewURL), "xsd:string"))
 				{	soap_flag_reviewURL1--;
@@ -3784,6 +4620,7 @@ void ns2__MDetailedBusinessCard::soap_default(struct soap *soap)
 	this->ns2__MDetailedBusinessCard::contact = NULL;
 	this->ns2__MDetailedBusinessCard::vipLevel = NULL;
 	this->ns2__MDetailedItem::details = NULL;
+	soap_default_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::features);
 	soap_default_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::galleryImageUrls);
 	this->ns2__MDetailedItem::rating = NULL;
 	this->ns2__MDetailedItem::videoURL = NULL;
@@ -3802,6 +4639,7 @@ void ns2__MDetailedBusinessCard::soap_serialize(struct soap *soap) const
 	soap_serialize_PointerTons2__MContactInfo(soap, &this->ns2__MDetailedBusinessCard::contact);
 	soap_serialize_PointerToint(soap, &this->ns2__MDetailedBusinessCard::vipLevel);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MDetailedItem::details);
+	soap_serialize_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::features);
 	soap_serialize_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::galleryImageUrls);
 	soap_serialize_PointerTofloat(soap, &this->ns2__MDetailedItem::rating);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MDetailedItem::videoURL);
@@ -3842,6 +4680,8 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_out_ns2__MDetailedBusinessCard(struct soap *soap,
 		return soap->error;
 	/* transient soap skipped */
 	if (soap_out_PointerTostd__string(soap, "ns2:details", -1, &(a->ns2__MDetailedItem::details), "xsd:string"))
+		return soap->error;
+	if (soap_out_std__vectorTemplateOfstd__string(soap, "ns2:features", -1, &(a->ns2__MDetailedItem::features), "xsd:string"))
 		return soap->error;
 	if (soap_out_std__vectorTemplateOfstd__string(soap, "ns2:galleryImageUrls", -1, &(a->ns2__MDetailedItem::galleryImageUrls), "xsd:string"))
 		return soap->error;
@@ -3937,6 +4777,9 @@ SOAP_FMAC3 ns2__MDetailedBusinessCard * SOAP_FMAC4 soap_in_ns2__MDetailedBusines
 					continue;
 				}
 			if (soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_std__vectorTemplateOfstd__string(soap, "ns2:features", &(a->ns2__MDetailedItem::features), "xsd:string"))
+					continue;
+			if (soap->error == SOAP_TAG_MISMATCH)
 				if (soap_in_std__vectorTemplateOfstd__string(soap, "ns2:galleryImageUrls", &(a->ns2__MDetailedItem::galleryImageUrls), "xsd:string"))
 					continue;
 			if (soap_flag_rating2 && soap->error == SOAP_TAG_MISMATCH)
@@ -4026,6 +4869,7 @@ void ns2__MDetailedItem::soap_default(struct soap *soap)
 {
 	this->soap = soap;
 	this->ns2__MDetailedItem::details = NULL;
+	soap_default_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::features);
 	soap_default_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::galleryImageUrls);
 	this->ns2__MDetailedItem::rating = NULL;
 	this->ns2__MDetailedItem::videoURL = NULL;
@@ -4041,6 +4885,7 @@ void ns2__MDetailedItem::soap_serialize(struct soap *soap) const
 {
 	(void)soap; /* appease -Wall -Werror */
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MDetailedItem::details);
+	soap_serialize_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::features);
 	soap_serialize_std__vectorTemplateOfstd__string(soap, &this->ns2__MDetailedItem::galleryImageUrls);
 	soap_serialize_PointerTofloat(soap, &this->ns2__MDetailedItem::rating);
 	soap_serialize_PointerTostd__string(soap, &this->ns2__MDetailedItem::videoURL);
@@ -4081,6 +4926,8 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_out_ns2__MDetailedItem(struct soap *soap, const c
 		return soap->error;
 	/* transient soap skipped */
 	if (soap_out_PointerTostd__string(soap, "ns2:details", -1, &(a->ns2__MDetailedItem::details), "xsd:string"))
+		return soap->error;
+	if (soap_out_std__vectorTemplateOfstd__string(soap, "ns2:features", -1, &(a->ns2__MDetailedItem::features), "xsd:string"))
 		return soap->error;
 	if (soap_out_std__vectorTemplateOfstd__string(soap, "ns2:galleryImageUrls", -1, &(a->ns2__MDetailedItem::galleryImageUrls), "xsd:string"))
 		return soap->error;
@@ -4166,6 +5013,9 @@ SOAP_FMAC3 ns2__MDetailedItem * SOAP_FMAC4 soap_in_ns2__MDetailedItem(struct soa
 				{	soap_flag_details1--;
 					continue;
 				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_std__vectorTemplateOfstd__string(soap, "ns2:features", &(a->ns2__MDetailedItem::features), "xsd:string"))
+					continue;
 			if (soap->error == SOAP_TAG_MISMATCH)
 				if (soap_in_std__vectorTemplateOfstd__string(soap, "ns2:galleryImageUrls", &(a->ns2__MDetailedItem::galleryImageUrls), "xsd:string"))
 					continue;
@@ -6015,6 +6865,106 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy___ns4__getCategoryList(struct soap *soap, i
 	*(struct __ns4__getCategoryList*)p = *(struct __ns4__getCategoryList*)q;
 }
 
+SOAP_FMAC3 void SOAP_FMAC4 soap_default___ns4__getPopularItems(struct soap *soap, struct __ns4__getPopularItems *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	a->ns2__getPopularItems = NULL;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize___ns4__getPopularItems(struct soap *soap, const struct __ns4__getPopularItems *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_PointerTo_ns2__getPopularItems(soap, &a->ns2__getPopularItems);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put___ns4__getPopularItems(struct soap *soap, const struct __ns4__getPopularItems *a, const char *tag, const char *type)
+{
+	register int id = 0;
+	if (soap_out___ns4__getPopularItems(soap, tag, id, a, type))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out___ns4__getPopularItems(struct soap *soap, const char *tag, int id, const struct __ns4__getPopularItems *a, const char *type)
+{
+	if (soap_out_PointerTo_ns2__getPopularItems(soap, "ns2:getPopularItems", -1, &a->ns2__getPopularItems, ""))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 struct __ns4__getPopularItems * SOAP_FMAC4 soap_get___ns4__getPopularItems(struct soap *soap, struct __ns4__getPopularItems *p, const char *tag, const char *type)
+{
+	if ((p = soap_in___ns4__getPopularItems(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 struct __ns4__getPopularItems * SOAP_FMAC4 soap_in___ns4__getPopularItems(struct soap *soap, const char *tag, struct __ns4__getPopularItems *a, const char *type)
+{
+	size_t soap_flag_ns2__getPopularItems = 1;
+	short soap_flag;
+	a = (struct __ns4__getPopularItems *)soap_id_enter(soap, "", a, SOAP_TYPE___ns4__getPopularItems, sizeof(struct __ns4__getPopularItems), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default___ns4__getPopularItems(soap, a);
+		for (soap_flag = 0;; soap_flag = 1)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_ns2__getPopularItems && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTo_ns2__getPopularItems(soap, "ns2:getPopularItems", &a->ns2__getPopularItems, ""))
+				{	soap_flag_ns2__getPopularItems--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				if (soap_flag)
+				{	soap->error = SOAP_OK;
+					break;
+				}
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+	return a;
+}
+
+SOAP_FMAC5 struct __ns4__getPopularItems * SOAP_FMAC6 soap_new___ns4__getPopularItems(struct soap *soap, int n)
+{	return soap_instantiate___ns4__getPopularItems(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete___ns4__getPopularItems(struct soap *soap, struct __ns4__getPopularItems *p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 struct __ns4__getPopularItems * SOAP_FMAC4 soap_instantiate___ns4__getPopularItems(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate___ns4__getPopularItems(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE___ns4__getPopularItems, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new struct __ns4__getPopularItems;
+		if (size)
+			*size = sizeof(struct __ns4__getPopularItems);
+	}
+	else
+	{	cp->ptr = (void*)new struct __ns4__getPopularItems[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(struct __ns4__getPopularItems);
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (struct __ns4__getPopularItems*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy___ns4__getPopularItems(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct __ns4__getPopularItems %p -> %p\n", q, p));
+	*(struct __ns4__getPopularItems*)p = *(struct __ns4__getPopularItems*)q;
+}
+
 SOAP_FMAC3 void SOAP_FMAC4 soap_default___ns4__getProductDetails(struct soap *soap, struct __ns4__getProductDetails *a)
 {
 	(void)soap; (void)a; /* appease -Wall -Werror */
@@ -6113,6 +7063,106 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy___ns4__getProductDetails(struct soap *soap,
 {
 	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct __ns4__getProductDetails %p -> %p\n", q, p));
 	*(struct __ns4__getProductDetails*)p = *(struct __ns4__getProductDetails*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default___ns4__getCategory(struct soap *soap, struct __ns4__getCategory *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	a->ns2__getCategory = NULL;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize___ns4__getCategory(struct soap *soap, const struct __ns4__getCategory *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_PointerTo_ns2__getCategory(soap, &a->ns2__getCategory);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put___ns4__getCategory(struct soap *soap, const struct __ns4__getCategory *a, const char *tag, const char *type)
+{
+	register int id = 0;
+	if (soap_out___ns4__getCategory(soap, tag, id, a, type))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out___ns4__getCategory(struct soap *soap, const char *tag, int id, const struct __ns4__getCategory *a, const char *type)
+{
+	if (soap_out_PointerTo_ns2__getCategory(soap, "ns2:getCategory", -1, &a->ns2__getCategory, ""))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 struct __ns4__getCategory * SOAP_FMAC4 soap_get___ns4__getCategory(struct soap *soap, struct __ns4__getCategory *p, const char *tag, const char *type)
+{
+	if ((p = soap_in___ns4__getCategory(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 struct __ns4__getCategory * SOAP_FMAC4 soap_in___ns4__getCategory(struct soap *soap, const char *tag, struct __ns4__getCategory *a, const char *type)
+{
+	size_t soap_flag_ns2__getCategory = 1;
+	short soap_flag;
+	a = (struct __ns4__getCategory *)soap_id_enter(soap, "", a, SOAP_TYPE___ns4__getCategory, sizeof(struct __ns4__getCategory), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default___ns4__getCategory(soap, a);
+		for (soap_flag = 0;; soap_flag = 1)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_ns2__getCategory && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTo_ns2__getCategory(soap, "ns2:getCategory", &a->ns2__getCategory, ""))
+				{	soap_flag_ns2__getCategory--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				if (soap_flag)
+				{	soap->error = SOAP_OK;
+					break;
+				}
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+	return a;
+}
+
+SOAP_FMAC5 struct __ns4__getCategory * SOAP_FMAC6 soap_new___ns4__getCategory(struct soap *soap, int n)
+{	return soap_instantiate___ns4__getCategory(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete___ns4__getCategory(struct soap *soap, struct __ns4__getCategory *p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 struct __ns4__getCategory * SOAP_FMAC4 soap_instantiate___ns4__getCategory(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate___ns4__getCategory(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE___ns4__getCategory, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new struct __ns4__getCategory;
+		if (size)
+			*size = sizeof(struct __ns4__getCategory);
+	}
+	else
+	{	cp->ptr = (void*)new struct __ns4__getCategory[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(struct __ns4__getCategory);
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (struct __ns4__getCategory*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy___ns4__getCategory(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct __ns4__getCategory %p -> %p\n", q, p));
+	*(struct __ns4__getCategory*)p = *(struct __ns4__getCategory*)q;
 }
 
 SOAP_FMAC3 void SOAP_FMAC4 soap_default___ns3__getBusinessDetails(struct soap *soap, struct __ns3__getBusinessDetails *a)
@@ -6515,6 +7565,106 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy___ns3__getCategoryList(struct soap *soap, i
 	*(struct __ns3__getCategoryList*)p = *(struct __ns3__getCategoryList*)q;
 }
 
+SOAP_FMAC3 void SOAP_FMAC4 soap_default___ns3__getPopularItems(struct soap *soap, struct __ns3__getPopularItems *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	a->ns2__getPopularItems = NULL;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize___ns3__getPopularItems(struct soap *soap, const struct __ns3__getPopularItems *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_PointerTo_ns2__getPopularItems(soap, &a->ns2__getPopularItems);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put___ns3__getPopularItems(struct soap *soap, const struct __ns3__getPopularItems *a, const char *tag, const char *type)
+{
+	register int id = 0;
+	if (soap_out___ns3__getPopularItems(soap, tag, id, a, type))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out___ns3__getPopularItems(struct soap *soap, const char *tag, int id, const struct __ns3__getPopularItems *a, const char *type)
+{
+	if (soap_out_PointerTo_ns2__getPopularItems(soap, "ns2:getPopularItems", -1, &a->ns2__getPopularItems, ""))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 struct __ns3__getPopularItems * SOAP_FMAC4 soap_get___ns3__getPopularItems(struct soap *soap, struct __ns3__getPopularItems *p, const char *tag, const char *type)
+{
+	if ((p = soap_in___ns3__getPopularItems(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 struct __ns3__getPopularItems * SOAP_FMAC4 soap_in___ns3__getPopularItems(struct soap *soap, const char *tag, struct __ns3__getPopularItems *a, const char *type)
+{
+	size_t soap_flag_ns2__getPopularItems = 1;
+	short soap_flag;
+	a = (struct __ns3__getPopularItems *)soap_id_enter(soap, "", a, SOAP_TYPE___ns3__getPopularItems, sizeof(struct __ns3__getPopularItems), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default___ns3__getPopularItems(soap, a);
+		for (soap_flag = 0;; soap_flag = 1)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_ns2__getPopularItems && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTo_ns2__getPopularItems(soap, "ns2:getPopularItems", &a->ns2__getPopularItems, ""))
+				{	soap_flag_ns2__getPopularItems--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				if (soap_flag)
+				{	soap->error = SOAP_OK;
+					break;
+				}
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+	return a;
+}
+
+SOAP_FMAC5 struct __ns3__getPopularItems * SOAP_FMAC6 soap_new___ns3__getPopularItems(struct soap *soap, int n)
+{	return soap_instantiate___ns3__getPopularItems(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete___ns3__getPopularItems(struct soap *soap, struct __ns3__getPopularItems *p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 struct __ns3__getPopularItems * SOAP_FMAC4 soap_instantiate___ns3__getPopularItems(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate___ns3__getPopularItems(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE___ns3__getPopularItems, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new struct __ns3__getPopularItems;
+		if (size)
+			*size = sizeof(struct __ns3__getPopularItems);
+	}
+	else
+	{	cp->ptr = (void*)new struct __ns3__getPopularItems[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(struct __ns3__getPopularItems);
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (struct __ns3__getPopularItems*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy___ns3__getPopularItems(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct __ns3__getPopularItems %p -> %p\n", q, p));
+	*(struct __ns3__getPopularItems*)p = *(struct __ns3__getPopularItems*)q;
+}
+
 SOAP_FMAC3 void SOAP_FMAC4 soap_default___ns3__getProductDetails(struct soap *soap, struct __ns3__getProductDetails *a)
 {
 	(void)soap; (void)a; /* appease -Wall -Werror */
@@ -6613,6 +7763,106 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy___ns3__getProductDetails(struct soap *soap,
 {
 	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct __ns3__getProductDetails %p -> %p\n", q, p));
 	*(struct __ns3__getProductDetails*)p = *(struct __ns3__getProductDetails*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default___ns3__getCategory(struct soap *soap, struct __ns3__getCategory *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	a->ns2__getCategory = NULL;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize___ns3__getCategory(struct soap *soap, const struct __ns3__getCategory *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_PointerTo_ns2__getCategory(soap, &a->ns2__getCategory);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put___ns3__getCategory(struct soap *soap, const struct __ns3__getCategory *a, const char *tag, const char *type)
+{
+	register int id = 0;
+	if (soap_out___ns3__getCategory(soap, tag, id, a, type))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out___ns3__getCategory(struct soap *soap, const char *tag, int id, const struct __ns3__getCategory *a, const char *type)
+{
+	if (soap_out_PointerTo_ns2__getCategory(soap, "ns2:getCategory", -1, &a->ns2__getCategory, ""))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 struct __ns3__getCategory * SOAP_FMAC4 soap_get___ns3__getCategory(struct soap *soap, struct __ns3__getCategory *p, const char *tag, const char *type)
+{
+	if ((p = soap_in___ns3__getCategory(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 struct __ns3__getCategory * SOAP_FMAC4 soap_in___ns3__getCategory(struct soap *soap, const char *tag, struct __ns3__getCategory *a, const char *type)
+{
+	size_t soap_flag_ns2__getCategory = 1;
+	short soap_flag;
+	a = (struct __ns3__getCategory *)soap_id_enter(soap, "", a, SOAP_TYPE___ns3__getCategory, sizeof(struct __ns3__getCategory), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default___ns3__getCategory(soap, a);
+		for (soap_flag = 0;; soap_flag = 1)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_ns2__getCategory && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_PointerTo_ns2__getCategory(soap, "ns2:getCategory", &a->ns2__getCategory, ""))
+				{	soap_flag_ns2__getCategory--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				if (soap_flag)
+				{	soap->error = SOAP_OK;
+					break;
+				}
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+	return a;
+}
+
+SOAP_FMAC5 struct __ns3__getCategory * SOAP_FMAC6 soap_new___ns3__getCategory(struct soap *soap, int n)
+{	return soap_instantiate___ns3__getCategory(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete___ns3__getCategory(struct soap *soap, struct __ns3__getCategory *p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 struct __ns3__getCategory * SOAP_FMAC4 soap_instantiate___ns3__getCategory(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate___ns3__getCategory(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE___ns3__getCategory, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new struct __ns3__getCategory;
+		if (size)
+			*size = sizeof(struct __ns3__getCategory);
+	}
+	else
+	{	cp->ptr = (void*)new struct __ns3__getCategory[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(struct __ns3__getCategory);
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (struct __ns3__getCategory*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy___ns3__getCategory(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct __ns3__getCategory %p -> %p\n", q, p));
+	*(struct __ns3__getCategory*)p = *(struct __ns3__getCategory*)q;
 }
 
 #ifndef WITH_NOGLOBAL
@@ -7220,6 +8470,116 @@ SOAP_FMAC3 _ns2__getCategoryList ** SOAP_FMAC4 soap_in_PointerTo_ns2__getCategor
 	return a;
 }
 
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerTo_ns2__getPopularItemsResponse(struct soap *soap, _ns2__getPopularItemsResponse *const*a)
+{
+	if (!soap_reference(soap, *a, SOAP_TYPE__ns2__getPopularItemsResponse))
+		(*a)->soap_serialize(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_PointerTo_ns2__getPopularItemsResponse(struct soap *soap, _ns2__getPopularItemsResponse *const*a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_PointerTo_ns2__getPopularItemsResponse);
+	if (soap_out_PointerTo_ns2__getPopularItemsResponse(soap, tag, id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerTo_ns2__getPopularItemsResponse(struct soap *soap, const char *tag, int id, _ns2__getPopularItemsResponse *const*a, const char *type)
+{
+	id = soap_element_id(soap, tag, id, *a, NULL, 0, type, SOAP_TYPE__ns2__getPopularItemsResponse);
+	if (id < 0)
+		return soap->error;
+	return (*a)->soap_out(soap, tag, id, type);
+}
+
+SOAP_FMAC3 _ns2__getPopularItemsResponse ** SOAP_FMAC4 soap_get_PointerTo_ns2__getPopularItemsResponse(struct soap *soap, _ns2__getPopularItemsResponse **p, const char *tag, const char *type)
+{
+	if ((p = soap_in_PointerTo_ns2__getPopularItemsResponse(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 _ns2__getPopularItemsResponse ** SOAP_FMAC4 soap_in_PointerTo_ns2__getPopularItemsResponse(struct soap *soap, const char *tag, _ns2__getPopularItemsResponse **a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 1, NULL))
+		return NULL;
+	if (!a)
+		if (!(a = (_ns2__getPopularItemsResponse **)soap_malloc(soap, sizeof(_ns2__getPopularItemsResponse *))))
+			return NULL;
+	*a = NULL;
+	if (!soap->null && *soap->href != '#')
+	{	soap_revert(soap);
+		if (!(*a = (_ns2__getPopularItemsResponse *)soap_instantiate__ns2__getPopularItemsResponse(soap, -1, soap->type, soap->arrayType, NULL)))
+			return NULL;
+		(*a)->soap_default(soap);
+		if (!(*a)->soap_in(soap, tag, NULL))
+			return NULL;
+	}
+	else
+	{	_ns2__getPopularItemsResponse ** p = (_ns2__getPopularItemsResponse **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE__ns2__getPopularItemsResponse, sizeof(_ns2__getPopularItemsResponse), 0);
+		a = p;
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerTo_ns2__getPopularItems(struct soap *soap, _ns2__getPopularItems *const*a)
+{
+	if (!soap_reference(soap, *a, SOAP_TYPE__ns2__getPopularItems))
+		(*a)->soap_serialize(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_PointerTo_ns2__getPopularItems(struct soap *soap, _ns2__getPopularItems *const*a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_PointerTo_ns2__getPopularItems);
+	if (soap_out_PointerTo_ns2__getPopularItems(soap, tag, id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerTo_ns2__getPopularItems(struct soap *soap, const char *tag, int id, _ns2__getPopularItems *const*a, const char *type)
+{
+	id = soap_element_id(soap, tag, id, *a, NULL, 0, type, SOAP_TYPE__ns2__getPopularItems);
+	if (id < 0)
+		return soap->error;
+	return (*a)->soap_out(soap, tag, id, type);
+}
+
+SOAP_FMAC3 _ns2__getPopularItems ** SOAP_FMAC4 soap_get_PointerTo_ns2__getPopularItems(struct soap *soap, _ns2__getPopularItems **p, const char *tag, const char *type)
+{
+	if ((p = soap_in_PointerTo_ns2__getPopularItems(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 _ns2__getPopularItems ** SOAP_FMAC4 soap_in_PointerTo_ns2__getPopularItems(struct soap *soap, const char *tag, _ns2__getPopularItems **a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 1, NULL))
+		return NULL;
+	if (!a)
+		if (!(a = (_ns2__getPopularItems **)soap_malloc(soap, sizeof(_ns2__getPopularItems *))))
+			return NULL;
+	*a = NULL;
+	if (!soap->null && *soap->href != '#')
+	{	soap_revert(soap);
+		if (!(*a = (_ns2__getPopularItems *)soap_instantiate__ns2__getPopularItems(soap, -1, soap->type, soap->arrayType, NULL)))
+			return NULL;
+		(*a)->soap_default(soap);
+		if (!(*a)->soap_in(soap, tag, NULL))
+			return NULL;
+	}
+	else
+	{	_ns2__getPopularItems ** p = (_ns2__getPopularItems **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE__ns2__getPopularItems, sizeof(_ns2__getPopularItems), 0);
+		a = p;
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerTo_ns2__getProductDetailsResponse(struct soap *soap, _ns2__getProductDetailsResponse *const*a)
 {
 	if (!soap_reference(soap, *a, SOAP_TYPE__ns2__getProductDetailsResponse))
@@ -7323,6 +8683,116 @@ SOAP_FMAC3 _ns2__getProductDetails ** SOAP_FMAC4 soap_in_PointerTo_ns2__getProdu
 	}
 	else
 	{	_ns2__getProductDetails ** p = (_ns2__getProductDetails **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE__ns2__getProductDetails, sizeof(_ns2__getProductDetails), 0);
+		a = p;
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerTo_ns2__getCategoryResponse(struct soap *soap, _ns2__getCategoryResponse *const*a)
+{
+	if (!soap_reference(soap, *a, SOAP_TYPE__ns2__getCategoryResponse))
+		(*a)->soap_serialize(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_PointerTo_ns2__getCategoryResponse(struct soap *soap, _ns2__getCategoryResponse *const*a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_PointerTo_ns2__getCategoryResponse);
+	if (soap_out_PointerTo_ns2__getCategoryResponse(soap, tag, id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerTo_ns2__getCategoryResponse(struct soap *soap, const char *tag, int id, _ns2__getCategoryResponse *const*a, const char *type)
+{
+	id = soap_element_id(soap, tag, id, *a, NULL, 0, type, SOAP_TYPE__ns2__getCategoryResponse);
+	if (id < 0)
+		return soap->error;
+	return (*a)->soap_out(soap, tag, id, type);
+}
+
+SOAP_FMAC3 _ns2__getCategoryResponse ** SOAP_FMAC4 soap_get_PointerTo_ns2__getCategoryResponse(struct soap *soap, _ns2__getCategoryResponse **p, const char *tag, const char *type)
+{
+	if ((p = soap_in_PointerTo_ns2__getCategoryResponse(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 _ns2__getCategoryResponse ** SOAP_FMAC4 soap_in_PointerTo_ns2__getCategoryResponse(struct soap *soap, const char *tag, _ns2__getCategoryResponse **a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 1, NULL))
+		return NULL;
+	if (!a)
+		if (!(a = (_ns2__getCategoryResponse **)soap_malloc(soap, sizeof(_ns2__getCategoryResponse *))))
+			return NULL;
+	*a = NULL;
+	if (!soap->null && *soap->href != '#')
+	{	soap_revert(soap);
+		if (!(*a = (_ns2__getCategoryResponse *)soap_instantiate__ns2__getCategoryResponse(soap, -1, soap->type, soap->arrayType, NULL)))
+			return NULL;
+		(*a)->soap_default(soap);
+		if (!(*a)->soap_in(soap, tag, NULL))
+			return NULL;
+	}
+	else
+	{	_ns2__getCategoryResponse ** p = (_ns2__getCategoryResponse **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE__ns2__getCategoryResponse, sizeof(_ns2__getCategoryResponse), 0);
+		a = p;
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerTo_ns2__getCategory(struct soap *soap, _ns2__getCategory *const*a)
+{
+	if (!soap_reference(soap, *a, SOAP_TYPE__ns2__getCategory))
+		(*a)->soap_serialize(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_PointerTo_ns2__getCategory(struct soap *soap, _ns2__getCategory *const*a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_PointerTo_ns2__getCategory);
+	if (soap_out_PointerTo_ns2__getCategory(soap, tag, id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerTo_ns2__getCategory(struct soap *soap, const char *tag, int id, _ns2__getCategory *const*a, const char *type)
+{
+	id = soap_element_id(soap, tag, id, *a, NULL, 0, type, SOAP_TYPE__ns2__getCategory);
+	if (id < 0)
+		return soap->error;
+	return (*a)->soap_out(soap, tag, id, type);
+}
+
+SOAP_FMAC3 _ns2__getCategory ** SOAP_FMAC4 soap_get_PointerTo_ns2__getCategory(struct soap *soap, _ns2__getCategory **p, const char *tag, const char *type)
+{
+	if ((p = soap_in_PointerTo_ns2__getCategory(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 _ns2__getCategory ** SOAP_FMAC4 soap_in_PointerTo_ns2__getCategory(struct soap *soap, const char *tag, _ns2__getCategory **a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 1, NULL))
+		return NULL;
+	if (!a)
+		if (!(a = (_ns2__getCategory **)soap_malloc(soap, sizeof(_ns2__getCategory *))))
+			return NULL;
+	*a = NULL;
+	if (!soap->null && *soap->href != '#')
+	{	soap_revert(soap);
+		if (!(*a = (_ns2__getCategory *)soap_instantiate__ns2__getCategory(soap, -1, soap->type, soap->arrayType, NULL)))
+			return NULL;
+		(*a)->soap_default(soap);
+		if (!(*a)->soap_in(soap, tag, NULL))
+			return NULL;
+	}
+	else
+	{	_ns2__getCategory ** p = (_ns2__getCategory **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE__ns2__getCategory, sizeof(_ns2__getCategory), 0);
 		a = p;
 		if (soap->body && soap_element_end_in(soap, tag))
 			return NULL;
@@ -7550,6 +9020,81 @@ SOAP_FMAC3 ns2__MProduct ** SOAP_FMAC4 soap_in_PointerTons2__MProduct(struct soa
 	return a;
 }
 
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerTons2__MItem(struct soap *soap, ns2__MItem *const*a)
+{
+	if (!soap_reference(soap, *a, SOAP_TYPE_ns2__MItem))
+		(*a)->soap_serialize(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_PointerTons2__MItem(struct soap *soap, ns2__MItem *const*a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_PointerTons2__MItem);
+	if (soap_out_PointerTons2__MItem(soap, tag, id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerTons2__MItem(struct soap *soap, const char *tag, int id, ns2__MItem *const*a, const char *type)
+{
+	id = soap_element_id(soap, tag, id, *a, NULL, 0, type, SOAP_TYPE_ns2__MItem);
+	if (id < 0)
+		return soap->error;
+	return (*a)->soap_out(soap, tag, id, type);
+}
+
+SOAP_FMAC3 ns2__MItem ** SOAP_FMAC4 soap_get_PointerTons2__MItem(struct soap *soap, ns2__MItem **p, const char *tag, const char *type)
+{
+	if ((p = soap_in_PointerTons2__MItem(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 ns2__MItem ** SOAP_FMAC4 soap_in_PointerTons2__MItem(struct soap *soap, const char *tag, ns2__MItem **a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 1, NULL))
+		return NULL;
+	if (!a)
+		if (!(a = (ns2__MItem **)soap_malloc(soap, sizeof(ns2__MItem *))))
+			return NULL;
+	*a = NULL;
+	if (!soap->null && *soap->href != '#')
+	{	soap_revert(soap);
+		if (!(*a = (ns2__MItem *)soap_instantiate_ns2__MItem(soap, -1, soap->type, soap->arrayType, NULL)))
+			return NULL;
+		(*a)->soap_default(soap);
+		if (!(*a)->soap_in(soap, tag, NULL))
+			return NULL;
+	}
+	else
+	{	ns2__MItem ** p = (ns2__MItem **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE_ns2__MItem, sizeof(ns2__MItem), 0);
+		if (!p && soap->error == SOAP_HREF)
+		{	soap->error = SOAP_OK;
+			p = (ns2__MItem **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE_ns2__MBusinessCard, sizeof(ns2__MBusinessCard), 0);
+		}
+		if (!p && soap->error == SOAP_HREF)
+		{	soap->error = SOAP_OK;
+			p = (ns2__MItem **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE_ns2__MDetailedItem, sizeof(ns2__MDetailedItem), 0);
+		}
+		if (!p && soap->error == SOAP_HREF)
+		{	soap->error = SOAP_OK;
+			p = (ns2__MItem **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE_ns2__MProduct, sizeof(ns2__MProduct), 0);
+		}
+		if (!p && soap->error == SOAP_HREF)
+		{	soap->error = SOAP_OK;
+			p = (ns2__MItem **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE_ns2__MDetailedBusinessCard, sizeof(ns2__MDetailedBusinessCard), 0);
+		}
+		if (!p && soap->error == SOAP_HREF)
+		{	soap->error = SOAP_OK;
+			p = (ns2__MItem **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE_ns2__MDetailedProduct, sizeof(ns2__MDetailedProduct), 0);
+		}
+		a = p;
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerTons2__MDetailedProduct(struct soap *soap, ns2__MDetailedProduct *const*a)
 {
 	if (!soap_reference(soap, *a, SOAP_TYPE_ns2__MDetailedProduct))
@@ -7709,6 +9254,56 @@ SOAP_FMAC3 ns2__MBusinessCard ** SOAP_FMAC4 soap_in_PointerTons2__MBusinessCard(
 	else
 	{	ns2__MBusinessCard ** p = (ns2__MBusinessCard **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE_ns2__MBusinessCard, sizeof(ns2__MBusinessCard), 0);
 		a = p;
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerTobool(struct soap *soap, bool *const*a)
+{
+	soap_reference(soap, *a, SOAP_TYPE_bool);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_PointerTobool(struct soap *soap, bool *const*a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_PointerTobool);
+	if (soap_out_PointerTobool(soap, tag, id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerTobool(struct soap *soap, const char *tag, int id, bool *const*a, const char *type)
+{
+	id = soap_element_id(soap, tag, id, *a, NULL, 0, type, SOAP_TYPE_bool);
+	if (id < 0)
+		return soap->error;
+	return soap_out_bool(soap, tag, id, *a, type);
+}
+
+SOAP_FMAC3 bool ** SOAP_FMAC4 soap_get_PointerTobool(struct soap *soap, bool **p, const char *tag, const char *type)
+{
+	if ((p = soap_in_PointerTobool(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 bool ** SOAP_FMAC4 soap_in_PointerTobool(struct soap *soap, const char *tag, bool **a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 1, NULL))
+		return NULL;
+	if (!a)
+		if (!(a = (bool **)soap_malloc(soap, sizeof(bool *))))
+			return NULL;
+	*a = NULL;
+	if (!soap->null && *soap->href != '#')
+	{	soap_revert(soap);
+		if (!(*a = soap_in_bool(soap, tag, *a, type)))
+			return NULL;
+	}
+	else
+	{	a = (bool **)soap_id_lookup(soap, soap->href, (void**)a, SOAP_TYPE_bool, sizeof(bool), 0);
 		if (soap->body && soap_element_end_in(soap, tag))
 			return NULL;
 	}
@@ -8266,6 +9861,97 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_std__vectorTemplateOfPointerTons2__MProduct
 {
 	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying std::vector<ns2__MProduct * > %p -> %p\n", q, p));
 	*(std::vector<ns2__MProduct * >*)p = *(std::vector<ns2__MProduct * >*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_std__vectorTemplateOfPointerTons2__MItem(struct soap *soap, std::vector<ns2__MItem * >*p)
+{
+	p->clear();
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_std__vectorTemplateOfPointerTons2__MItem(struct soap *soap, const std::vector<ns2__MItem * >*a)
+{
+	for (std::vector<ns2__MItem * >::const_iterator i = a->begin(); i != a->end(); ++i)
+		soap_serialize_PointerTons2__MItem(soap, &(*i));
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_std__vectorTemplateOfPointerTons2__MItem(struct soap *soap, const char *tag, int id, const std::vector<ns2__MItem * >*a, const char *type)
+{
+	for (std::vector<ns2__MItem * >::const_iterator i = a->begin(); i != a->end(); ++i)
+	{
+		if (soap_out_PointerTons2__MItem(soap, tag, id, &(*i), "ns2:MItem"))
+			return soap->error;
+	}
+	return SOAP_OK;
+}
+
+SOAP_FMAC3 std::vector<ns2__MItem * >* SOAP_FMAC4 soap_in_std__vectorTemplateOfPointerTons2__MItem(struct soap *soap, const char *tag, std::vector<ns2__MItem * >*a, const char *type)
+{
+	if (soap_element_begin_in(soap, tag, 1, NULL))
+		return NULL;
+	if (!a && !(a = soap_new_std__vectorTemplateOfPointerTons2__MItem(soap, -1)))
+		return NULL;
+	ns2__MItem *n;
+	short soap_flag = 0;
+	do
+	{	soap_revert(soap);
+		n = NULL;
+		if (*soap->id || *soap->href)
+		{	if (!soap_container_id_forward(soap, *soap->id?soap->id:soap->href, a, (size_t)a->size(), SOAP_TYPE_ns2__MItem, SOAP_TYPE_std__vectorTemplateOfPointerTons2__MItem, sizeof(ns2__MItem), 1))
+				break;
+			if (!soap_in_PointerTons2__MItem(soap, tag, NULL, "ns2:MItem"))
+				break;
+		}
+		else
+		{
+			if (!soap_in_PointerTons2__MItem(soap, tag, &n, "ns2:MItem"))
+				break;
+		}
+		a->push_back(n);
+		soap_flag = 1;
+	}
+	while (tag && *tag != '-' && !soap_element_begin_in(soap, tag, 1, NULL));
+	if (soap_flag && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+	{	soap->error = SOAP_OK;
+		return a;
+	}
+	return NULL;
+}
+
+SOAP_FMAC5 std::vector<ns2__MItem * > * SOAP_FMAC6 soap_new_std__vectorTemplateOfPointerTons2__MItem(struct soap *soap, int n)
+{	return soap_instantiate_std__vectorTemplateOfPointerTons2__MItem(soap, n, NULL, NULL, NULL);
+}
+
+SOAP_FMAC5 void SOAP_FMAC6 soap_delete_std__vectorTemplateOfPointerTons2__MItem(struct soap *soap, std::vector<ns2__MItem * >*p)
+{	soap_delete(soap, p);
+}
+
+SOAP_FMAC3 std::vector<ns2__MItem * > * SOAP_FMAC4 soap_instantiate_std__vectorTemplateOfPointerTons2__MItem(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate_std__vectorTemplateOfPointerTons2__MItem(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE_std__vectorTemplateOfPointerTons2__MItem, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)new std::vector<ns2__MItem * >;
+		if (size)
+			*size = sizeof(std::vector<ns2__MItem * >);
+	}
+	else
+	{	cp->ptr = (void*)new std::vector<ns2__MItem * >[n];
+		if (!cp->ptr)
+		{	soap->error = SOAP_EOM;
+			return NULL;
+		}
+		if (size)
+			*size = n * sizeof(std::vector<ns2__MItem * >);
+	}
+		DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	return (std::vector<ns2__MItem * >*)cp->ptr;
+}
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_std__vectorTemplateOfPointerTons2__MItem(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying std::vector<ns2__MItem * > %p -> %p\n", q, p));
+	*(std::vector<ns2__MItem * >*)p = *(std::vector<ns2__MItem * >*)q;
 }
 
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_std__vectorTemplateOfPointerTons2__MBusinessCard(struct soap *soap, std::vector<ns2__MBusinessCard * >*p)

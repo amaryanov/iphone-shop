@@ -76,14 +76,17 @@ public:
 private:
 	void copyMemebers(const ns2__MProductOffer *pMp)
 	{
+/*
 		if(pMp->currency)
 			currency=[NSString stringWithUTF8String:pMp->currency->c_str()];
+ */
 		if(pMp->details)
 			details=[NSString stringWithUTF8String:pMp->details->c_str()];
 		if(pMp->id)
 			this->id=*(pMp->id);
 		else
 			this->id=-1;
+/*
 		if(pMp->imageURL)
 			imageURL=[NSString stringWithUTF8String:pMp->imageURL->c_str()];
 		if(pMp->manufacturer)
@@ -92,6 +95,7 @@ private:
 			model=[NSString stringWithUTF8String:pMp->model->c_str()];
 		if(pMp->name)
 			name=[NSString stringWithUTF8String:pMp->name->c_str()];
+*/
 		if(pMp->price)
 			price=*(pMp->price);
 		else
