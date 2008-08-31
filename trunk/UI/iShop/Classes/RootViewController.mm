@@ -102,7 +102,8 @@ NSString *str;
 	CategoryViewCell *categCell=(CategoryViewCell *)cell;
 		cout<<indexPath.row<<endl<<pCategs->categs[indexPath.row].name<<endl;;
 		str=[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()];
-		str=[NSString stringWithFormat:@"%s (%d)",pCategs->categs[indexPath.row].name.c_str(),(int)(pCategs->categs[indexPath.row].itemsCnt)];
+		if(pCategs->categs[indexPath.row].childs.size() == 0)
+			str=[NSString stringWithFormat:@"%s (%d)",pCategs->categs[indexPath.row].name.c_str(),(int)(pCategs->categs[indexPath.row].itemsCnt)];
 		[categCell.name setText:str];
 		if(pCategs->categs[indexPath.row].imageUrl.size())
 		{
