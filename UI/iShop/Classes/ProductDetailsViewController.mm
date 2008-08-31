@@ -135,6 +135,8 @@ public:
 			amazonURL=[NSString stringWithUTF8String:pProd->amazonURL->c_str()];
 		if(pProd->reviewURL)
 			reviewURL=[NSString stringWithUTF8String:pProd->reviewURL->c_str()];
+		if(pProd->videoURL)
+			videoURL = [NSString stringWithUTF8String:pProd->videoURL->c_str()];
 		if(pProd->highlight1)
 			highlight1=[NSString stringWithUTF8String:pProd->highlight1->c_str()];
 		if(pProd->highlight2)
@@ -183,7 +185,7 @@ public:
 @implementation ProductDetailsViewController
 
 @synthesize productId;
-@synthesize firstCell, secondCell, buttonsCell;
+@synthesize firstCell, secondCell, buttonsCell, videoButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -232,6 +234,118 @@ public:
 	}
 	return cell;
 }
+- (IBAction)PlayVideo:(id)sender {
+	if(youtubeVideoMP4URL)
+	{
+		[self initMoviePlayer];
+    
+		[mMoviePlayer play];
+	}
+}
+//  Notification called when the movie finished preloading.
+- (void) moviePreloadDidFinish:(NSNotification*)notification
+{
+    /* 
+	 < add your code here >
+	 */
+}
+
+//  Notification called when the movie finished playing.
+- (void) moviePlayBackDidFinish:(NSNotification*)notification
+{
+	[mMoviePlayer release];
+}
+
+//  Notification called when the movie scaling mode has changed.
+- (void) movieScalingModeDidChange:(NSNotification*)notification
+{
+    /* 
+	 < add your code here >
+	 
+	 For example:
+	 MPMoviePlayerController* theMovie=[aNotification object];
+	 etc.
+	 */
+}
+
+-(void)initMoviePlayer
+{
+    /*
+	 
+	 Because it takes time to load movie files into memory, MPMoviePlayerController
+	 automatically begins loading your movie file shortly after you initialize a new 
+	 instance. When it is done preloading the movie file, it sends the
+	 MPMoviePlayerContentPreloadDidFinishNotification notification to any registered 
+	 observers. If an error occurred during loading, the userInfo dictionary of the 
+	 notification object contains the error information. If you call the play method 
+	 before preloading is complete, no notification is sent and your movie begins 
+	 playing as soon as it is loaded into memory.
+	 
+	 */
+	
+    // Register to receive a notification when the movie is in memory and ready to play.
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(moviePreloadDidFinish:) 
+												 name:MPMoviePlayerContentPreloadDidFinishNotification 
+											   object:nil];
+    /*
+	 
+	 Now create a MPMoviePlayerController object using the movie file provided in our bundle.
+	 
+	 The MPMoviePlayerController class supports any movie or audio files that already play 
+	 correctly on an iPod or iPhone. For movie files, this typically means files with the extensions 
+	 .mov, .mp4, .mpv, and .3gp and using one of the following compression standards:
+	 
+	 - H.264 Baseline Profile Level 3.0 video, up to 640 x 480 at 30 fps. Note that B frames 
+	 are not supported in the Baseline profile.
+	 
+	 - MPEG-4 Part 2 video (Simple Profile)
+	 
+	 If you use this class to play audio files, it displays a black screen while the audio plays. For 
+	 audio files, this class class supports AAC-LC audio at up to 48 kHz.
+	 
+	 */
+	
+    mMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:youtubeVideoMP4URL]];
+	
+    /*
+	 In addition to the MPMoviePlayerContentPreloadDidFinishNotification notification,
+	 the MPMoviePlayerPlaybackDidFinishNotification notification is sent to
+	 registered observers when the movie has finished playing, and the 
+	 MPMoviePlayerScalingModeDidChangeNotification notification is sent when the 
+	 movie scaling mode has changed.
+	 */
+    
+    // Register to receive a notification when the movie has finished playing. 
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(moviePlayBackDidFinish:) 
+												 name:MPMoviePlayerPlaybackDidFinishNotification 
+											   object:mMoviePlayer];
+	
+    // Register to receive a notification when the movie scaling mode has changed. 
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(movieScalingModeDidChange:) 
+												 name:MPMoviePlayerScalingModeDidChangeNotification 
+											   object:mMoviePlayer];
+	
+    /* Set movie player settings (scaling, controller type and background color) to the currently set values
+	 as specified in the Settings application */
+	
+    /* 
+	 Movie scaling mode can be one of: MPMovieScalingModeNone, MPMovieScalingModeAspectFit,
+	 MPMovieScalingModeAspectFill, MPMovieScalingModeFill.
+	 */
+    
+    /* 
+	 Movie control mode can be one of: MPMovieControlModeDefault, MPMovieControlModeVolumeOnly,
+	 MPMovieControlModeHidden.
+	 */
+	
+    /*
+	 The color of the background area behind the movie can be any UIColor value.
+	 */
+	
+}
 /*
  Implement loadView if you want to create a view hierarchy programmatically
 - (void)loadView {
@@ -259,12 +373,19 @@ _ns2__getProductDetailsResponse srvResp;
 		firstCell.highlight2.text=pProdData->highlight2;
 		[firstCell loadingImage:pProdData->imageURL];
 		secondCell.details.text=pProdData->details;
+		MyYouTube* t = [[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];
 	}
 	if(pProdData)
 		[self.navigationItem setTitle:pProdData->name];
 	
 }
 
+-(void)setYoutubeMovieURL:(NSString*)vidURL
+{
+	youtubeVideoMP4URL = vidURL;
+	[youtubeVideoMP4URL retain];
+	videoButton.enabled = YES;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 CGFloat retVal=44;
@@ -297,6 +418,7 @@ CGFloat retVal=44;
 
 - (void)dealloc {
 	[super dealloc];
+	[youtubeVideoMP4URL release];
 }
 
 

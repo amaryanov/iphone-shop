@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "TestYoutube.h"
 
 class CProductDataContainer;
 @class ProductDetailCellView;
@@ -14,13 +16,19 @@ class CProductDataContainer;
 @interface ProductDetailsViewController : UIViewController {
 	int productId;
 	CProductDataContainer *pProdData;
+    MPMoviePlayerController *mMoviePlayer;
+	NSString* youtubeVideoMP4URL;
 	IBOutlet ProductDetailCellView		*firstCell;
 	IBOutlet ProductDescriptCellView	*secondCell;
 	IBOutlet UITableViewCell			*buttonsCell;
+	IBOutlet UIButton					*videoButton;
 }
 @property(readwrite) int productId;
 @property(retain, nonatomic) ProductDetailCellView		*firstCell;
 @property(retain, nonatomic) ProductDescriptCellView	*secondCell;
 @property(retain, nonatomic) UITableViewCell			*buttonsCell;
+@property(retain, nonatomic) UIButton					*videoButton;
+- (IBAction)PlayVideo:(id)sender;
+-(void)initMoviePlayer;
 
 @end

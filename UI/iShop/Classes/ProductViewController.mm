@@ -56,7 +56,6 @@ public:
 			highlight1=[[NSString stringWithUTF8String:pProd->highlight1->c_str()] retain];
 		if(pProd->highlight2)
 			highlight2=[[NSString stringWithUTF8String:pProd->highlight2->c_str()] retain];
-			
 	}
 public:
 	int id;
@@ -127,6 +126,8 @@ static NSString *MyIdentifier = @"ProductCellIdentifier";
 		[prodCell.highlight1 setText:pProducts->products[indexPath.row].highlight1];
 		[prodCell.highlight2 setText:pProducts->products[indexPath.row].highlight2];
 		[prodCell loadingImage:pProducts->products[indexPath.row].imageURL];
+		NSString *cellPrice = [pProducts->products[indexPath.row].price stringByAppendingFormat:@" (in %@ stores)", pProducts->products[indexPath.row].stores];
+		[prodCell.price setText:cellPrice];
 //		[str release];
 	}
 
