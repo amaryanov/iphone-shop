@@ -20,11 +20,11 @@
 class CProduct
 {
 public:
-	CProduct():id(-1),stores(0)
+	CProduct():id(-1),price(0)
 	{
 		memset(arr,0,sizeof(arr));
 	}
-	CProduct(const CProduct &pr):id(pr.id),stores(pr.stores)
+	CProduct(const CProduct &pr):id(pr.id),price(pr.price)
 	{
 		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
 		{
@@ -46,8 +46,6 @@ public:
 		memset(arr,0,sizeof(arr));
 		if(pProd->id)
 			this->id=*(pProd->id);
-		if(pProd->stores)
-			stores=*(pProd->stores);
 		if(pProd->name)
 			name=[[NSString stringWithUTF8String:pProd->name->c_str()] retain];
 		if(pProd->imageURL)
@@ -56,10 +54,16 @@ public:
 			highlight1=[[NSString stringWithUTF8String:pProd->highlight1->c_str()] retain];
 		if(pProd->highlight2)
 			highlight2=[[NSString stringWithUTF8String:pProd->highlight2->c_str()] retain];
+		if(pProd->price)
+		{
+		int stores=0;
+			if(pProd->stores)
+				stores=*(pProd->stores);
+			price=[[NSString stringWithFormat:@"From %1.2f in (%d) stores",*(pProd->price),stores] retain];
+		}
 	}
 public:
 	int id;
-	int stores;
 	union
 	{
 		struct
@@ -126,8 +130,7 @@ static NSString *MyIdentifier = @"ProductCellIdentifier";
 		[prodCell.highlight1 setText:pProducts->products[indexPath.row].highlight1];
 		[prodCell.highlight2 setText:pProducts->products[indexPath.row].highlight2];
 		[prodCell loadingImage:pProducts->products[indexPath.row].imageURL];
-		NSString *cellPrice = [pProducts->products[indexPath.row].price stringByAppendingFormat:@" (in %@ stores)", pProducts->products[indexPath.row].stores];
-		[prodCell.price setText:cellPrice];
+		[prodCell.price setText:pProducts->products[indexPath.row].price];
 //		[str release];
 	}
 
@@ -171,7 +174,7 @@ _ns2__getProductListResponse srvResp;
 		buildProducts(pProducts->products,srvResp.return_);
 //		printCategs(pCategs->categs,"");
 	}
-	[self.navigationItem setTitle:@"Products"];
+//	[self.navigationItem setTitle:@"Products"];
 }
 
 

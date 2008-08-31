@@ -6,8 +6,62 @@
 */
 #include "soapH.h"
 
-SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.7.11 2008-08-27 19:35:29 GMT")
+SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.7.11 2008-08-31 19:39:24 GMT")
 
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getCategory(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getCategory *ns2__getCategory, _ns2__getCategoryResponse *ns2__getCategoryResponse)
+{	struct __ns3__getCategory soap_tmp___ns3__getCategory;
+	if (!soap_endpoint)
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
+	if (!soap_action)
+		soap_action = "urn:getCategory";
+	soap->encodingStyle = NULL;
+	soap_tmp___ns3__getCategory.ns2__getCategory = ns2__getCategory;
+	soap_begin(soap);
+	soap_serializeheader(soap);
+	soap_serialize___ns3__getCategory(soap, &soap_tmp___ns3__getCategory);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if (soap->mode & SOAP_IO_LENGTH)
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___ns3__getCategory(soap, &soap_tmp___ns3__getCategory, "-ns3:getCategory", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___ns3__getCategory(soap, &soap_tmp___ns3__getCategory, "-ns3:getCategory", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	if (!ns2__getCategoryResponse)
+		return soap_closesock(soap);
+	ns2__getCategoryResponse->soap_default(soap);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	ns2__getCategoryResponse->soap_get(soap, "ns2:getCategoryResponse", "");
+	if (soap->error)
+	{	if (soap->error == SOAP_TAG_MISMATCH && soap->level == 2)
+			return soap_recv_fault(soap);
+		return soap_closesock(soap);
+	}
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getProductDetails(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getProductDetails *ns2__getProductDetails, _ns2__getProductDetailsResponse *ns2__getProductDetailsResponse)
 {	struct __ns3__getProductDetails soap_tmp___ns3__getProductDetails;
@@ -51,6 +105,60 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getProductDetails(struct soap *soap, 
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
 	ns2__getProductDetailsResponse->soap_get(soap, "ns2:getProductDetailsResponse", "");
+	if (soap->error)
+	{	if (soap->error == SOAP_TAG_MISMATCH && soap->level == 2)
+			return soap_recv_fault(soap);
+		return soap_closesock(soap);
+	}
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getPopularItems(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getPopularItems *ns2__getPopularItems, _ns2__getPopularItemsResponse *ns2__getPopularItemsResponse)
+{	struct __ns3__getPopularItems soap_tmp___ns3__getPopularItems;
+	if (!soap_endpoint)
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap11Endpoint";
+	if (!soap_action)
+		soap_action = "urn:getPopularItems";
+	soap->encodingStyle = NULL;
+	soap_tmp___ns3__getPopularItems.ns2__getPopularItems = ns2__getPopularItems;
+	soap_begin(soap);
+	soap_serializeheader(soap);
+	soap_serialize___ns3__getPopularItems(soap, &soap_tmp___ns3__getPopularItems);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if (soap->mode & SOAP_IO_LENGTH)
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___ns3__getPopularItems(soap, &soap_tmp___ns3__getPopularItems, "-ns3:getPopularItems", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___ns3__getPopularItems(soap, &soap_tmp___ns3__getPopularItems, "-ns3:getPopularItems", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	if (!ns2__getPopularItemsResponse)
+		return soap_closesock(soap);
+	ns2__getPopularItemsResponse->soap_default(soap);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	ns2__getPopularItemsResponse->soap_get(soap, "ns2:getPopularItemsResponse", "");
 	if (soap->error)
 	{	if (soap->error == SOAP_TAG_MISMATCH && soap->level == 2)
 			return soap_recv_fault(soap);
@@ -279,6 +387,60 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getBusinessDetails(struct soap *soap,
 	return soap_closesock(soap);
 }
 
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getCategory(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getCategory *ns2__getCategory, _ns2__getCategoryResponse *ns2__getCategoryResponse)
+{	struct __ns4__getCategory soap_tmp___ns4__getCategory;
+	if (!soap_endpoint)
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
+	if (!soap_action)
+		soap_action = "urn:getCategory";
+	soap->encodingStyle = NULL;
+	soap_tmp___ns4__getCategory.ns2__getCategory = ns2__getCategory;
+	soap_begin(soap);
+	soap_serializeheader(soap);
+	soap_serialize___ns4__getCategory(soap, &soap_tmp___ns4__getCategory);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if (soap->mode & SOAP_IO_LENGTH)
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___ns4__getCategory(soap, &soap_tmp___ns4__getCategory, "-ns4:getCategory", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___ns4__getCategory(soap, &soap_tmp___ns4__getCategory, "-ns4:getCategory", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	if (!ns2__getCategoryResponse)
+		return soap_closesock(soap);
+	ns2__getCategoryResponse->soap_default(soap);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	ns2__getCategoryResponse->soap_get(soap, "ns2:getCategoryResponse", "");
+	if (soap->error)
+	{	if (soap->error == SOAP_TAG_MISMATCH && soap->level == 2)
+			return soap_recv_fault(soap);
+		return soap_closesock(soap);
+	}
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getProductDetails(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getProductDetails *ns2__getProductDetails, _ns2__getProductDetailsResponse *ns2__getProductDetailsResponse)
 {	struct __ns4__getProductDetails soap_tmp___ns4__getProductDetails;
 	if (!soap_endpoint)
@@ -321,6 +483,60 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getProductDetails(struct soap *soap, 
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
 	ns2__getProductDetailsResponse->soap_get(soap, "ns2:getProductDetailsResponse", "");
+	if (soap->error)
+	{	if (soap->error == SOAP_TAG_MISMATCH && soap->level == 2)
+			return soap_recv_fault(soap);
+		return soap_closesock(soap);
+	}
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns4__getPopularItems(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getPopularItems *ns2__getPopularItems, _ns2__getPopularItemsResponse *ns2__getPopularItemsResponse)
+{	struct __ns4__getPopularItems soap_tmp___ns4__getPopularItems;
+	if (!soap_endpoint)
+		soap_endpoint = "http://kenlo.gotdns.com:8080/axis2/services/MobileService.MobileServiceHttpSoap12Endpoint";
+	if (!soap_action)
+		soap_action = "urn:getPopularItems";
+	soap->encodingStyle = NULL;
+	soap_tmp___ns4__getPopularItems.ns2__getPopularItems = ns2__getPopularItems;
+	soap_begin(soap);
+	soap_serializeheader(soap);
+	soap_serialize___ns4__getPopularItems(soap, &soap_tmp___ns4__getPopularItems);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if (soap->mode & SOAP_IO_LENGTH)
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___ns4__getPopularItems(soap, &soap_tmp___ns4__getPopularItems, "-ns4:getPopularItems", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___ns4__getPopularItems(soap, &soap_tmp___ns4__getPopularItems, "-ns4:getPopularItems", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	if (!ns2__getPopularItemsResponse)
+		return soap_closesock(soap);
+	ns2__getPopularItemsResponse->soap_default(soap);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	ns2__getPopularItemsResponse->soap_get(soap, "ns2:getPopularItemsResponse", "");
 	if (soap->error)
 	{	if (soap->error == SOAP_TAG_MISMATCH && soap->level == 2)
 			return soap_recv_fault(soap);

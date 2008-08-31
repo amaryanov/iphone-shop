@@ -30,8 +30,12 @@ class MobileServiceSoap12Binding
 	soap->namespaces = namespaces; } };
 	/// Destructor frees deserialized data and soap engine context
 	virtual ~MobileServiceSoap12Binding() { if (soap) { soap_destroy(soap); soap_end(soap); soap_free(soap); } };
+	/// Invoke 'getCategory' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
+	virtual int __ns4__getCategory(_ns2__getCategory *ns2__getCategory, _ns2__getCategoryResponse *ns2__getCategoryResponse) { return soap ? soap_call___ns4__getCategory(soap, endpoint, NULL, ns2__getCategory, ns2__getCategoryResponse) : SOAP_EOM; };
 	/// Invoke 'getProductDetails' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
 	virtual int __ns4__getProductDetails(_ns2__getProductDetails *ns2__getProductDetails, _ns2__getProductDetailsResponse *ns2__getProductDetailsResponse) { return soap ? soap_call___ns4__getProductDetails(soap, endpoint, NULL, ns2__getProductDetails, ns2__getProductDetailsResponse) : SOAP_EOM; };
+	/// Invoke 'getPopularItems' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
+	virtual int __ns4__getPopularItems(_ns2__getPopularItems *ns2__getPopularItems, _ns2__getPopularItemsResponse *ns2__getPopularItemsResponse) { return soap ? soap_call___ns4__getPopularItems(soap, endpoint, NULL, ns2__getPopularItems, ns2__getPopularItemsResponse) : SOAP_EOM; };
 	/// Invoke 'getCategoryList' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
 	virtual int __ns4__getCategoryList(_ns2__getCategoryList *ns2__getCategoryList, _ns2__getCategoryListResponse *ns2__getCategoryListResponse) { return soap ? soap_call___ns4__getCategoryList(soap, endpoint, NULL, ns2__getCategoryList, ns2__getCategoryListResponse) : SOAP_EOM; };
 	/// Invoke 'getBusinessList' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)

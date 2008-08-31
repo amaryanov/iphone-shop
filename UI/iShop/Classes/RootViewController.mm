@@ -18,19 +18,22 @@
 class CCategory
 {
 public:
-	CCategory():ref(1){}
-	CCategory(const CCategory &cl):id(cl.id),name(cl.name),imageUrl(cl.imageUrl),childs(cl.childs),ref(cl.ref+1)
+	CCategory():ref(1),itemsCnt(0){}
+	CCategory(const CCategory &cl):id(cl.id),itemsCnt(cl.itemsCnt),name(cl.name),imageUrl(cl.imageUrl),childs(cl.childs),ref(cl.ref+1)
 	{
 	}
 	CCategory &operator =(const ns2__MCategory *ct)
 	{
 		this->id=*(ct->id);
 		name=*(ct->name);
+		if(ct->totalItems)
+			itemsCnt=*(ct->totalItems);
 		if(ct->imageURL)
 			imageUrl=*(ct->imageURL);
 		return *this;
 	}
 	int id;
+	float itemsCnt;
 	std::string name;
 	std::string imageUrl;
 	std::vector<CCategory> childs;
@@ -99,6 +102,7 @@ NSString *str;
 	CategoryViewCell *categCell=(CategoryViewCell *)cell;
 		cout<<indexPath.row<<endl<<pCategs->categs[indexPath.row].name<<endl;;
 		str=[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()];
+		str=[NSString stringWithFormat:@"%s (%d)",pCategs->categs[indexPath.row].name.c_str(),(int)(pCategs->categs[indexPath.row].itemsCnt)];
 		[categCell.name setText:str];
 		if(pCategs->categs[indexPath.row].imageUrl.size())
 		{
@@ -136,6 +140,7 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 		ProductViewController *prods;
 			prods=[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil];
 			prods.categoryId=pCategs->categs[indexPath.row].id;
+			[prods.navigationItem setTitle:[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()]];
 			[[self navigationController] pushViewController:prods animated:YES];
 		}
 	}
