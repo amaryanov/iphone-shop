@@ -378,11 +378,22 @@ _ns2__getProductDetailsResponse srvResp;
 		[firstCell loadingImage:pProdData->imageURL];
 		secondCell.details.text=pProdData->details;
 		MyYouTube* t = [[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];
+		galleryImageUrls = pProdData->galleryImageUrls;
+		[galleryImageUrls retain];
+
 	}
 	if(pProdData)
 		[self.navigationItem setTitle:pProdData->name];
 	
 }
+
+- (IBAction)PlayGallery:(id)sender {
+ 	ImageViewController *imageViewer;
+ 	imageViewer = [[ImageViewController alloc] initWithNibName:@"ImageView" bundle:nil];
+ 	imageViewer.images = galleryImageUrls;
+ 	[[self navigationController] pushViewController:imageViewer animated:YES];
+}
+
 
 -(void)setYoutubeMovieURL:(NSString*)vidURL
 {
