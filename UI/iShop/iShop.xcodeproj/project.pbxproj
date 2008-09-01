@@ -124,10 +124,10 @@
 		5555F54D0E59973400873B98 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5555F54C0E59973400873B98 /* CategoryCell.xib */; };
 		5555F5510E59975600873B98 /* CategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5555F5500E59975600873B98 /* CategoryViewCell.m */; };
 		5555F5F90E59A3F400873B98 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5555F5F80E59A3F400873B98 /* ProductViewController.xib */; };
-		5585F5930E48700F00CD7F8A /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5585F5920E48700F00CD7F8A /* RootViewController.xib */; };
+		5585F5930E48700F00CD7F8A /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5585F5920E48700F00CD7F8A /* CategoryViewController.xib */; };
 		5585F5DA0E4872EA00CD7F8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5585F5D90E4872EA00CD7F8A /* CoreGraphics.framework */; };
 		558E1A1B0E4ADA0300FFE537 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 558E1A1A0E4ADA0300FFE537 /* main.mm */; };
-		559B7FA60E4C3E7E00B453FE /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 559B7FA50E4C3E7E00B453FE /* RootViewController.mm */; };
+		559B7FA60E4C3E7E00B453FE /* CategoryViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */; };
 		55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A6FE820E5C1DC700285F99 /* ProductDetails.xib */; };
 		55A6FE870E5C1DF100285F99 /* ProductDetailsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */; };
 		55B679D00E65C8A300DABBF5 /* BaseCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B679CF0E65C8A300DABBF5 /* BaseCellView.m */; };
@@ -368,11 +368,11 @@
 		5555F54F0E59975600873B98 /* CategoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewCell.h; sourceTree = "<group>"; };
 		5555F5500E59975600873B98 /* CategoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewCell.m; sourceTree = "<group>"; };
 		5555F5F80E59A3F400873B98 /* ProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
-		5585F5920E48700F00CD7F8A /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		5585F5920E48700F00CD7F8A /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 		5585F5D90E4872EA00CD7F8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		558E1A170E4AD9F600FFE537 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		558E1A170E4AD9F600FFE537 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		558E1A1A0E4ADA0300FFE537 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		559B7FA50E4C3E7E00B453FE /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
+		559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CategoryViewController.mm; sourceTree = "<group>"; };
 		55A6FE820E5C1DC700285F99 /* ProductDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetails.xib; sourceTree = "<group>"; };
 		55A6FE850E5C1DF100285F99 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductDetailsViewController.mm; sourceTree = "<group>"; };
@@ -413,8 +413,8 @@
 				5555F4B60E59836400873B98 /* TableCellView */,
 				5506DAFD0E5AB4B9000846DB /* ProductViewController.h */,
 				5506DAFE0E5AB4B9000846DB /* ProductViewController.mm */,
-				559B7FA50E4C3E7E00B453FE /* RootViewController.mm */,
-				558E1A170E4AD9F600FFE537 /* RootViewController.h */,
+				559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */,
+				558E1A170E4AD9F600FFE537 /* CategoryViewController.h */,
 				3AF0654E0E4A3BF000670BC7 /* YoutubeViewController.h */,
 				3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */,
 				1D3623240D0F684500981E51 /* iShopAppDelegate.h */,
@@ -469,7 +469,7 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				55A6FE820E5C1DC700285F99 /* ProductDetails.xib */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
-				5585F5920E48700F00CD7F8A /* RootViewController.xib */,
+				5585F5920E48700F00CD7F8A /* CategoryViewController.xib */,
 				5555F5040E59905100873B98 /* ProductViewCell.xib */,
 				5555F54C0E59973400873B98 /* CategoryCell.xib */,
 				5555F5F80E59A3F400873B98 /* ProductViewController.xib */,
@@ -850,7 +850,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
-				5585F5930E48700F00CD7F8A /* RootViewController.xib in Resources */,
+				5585F5930E48700F00CD7F8A /* CategoryViewController.xib in Resources */,
 				5555F5050E59905100873B98 /* ProductViewCell.xib in Resources */,
 				5555F54D0E59973400873B98 /* CategoryCell.xib in Resources */,
 				5555F5F90E59A3F400873B98 /* ProductViewController.xib in Resources */,
@@ -969,7 +969,7 @@
 				3AF0682A0E4A3FB700670BC7 /* GDataQueryYouTube.m in Sources */,
 				3AF0682B0E4A3FB700670BC7 /* GDataServiceGoogleYouTube.m in Sources */,
 				558E1A1B0E4ADA0300FFE537 /* main.mm in Sources */,
-				559B7FA60E4C3E7E00B453FE /* RootViewController.mm in Sources */,
+				559B7FA60E4C3E7E00B453FE /* CategoryViewController.mm in Sources */,
 				5555F4B90E5983AC00873B98 /* ProductViewCell.m in Sources */,
 				5555F5510E59975600873B98 /* CategoryViewCell.m in Sources */,
 				5506DAFF0E5AB4B9000846DB /* ProductViewController.mm in Sources */,
