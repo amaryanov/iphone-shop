@@ -195,7 +195,7 @@ CCategory ct;
 			buildCategs(pCategs->categs,catListResp->return_);
 			printCategs(pCategs->categs,"");
 		}
-		[self.navigationItem setTitle:@"Root"];
+		[self.navigationItem setTitle:@"Categories"];
 	}
 	
 
