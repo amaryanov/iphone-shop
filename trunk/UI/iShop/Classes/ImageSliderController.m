@@ -59,6 +59,7 @@
 		current = [buttons count] - 1;
 	ImageButton *ib = [buttons objectAtIndex:current];
 	imgView.image = [ib backgroundImageForState:UIControlStateNormal];
+	self.navigationItem.title = [NSString stringWithFormat:@"%d of %d", current + 1, [buttons count]];
 }
 -(void)fwdImg
 {
@@ -67,6 +68,7 @@
 		current = 0;
 	ImageButton *ib = [buttons objectAtIndex:current];
 	imgView.image = [ib backgroundImageForState:UIControlStateNormal];
+	self.navigationItem.title = [NSString stringWithFormat:@"%d of %d", current + 1, [buttons count]];
 }
 - (IBAction)BackBtnTouchInside:(id)sender
 {
@@ -111,6 +113,7 @@
 	[[[UIApplication sharedApplication] keyWindow] addSubview:fwdBtn];
 	[[[UIApplication sharedApplication] keyWindow] addSubview:playBtn];
 	[UIApplication sharedApplication].statusBarStyle = 1;
+	self.navigationItem.title = [NSString stringWithFormat:@"%d of %d", current + 1, [buttons count]];
 	self.tabBarController.view.alpha = 0.7;
 	iShopAppDelegate *mainDelegate = [iShopAppDelegate MainDelegate];
 	mainDelegate.tabBar.alpha = 0.0;

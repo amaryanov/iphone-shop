@@ -11,7 +11,8 @@
 #import "ImageSliderController.h"
 
 #define IMAGES_PER_LINE 4
-#define IMAGE_WIDTH 320 / IMAGES_PER_LINE
+#define IMAGE_PADDING 4
+#define IMAGE_WIDTH ((320 - (IMAGES_PER_LINE + 1)*IMAGE_PADDING) / IMAGES_PER_LINE)
 
 @interface ImageViewController : UIViewController {
 	IBOutlet ImageSliderController *slider;
