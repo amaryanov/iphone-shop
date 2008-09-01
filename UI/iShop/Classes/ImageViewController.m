@@ -36,14 +36,15 @@
 - (void)viewDidLoad {
 	
 	 self.navigationItem.title = @"Images";
-	 int i, j, row;
+	 int i, j, row, col;
 	j = 0;
 	 for(i = 0; i < [images count]; i++)
 	 {
 		 if([images objectAtIndex:i] != nil)
 		 {
 			 row = j/IMAGES_PER_LINE;
-			 CGRect buttonFrame = CGRectMake(IMAGE_WIDTH*(i - row*IMAGES_PER_LINE), IMAGE_WIDTH*row, IMAGE_WIDTH, IMAGE_WIDTH);
+			 col = i - row*IMAGES_PER_LINE;
+			 CGRect buttonFrame = CGRectMake(IMAGE_WIDTH*col + IMAGE_PADDING*(col + 1), IMAGE_WIDTH*row + IMAGE_PADDING*(row + 1), IMAGE_WIDTH, IMAGE_WIDTH);
 			 ImageButton *button = [[ImageButton alloc] initWithFrame:buttonFrame];
 			 button.imgNum = j;
 			 [button setBackgroundImage:[UIImage imageNamed:@"iphone.jpg"] forState:UIControlStateNormal];

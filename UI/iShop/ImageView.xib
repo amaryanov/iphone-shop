@@ -30,7 +30,7 @@
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MSAwIDEAA</bytes>
+					<bytes key="NSRGB">MCAwIDAAA</bytes>
 				</object>
 			</object>
 			<object class="IBUIViewController" id="777299365">
@@ -41,6 +41,10 @@
 				<int key="NSvFlags">301</int>
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
+				<object class="NSColor" key="IBUIBackgroundColor">
+					<int key="NSColorSpace">3</int>
+					<bytes key="NSWhite">MAA</bytes>
+				</object>
 				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<int key="IBUIContentMode">1</int>
@@ -337,7 +341,7 @@
 					<string>NSMutableArray</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>CustomUIImageView</string>
-					<string>{{0, 244}, {320, 480}}</string>
+					<string>{{362, 229}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>ImageSliderController</string>
 					<string>{{167, 67}, {320, 480}}</string>
@@ -439,13 +443,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>buttons</string>
 							<string>slider</string>
-							<string>tabBar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSMutableArray</string>
 							<string>ImageSliderController</string>
-							<string>UITabBar</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -505,7 +507,7 @@
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
-		<string key="IBDocument.LastKnownRelativeProjectPath">TestIV.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">iShop.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>

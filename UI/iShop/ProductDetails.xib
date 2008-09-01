@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="9"/>
 			<integer value="14"/>
+			<integer value="9"/>
 			<integer value="17"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -84,8 +84,7 @@
 				<int key="IBUISectionIndexMinimumDisplayRowCount">1</int>
 				<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
 				<float key="IBUIRowHeight">4.400000e+01</float>
-				<float key="IBUISectionHeaderHeight">2.700000e+01</float>
-				<float key="IBUISectionFooterHeight">2.700000e+01</float>
+				<float key="IBUISectionHeaderHeight">1.000000e+01</float>
 			</object>
 			<object class="IBUITableViewCell" id="147463810">
 				<reference key="NSNextResponder"/>
