@@ -12,10 +12,12 @@
 #import "ProductViewController.h"
 #import "ProductViewCell.h"
 #import "ProductDetailsViewController.h"
+#import "LoadMoreViewCell.h"
 
 //#include "soapIMobileSoap12BindingProxy.h"
 #include "soapMobileServiceSoap12BindingProxy.h"
 
+#define BATCH_SIZE	3
 
 class CProduct
 {
@@ -84,8 +86,14 @@ public:
 	std::vector<CProduct> products;
 };
 using namespace std;
+
 @implementation ProductViewController
+@synthesize loadMoreCell,mainTable;
 @synthesize categoryId;
+@synthesize itemsCnt;
+
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
 		// Initialization code
@@ -101,47 +109,91 @@ using namespace std;
 {
 NSInteger retVal=0;
 	if(pProducts)
+	{
 		retVal=pProducts->products.size();
+		if(retVal != itemsCnt)
+			retVal++;//for load more;
+	}
 	return retVal;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	
 static NSString *MyIdentifier = @"ProductCellIdentifier";
-	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-	if (cell == nil) 
+UITableViewCell *cell;
+	NSLog(@"%d",indexPath.row);
+	if( indexPath.row == itemsWasLoaded )
 	{
-	NSArray *topObjs;
-		topObjs =  [[NSBundle mainBundle] loadNibNamed:@"ProductViewCell" owner:self options:nil];
-		if( (topObjs) )//&& ([topObjs containsObject:ProductViewCell]) )
-		{
-			cell=[topObjs objectAtIndex:1];
-		}
+		loadMoreCell.label.text=[NSString stringWithFormat:@"Load more %d ...",BATCH_SIZE];
+		cell=loadMoreCell;
 	}
-	// Configure the cell
-
-	if( (pProducts) && (cell) )
+	else
 	{
-	ProductViewCell *prodCell=(ProductViewCell *)cell;
-		[prodCell.name setText:pProducts->products[indexPath.row].name];
-		[prodCell.highlight1 setText:pProducts->products[indexPath.row].highlight1];
-		[prodCell.highlight2 setText:pProducts->products[indexPath.row].highlight2];
-		[prodCell loadingImage:pProducts->products[indexPath.row].imageURL];
-		[prodCell.price setText:pProducts->products[indexPath.row].price];
-//		[str release];
+		cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+		if (cell == nil) 
+		{
+		NSArray *topObjs;
+			topObjs =  [[NSBundle mainBundle] loadNibNamed:@"ProductViewCell" owner:self options:nil];
+			if( (topObjs) )//&& ([topObjs containsObject:ProductViewCell]) )
+			{
+				cell=[topObjs objectAtIndex:1];
+			}
+		}
+		// Configure the cell
+		if( (pProducts) && (cell) )
+		{
+		ProductViewCell *prodCell=(ProductViewCell *)cell;
+			[prodCell.name setText:pProducts->products[indexPath.row].name];
+			[prodCell.highlight1 setText:pProducts->products[indexPath.row].highlight1];
+			[prodCell.highlight2 setText:pProducts->products[indexPath.row].highlight2];
+			[prodCell loadingImage:pProducts->products[indexPath.row].imageURL];
+			[prodCell.price setText:pProducts->products[indexPath.row].price];
+		}
 	}
 
 	return cell;
 }
+void buildProducts(vector<CProduct> &products,std::vector<class ns2__MProduct * > &vals)
+{
+	std::vector<class ns2__MProduct * >::iterator iter=vals.begin();
+	for(;iter != vals.end();iter++)
+	{
+		products.push_back(*iter);
+	}
+}
+- (void)requestItemsFromId:(int)fromId
+{
+MobileServiceSoap12Binding client;
+	_ns2__getProductList srvRequest;//=new _ns1__getProductList();
+	_ns2__getProductListResponse srvResp;
+	srvRequest.categoryId=new int(categoryId);
+	srvRequest.startItemId=new int(fromId);
+	srvRequest.batchSize=new int(BATCH_SIZE);
+	srvRequest.languageId=new int(0);
+	if( SOAP_OK == client.__ns4__getProductList(&srvRequest,&srvResp) )
+	{
+		buildProducts(pProducts->products,srvResp.return_);
+//		itemsWasLoaded+=(itemsCnt > BATCH_SIZE)?BATCH_SIZE:itemsCnt;
+		itemsWasLoaded=pProducts->products.size();
+		//		printCategs(pCategs->categs,"");
+	}
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-ProductDetailsViewController *pDetails;
-	pDetails=[[ProductDetailsViewController alloc] initWithNibName:@"ProductDetails" bundle:nil];
-	pDetails.productId=pProducts->products[indexPath.row].id;
-	[[self navigationController] pushViewController:pDetails animated:YES];
+	if(indexPath.row == itemsWasLoaded)
+	{
+		[self requestItemsFromId:(pProducts->products.end()-1)->id];
+		[mainTable reloadData];
+	}
+	else
+	{
+	ProductDetailsViewController *pDetails;
+		pDetails=[[ProductDetailsViewController alloc] initWithNibName:@"ProductDetails" bundle:nil];
+		pDetails.productId=pProducts->products[indexPath.row].id;
+		[[self navigationController] pushViewController:pDetails animated:YES];
+	}
 }
 /*
  Implement loadView if you want to create a view hierarchy programmatically
@@ -149,34 +201,23 @@ ProductDetailsViewController *pDetails;
 }
  */
 
-void buildProducts(vector<CProduct> &products,std::vector<class ns2__MProduct * > &vals)
-{
-std::vector<class ns2__MProduct * >::iterator iter=vals.begin();
-CProduct product;
-	for(;iter != vals.end();iter++)
-	{
-		products.push_back(*iter);
-	}
-}
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void)viewDidLoad 
 {
-MobileServiceSoap12Binding client;
-_ns2__getProductList srvRequest;//=new _ns1__getProductList();
-_ns2__getProductListResponse srvResp;
-	srvRequest.categoryId=new int(categoryId);
-	srvRequest.startItemId=new int(0);
-	srvRequest.batchSize=new int(0);
-	srvRequest.languageId=new int(0);
-	if( SOAP_OK == client.__ns4__getProductList(&srvRequest,&srvResp) )
-	{
-		pProducts=new CProductListContainer();
-		buildProducts(pProducts->products,srvResp.return_);
-//		printCategs(pCategs->categs,"");
-	}
-//	[self.navigationItem setTitle:@"Products"];
+	pProducts=new CProductListContainer();
+	itemsWasLoaded=0;
+	[self requestItemsFromId:0];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+CGFloat retVal;
+	if(indexPath.row == itemsWasLoaded)
+		retVal=44;
+	else
+		retVal=120;
+	return retVal;
+}
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

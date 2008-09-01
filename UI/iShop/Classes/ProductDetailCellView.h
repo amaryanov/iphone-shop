@@ -13,14 +13,14 @@
 @interface ProductDetailCellView : BaseCellView
 {
 	IBOutlet UILabel		*name;
-	IBOutlet UILabel		*rang;
+	IBOutlet UIView			*rangView;
 	IBOutlet UIImageView	*prodImg;
 	IBOutlet UILabel 		*highlight1;
 	IBOutlet UILabel 		*highlight2;
 }
 @property (nonatomic, retain)  UILabel		*name;
-@property (nonatomic, retain)  UILabel		*rang;
-@property (nonatomic, retain)  UITextView	*description;
+@property (nonatomic, retain)  UIView		*rangView;
+//@property (nonatomic, retain)  UITextView	*description;
 @property (nonatomic, retain)  UIImageView	*prodImg;
 @property (nonatomic, retain)  UILabel 		*highlight1;
 @property (nonatomic, retain)  UILabel 		*highlight2;

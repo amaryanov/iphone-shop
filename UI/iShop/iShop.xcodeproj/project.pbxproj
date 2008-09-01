@@ -130,6 +130,10 @@
 		559B7FA60E4C3E7E00B453FE /* CategoryViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */; };
 		55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A6FE820E5C1DC700285F99 /* ProductDetails.xib */; };
 		55A6FE870E5C1DF100285F99 /* ProductDetailsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */; };
+		55AFB9550E6C94D400DDEC6B /* LoadMoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AFB9540E6C94D400DDEC6B /* LoadMoreViewCell.m */; };
+		55AFB9A30E6C9AEC00DDEC6B /* empty-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AFB9A00E6C9AEC00DDEC6B /* empty-star.png */; };
+		55AFB9A40E6C9AEC00DDEC6B /* full-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AFB9A10E6C9AEC00DDEC6B /* full-star.png */; };
+		55AFB9A50E6C9AEC00DDEC6B /* half-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AFB9A20E6C9AEC00DDEC6B /* half-star.png */; };
 		55B679D00E65C8A300DABBF5 /* BaseCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B679CF0E65C8A300DABBF5 /* BaseCellView.m */; };
 		55B67A580E65D83500DABBF5 /* MobileServiceSoap11Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B67A4E0E65D83400DABBF5 /* MobileServiceSoap11Binding.nsmap */; };
 		55B67A590E65D83500DABBF5 /* MobileServiceSoap12Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B67A4F0E65D83400DABBF5 /* MobileServiceSoap12Binding.nsmap */; };
@@ -376,6 +380,11 @@
 		55A6FE820E5C1DC700285F99 /* ProductDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetails.xib; sourceTree = "<group>"; };
 		55A6FE850E5C1DF100285F99 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductDetailsViewController.mm; sourceTree = "<group>"; };
+		55AFB9530E6C94D400DDEC6B /* LoadMoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreViewCell.h; sourceTree = "<group>"; };
+		55AFB9540E6C94D400DDEC6B /* LoadMoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreViewCell.m; sourceTree = "<group>"; };
+		55AFB9A00E6C9AEC00DDEC6B /* empty-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-star.png"; sourceTree = "<group>"; };
+		55AFB9A10E6C9AEC00DDEC6B /* full-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full-star.png"; sourceTree = "<group>"; };
+		55AFB9A20E6C9AEC00DDEC6B /* half-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "half-star.png"; sourceTree = "<group>"; };
 		55B679CE0E65C8A300DABBF5 /* BaseCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellView.h; sourceTree = "<group>"; };
 		55B679CF0E65C8A300DABBF5 /* BaseCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCellView.m; sourceTree = "<group>"; };
 		55B67A4E0E65D83400DABBF5 /* MobileServiceSoap11Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MobileServiceSoap11Binding.nsmap; sourceTree = "<group>"; };
@@ -461,10 +470,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3AC40D6B0E6B7CA3005580EB /* ImageView.xib */,
 				3AC40D670E6B7C96005580EB /* iphone.jpg */,
 				3AC40ABB0E6B6281005580EB /* play.png */,
 				3AC40ABC0E6B6281005580EB /* right.png */,
+				55AFB9A00E6C9AEC00DDEC6B /* empty-star.png */,
+				55AFB9A10E6C9AEC00DDEC6B /* full-star.png */,
+				55AFB9A20E6C9AEC00DDEC6B /* half-star.png */,
 				3AC40ABD0E6B6281005580EB /* left.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				55A6FE820E5C1DC700285F99 /* ProductDetails.xib */,
@@ -472,6 +483,7 @@
 				5585F5920E48700F00CD7F8A /* CategoryViewController.xib */,
 				5555F5040E59905100873B98 /* ProductViewCell.xib */,
 				5555F54C0E59973400873B98 /* CategoryCell.xib */,
+				3AC40D6B0E6B7CA3005580EB /* ImageView.xib */,
 				5555F5F80E59A3F400873B98 /* ProductViewController.xib */,
 			);
 			name = Resources;
@@ -786,6 +798,8 @@
 				5555F5500E59975600873B98 /* CategoryViewCell.m */,
 				55B679CE0E65C8A300DABBF5 /* BaseCellView.h */,
 				55B679CF0E65C8A300DABBF5 /* BaseCellView.m */,
+				55AFB9530E6C94D400DDEC6B /* LoadMoreViewCell.h */,
+				55AFB9540E6C94D400DDEC6B /* LoadMoreViewCell.m */,
 			);
 			name = TableCellView;
 			sourceTree = "<group>";
@@ -862,6 +876,9 @@
 				3AC40AC00E6B6281005580EB /* left.png in Resources */,
 				3AC40D680E6B7C96005580EB /* iphone.jpg in Resources */,
 				3AC40D6C0E6B7CA3005580EB /* ImageView.xib in Resources */,
+				55AFB9A30E6C9AEC00DDEC6B /* empty-star.png in Resources */,
+				55AFB9A40E6C9AEC00DDEC6B /* full-star.png in Resources */,
+				55AFB9A50E6C9AEC00DDEC6B /* half-star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,6 +1001,7 @@
 				3AC40D790E6B7CD8005580EB /* ImageSliderController.m in Sources */,
 				3AC40D7A0E6B7CD8005580EB /* CustomUIImageView.m in Sources */,
 				3AC40D7B0E6B7CD8005580EB /* ImageViewController.m in Sources */,
+				55AFB9550E6C94D400DDEC6B /* LoadMoreViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,42 +18,64 @@
 class CCategory
 {
 public:
-	CCategory():ref(1),itemsCnt(0){}
-	CCategory(const CCategory &cl):id(cl.id),itemsCnt(cl.itemsCnt),name(cl.name),imageUrl(cl.imageUrl),childs(cl.childs),ref(cl.ref+1)
+	CCategory():id(-1),itemsCnt(0)
 	{
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
+			arr[i]=nil;
+	}
+	CCategory(const CCategory &cl):id(cl.id),itemsCnt(cl.itemsCnt),childs(cl.childs)
+	{
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
+		{
+			arr[i]=cl.arr[i];
+			if(arr[i])
+				[arr[i] retain];
+		}
+	}
+	~CCategory()
+	{
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
+		{
+			if(arr[i])
+				[arr[i] release];
+		}
 	}
 	CCategory &operator =(const ns2__MCategory *ct)
 	{
 		this->id=*(ct->id);
-		name=*(ct->name);
 		if(ct->totalItems)
 			itemsCnt=*(ct->totalItems);
+		name=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
+		title=[[NSString stringWithFormat:@"%s (%d)",ct->name->c_str(),itemsCnt] retain];
 		if(ct->imageURL)
-			imageUrl=*(ct->imageURL);
+			imageUrl=[[NSString stringWithUTF8String:ct->imageURL->c_str()] retain];
 		return *this;
 	}
 	int id;
-	float itemsCnt;
-	std::string name;
-	std::string imageUrl;
+	int itemsCnt;
+	union
+	{
+		struct
+		{
+			NSString *name;
+			NSString *title;
+			NSString *imageUrl;
+		};
+		NSString *arr[3];
+	};
 	std::vector<CCategory> childs;
-protected:
-	int ref;
 };
 class CCategories
 {
 public:
-	CCategories():next(NULL),parent(NULL){}
+	CCategories(){}
 	std::vector<CCategory> categs;
-	std::vector<CCategory>::iterator currIter;
-	CCategories *next;
-	CCategories *parent;
 };
 using namespace std;
 void printCategs(std::vector<CCategory> &category,std::string ident);
+
 @implementation CategoryViewController
 
-@synthesize myDinamicalyTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) 
@@ -83,8 +105,6 @@ NSInteger retVal=0;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 static NSString *MyIdentifier = @"CategoryCellIdentifier";
-NSString *str;
-	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if (cell == nil) 
 	{
@@ -101,16 +121,11 @@ NSString *str;
 	{
 	CategoryViewCell *categCell=(CategoryViewCell *)cell;
 		cout<<indexPath.row<<endl<<pCategs->categs[indexPath.row].name<<endl;;
-		str=[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()];
-		if(pCategs->categs[indexPath.row].childs.size() == 0)
-			str=[NSString stringWithFormat:@"%s (%d)",pCategs->categs[indexPath.row].name.c_str(),(int)(pCategs->categs[indexPath.row].itemsCnt)];
-		[categCell.name setText:str];
-		if(pCategs->categs[indexPath.row].imageUrl.size())
+		[categCell.name setText:pCategs->categs[indexPath.row].title];
+		if(pCategs->categs[indexPath.row].imageUrl)
 		{
-			str=[[NSString stringWithUTF8String:pCategs->categs[indexPath.row].imageUrl.c_str()] autorelease];
-			[categCell loadingImage:str];
+			[categCell loadingImage:pCategs->categs[indexPath.row].imageUrl];
 		}
-//		[str release];
 	}
 	return cell;
 }
@@ -133,7 +148,7 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 			root->pCategs=new CCategories();
 			root->pCategs->categs=pCategs->categs[indexPath.row].childs;
 //			printCategs(pCategs->categs,"");
-			[[root navigationItem] setTitle:[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()]];
+			[[root navigationItem] setTitle:pCategs->categs[indexPath.row].name];
 			[[self navigationController] pushViewController:root animated:YES];
 		}
 		else
@@ -141,7 +156,8 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 		ProductViewController *prods;
 			prods=[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil];
 			prods.categoryId=pCategs->categs[indexPath.row].id;
-			[prods.navigationItem setTitle:[NSString stringWithUTF8String:pCategs->categs[indexPath.row].name.c_str()]];
+			prods.itemsCnt=pCategs->categs[indexPath.row].itemsCnt;
+			[prods.navigationItem setTitle:pCategs->categs[indexPath.row].name];
 			[[self navigationController] pushViewController:prods animated:YES];
 		}
 	}
@@ -185,15 +201,15 @@ CCategory ct;
 	if(pCategs == NULL)
 	{
 	MobileServiceSoap12Binding client;
-	_ns2__getCategoryList *catList=new _ns2__getCategoryList();
-	static _ns2__getCategoryListResponse *catListResp=new _ns2__getCategoryListResponse();
+	_ns2__getCategoryList catList;
+	_ns2__getCategoryListResponse catListResp;
 
-		catList->categoryType=new int(0);
-		if( SOAP_OK == client.__ns4__getCategoryList(catList,catListResp) )
+		catList.categoryType=new int(0);
+		if( SOAP_OK == client.__ns4__getCategoryList(&catList,&catListResp) )
 		{
 			pCategs=new CCategories();
-			buildCategs(pCategs->categs,catListResp->return_);
-			printCategs(pCategs->categs,"");
+			buildCategs(pCategs->categs,catListResp.return_);
+//			printCategs(pCategs->categs,"");
 		}
 		[self.navigationItem setTitle:@"Categories"];
 	}
