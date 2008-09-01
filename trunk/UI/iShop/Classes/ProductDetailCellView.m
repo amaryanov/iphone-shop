@@ -12,7 +12,7 @@
 
 @implementation ProductDetailCellView
 @synthesize name;
-@synthesize rang;
+@synthesize rangView;
 @synthesize prodImg;
 @synthesize highlight1;
 @synthesize highlight2;

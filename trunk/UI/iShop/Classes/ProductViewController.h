@@ -9,10 +9,20 @@
 #import <UIKit/UIKit.h>
 
 class CProductListContainer;
+@class LoadMoreViewCell;
 @interface ProductViewController : UIViewController
 {
+	IBOutlet LoadMoreViewCell	*loadMoreCell;
+	IBOutlet UITableView		*mainTable;
+	
 	CProductListContainer	*pProducts;
 	int						categoryId;
+	int						itemsCnt;
+	@private int			itemsWasLoaded;
 }
+@property (nonatomic, retain) UITableViewCell	*loadMoreCell;
+@property (nonatomic, retain) UITableView		*mainTable;
+
 @property(readwrite) int categoryId;
+@property(readwrite) int itemsCnt;
 @end

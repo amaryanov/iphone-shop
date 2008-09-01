@@ -190,6 +190,8 @@ public:
 
 @synthesize productId;
 @synthesize firstCell, secondCell, buttonsCell, videoButton;
+@synthesize fullStar,halfStar,emptyStar;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -372,7 +374,19 @@ _ns2__getProductDetailsResponse srvResp;
 		pProdData=new CProductDataContainer();
 		*pProdData=srvResp.return_;
 		firstCell.name.text=pProdData->name;
-		firstCell.rang.text=[[NSString alloc] initWithFormat:@"%1.2f",pProdData->rating];
+		//firstCell.rang.text=[[NSString alloc] initWithFormat:@"%1.2f",pProdData->rating];
+		NSString *path=[NSString stringWithFormat:@"%@/full-star.png",[[NSBundle mainBundle] bundlePath]];
+		NSLog(path);
+		for(int i=0;i<3;i++)
+		{
+		UIImage *img=[UIImage imageWithContentsOfFile:path];
+			if(img)
+			{
+			UIImageView *imgV=[[UIImageView alloc] initWithImage:img];
+				[imgV setBounds:CGRectMake(i*14+1,0,14,14)];
+				[firstCell.rangView addSubview:imgV];
+			}
+		}
 		firstCell.highlight1.text=pProdData->highlight1;
 		firstCell.highlight2.text=pProdData->highlight2;
 		[firstCell loadingImage:pProdData->imageURL];

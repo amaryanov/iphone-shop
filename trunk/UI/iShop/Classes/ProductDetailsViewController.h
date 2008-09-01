@@ -24,12 +24,19 @@ class CProductDataContainer;
 	IBOutlet ProductDescriptCellView	*secondCell;
 	IBOutlet UITableViewCell			*buttonsCell;
 	IBOutlet UIButton					*videoButton;
+	IBOutlet UIImageView				*fullStar;
+	IBOutlet UIImageView				*halfStar;
+	IBOutlet UIImageView				*emptyStar;
 }
 @property(readwrite) int productId;
 @property(retain, nonatomic) ProductDetailCellView		*firstCell;
 @property(retain, nonatomic) ProductDescriptCellView	*secondCell;
 @property(retain, nonatomic) UITableViewCell			*buttonsCell;
 @property(retain, nonatomic) UIButton					*videoButton;
+@property(retain, nonatomic) UIImageView				*fullStar;
+@property(retain, nonatomic) UIImageView				*halfStar;
+@property(retain, nonatomic) UIImageView				*emptyStar;
+
 - (IBAction)PlayVideo:(id)sender;
 - (IBAction)PlayGallery:(id)sender;
 -(void)initMoviePlayer;
