@@ -55,6 +55,7 @@
 			 NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
 			 GDataHTTPFetcher *fetcher = [GDataHTTPFetcher httpFetcherWithRequest:request];
 			 [fetcher setUserData:button];
+			 [fetcher setShouldCacheDatedData:YES];
 			 
 			 [fetcher beginFetchWithDelegate:self
 						   didFinishSelector:@selector(imageFetcher:finishedWithData:)
