@@ -10,7 +10,7 @@
 
 
 @implementation LoadMoreViewCell
-@synthesize label;
+@synthesize label,indicator;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
 	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {

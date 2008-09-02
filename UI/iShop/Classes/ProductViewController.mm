@@ -86,7 +86,28 @@ public:
 	std::vector<CProduct> products;
 };
 using namespace std;
+/************************************************
+ *
+ ************************************************/
+@interface ThreadParameter:NSObject
+{
+	int iVal;
+}
+@property(readwrite) int iVal;
++ (id) initIntWithVal:(int)val;
+@end
 
+@implementation ThreadParameter
+@synthesize iVal;
++ (id) initIntWithVal:(int)val
+{
+ThreadParameter *param;
+	param=[[ThreadParameter alloc] init];
+	param->iVal=val;
+	return param;
+}
+@end
+/***********************************************/
 @implementation ProductViewController
 @synthesize loadMoreCell,mainTable;
 @synthesize categoryId;
@@ -125,7 +146,7 @@ UITableViewCell *cell;
 	NSLog(@"%d",indexPath.row);
 	if( indexPath.row == itemsWasLoaded )
 	{
-		loadMoreCell.label.text=[NSString stringWithFormat:@"Load more %d ...",BATCH_SIZE];
+		loadMoreCell.label.text=[NSString stringWithFormat:@"Load %d more ...",BATCH_SIZE];
 		cell=loadMoreCell;
 	}
 	else
@@ -162,13 +183,13 @@ void buildProducts(vector<CProduct> &products,std::vector<class ns2__MProduct * 
 		products.push_back(*iter);
 	}
 }
-- (void)requestItemsFromId:(int)fromId
+- (void)requestItemsFromId:(ThreadParameter*)param
 {
 MobileServiceSoap12Binding client;
 	_ns2__getProductList srvRequest;//=new _ns1__getProductList();
 	_ns2__getProductListResponse srvResp;
 	srvRequest.categoryId=new int(categoryId);
-	srvRequest.startItemId=new int(fromId);
+	srvRequest.startItemId=new int(param.iVal);
 	srvRequest.batchSize=new int(BATCH_SIZE);
 	srvRequest.languageId=new int(0);
 	if( SOAP_OK == client.__ns4__getProductList(&srvRequest,&srvResp) )
@@ -176,7 +197,11 @@ MobileServiceSoap12Binding client;
 		buildProducts(pProducts->products,srvResp.return_);
 //		itemsWasLoaded+=(itemsCnt > BATCH_SIZE)?BATCH_SIZE:itemsCnt;
 		itemsWasLoaded=pProducts->products.size();
-		//		printCategs(pCategs->categs,"");
+	}
+	if(param.iVal != 0)
+	{
+		[mainTable reloadData];
+		[loadMoreCell.indicator stopAnimating];
 	}
 }
 
@@ -184,8 +209,12 @@ MobileServiceSoap12Binding client;
 {
 	if(indexPath.row == itemsWasLoaded)
 	{
-		[self requestItemsFromId:(pProducts->products.end()-1)->id];
-		[mainTable reloadData];
+	ThreadParameter *param;
+		[loadMoreCell.indicator startAnimating];
+		param=[[ThreadParameter alloc] init];
+		param.iVal=(pProducts->products.end()-1)->id;
+//		[self requestItemsFromId:(pProducts->products.end()-1)->id];
+		[NSThread detachNewThreadSelector:@selector(requestItemsFromId:) toTarget:self withObject:[param retain]];
 	}
 	else
 	{
@@ -206,7 +235,7 @@ MobileServiceSoap12Binding client;
 {
 	pProducts=new CProductListContainer();
 	itemsWasLoaded=0;
-	[self requestItemsFromId:0];
+	[self requestItemsFromId:[ThreadParameter initIntWithVal:0]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

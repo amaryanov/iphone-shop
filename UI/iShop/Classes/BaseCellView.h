@@ -12,7 +12,10 @@
 @interface BaseCellView : UITableViewCell
 {
 
+	IBOutlet UIActivityIndicatorView *indicator;
 }
+@property (nonatomic, retain) UIActivityIndicatorView *indicator;
+
 - (void) loadingImage:(NSString *)urlStr;
 - (void)imageFetcher:(GDataHTTPFetcher *)fetcher finishedWithData:(NSData *)data;
 - (void)imageFetcher:(GDataHTTPFetcher *)fetcher failedWithStatus:(int)status data:(NSData *)data;

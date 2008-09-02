@@ -375,17 +375,28 @@ _ns2__getProductDetailsResponse srvResp;
 		*pProdData=srvResp.return_;
 		firstCell.name.text=pProdData->name;
 		//firstCell.rang.text=[[NSString alloc] initWithFormat:@"%1.2f",pProdData->rating];
-		NSString *path=[NSString stringWithFormat:@"%@/full-star.png",[[NSBundle mainBundle] bundlePath]];
-		NSLog(path);
-		for(int i=0;i<3;i++)
+		NSString *fullStarPath=[NSString stringWithFormat:@"%@/full-star.png",[[NSBundle mainBundle] bundlePath]];
+		NSString *halfStarPath=[NSString stringWithFormat:@"%@/half-star.png",[[NSBundle mainBundle] bundlePath]];
+		NSString *emptyStarPath=[NSString stringWithFormat:@"%@/empty-star.png",[[NSBundle mainBundle] bundlePath]];
+		UIImage *img;
+		UIImageView *imgV;
+		for(int i=0,cnt=(int)pProdData->rating,half=((pProdData->rating-cnt)>0?1:0);i<5;i++)
 		{
-		UIImage *img=[UIImage imageWithContentsOfFile:path];
-			if(img)
+			if(cnt)
 			{
-			UIImageView *imgV=[[UIImageView alloc] initWithImage:img];
-				[imgV setBounds:CGRectMake(i*14+1,0,14,14)];
-				[firstCell.rangView addSubview:imgV];
+				img=[UIImage imageWithContentsOfFile:fullStarPath];
+				cnt--;
 			}
+			else if(half)
+			{
+				img=[UIImage imageWithContentsOfFile:halfStarPath];
+				half=0;
+			}
+			else
+				img=[UIImage imageWithContentsOfFile:emptyStarPath];
+			imgV=[[UIImageView alloc] initWithImage:img];
+			[imgV setFrame:CGRectMake(i*14,5,14,14)];
+			[firstCell.rangView addSubview:imgV];
 		}
 		firstCell.highlight1.text=pProdData->highlight1;
 		firstCell.highlight2.text=pProdData->highlight2;

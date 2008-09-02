@@ -46,7 +46,7 @@ public:
 		if(ct->totalItems)
 			itemsCnt=*(ct->totalItems);
 		name=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
-		if(ct->childCategories.size() == 0)
+		if(itemsCnt != 0)
 			title=[[NSString stringWithFormat:@"%s (%d)",ct->name->c_str(),itemsCnt] retain];
 		else
 			title=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
