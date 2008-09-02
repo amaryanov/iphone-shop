@@ -47,7 +47,6 @@
 			 CGRect buttonFrame = CGRectMake(IMAGE_WIDTH*col + IMAGE_PADDING*(col + 1), IMAGE_WIDTH*row + IMAGE_PADDING*(row + 1), IMAGE_WIDTH, IMAGE_WIDTH);
 			 ImageButton *button = [[ImageButton alloc] initWithFrame:buttonFrame];
 			 button.imgNum = j;
-			 [button setBackgroundImage:[UIImage imageNamed:@"iphone.jpg"] forState:UIControlStateNormal];
 			 [button addTarget:self action:@selector(openSlider:) forControlEvents:UIControlEventTouchUpInside];
 			 [[self view] addSubview:button];
 			 [buttons addObject:button];
