@@ -25,6 +25,7 @@ NSString *ret;
 NSURL *imageURL = [NSURL URLWithString:[self makeUrl:urlStr]];
 NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
 GDataHTTPFetcher *fetcher = [GDataHTTPFetcher httpFetcherWithRequest:request];
+	[fetcher setShouldCacheDatedData:YES];
 	//	[fetcher setUserData:urlStr];
 	
     [fetcher beginFetchWithDelegate:self
