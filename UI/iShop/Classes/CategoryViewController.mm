@@ -46,7 +46,10 @@ public:
 		if(ct->totalItems)
 			itemsCnt=*(ct->totalItems);
 		name=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
-		title=[[NSString stringWithFormat:@"%s (%d)",ct->name->c_str(),itemsCnt] retain];
+		if(ct->childCategories.size() == 0)
+			title=[[NSString stringWithFormat:@"%s (%d)",ct->name->c_str(),itemsCnt] retain];
+		else
+			title=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
 		if(ct->imageURL)
 			imageUrl=[[NSString stringWithUTF8String:ct->imageURL->c_str()] retain];
 		return *this;
