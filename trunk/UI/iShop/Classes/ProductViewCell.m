@@ -27,6 +27,8 @@
 {
 	UIImage *img = [[[UIImage alloc] initWithData:data] autorelease];
 	//	[imageList addObject:[[MyTubeIKBrowserItem alloc] init:[fetcher userData] image:image]];
+	
+	[indicator stopAnimating];
 	[image setImage:img];
 }
 

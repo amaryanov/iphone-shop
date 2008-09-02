@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="51"/>
 			<integer value="14"/>
+			<integer value="9"/>
 			<integer value="17"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -145,7 +145,7 @@
 							<object class="IBUILabel" id="14994423">
 								<reference key="NSNextResponder" ref="619423403"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{105, 74}, {187, 21}}</string>
+								<string key="NSFrame">{{105, 73}, {187, 21}}</string>
 								<reference key="NSSuperview" ref="619423403"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -159,23 +159,6 @@
 							<object class="IBUIView" id="207025122">
 								<reference key="NSNextResponder" ref="619423403"/>
 								<int key="NSvFlags">292</int>
-								<object class="NSMutableArray" key="NSSubviews">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUIImageView" id="484165004">
-										<reference key="NSNextResponder" ref="207025122"/>
-										<int key="NSvFlags">292</int>
-										<string key="NSFrameSize">{14, 14}</string>
-										<reference key="NSSuperview" ref="207025122"/>
-										<bool key="IBUIOpaque">NO</bool>
-										<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-										<int key="IBUIContentMode">4</int>
-										<bool key="IBUIUserInteractionEnabled">NO</bool>
-										<object class="NSCustomResource" key="IBUIImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">half-star.png</string>
-										</object>
-									</object>
-								</object>
 								<string key="NSFrame">{{105, 25}, {169, 21}}</string>
 								<reference key="NSSuperview" ref="619423403"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
@@ -346,32 +329,6 @@
 				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="507965120"/>
 			</object>
-			<object class="IBUIImageView" id="708348161">
-				<nil key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
-				<string key="NSFrame">{{116, 498}, {14, 14}}</string>
-				<bool key="IBUIOpaque">NO</bool>
-				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-				<int key="IBUIContentMode">4</int>
-				<bool key="IBUIUserInteractionEnabled">NO</bool>
-				<object class="NSCustomResource" key="IBUIImage">
-					<string key="NSClassName">NSImage</string>
-					<string key="NSResourceName">empty-star.png</string>
-				</object>
-			</object>
-			<object class="IBUIImageView" id="1004712092">
-				<nil key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
-				<string key="NSFrameSize">{14, 14}</string>
-				<bool key="IBUIOpaque">NO</bool>
-				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-				<int key="IBUIContentMode">4</int>
-				<bool key="IBUIUserInteractionEnabled">NO</bool>
-				<object class="NSCustomResource" key="IBUIImage">
-					<string key="NSClassName">NSImage</string>
-					<string key="NSResourceName">full-star.png</string>
-				</object>
-			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -514,30 +471,6 @@
 					</object>
 					<int key="connectionID">52</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">fullStar</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="1004712092"/>
-					</object>
-					<int key="connectionID">56</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">halfStar</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="484165004"/>
-					</object>
-					<int key="connectionID">57</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">emptyStar</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="708348161"/>
-					</object>
-					<int key="connectionID">58</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -588,9 +521,9 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="466560374"/>
 							<reference ref="1059455034"/>
-							<reference ref="14994423"/>
 							<reference ref="207025122"/>
 							<reference ref="245167850"/>
+							<reference ref="14994423"/>
 						</object>
 						<reference key="parent" ref="957960031"/>
 					</object>
@@ -659,27 +592,8 @@
 						<reference key="object" ref="207025122"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="484165004"/>
 						</object>
 						<reference key="parent" ref="147463810"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">53</int>
-						<reference key="object" ref="708348161"/>
-						<reference key="parent" ref="957960031"/>
-						<string key="objectName">emptyStar</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">54</int>
-						<reference key="object" ref="1004712092"/>
-						<reference key="parent" ref="957960031"/>
-						<string key="objectName">fullStar</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">55</int>
-						<reference key="object" ref="484165004"/>
-						<reference key="parent" ref="207025122"/>
-						<string key="objectName">halfStar</string>
 					</object>
 				</object>
 			</object>
@@ -710,12 +624,6 @@
 					<string>44.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>51.IBPluginDependency</string>
-					<string>53.IBEditorWindowLastContentRect</string>
-					<string>53.IBPluginDependency</string>
-					<string>54.IBEditorWindowLastContentRect</string>
-					<string>54.IBPluginDependency</string>
-					<string>55.IBEditorWindowLastContentRect</string>
-					<string>55.IBPluginDependency</string>
 					<string>9.CustomClassName</string>
 					<string>9.IBEditorWindowLastContentRect</string>
 					<string>9.IBPluginDependency</string>
@@ -730,7 +638,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>ProductDescriptCellView</string>
-					<string>{{99, 286}, {320, 121}}</string>
+					<string>{{241, 285}, {320, 121}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{42, 636}, {97, 31}}</string>
@@ -744,12 +652,6 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{405, 790}, {240, 128}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{42, 795}, {14, 14}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{63, 772}, {14, 14}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>ProductDetailCellView</string>
 					<string>{{199, 437}, {328, 101}}</string>

@@ -10,8 +10,10 @@
 
 
 @interface LoadMoreViewCell : UITableViewCell {
-	IBOutlet UILabel *label;
+	IBOutlet UILabel 					*label;
+	IBOutlet UIActivityIndicatorView 	*indicator;
 }
-@property (nonatomic, retain) UILabel *label;
+@property (nonatomic, retain) UILabel					*label;
+@property (nonatomic, retain) UIActivityIndicatorView	*indicator;
 
 @end
