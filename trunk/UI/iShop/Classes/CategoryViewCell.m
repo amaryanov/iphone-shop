@@ -38,11 +38,20 @@ UIImage *image = [[[UIImage alloc] initWithData:data] autorelease];
 
 - (void) placeProductCounts
 {
-	CGSize nameSize = [name.text sizeWithFont:name.font];
-	CGRect prodFrame = productsCount.frame;
-	prodFrame.origin.x = name.frame.origin.x + nameSize.width + 2;
-	if(prodFrame.origin.x < productsCount.frame.origin.x)
-		productsCount.frame = prodFrame;
+	if([productsCount.text length] > 0)
+	{
+		CGSize nameSize = [name.text sizeWithFont:name.font];
+		CGRect prodFrame = productsCount.frame;
+		prodFrame.origin.x = name.frame.origin.x + nameSize.width + 2;
+		if(prodFrame.origin.x < productsCount.frame.origin.x)
+			productsCount.frame = prodFrame;
+	}
+	else
+	{
+		CGRect nameRect = name.frame;
+		nameRect.size.width += 32.0;
+		name.frame = nameRect;
+	}
 }
 
 - (void)dealloc {

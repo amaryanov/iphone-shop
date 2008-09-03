@@ -130,7 +130,10 @@ static NSString *MyIdentifier = @"CategoryCellIdentifier";
 		{
 			[categCell loadingImage:pCategs->categs[indexPath.row].imageUrl];
 		}
-		[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategs->categs[indexPath.row].itemsCnt]];
+		if(pCategs->categs[indexPath.row].itemsCnt > 0)
+		{
+			[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategs->categs[indexPath.row].itemsCnt]];
+		}
 		[categCell placeProductCounts];
 	}
 	return cell;
