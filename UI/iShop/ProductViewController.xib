@@ -50,7 +50,7 @@
 							<object class="IBUILabel" id="1000729492">
 								<reference key="NSNextResponder" ref="700407509"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{70, 12}, {183, 21}}</string>
+								<string key="NSFrame">{{70, 20}, {183, 21}}</string>
 								<reference key="NSSuperview" ref="700407509"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -58,7 +58,7 @@
 								<string key="IBUIText">Label</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC42MDAwMDAwMiAwLjYwMDAwMDAyIDAuNjAwMDAwMDIAA</bytes>
+									<bytes key="NSRGB">MC40MDAwMDAwMSAwLjQwMDAwMDAxIDAuNDAwMDAwMDEAA</bytes>
 								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -76,7 +76,7 @@
 								<int key="IBUIStyle">2</int>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 44}</string>
+						<string key="NSFrameSize">{320, 55}</string>
 						<reference key="NSSuperview" ref="923241445"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -88,7 +88,7 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 44}</string>
+				<string key="NSFrameSize">{320, 55}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -193,8 +193,8 @@
 						<reference key="object" ref="923241445"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1000729492"/>
 							<reference ref="17529898"/>
+							<reference ref="1000729492"/>
 						</object>
 						<reference key="parent" ref="957960031"/>
 					</object>
@@ -217,6 +217,7 @@
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
 					<string>11.IBPluginDependency</string>
+					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>6.CustomClassName</string>
 					<string>6.IBEditorWindowLastContentRect</string>
@@ -228,9 +229,10 @@
 					<string>ProductViewController</string>
 					<string>UIResponder</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>{{0, 466}, {320, 247}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>LoadMoreViewCell</string>
-					<string>{{317, 434}, {320, 44}}</string>
+					<string>{{327, 560}, {320, 55}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
