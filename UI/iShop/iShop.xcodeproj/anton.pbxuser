@@ -35,6 +35,7 @@
 		activeSDKPreference = iphonesimulator2.0;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* iShop */;
 		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* iShop */,
 		);
 		breakpoints = (
 			3ADD579B0E5E273400477062 /* YoutubeViewController.m:39 */,
