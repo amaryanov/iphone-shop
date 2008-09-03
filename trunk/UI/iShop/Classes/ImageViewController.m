@@ -25,6 +25,15 @@
 	}
 	return self;
 }
+- (NSString*) makeUrl:(NSString *)url
+{
+	NSString *ret;
+	if([url rangeOfString:@"http://"].location == NSNotFound)
+		ret=[NSString stringWithFormat:@"http://kenlo.gotdns.com/%@",url];
+	else
+		ret=url;
+	return ret;
+}
 
 /*
  - (void)loadView {
@@ -50,7 +59,7 @@
 			 [button addTarget:self action:@selector(openSlider:) forControlEvents:UIControlEventTouchUpInside];
 			 [[self view] addSubview:button];
 			 [buttons addObject:button];
-			 NSURL *imageURL = [NSURL URLWithString:[images objectAtIndex:i]];
+			 NSURL *imageURL = [NSURL URLWithString:[self makeUrl:[images objectAtIndex:i]]];
 			 NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
 			 GDataHTTPFetcher *fetcher = [GDataHTTPFetcher httpFetcherWithRequest:request];
 			 [fetcher setUserData:button];

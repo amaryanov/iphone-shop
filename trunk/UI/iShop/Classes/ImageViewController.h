@@ -23,6 +23,7 @@
 @property ( nonatomic, retain) ImageSliderController *slider;
 @property (retain, nonatomic) NSMutableArray *images;
 @property (retain, nonatomic) NSMutableArray *buttons;
+- (NSString*) makeUrl:(NSString *)url;
 @end
 
 

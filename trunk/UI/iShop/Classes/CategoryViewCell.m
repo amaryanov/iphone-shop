@@ -13,6 +13,7 @@
 @implementation CategoryViewCell
 @synthesize name;
 @synthesize categImg;
+@synthesize productsCount;
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
 	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
 		// Initialization code
@@ -33,6 +34,15 @@
 UIImage *image = [[[UIImage alloc] initWithData:data] autorelease];
 //	[imageList addObject:[[MyTubeIKBrowserItem alloc] init:[fetcher userData] image:image]];
 	[categImg setImage:image];
+}
+
+- (void) placeProductCounts
+{
+	CGSize nameSize = [name.text sizeWithFont:name.font];
+	CGRect prodFrame = productsCount.frame;
+	prodFrame.origin.x = name.frame.origin.x + nameSize.width + 2;
+	if(prodFrame.origin.x < productsCount.frame.origin.x)
+		productsCount.frame = prodFrame;
 }
 
 - (void)dealloc {
