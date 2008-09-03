@@ -267,6 +267,7 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
+								<string>3AC40D700E6B7CC2005580EB</string>
 								<string>5555F4B60E59836400873B98</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -274,13 +275,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>17</integer>
+									<integer>10</integer>
+									<integer>4</integer>
 									<integer>3</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 92}, {310, 595}}</string>
+							<string>{{0, 116}, {310, 595}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -319,7 +321,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CategoryViewController.mm</string>
+								<string>ImageViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CategoryViewController.mm</string>
+										<string>ImageViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3AC477ED0E6F558500971DD5</string>
+										<string>3AC478400E6F656400971DD5</string>
 										<key>history</key>
 										<array>
 											<string>3AAE31D50E47ABCF00309F97</string>
@@ -377,23 +379,24 @@
 											<string>3AC2BF1F0E6DE74000F61B05</string>
 											<string>3AC2BF450E6DE9BD00F61B05</string>
 											<string>3AC476C90E6F3B7D00971DD5</string>
-											<string>3AC476CB0E6F3B7D00971DD5</string>
-											<string>3AC476CC0E6F3B7D00971DD5</string>
 											<string>3AC476CD0E6F3B7D00971DD5</string>
-											<string>3AC476E90E6F3ED300971DD5</string>
-											<string>3AC476EA0E6F3ED300971DD5</string>
 											<string>3AC476EC0E6F3ED300971DD5</string>
-											<string>3AC476ED0E6F3ED300971DD5</string>
 											<string>3AC477280E6F458900971DD5</string>
 											<string>3AC4773C0E6F476700971DD5</string>
 											<string>3AC477C00E6F50B300971DD5</string>
 											<string>3AC477C20E6F50B300971DD5</string>
 											<string>3AC477C30E6F50B300971DD5</string>
-											<string>3AC477C50E6F50B300971DD5</string>
 											<string>3AC477C60E6F50B300971DD5</string>
 											<string>3AC477E20E6F543A00971DD5</string>
 											<string>3AC477EA0E6F558500971DD5</string>
-											<string>3AC477EB0E6F558500971DD5</string>
+											<string>3AC478130E6F619000971DD5</string>
+											<string>3AC478220E6F632800971DD5</string>
+											<string>3AC478230E6F632800971DD5</string>
+											<string>3AC478320E6F63C900971DD5</string>
+											<string>3AC478330E6F63C900971DD5</string>
+											<string>3AC4783B0E6F656400971DD5</string>
+											<string>3AC4783C0E6F656400971DD5</string>
+											<string>3AC4783D0E6F656400971DD5</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -455,16 +458,12 @@
 											<string>3AC40DD80E6B8219005580EB</string>
 											<string>3AC40EE40E6B8B0D005580EB</string>
 											<string>3ACF2A0C0E6CA39B00D57875</string>
-											<string>3AC2BF210E6DE74000F61B05</string>
 											<string>3AC2BF250E6DE74000F61B05</string>
 											<string>3AC2BF4B0E6DE9BD00F61B05</string>
 											<string>3AC476D00E6F3B7D00971DD5</string>
 											<string>3AC476FB0E6F3ED300971DD5</string>
 											<string>3AC477400E6F476700971DD5</string>
-											<string>3AC477810E6F4B2100971DD5</string>
-											<string>3AC477950E6F4BC600971DD5</string>
 											<string>3AC477C80E6F50B300971DD5</string>
-											<string>3AC477C90E6F50B300971DD5</string>
 											<string>3AC477CA0E6F50B300971DD5</string>
 											<string>3AC477CB0E6F50B300971DD5</string>
 											<string>3AC477CC0E6F50B300971DD5</string>
@@ -474,6 +473,17 @@
 											<string>3AC477D00E6F50B300971DD5</string>
 											<string>3AC477E30E6F543A00971DD5</string>
 											<string>3AC477EC0E6F558500971DD5</string>
+											<string>3AC478160E6F619000971DD5</string>
+											<string>3AC478170E6F619000971DD5</string>
+											<string>3AC478180E6F619000971DD5</string>
+											<string>3AC478190E6F619000971DD5</string>
+											<string>3AC4781A0E6F619000971DD5</string>
+											<string>3AC478250E6F632800971DD5</string>
+											<string>3AC478260E6F632800971DD5</string>
+											<string>3AC478340E6F63C900971DD5</string>
+											<string>3AC478350E6F63C900971DD5</string>
+											<string>3AC4783E0E6F656400971DD5</string>
+											<string>3AC4783F0E6F656400971DD5</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -667,12 +677,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>3AC477EE0E6F558500971DD5</string>
 		<string>3AC477840E6F4B2100971DD5</string>
 		<string>3AC4777B0E6F49C000971DD5</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>3ABCE7460E47769F00CC4F64</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/anton/Documents/svn/iphone-shop/UI/iShop/iShop.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -1045,7 +1054,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

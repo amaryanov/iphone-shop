@@ -223,6 +223,7 @@ MobileServiceSoap12Binding client;
 		pDetails.productId=pProducts->products[indexPath.row].id;
 		[[self navigationController] pushViewController:pDetails animated:YES];
 	}
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 /*
  Implement loadView if you want to create a view hierarchy programmatically

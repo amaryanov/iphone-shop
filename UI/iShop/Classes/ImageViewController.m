@@ -17,7 +17,7 @@
 
 @implementation ImageViewController
 @synthesize slider;
-@synthesize images, buttons;
+@synthesize images, buttons, activity;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
