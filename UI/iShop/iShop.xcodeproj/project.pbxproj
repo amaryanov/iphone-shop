@@ -19,6 +19,7 @@
 		3AC40D790E6B7CD8005580EB /* ImageSliderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC40D740E6B7CD8005580EB /* ImageSliderController.m */; };
 		3AC40D7A0E6B7CD8005580EB /* CustomUIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC40D760E6B7CD8005580EB /* CustomUIImageView.m */; };
 		3AC40D7B0E6B7CD8005580EB /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC40D780E6B7CD8005580EB /* ImageViewController.m */; };
+		3AC476B10E6F2E8500971DD5 /* main_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC476B00E6F2E8500971DD5 /* main_icon.png */; };
 		3ADD588B0E5E438400477062 /* TestYoutube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD588A0E5E438400477062 /* TestYoutube.m */; };
 		3AF065500E4A3BF000670BC7 /* YoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */; };
 		3AF067840E4A3FB700670BC7 /* GDataFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0661B0E4A3FB600670BC7 /* GDataFramework.m */; };
@@ -161,6 +162,7 @@
 		3AC40D760E6B7CD8005580EB /* CustomUIImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomUIImageView.m; sourceTree = "<group>"; };
 		3AC40D770E6B7CD8005580EB /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		3AC40D780E6B7CD8005580EB /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		3AC476B00E6F2E8500971DD5 /* main_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_icon.png; sourceTree = "<group>"; };
 		3ADD58890E5E438400477062 /* TestYoutube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestYoutube.h; sourceTree = "<group>"; };
 		3ADD588A0E5E438400477062 /* TestYoutube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestYoutube.m; sourceTree = "<group>"; };
 		3AF0654E0E4A3BF000670BC7 /* YoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeViewController.h; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3AC476B00E6F2E8500971DD5 /* main_icon.png */,
 				3AC2C00D0E6E10A200F61B05 /* main_icon.png */,
 				3AC40ABB0E6B6281005580EB /* play.png */,
 				3AC40ABC0E6B6281005580EB /* right.png */,
@@ -879,6 +882,7 @@
 				55AFB9A40E6C9AEC00DDEC6B /* full-star.png in Resources */,
 				55AFB9A50E6C9AEC00DDEC6B /* half-star.png in Resources */,
 				3AC2C00E0E6E10A200F61B05 /* main_icon.png in Resources */,
+				3AC476B10E6F2E8500971DD5 /* main_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
