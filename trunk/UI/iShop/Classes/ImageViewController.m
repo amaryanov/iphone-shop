@@ -21,11 +21,16 @@
 	[self->activity startAnimating];
 	[self addSubview:activity];
 }
+- (BOOL) isActive
+{
+	return (activity != nil);
+}
 - (void) stopActivity
 {
 	[activity stopAnimating];
 	[activity removeFromSuperview];
 	[activity release];
+	activity = nil;
 }
 @end
 
@@ -112,8 +117,12 @@
 }
 
 - (void)openSlider:(id)sender {
-	slider.current = [sender imgNum];
-	[[self navigationController] pushViewController:slider animated:YES];
+	ImageButton* btn = sender;
+	if(![btn isActive])
+	{
+		slider.current = [sender imgNum];
+		[[self navigationController] pushViewController:slider animated:YES];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
