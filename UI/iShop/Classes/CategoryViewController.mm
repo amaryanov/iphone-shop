@@ -46,11 +46,10 @@ public:
 		if(ct->totalItems)
 			itemsCnt=*(ct->totalItems);
 		name=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
-		/*if(itemsCnt != 0)
+		if(itemsCnt != 0)
 			title=[[NSString stringWithFormat:@"%s (%d)",ct->name->c_str(),itemsCnt] retain];
 		else
-			title=[[NSString stringWithUTF8String:ct->name->c_str()] retain];*/
-		title = [[NSString stringWithUTF8String:ct->name->c_str()] retain];
+			title=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
 		if(ct->imageURL)
 			imageUrl=[[NSString stringWithUTF8String:ct->imageURL->c_str()] retain];
 		return *this;
@@ -117,20 +116,17 @@ static NSString *MyIdentifier = @"CategoryCellIdentifier";
 		if(topObjs)
 		{
 			cell=[topObjs objectAtIndex:1];
-			cout<<"contain"<<endl;
 		}
 	}
 	// Configure the cell
 	if( (pCategs) && (cell) )
 	{
 	CategoryViewCell *categCell=(CategoryViewCell *)cell;
-		cout<<indexPath.row<<endl<<pCategs->categs[indexPath.row].name<<endl;;
-		[categCell.name setText:pCategs->categs[indexPath.row].title];
+		[categCell.name setText:pCategs->categs[indexPath.row].name];
 		if(pCategs->categs[indexPath.row].imageUrl)
 		{
 			[categCell loadingImage:pCategs->categs[indexPath.row].imageUrl];
 		}
-		std::cout << "childs: " << pCategs->categs[indexPath.row].childs.size() << std::endl;
 		if(pCategs->categs[indexPath.row].childs.size() == 0)
 		{
 			[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategs->categs[indexPath.row].itemsCnt]];
@@ -158,7 +154,8 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 			root->pCategs=new CCategories();
 			root->pCategs->categs=pCategs->categs[indexPath.row].childs;
 //			printCategs(pCategs->categs,"");
-			[[root navigationItem] setTitle:pCategs->categs[indexPath.row].name];
+			[[root navigationItem] setTitle:pCategs->categs[indexPath.row].title];
+			[[self navigationController] navigationBar].backItem.title=@"Back";
 			[[self navigationController] pushViewController:root animated:YES];
 		}
 		else
@@ -167,7 +164,8 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 			prods=[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil];
 			prods.categoryId=pCategs->categs[indexPath.row].id;
 			prods.itemsCnt=pCategs->categs[indexPath.row].itemsCnt;
-			[prods.navigationItem setTitle:pCategs->categs[indexPath.row].name];
+			[prods.navigationItem setTitle:pCategs->categs[indexPath.row].title];
+			[prods.navigationItem leftBarButtonItem].title=@"Back";
 			[[self navigationController] pushViewController:prods animated:YES];
 		}
 	}

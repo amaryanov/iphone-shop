@@ -22,4 +22,7 @@
 @property (nonatomic, retain) UILabel *highlight2;
 @property (nonatomic, retain) UIImageView *image;
 @property (nonatomic, retain) UILabel *price;
+
+- (void)initLabelsFont;
+
 @end

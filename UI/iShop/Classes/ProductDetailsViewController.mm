@@ -19,30 +19,28 @@ class CProductOffer
 public:
 	CProductOffer():id(-1),price(0),shipmentCost(0)
 	{
-		for(int i=0;i<7;i++)
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
 			arr[i]=nil;
 	}
-	CProductOffer(const CProductOffer &po):currency(po.currency),details(po.details),
-											imageURL(po.imageURL),manufacturer(po.manufacturer),
-											model(po.model),name(po.name),productURL(po.productURL),
-											id(po.id),shipmentCost(po.shipmentCost),price(po.price)
+	CProductOffer(const CProductOffer &po):id(po.id),shipmentCost(po.shipmentCost),price(po.price)
 	{
-		for(int i=0;i<7;i++)
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
 		{
+			arr[i]=po.arr[i];
 			if(arr[i])
 				[arr[i] retain];
 		}
 	}
 	CProductOffer(const ns2__MProductOffer *pMp)
 	{
-		for(int i=0;i<7;i++)
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
 			arr[i]=nil;
 		if(pMp)
 			copyMemebers(pMp);
 	}
 	~CProductOffer()
 	{
-		for(int i=0;i<7;i++)
+		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
 		{
 			if(arr[i])
 				[arr[i] release];
@@ -112,12 +110,12 @@ class CProductDataContainer
 public:
 	CProductDataContainer()
 	{
-		for(int i=0;i<9;i++)
+		for(int i=0;i<sizeof(arr)/sizeof(NSObject*);i++)
 			arr[i]=nil;
 	}
 	~CProductDataContainer()
 	{
-		for(int i=0;i<9;i++)
+		for(int i=0;i<sizeof(arr)/sizeof(NSObject*);i++)
 			if(arr[i])
 				[arr[i] release];
 	}
@@ -145,7 +143,6 @@ public:
 			highlight1=[NSString stringWithUTF8String:pProd->highlight1->c_str()];
 		if(pProd->highlight2)
 			highlight2=[NSString stringWithUTF8String:pProd->highlight2->c_str()];
-		NSLog(@"retain cnt %d",[[[NSString alloc] retain] retainCount]);
 		for(iter=pProd->offers.begin();iter != pProd->offers.end();iter++)
 		{
 			offers.push_back(*iter);

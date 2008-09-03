@@ -31,6 +31,18 @@
 	[indicator stopAnimating];
 	[image setImage:img];
 }
+- (void)initLabelsFont
+{
+	[name setFont:[UIFont systemFontOfSize:12.5]];
+	[highlight1 setFont:[UIFont systemFontOfSize:12.5]];
+	[highlight2 setFont:[UIFont systemFontOfSize:12.5]];
+	[price setFont:[UIFont systemFontOfSize:12.5]];
+	[name setTextColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+	[highlight1 setTextColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+	[highlight2 setTextColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+	[price setTextColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+	
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 
