@@ -46,10 +46,11 @@ public:
 		if(ct->totalItems)
 			itemsCnt=*(ct->totalItems);
 		name=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
-		if(itemsCnt != 0)
+		/*if(itemsCnt != 0)
 			title=[[NSString stringWithFormat:@"%s (%d)",ct->name->c_str(),itemsCnt] retain];
 		else
-			title=[[NSString stringWithUTF8String:ct->name->c_str()] retain];
+			title=[[NSString stringWithUTF8String:ct->name->c_str()] retain];*/
+		title = [[NSString stringWithUTF8String:ct->name->c_str()] retain];
 		if(ct->imageURL)
 			imageUrl=[[NSString stringWithUTF8String:ct->imageURL->c_str()] retain];
 		return *this;
@@ -129,6 +130,8 @@ static NSString *MyIdentifier = @"CategoryCellIdentifier";
 		{
 			[categCell loadingImage:pCategs->categs[indexPath.row].imageUrl];
 		}
+		[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategs->categs[indexPath.row].itemsCnt]];
+		[categCell placeProductCounts];
 	}
 	return cell;
 }
