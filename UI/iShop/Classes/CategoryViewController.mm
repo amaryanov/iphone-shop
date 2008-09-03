@@ -130,7 +130,8 @@ static NSString *MyIdentifier = @"CategoryCellIdentifier";
 		{
 			[categCell loadingImage:pCategs->categs[indexPath.row].imageUrl];
 		}
-		if(pCategs->categs[indexPath.row].itemsCnt > 0)
+		std::cout << "childs: " << pCategs->categs[indexPath.row].childs.size() << std::endl;
+		if(pCategs->categs[indexPath.row].childs.size() == 0)
 		{
 			[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategs->categs[indexPath.row].itemsCnt]];
 		}
