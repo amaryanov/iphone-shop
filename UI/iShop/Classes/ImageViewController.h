@@ -17,14 +17,12 @@
 @interface ImageViewController : UIViewController {
 	IBOutlet ImageSliderController *slider;
 	NSMutableArray *images;
-	UIActivityIndicatorView *activity;
 	IBOutlet NSMutableArray *buttons;
 }
 
 @property ( nonatomic, retain) ImageSliderController *slider;
 @property (retain, nonatomic) NSMutableArray *images;
 @property (retain, nonatomic) NSMutableArray *buttons;
-@property (retain, nonatomic) UIActivityIndicatorView *activity;
 - (NSString*) makeUrl:(NSString *)url;
 @end
 
@@ -33,7 +31,10 @@
 @interface ImageButton : UIButton
 {
 	int imgNum;
+	UIActivityIndicatorView *activity;
 }
 @property (nonatomic) int imgNum;
+- (void) startActivity;
+- (void) stopActivity;
 
 @end

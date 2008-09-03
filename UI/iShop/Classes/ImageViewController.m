@@ -11,13 +11,28 @@
 @implementation ImageButton
 
 @synthesize imgNum;
-
+- (void) startActivity
+{
+	self->activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	CGRect actFr = self->activity.frame;
+	actFr.origin.x = (IMAGE_WIDTH - actFr.size.width)/2;
+	actFr.origin.y = (IMAGE_WIDTH - actFr.size.height)/2;
+	self->activity.frame = actFr;
+	[self->activity startAnimating];
+	[self addSubview:activity];
+}
+- (void) stopActivity
+{
+	[activity stopAnimating];
+	[activity removeFromSuperview];
+	[activity release];
+}
 @end
 
 
 @implementation ImageViewController
 @synthesize slider;
-@synthesize images, buttons, activity;
+@synthesize images, buttons;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -59,6 +74,7 @@
 			 [button addTarget:self action:@selector(openSlider:) forControlEvents:UIControlEventTouchUpInside];
 			 [[self view] addSubview:button];
 			 [buttons addObject:button];
+			 [button startActivity];
 			 NSURL *imageURL = [NSURL URLWithString:[self makeUrl:[images objectAtIndex:i]]];
 			 NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
 			 GDataHTTPFetcher *fetcher = [GDataHTTPFetcher httpFetcherWithRequest:request];
@@ -81,6 +97,7 @@
 {
 	UIImage *img = [[[UIImage alloc] initWithData:data] autorelease];
 	ImageButton *button = [fetcher userData];
+	[button stopActivity];
 	[button setBackgroundImage:img forState:UIControlStateNormal];
 }
 
