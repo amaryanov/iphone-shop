@@ -40,66 +40,41 @@
 			<object class="IBUITabBarController" id="1034742383">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<object class="IBUIViewController" key="IBUISelectedViewController" id="801107439">
-					<object class="IBUILabel" key="IBUIView" id="258719821">
-						<reference key="NSNextResponder"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{102, 181}, {116, 49}}</string>
-						<reference key="NSSuperview"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">Soon</string>
-						<object class="NSFont" key="IBUIFont" id="894274131">
-							<string key="NSName">Helvetica</string>
-							<double key="NSSize">4.000000e+01</double>
-							<int key="NSfFlags">16</int>
-						</object>
-						<object class="NSColor" key="IBUITextColor" id="857067554">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwIDAAA</bytes>
-						</object>
-						<nil key="IBUIHighlightedColor"/>
-						<int key="IBUIBaselineAdjustment">1</int>
-						<float key="IBUIMinimumFontSize">4.000000e+01</float>
-						<int key="IBUITextAlignment">1</int>
-					</object>
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="220114492">
-						<int key="IBUISystemItemIdentifier">8</int>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="627613715">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="1015852462">
+						<string key="IBUITitle">Products</string>
 						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
 					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="230215332">
+						<nil key="NSNextResponder"/>
+						<int key="NSvFlags">256</int>
+						<string key="NSFrameSize">{0, 0}</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIMultipleTouchEnabled">YES</bool>
+					</object>
+					<object class="NSMutableArray" key="IBUIViewControllers">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="IBUIViewController" id="383975447">
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="594782096">
+								<reference key="IBUINavigationBar"/>
+								<string key="IBUITitle">Item1</string>
+								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="633885146">
+									<string key="IBUITitle">Back</string>
+									<int key="IBUIStyle">1</int>
+								</object>
+							</object>
+							<reference key="IBUIParentViewController" ref="627613715"/>
+							<string key="IBUINibName">CategoryViewController</string>
+							<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+						</object>
+					</object>
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUINavigationController" id="627613715">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="1015852462">
-							<string key="IBUITitle">Products</string>
-							<reference key="IBUITabBar"/>
-						</object>
-						<reference key="IBUIParentViewController" ref="1034742383"/>
-						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="230215332">
-							<nil key="NSNextResponder"/>
-							<int key="NSvFlags">256</int>
-							<string key="NSFrameSize">{0, 0}</string>
-							<bool key="IBUIOpaque">NO</bool>
-							<bool key="IBUIClipsSubviews">YES</bool>
-							<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						</object>
-						<object class="NSMutableArray" key="IBUIViewControllers">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="383975447">
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="594782096">
-									<string key="IBUITitle">Item1</string>
-								</object>
-								<reference key="IBUIParentViewController" ref="627613715"/>
-								<string key="IBUINibName">CategoryViewController</string>
-								<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-							</object>
-						</object>
-					</object>
+					<reference ref="627613715"/>
 					<object class="IBUIViewController" id="47276881">
 						<object class="IBUILabel" key="IBUIView" id="608761384">
 							<nil key="NSNextResponder"/>
@@ -110,8 +85,15 @@
 							<int key="IBUIContentMode">2</int>
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="IBUIText">Soon</string>
-							<reference key="IBUIFont" ref="894274131"/>
-							<reference key="IBUITextColor" ref="857067554"/>
+							<object class="NSFont" key="IBUIFont" id="894274131">
+								<string key="NSName">Helvetica</string>
+								<double key="NSSize">4.000000e+01</double>
+								<int key="NSfFlags">16</int>
+							</object>
+							<object class="NSColor" key="IBUITextColor" id="857067554">
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MCAwIDAAA</bytes>
+							</object>
 							<nil key="IBUIHighlightedColor"/>
 							<int key="IBUIBaselineAdjustment">1</int>
 							<float key="IBUIMinimumFontSize">4.000000e+01</float>
@@ -147,7 +129,29 @@
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 					</object>
-					<reference ref="801107439"/>
+					<object class="IBUIViewController" id="801107439">
+						<object class="IBUILabel" key="IBUIView" id="258719821">
+							<nil key="NSNextResponder"/>
+							<int key="NSvFlags">292</int>
+							<string key="NSFrame">{{102, 181}, {116, 49}}</string>
+							<bool key="IBUIOpaque">NO</bool>
+							<bool key="IBUIClipsSubviews">YES</bool>
+							<bool key="IBUIUserInteractionEnabled">NO</bool>
+							<string key="IBUIText">Soon</string>
+							<reference key="IBUIFont" ref="894274131"/>
+							<reference key="IBUITextColor" ref="857067554"/>
+							<nil key="IBUIHighlightedColor"/>
+							<int key="IBUIBaselineAdjustment">1</int>
+							<float key="IBUIMinimumFontSize">4.000000e+01</float>
+							<int key="IBUITextAlignment">1</int>
+						</object>
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="220114492">
+							<int key="IBUISystemItemIdentifier">8</int>
+							<reference key="IBUITabBar"/>
+						</object>
+						<reference key="IBUIParentViewController" ref="1034742383"/>
+						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+					</object>
 					<object class="IBUIViewController" id="691230058">
 						<object class="IBUILabel" key="IBUIView" id="880153870">
 							<nil key="NSNextResponder"/>
@@ -307,6 +311,10 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">152</int>
 						<reference key="object" ref="594782096"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="633885146"/>
+						</object>
 						<reference key="parent" ref="383975447"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -388,6 +396,11 @@
 						<int key="objectID">205</int>
 						<reference key="object" ref="880153870"/>
 						<reference key="parent" ref="691230058"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">206</int>
+						<reference key="object" ref="633885146"/>
+						<reference key="parent" ref="594782096"/>
 					</object>
 				</object>
 			</object>
@@ -472,7 +485,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">205</int>
+			<int key="maxID">206</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

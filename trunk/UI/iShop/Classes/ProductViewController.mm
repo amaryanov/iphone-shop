@@ -61,7 +61,7 @@ public:
 		int stores=0;
 			if(pProd->stores)
 				stores=*(pProd->stores);
-			price=[[NSString stringWithFormat:@"From %1.2f in (%d) stores",*(pProd->price),stores] retain];
+			price=[[NSString stringWithFormat:@"From %1.2f in (%d stores)",*(pProd->price),stores] retain];
 		}
 	}
 public:
@@ -165,6 +165,7 @@ UITableViewCell *cell;
 		if( (pProducts) && (cell) )
 		{
 		ProductViewCell *prodCell=(ProductViewCell *)cell;
+			[prodCell initLabelsFont];
 			[prodCell.name setText:pProducts->products[indexPath.row].name];
 			[prodCell.highlight1 setText:pProducts->products[indexPath.row].highlight1];
 			[prodCell.highlight2 setText:pProducts->products[indexPath.row].highlight2];
@@ -245,7 +246,7 @@ CGFloat retVal;
 	if(indexPath.row == itemsWasLoaded)
 		retVal=44;
 	else
-		retVal=120;
+		retVal=80;
 	return retVal;
 }
 
