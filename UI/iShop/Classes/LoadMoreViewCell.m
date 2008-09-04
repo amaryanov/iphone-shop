@@ -8,6 +8,7 @@
 
 #import "LoadMoreViewCell.h"
 
+#define RGB(x) (((float)x)/255)
 
 @implementation LoadMoreViewCell
 @synthesize label,indicator;
@@ -17,6 +18,12 @@
 		// Initialization code
 	}
 	return self;
+}
+
+- (void)initLabelsFont
+{
+	[label setFont:[label.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
+	[label setTextColor:[UIColor colorWithRed:RGB(0x8d) green:RGB(0x2d) blue:RGB(0x2d) alpha:1.0]];
 }
 
 

@@ -16,4 +16,6 @@
 @property (nonatomic, retain) UILabel					*label;
 @property (nonatomic, retain) UIActivityIndicatorView	*indicator;
 
+- (void)initLabelsFont;
+
 @end
