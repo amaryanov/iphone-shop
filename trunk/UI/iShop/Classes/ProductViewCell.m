@@ -7,7 +7,6 @@
 //
 
 #import "ProductViewCell.h"
-#define RGB(x) (((float)x)/255)
 
 @implementation ProductViewCell
 @synthesize name;
@@ -33,14 +32,14 @@
 }
 - (void)initLabelsFont
 {
-	[name setFont:[UIFont systemFontOfSize:12.5]];
+	[name setFont:[name.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
 	[highlight1 setFont:[UIFont systemFontOfSize:12.5]];
 	[highlight2 setFont:[UIFont systemFontOfSize:12.5]];
 	[price setFont:[UIFont systemFontOfSize:12.5]];
 	[name setTextColor:[UIColor colorWithRed:RGB(0x8d) green:RGB(0x2d) blue:RGB(0x2d) alpha:1.0]];
 	[highlight1 setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
-	[highlight2 setTextColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
-	[price setTextColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+	[highlight2 setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
+	[price setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
 	
 }
 

@@ -25,4 +25,5 @@
 @property (nonatomic, retain)  UILabel 		*highlight1;
 @property (nonatomic, retain)  UILabel 		*highlight2;
 
+- (void)initLabelsFont;
 @end

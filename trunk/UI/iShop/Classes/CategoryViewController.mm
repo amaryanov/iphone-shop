@@ -155,7 +155,6 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 			root->pCategs->categs=pCategs->categs[indexPath.row].childs;
 //			printCategs(pCategs->categs,"");
 			[[root navigationItem] setTitle:pCategs->categs[indexPath.row].title];
-			[[self navigationController] navigationBar].backItem.title=@"Back";
 			[[self navigationController] pushViewController:root animated:YES];
 		}
 		else
@@ -165,7 +164,7 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 			prods.categoryId=pCategs->categs[indexPath.row].id;
 			prods.itemsCnt=pCategs->categs[indexPath.row].itemsCnt;
 			[prods.navigationItem setTitle:pCategs->categs[indexPath.row].title];
-			[prods.navigationItem leftBarButtonItem].title=@"Back";
+//			[prods.navigationItem leftBarButtonItem].title=@"Back";
 			[[self navigationController] pushViewController:prods animated:YES];
 		}
 	}

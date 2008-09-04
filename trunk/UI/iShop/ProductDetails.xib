@@ -8,9 +8,9 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="14"/>
-			<integer value="17"/>
 			<integer value="9"/>
+			<integer value="17"/>
+			<integer value="14"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -99,7 +99,7 @@
 							<object class="IBUIImageView" id="466560374">
 								<reference key="NSNextResponder" ref="619423403"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrameSize">{104, 101}</string>
+								<string key="NSFrame">{{4, 0}, {97, 101}}</string>
 								<reference key="NSSuperview" ref="619423403"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -235,7 +235,7 @@
 							<object class="IBUIButton" id="156023764">
 								<reference key="NSNextResponder" ref="14374987"/>
 								<int key="NSvFlags">257</int>
-								<string key="NSFrame">{{167, 4}, {141, 37}}</string>
+								<string key="NSFrame">{{168, 4}, {141, 37}}</string>
 								<reference key="NSSuperview" ref="14374987"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>

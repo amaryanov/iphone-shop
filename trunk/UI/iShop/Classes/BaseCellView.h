@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#ifndef RGB
+	#define RGB(x) (((float)x)/255)
+#endif
 
 @class GDataHTTPFetcher;
 @interface BaseCellView : UITableViewCell

@@ -397,6 +397,7 @@ _ns2__getProductDetailsResponse srvResp;
 		}
 		firstCell.highlight1.text=pProdData->highlight1;
 		firstCell.highlight2.text=pProdData->highlight2;
+		[firstCell initLabelsFont];
 		[firstCell loadingImage:pProdData->imageURL];
 		secondCell.details.text=pProdData->details;
 		MyYouTube* t = [[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];

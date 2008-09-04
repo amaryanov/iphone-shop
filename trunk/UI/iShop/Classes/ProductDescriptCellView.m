@@ -7,7 +7,7 @@
 //
 
 #import "ProductDescriptCellView.h"
-
+#define RGB(x) (((float)x)/255)
 
 @implementation ProductDescriptCellView
 @synthesize details;
@@ -17,6 +17,11 @@
 		// Initialization code
 	}
 	return self;
+}
+- (void)initLabelsFont
+{
+	[details setFont:[details.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
+	[details setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
 }
 
 

@@ -60,11 +60,6 @@
 						<object class="IBUIViewController" id="383975447">
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="594782096">
 								<reference key="IBUINavigationBar"/>
-								<string key="IBUITitle">Item1</string>
-								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="633885146">
-									<string key="IBUITitle">Back</string>
-									<int key="IBUIStyle">1</int>
-								</object>
 							</object>
 							<reference key="IBUIParentViewController" ref="627613715"/>
 							<string key="IBUINibName">CategoryViewController</string>
@@ -313,7 +308,6 @@
 						<reference key="object" ref="594782096"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="633885146"/>
 						</object>
 						<reference key="parent" ref="383975447"/>
 					</object>
@@ -396,11 +390,6 @@
 						<int key="objectID">205</int>
 						<reference key="object" ref="880153870"/>
 						<reference key="parent" ref="691230058"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">206</int>
-						<reference key="object" ref="633885146"/>
-						<reference key="parent" ref="594782096"/>
 					</object>
 				</object>
 			</object>

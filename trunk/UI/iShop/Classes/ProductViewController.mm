@@ -61,7 +61,7 @@ public:
 		int stores=0;
 			if(pProd->stores)
 				stores=*(pProd->stores);
-			price=[[NSString stringWithFormat:@"From %1.2f in (%d stores)",*(pProd->price),stores] retain];
+			price=[[NSString stringWithFormat:@"From %1.2f₪ (in %d stores)",*(pProd->price),stores] retain];
 		}
 	}
 public:
@@ -146,7 +146,7 @@ UITableViewCell *cell;
 	NSLog(@"%d",indexPath.row);
 	if( indexPath.row == itemsWasLoaded )
 	{
-		loadMoreCell.label.text=[NSString stringWithFormat:@"Load %d more ...",BATCH_SIZE];
+		loadMoreCell.label.text=[NSString stringWithFormat:@"Load %d More ...",BATCH_SIZE];
 		cell=loadMoreCell;
 	}
 	else
