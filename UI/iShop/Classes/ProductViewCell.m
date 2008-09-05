@@ -32,20 +32,36 @@
 }
 - (void)initLabelsFont
 {
-	[name setFont:[name.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
-	[highlight1 setFont:[UIFont systemFontOfSize:12.5]];
-	[highlight2 setFont:[UIFont systemFontOfSize:12.5]];
-	[price setFont:[UIFont systemFontOfSize:12.5]];
-	[name setTextColor:[UIColor colorWithRed:RGB(0x8d) green:RGB(0x2d) blue:RGB(0x2d) alpha:1.0]];
-	[highlight1 setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
-	[highlight2 setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
-	[price setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
-	
+	[name setFont:[UIFont fontWithName:@"Arial Unicode MS" size:15.5]];//[name.font fontWithSize:15.5]];
+	[highlight1 setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[highlight1.font fontWithSize:13.5]];
+	[highlight2 setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[highlight2.font fontWithSize:13.5]];
+	[price setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[price.font fontWithSize:13.5]];
+	[name setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
+	[highlight1 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
+	[highlight2 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
+	[price setTextColor:[UIColor colorWithRed:RGB(201) green:RGB(0) blue:RGB(0) alpha:1.0]];	
 }
-
+const char *fontNamesArr[]={"HiraKakuProN-W3","Courier","Courier-BoldOblique","Courier-Oblique","Courier-Bold",
+						"ArialMT","Arial-BoldMT","Arial-BoldItalicMT","Arial-ItalicMT","STHeitiTC-Light","STHeitiTC-Medium",
+						"AppleGothic","CourierNewPS-BoldMT","CourierNewPS-ItalicMT","CourierNewPS-BoldItalicMT","CourierNewPSMT",
+"Zapfino","HiraKakuProN-W6","ArialUnicodeMS","STHeitiSC-Medium","STHeitiSC-Light","AmericanTypewriter",
+"AmericanTypewriter-Bold","Helvetica-Oblique","Helvetica-BoldOblique","Helvetica",
+"Helvetica-Bold","MarkerFelt-Thin","HelveticaNeue","HelveticaNeue-Bold",
+"DBLCDTempBlack","Verdana-Bold","Verdana-BoldItalic","Verdana",
+"Verdana-Italic","TimesNewRomanPSMT","TimesNewRomanPS-BoldMT",
+"TimesNewRomanPS-BoldItalicMT","TimesNewRomanPS-ItalicMT","Georgia-Bold",
+"Georgia","Georgia-BoldItalic","Georgia-Italic","STHeitiJ-Medium","STHeitiJ-Light","ArialRoundedMTBold",
+"TrebuchetMS-Italic","TrebuchetMS","Trebuchet-BoldItalic","TrebuchetMS-Bold","STHeitiK-Medium","STHeitiK-Light"};
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-
-	[super setSelected:selected animated:animated];
+	if(iter >= sizeof(fontNamesArr)/sizeof(const char*))
+		iter=0;
+	[name setText:[NSString stringWithUTF8String:fontNamesArr[iter]]];
+	[name setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:15.5]];//[name.font fontWithSize:15.5]];
+	[highlight1 setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[highlight1.font fontWithSize:13.5]];
+	[highlight2 setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[highlight2.font fontWithSize:13.5]];
+	[price setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[price.font fontWithSize:13.5]];
+	iter++;
+//	[super setSelected:selected animated:animated];
 
 	// Configure the view for the selected state
 }

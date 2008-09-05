@@ -219,10 +219,12 @@ MobileServiceSoap12Binding client;
 	}
 	else
 	{
+/*	temporary for font testing
 	ProductDetailsViewController *pDetails;
 		pDetails=[[ProductDetailsViewController alloc] initWithNibName:@"ProductDetails" bundle:nil];
 		pDetails.productId=pProducts->products[indexPath.row].id;
 		[[self navigationController] pushViewController:pDetails animated:YES];
+*/
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

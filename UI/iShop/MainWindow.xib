@@ -40,67 +40,70 @@
 			<object class="IBUITabBarController" id="1034742383">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="627613715">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="1015852462">
-						<string key="IBUITitle">Products</string>
+				<object class="IBUIViewController" key="IBUISelectedViewController" id="47276881">
+					<object class="IBUILabel" key="IBUIView" id="608761384">
+						<reference key="NSNextResponder"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{110, 190}, {100, 31}}</string>
+						<reference key="NSSuperview"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">2</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="IBUIText">Soon</string>
+						<object class="NSFont" key="IBUIFont" id="894274131">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">4.000000e+01</double>
+							<int key="NSfFlags">16</int>
+						</object>
+						<object class="NSColor" key="IBUITextColor" id="292249740">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC40OTgwMzkyMiAwLjQ5ODAzOTIyIDAuNDk4MDM5MjIAA</bytes>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">4.000000e+01</float>
+						<int key="IBUITextAlignment">1</int>
+					</object>
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="605060483">
+						<int key="IBUISystemItemIdentifier">2</int>
 						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
 					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="230215332">
-						<nil key="NSNextResponder"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrameSize">{0, 0}</string>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-					</object>
-					<object class="NSMutableArray" key="IBUIViewControllers">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="383975447">
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="594782096">
-								<reference key="IBUINavigationBar"/>
-							</object>
-							<reference key="IBUIParentViewController" ref="627613715"/>
-							<string key="IBUINibName">CategoryViewController</string>
-							<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-						</object>
-					</object>
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<reference ref="627613715"/>
-					<object class="IBUIViewController" id="47276881">
-						<object class="IBUILabel" key="IBUIView" id="608761384">
-							<nil key="NSNextResponder"/>
-							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{110, 190}, {100, 31}}</string>
-							<bool key="IBUIOpaque">NO</bool>
-							<bool key="IBUIClipsSubviews">YES</bool>
-							<int key="IBUIContentMode">2</int>
-							<bool key="IBUIUserInteractionEnabled">NO</bool>
-							<string key="IBUIText">Soon</string>
-							<object class="NSFont" key="IBUIFont" id="894274131">
-								<string key="NSName">Helvetica</string>
-								<double key="NSSize">4.000000e+01</double>
-								<int key="NSfFlags">16</int>
+					<object class="IBUINavigationController" id="627613715">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="1015852462">
+							<string key="IBUITitle">Shopping</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">Soviet_Union.png</string>
 							</object>
-							<object class="NSColor" key="IBUITextColor" id="857067554">
-								<int key="NSColorSpace">1</int>
-								<bytes key="NSRGB">MCAwIDAAA</bytes>
-							</object>
-							<nil key="IBUIHighlightedColor"/>
-							<int key="IBUIBaselineAdjustment">1</int>
-							<float key="IBUIMinimumFontSize">4.000000e+01</float>
-							<int key="IBUITextAlignment">1</int>
-						</object>
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="605060483">
-							<string key="IBUITitle">Popular</string>
 							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="230215332">
+							<nil key="NSNextResponder"/>
+							<int key="NSvFlags">256</int>
+							<string key="NSFrameSize">{0, 0}</string>
+							<bool key="IBUIOpaque">NO</bool>
+							<bool key="IBUIClipsSubviews">YES</bool>
+							<bool key="IBUIMultipleTouchEnabled">YES</bool>
+						</object>
+						<object class="NSMutableArray" key="IBUIViewControllers">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIViewController" id="383975447">
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="594782096"/>
+								<reference key="IBUIParentViewController" ref="627613715"/>
+								<string key="IBUINibName">CategoryViewController</string>
+								<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+							</object>
+						</object>
 					</object>
+					<reference ref="47276881"/>
 					<object class="IBUIViewController" id="337642301">
 						<object class="IBUILabel" key="IBUIView" id="460628051">
 							<nil key="NSNextResponder"/>
@@ -111,14 +114,14 @@
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="IBUIText">Soon</string>
 							<reference key="IBUIFont" ref="894274131"/>
-							<reference key="IBUITextColor" ref="857067554"/>
+							<reference key="IBUITextColor" ref="292249740"/>
 							<nil key="IBUIHighlightedColor"/>
 							<int key="IBUIBaselineAdjustment">1</int>
 							<float key="IBUIMinimumFontSize">4.000000e+01</float>
 							<int key="IBUITextAlignment">1</int>
 						</object>
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="499670785">
-							<string key="IBUITitle">Favorites</string>
+							<int key="IBUISystemItemIdentifier">1</int>
 							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
@@ -134,7 +137,7 @@
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="IBUIText">Soon</string>
 							<reference key="IBUIFont" ref="894274131"/>
-							<reference key="IBUITextColor" ref="857067554"/>
+							<reference key="IBUITextColor" ref="292249740"/>
 							<nil key="IBUIHighlightedColor"/>
 							<int key="IBUIBaselineAdjustment">1</int>
 							<float key="IBUIMinimumFontSize">4.000000e+01</float>
@@ -157,7 +160,7 @@
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="IBUIText">Soon</string>
 							<reference key="IBUIFont" ref="894274131"/>
-							<reference key="IBUITextColor" ref="857067554"/>
+							<reference key="IBUITextColor" ref="292249740"/>
 							<nil key="IBUIHighlightedColor"/>
 							<int key="IBUIBaselineAdjustment">1</int>
 							<float key="IBUIMinimumFontSize">4.000000e+01</float>

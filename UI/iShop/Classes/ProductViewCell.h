@@ -16,6 +16,7 @@
 	IBOutlet UILabel 	*highlight2;
 	IBOutlet UILabel	*price;
 	IBOutlet UIImageView *image;
+	int iter;
 }
 @property (nonatomic, retain) UILabel *name;
 @property (nonatomic, retain) UILabel *highlight1;
