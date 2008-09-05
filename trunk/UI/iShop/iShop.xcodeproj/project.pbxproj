@@ -130,6 +130,7 @@
 		559B7FA60E4C3E7E00B453FE /* CategoryViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */; };
 		55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A6FE820E5C1DC700285F99 /* ProductDetails.xib */; };
 		55A6FE870E5C1DF100285F99 /* ProductDetailsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */; };
+		55A8B5600E71E169007D6CAE /* Soviet_Union.png in Resources */ = {isa = PBXBuildFile; fileRef = 55A8B55F0E71E169007D6CAE /* Soviet_Union.png */; };
 		55AFB9550E6C94D400DDEC6B /* LoadMoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AFB9540E6C94D400DDEC6B /* LoadMoreViewCell.m */; };
 		55AFB9A30E6C9AEC00DDEC6B /* empty-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AFB9A00E6C9AEC00DDEC6B /* empty-star.png */; };
 		55AFB9A40E6C9AEC00DDEC6B /* full-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AFB9A10E6C9AEC00DDEC6B /* full-star.png */; };
@@ -380,6 +381,7 @@
 		55A6FE820E5C1DC700285F99 /* ProductDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetails.xib; sourceTree = "<group>"; };
 		55A6FE850E5C1DF100285F99 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductDetailsViewController.mm; sourceTree = "<group>"; };
+		55A8B55F0E71E169007D6CAE /* Soviet_Union.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Soviet_Union.png; sourceTree = "<group>"; };
 		55AFB9530E6C94D400DDEC6B /* LoadMoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreViewCell.h; sourceTree = "<group>"; };
 		55AFB9540E6C94D400DDEC6B /* LoadMoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreViewCell.m; sourceTree = "<group>"; };
 		55AFB9A00E6C9AEC00DDEC6B /* empty-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-star.png"; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55A8B55F0E71E169007D6CAE /* Soviet_Union.png */,
 				3AC4775D0E6F48CF00971DD5 /* main_icon.png */,
 				3AC40ABB0E6B6281005580EB /* play.png */,
 				3AC40ABC0E6B6281005580EB /* right.png */,
@@ -879,6 +882,7 @@
 				55AFB9A40E6C9AEC00DDEC6B /* full-star.png in Resources */,
 				55AFB9A50E6C9AEC00DDEC6B /* half-star.png in Resources */,
 				3AC4775E0E6F48CF00971DD5 /* main_icon.png in Resources */,
+				55A8B5600E71E169007D6CAE /* Soviet_Union.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
