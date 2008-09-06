@@ -52,16 +52,22 @@ const char *fontNamesArr[]={"HiraKakuProN-W3","Courier","Courier-BoldOblique","C
 "TimesNewRomanPS-BoldItalicMT","TimesNewRomanPS-ItalicMT","Georgia-Bold",
 "Georgia","Georgia-BoldItalic","Georgia-Italic","STHeitiJ-Medium","STHeitiJ-Light","ArialRoundedMTBold",
 "TrebuchetMS-Italic","TrebuchetMS","Trebuchet-BoldItalic","TrebuchetMS-Bold","STHeitiK-Medium","STHeitiK-Light"};
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-	if(iter >= sizeof(fontNamesArr)/sizeof(const char*))
-		iter=0;
-	[name setText:[NSString stringWithUTF8String:fontNamesArr[iter]]];
-	[name setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:15.5]];//[name.font fontWithSize:15.5]];
-	[highlight1 setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[highlight1.font fontWithSize:13.5]];
-	[highlight2 setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[highlight2.font fontWithSize:13.5]];
-	[price setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[price.font fontWithSize:13.5]];
-	iter++;
-//	[super setSelected:selected animated:animated];
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated 
+{
+//	NSLog(@"size %d",sizeof(fontNamesArr)/sizeof(const char*));
+	if(selected)
+	{
+		if(iter >= sizeof(fontNamesArr)/sizeof(const char*))
+			iter=0;
+		[name setText:[NSString stringWithUTF8String:fontNamesArr[iter]]];
+		[name setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:15.5]];//[name.font fontWithSize:15.5]];
+		[highlight1 setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[highlight1.font fontWithSize:13.5]];
+		[highlight2 setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[highlight2.font fontWithSize:13.5]];
+		[price setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[price.font fontWithSize:13.5]];
+		NSLog(@"iter %d",iter);
+		iter++;
+	}
+	//	[super setSelected:selected animated:animated];
 
 	// Configure the view for the selected state
 }
