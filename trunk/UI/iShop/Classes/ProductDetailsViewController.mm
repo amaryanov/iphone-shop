@@ -354,9 +354,8 @@ public:
 - (void)loadView {
 }
  */
-
-// If you need to do additional setup after loading the view, override viewDidLoad.
-- (void)viewDidLoad 
+//- (void)loadThread:(id)param
+- (void)viewDidLoad
 {
 MobileServiceSoap12Binding client;
 _ns2__getProductDetails srvRequest;
@@ -407,8 +406,15 @@ _ns2__getProductDetailsResponse srvResp;
 	}
 	if(pProdData)
 		[self.navigationItem setTitle:pProdData->name];
-	
 }
+// If you need to do additional setup after loading the view, override viewDidLoad.
+/*
+- (void) viewDidLoad
+{
+	[NSThread detachNewThreadSelector:@selector(loadThread:) toTarget:self withObject:nil];
+
+}
+*/
 
 - (IBAction)PlayGallery:(id)sender {
  	ImageViewController *imageViewer;

@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 class CCategories;
-@interface CategoryViewController : UIViewController {
+@class NSCondition;
+@interface CategoryViewController : UIViewController 
+{
+	IBOutlet UIView *theView;
+	IBOutlet UITableView *table;
+	IBOutlet UIActivityIndicatorView *indicator;
+
 	CCategories *pCategs;
+	NSCondition *cond;
 }
-//@property (nonatomic, retain) UITableView *myDinamicalyTable;
+@property (nonatomic, retain) UIView *theView;
+@property (nonatomic, retain) UITableView *table;
+@property (nonatomic, retain) UIActivityIndicatorView *indicator;
 
 @end

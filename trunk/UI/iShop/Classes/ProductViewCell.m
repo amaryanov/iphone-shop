@@ -13,7 +13,7 @@
 @synthesize price;
 @synthesize highlight1;
 @synthesize highlight2;
-@synthesize image;
+@synthesize storesCount;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
 	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
@@ -22,20 +22,13 @@
 	return self;
 }
 
-- (void)imageFetcher:(GDataHTTPFetcher *)fetcher finishedWithData:(NSData *)data 
-{
-	UIImage *img = [[[UIImage alloc] initWithData:data] autorelease];
-	//	[imageList addObject:[[MyTubeIKBrowserItem alloc] init:[fetcher userData] image:image]];
-	
-	[indicator stopAnimating];
-	[image setImage:img];
-}
 - (void)initLabelsFont
 {
 	[name setFont:[UIFont fontWithName:@"Arial Unicode MS" size:15.5]];//[name.font fontWithSize:15.5]];
 	[highlight1 setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[highlight1.font fontWithSize:13.5]];
 	[highlight2 setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[highlight2.font fontWithSize:13.5]];
 	[price setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[price.font fontWithSize:13.5]];
+	[storesCount setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[price.font fontWithSize:13.5]];
 	[name setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
 	[highlight1 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
 	[highlight2 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
@@ -54,7 +47,6 @@ const char *fontNamesArr[]={"HiraKakuProN-W3","Courier","Courier-BoldOblique","C
 "TrebuchetMS-Italic","TrebuchetMS","Trebuchet-BoldItalic","TrebuchetMS-Bold","STHeitiK-Medium","STHeitiK-Light"};
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated 
 {
-//	NSLog(@"size %d",sizeof(fontNamesArr)/sizeof(const char*));
 	if(selected)
 	{
 		if(iter >= sizeof(fontNamesArr)/sizeof(const char*))
@@ -64,12 +56,39 @@ const char *fontNamesArr[]={"HiraKakuProN-W3","Courier","Courier-BoldOblique","C
 		[highlight1 setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[highlight1.font fontWithSize:13.5]];
 		[highlight2 setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[highlight2.font fontWithSize:13.5]];
 		[price setFont:[UIFont fontWithName:[NSString stringWithUTF8String:fontNamesArr[iter]] size:13.5]];//[price.font fontWithSize:13.5]];
-		NSLog(@"iter %d",iter);
 		iter++;
 	}
 	//	[super setSelected:selected animated:animated];
 
 	// Configure the view for the selected state
+}
+
+- (void)placeStoresCounts:(NSString*)countStr
+{
+	{
+		CGSize priceSize = [price.text sizeWithFont:price.font];
+		CGRect storeFrame = storesCount.frame;
+		storeFrame.origin.x = price.frame.origin.x + priceSize.width + 2;
+		storeFrame.size.width=289-storeFrame.origin.x;
+		if(storeFrame.origin.x < storesCount.frame.origin.x)
+			storesCount.frame = storeFrame;
+		[storesCount setText:countStr];
+/*		
+		CGSize nameSize = [name.text sizeWithFont:name.font];
+		CGRect prodFrame = productsCount.frame;
+		prodFrame.origin.x = name.frame.origin.x + nameSize.width + 2;
+		if(prodFrame.origin.x < productsCount.frame.origin.x)
+			productsCount.frame = prodFrame;
+*/		
+	}
+/*
+	else
+	{
+		CGRect nameRect = name.frame;
+		nameRect.size.width += 32.0;
+		name.frame = nameRect;
+	}
+*/
 }
 
 

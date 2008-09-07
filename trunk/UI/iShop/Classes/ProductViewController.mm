@@ -22,11 +22,11 @@
 class CProduct
 {
 public:
-	CProduct():id(-1),price(0)
+	CProduct():id(-1)
 	{
 		memset(arr,0,sizeof(arr));
 	}
-	CProduct(const CProduct &pr):id(pr.id),price(pr.price)
+	CProduct(const CProduct &pr):id(pr.id)
 	{
 		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
 		{
@@ -58,10 +58,12 @@ public:
 			highlight2=[[NSString stringWithUTF8String:pProd->highlight2->c_str()] retain];
 		if(pProd->price)
 		{
-		int stores=0;
 			if(pProd->stores)
-				stores=*(pProd->stores);
-			price=[[NSString stringWithFormat:@"From %1.2f₪ (in %d stores)",*(pProd->price),stores] retain];
+				storesCnt=[[NSString stringWithFormat:@"(in %d stores)",*(pProd->stores)] retain];
+			else
+				storesCnt=[[NSString stringWithString:@"(Not in stock)"] retain];
+				
+			price=[[NSString stringWithFormat:@"From %1.2f₪",*(pProd->price)] retain];
 		}
 	}
 public:
@@ -74,9 +76,10 @@ public:
 			NSString *highlight1;
 			NSString *highlight2;
 			NSString *price;
+			NSString *storesCnt;
 			NSString *imageURL;
 		};
-		NSString *arr[5];
+		NSString *arr[6];
 	};
 };
 class CProductListContainer
@@ -112,7 +115,8 @@ ThreadParameter *param;
 @synthesize loadMoreCell,mainTable;
 @synthesize categoryId;
 @synthesize itemsCnt;
-
+@synthesize indicator;
+@synthesize categoryName;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -129,11 +133,14 @@ ThreadParameter *param;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
 NSInteger retVal=0;
-	if(pProducts)
+	@synchronized(self)
 	{
-		retVal=pProducts->products.size();
-		if(retVal != itemsCnt)
-			retVal++;//for load more;
+		if( (pProducts) && (pProducts->products.size()) )
+		{
+			retVal=pProducts->products.size();
+			if(retVal != itemsCnt)
+				retVal++;//for load more;
+		}
 	}
 	return retVal;
 }
@@ -147,6 +154,7 @@ UITableViewCell *cell;
 	if( indexPath.row == itemsWasLoaded )
 	{
 		loadMoreCell.label.text=[NSString stringWithFormat:@"Load %d More ...",BATCH_SIZE];
+		loadMoreCell.secondLabel.text=[NSString stringWithFormat:@"Total %d %@, loaded %d of %d",itemsCnt,categoryName,itemsWasLoaded,itemsCnt];
 		cell=loadMoreCell;
 	}
 	else
@@ -171,6 +179,7 @@ UITableViewCell *cell;
 			[prodCell.highlight2 setText:pProducts->products[indexPath.row].highlight2];
 			[prodCell loadingImage:pProducts->products[indexPath.row].imageURL];
 			[prodCell.price setText:pProducts->products[indexPath.row].price];
+			[prodCell placeStoresCounts:pProducts->products[indexPath.row].storesCnt];
 		}
 	}
 
@@ -186,6 +195,7 @@ void buildProducts(vector<CProduct> &products,std::vector<class ns2__MProduct * 
 }
 - (void)requestItemsFromId:(ThreadParameter*)param
 {
+NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 MobileServiceSoap12Binding client;
 	_ns2__getProductList srvRequest;//=new _ns1__getProductList();
 	_ns2__getProductListResponse srvResp;
@@ -195,15 +205,20 @@ MobileServiceSoap12Binding client;
 	srvRequest.languageId=new int(0);
 	if( SOAP_OK == client.__ns4__getProductList(&srvRequest,&srvResp) )
 	{
-		buildProducts(pProducts->products,srvResp.return_);
-//		itemsWasLoaded+=(itemsCnt > BATCH_SIZE)?BATCH_SIZE:itemsCnt;
-		itemsWasLoaded=pProducts->products.size();
+		@synchronized(self)
+		{
+			buildProducts(pProducts->products,srvResp.return_);
+//			itemsWasLoaded+=(itemsCnt > BATCH_SIZE)?BATCH_SIZE:itemsCnt;
+			itemsWasLoaded=pProducts->products.size();
+		}
 	}
 	if(param.iVal != 0)
 	{
-		[mainTable reloadData];
 		[loadMoreCell.indicator stopAnimating];
 	}
+	[indicator stopAnimating];
+	[mainTable reloadData];
+	[pool release];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -239,14 +254,18 @@ MobileServiceSoap12Binding client;
 {
 	pProducts=new CProductListContainer();
 	itemsWasLoaded=0;
-	[self requestItemsFromId:[ThreadParameter initIntWithVal:0]];
+	//[loadMoreCell.indicator startAnimating];
+	[indicator startAnimating];
+	[NSThread detachNewThreadSelector:@selector(requestItemsFromId:) toTarget:self withObject:[ThreadParameter initIntWithVal:0]];
+
+//	[self requestItemsFromId:[ThreadParameter initIntWithVal:0]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 CGFloat retVal;
 	if(indexPath.row == itemsWasLoaded)
-		retVal=44;
+		retVal=55;
 	else
 		retVal=80;
 	return retVal;

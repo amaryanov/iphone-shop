@@ -15,15 +15,16 @@
 	IBOutlet UILabel	*highlight1;
 	IBOutlet UILabel 	*highlight2;
 	IBOutlet UILabel	*price;
-	IBOutlet UIImageView *image;
+	IBOutlet UILabel	*storesCount;
 	int iter;
 }
 @property (nonatomic, retain) UILabel *name;
 @property (nonatomic, retain) UILabel *highlight1;
 @property (nonatomic, retain) UILabel *highlight2;
-@property (nonatomic, retain) UIImageView *image;
 @property (nonatomic, retain) UILabel *price;
+@property (nonatomic, retain) UILabel *storesCount;
 
 - (void)initLabelsFont;
+- (void)placeStoresCounts:(NSString*)countStr;
 
 @end
