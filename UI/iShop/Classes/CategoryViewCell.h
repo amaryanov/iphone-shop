@@ -13,12 +13,10 @@
 @interface CategoryViewCell : BaseCellView 
 {
 	IBOutlet UILabel		*name;
-	IBOutlet UIImageView	*categImg;
 	IBOutlet UILabel		*productsCount;
 	
 }
 @property (nonatomic, retain) UILabel		*name;
-@property (nonatomic, retain) UIImageView	*categImg;
 @property (nonatomic, retain) UILabel		*productsCount;
 - (void) placeProductCounts;
 @end

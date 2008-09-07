@@ -1022,6 +1022,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iShop_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				"OTHER_LDFLAGS[sdk=iphoneos2.0][arch=*]" = (
+					"-lxml2",
+					"-framework",
+					CFNetwork,
+				);
+				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*]" = (
+					"-lxml2",
+					"-framework",
+					CoreServices,
+				);
 				PRODUCT_NAME = iShop;
 			};
 			name = Debug;

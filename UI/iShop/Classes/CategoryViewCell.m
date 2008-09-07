@@ -12,7 +12,6 @@
 
 @implementation CategoryViewCell
 @synthesize name;
-@synthesize categImg;
 @synthesize productsCount;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
@@ -28,13 +27,6 @@
 	[super setSelected:selected animated:animated];
 
 	// Configure the view for the selected state
-}
-
-- (void)imageFetcher:(GDataHTTPFetcher *)fetcher finishedWithData:(NSData *)data 
-{
-UIImage *image = [[[UIImage alloc] initWithData:data] autorelease];
-//	[imageList addObject:[[MyTubeIKBrowserItem alloc] init:[fetcher userData] image:image]];
-	[categImg setImage:image];
 }
 
 - (void) placeProductCounts

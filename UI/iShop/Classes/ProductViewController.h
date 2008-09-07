@@ -14,15 +14,22 @@ class CProductListContainer;
 {
 	IBOutlet LoadMoreViewCell	*loadMoreCell;
 	IBOutlet UITableView		*mainTable;
-	
+	IBOutlet UIActivityIndicatorView *indicator;
+
+		
 	CProductListContainer	*pProducts;
 	int						categoryId;
 	int						itemsCnt;
+	NSString				*categoryName;
 	@private int			itemsWasLoaded;
 }
 @property (nonatomic, retain) UITableViewCell	*loadMoreCell;
 @property (nonatomic, retain) UITableView		*mainTable;
+@property (nonatomic, retain) UIActivityIndicatorView *indicator;
+
 
 @property(readwrite) int categoryId;
 @property(readwrite) int itemsCnt;
+@property (nonatomic, retain) NSString *categoryName;
+
 @end

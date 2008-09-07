@@ -14,10 +14,13 @@
 @class GDataHTTPFetcher;
 @interface BaseCellView : UITableViewCell
 {
-
 	IBOutlet UIActivityIndicatorView *indicator;
+	IBOutlet UIImageView *cellImage;
+	
+	//NSMutableDictionary *loadedImages;
 }
 @property (nonatomic, retain) UIActivityIndicatorView *indicator;
+@property (nonatomic, retain) UIImageView *cellImage;
 
 - (void) loadingImage:(NSString *)urlStr;
 - (void)imageFetcher:(GDataHTTPFetcher *)fetcher finishedWithData:(NSData *)data;

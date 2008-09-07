@@ -78,7 +78,9 @@ using namespace std;
 void printCategs(std::vector<CCategory> &category,std::string ident);
 
 @implementation CategoryViewController
-
+@synthesize theView;
+@synthesize table;
+@synthesize indicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) 
@@ -99,8 +101,11 @@ void printCategs(std::vector<CCategory> &category,std::string ident);
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
 NSInteger retVal=0;
-	if(pCategs)
-		retVal=pCategs->categs.size();
+	@synchronized(self)
+	{
+		if(pCategs)
+			retVal=pCategs->categs.size();
+	}
 	return retVal;
 }
 
@@ -132,6 +137,7 @@ static NSString *MyIdentifier = @"CategoryCellIdentifier";
 			[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategs->categs[indexPath.row].itemsCnt]];
 		}
 		[categCell placeProductCounts];
+//		[categCell loadingImage:@"http://kenlo.gotdns.com/assets/categoryImage/Computer.png"];
 	}
 	return cell;
 }
@@ -163,8 +169,8 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 			prods=[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil];
 			prods.categoryId=pCategs->categs[indexPath.row].id;
 			prods.itemsCnt=pCategs->categs[indexPath.row].itemsCnt;
-			[prods.navigationItem setTitle:pCategs->categs[indexPath.row].title];
-//			[prods.navigationItem leftBarButtonItem].title=@"Back";
+			prods.categoryName=pCategs->categs[indexPath.row].name;
+			[prods.navigationItem setTitle:pCategs->categs[indexPath.row].name];
 			[[self navigationController] pushViewController:prods animated:YES];
 		}
 	}
@@ -203,27 +209,36 @@ CCategory ct;
 	}
 }
 
-- (void)viewDidLoad 
+- (void)loadThread:(id)param
 {
-	if(pCategs == NULL)
+NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+CCategories *pNewCategs=NULL;
 	{
 	MobileServiceSoap12Binding client;
 	_ns2__getCategoryList catList;
 	_ns2__getCategoryListResponse catListResp;
-
 		catList.categoryType=new int(0);
 		if( SOAP_OK == client.__ns4__getCategoryList(&catList,&catListResp) )
 		{
-			pCategs=new CCategories();
-			buildCategs(pCategs->categs,catListResp.return_);
-//			printCategs(pCategs->categs,"");
+			pNewCategs=new CCategories();
+			buildCategs(pNewCategs->categs,catListResp.return_);
 		}
-		[self.navigationItem setTitle:@"Categories"];
+		@synchronized(self) {pCategs=pNewCategs;}
 	}
-	
+	[indicator stopAnimating];
+	[table reloadData];
+	[pool release];
+}
+- (void)viewDidLoad 
+{
+	if(pCategs == NULL)
+	{
+		[self.navigationItem setTitle:@"Categories"];
+		[indicator startAnimating];
+		[NSThread detachNewThreadSelector:@selector(loadThread:) toTarget:self withObject:nil];
+	}
 
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
