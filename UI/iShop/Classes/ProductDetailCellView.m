@@ -13,7 +13,6 @@
 @implementation ProductDetailCellView
 @synthesize name;
 @synthesize rangView;
-@synthesize prodImg;
 @synthesize highlight1;
 @synthesize highlight2;
 
@@ -40,13 +39,6 @@
 	[super setSelected:selected animated:animated];
 
 	// Configure the view for the selected state
-}
-
-- (void)imageFetcher:(GDataHTTPFetcher *)fetcher finishedWithData:(NSData *)data 
-{
-UIImage *image = [[[UIImage alloc] initWithData:data] autorelease];
-	[prodImg setImage:image];
-	
 }
 
 - (void)dealloc {

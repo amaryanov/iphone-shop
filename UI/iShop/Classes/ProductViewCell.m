@@ -24,16 +24,18 @@
 
 - (void)initLabelsFont
 {
-	[name setFont:[UIFont fontWithName:@"Arial Unicode MS" size:15.5]];//[name.font fontWithSize:15.5]];
-	[highlight1 setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[highlight1.font fontWithSize:13.5]];
-	[highlight2 setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[highlight2.font fontWithSize:13.5]];
-	[price setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[price.font fontWithSize:13.5]];
-	[storesCount setFont:[UIFont fontWithName:@"Arial Unicode MS" size:13.5]];//[price.font fontWithSize:13.5]];
+	[name setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
+	[highlight1 setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
+	[highlight2 setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
+	[price setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
+	[storesCount setFont:[UIFont fontWithName:@"ArialMT" size:12.5]];
 	[name setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
 	[highlight1 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
 	[highlight2 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
 	[price setTextColor:[UIColor colorWithRed:RGB(201) green:RGB(0) blue:RGB(0) alpha:1.0]];	
+	[storesCount setTextColor:[UIColor colorWithRed:RGB(105) green:RGB(105) blue:RGB(105) alpha:1.0]];	
 }
+/*
 const char *fontNamesArr[]={"HiraKakuProN-W3","Courier","Courier-BoldOblique","Courier-Oblique","Courier-Bold",
 						"ArialMT","Arial-BoldMT","Arial-BoldItalicMT","Arial-ItalicMT","STHeitiTC-Light","STHeitiTC-Medium",
 						"AppleGothic","CourierNewPS-BoldMT","CourierNewPS-ItalicMT","CourierNewPS-BoldItalicMT","CourierNewPSMT",
@@ -62,6 +64,7 @@ const char *fontNamesArr[]={"HiraKakuProN-W3","Courier","Courier-BoldOblique","C
 
 	// Configure the view for the selected state
 }
+*/
 
 - (void)placeStoresCounts:(NSString*)countStr
 {
