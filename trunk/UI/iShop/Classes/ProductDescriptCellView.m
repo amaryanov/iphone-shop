@@ -10,7 +10,7 @@
 #define RGB(x) (((float)x)/255)
 
 @implementation ProductDescriptCellView
-@synthesize details;
+@synthesize descriptionLabel,details;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
 	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
@@ -22,6 +22,8 @@
 {
 	[details setFont:[details.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
 	[details setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
+	[descriptionLabel setFont:[descriptionLabel.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
+	[descriptionLabel setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
 }
 
 

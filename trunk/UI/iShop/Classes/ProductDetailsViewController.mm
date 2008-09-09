@@ -126,7 +126,16 @@ public:
 			this->id=*(pProd->id);
 		if(pProd->details)
 			details=[NSString stringWithUTF8String:pProd->details->c_str()];
-		
+		if(pProd->features.size())
+		{
+		std::vector<std::string >::const_iterator iter;
+			features=[[NSMutableString alloc] init];
+			for(iter=pProd->features.begin();iter!=pProd->features.end();iter++)
+			{
+				[features appendString:[NSString stringWithUTF8String:iter->c_str()]];
+				[features appendString:@"\r"];
+			}
+		}
 		if(pProd->rating)
 			rating=*(pProd->rating);
 		if(pProd->name)
@@ -176,9 +185,10 @@ public:
 			NSString *videoURL;
 			NSString *amazonURL;
 			NSString *reviewURL;
+			NSMutableString *features;
 			NSMutableArray  *galleryImageUrls;
 		};
-		NSObject *arr[9];
+		NSObject *arr[10];
 	};
 	std::vector<CProductOffer> offers;
 };
@@ -406,7 +416,8 @@ _ns2__getProductDetailsResponse srvResp;
 		firstCell.highlight2.text=pProdData->highlight2;
 		[firstCell loadingImage:pProdData->imageURL];
 		[firstCell initLabelsFont];
-		secondCell.details.text=pProdData->details;
+		secondCell.details.text=pProdData->features;
+		[secondCell initLabelsFont];
 		MyYouTube* t = [[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];
 		galleryImageUrls = pProdData->galleryImageUrls;
 		[galleryImageUrls retain];

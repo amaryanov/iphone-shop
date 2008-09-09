@@ -10,8 +10,11 @@
 
 
 @interface ProductDescriptCellView : UITableViewCell {
+	IBOutlet UILabel	*descriptionLabel;
 	IBOutlet UILabel	*details;
 }
-@property (nonatomic, retain)  UILabel	*details;
+@property (nonatomic, retain) UILabel	*details;
+@property (nonatomic, retain) UILabel	*descriptionLabel;
 
+- (void)initLabelsFont;
 @end

@@ -6,7 +6,7 @@
 */
 #include "soapH.h"
 
-SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.7.11 2008-08-31 19:39:24 GMT")
+SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.7.11 2008-09-09 20:23:08 GMT")
 
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_call___ns3__getCategory(struct soap *soap, const char *soap_endpoint, const char *soap_action, _ns2__getCategory *ns2__getCategory, _ns2__getCategoryResponse *ns2__getCategoryResponse)
