@@ -58,7 +58,7 @@ public:
 			highlight2=[[NSString stringWithUTF8String:pProd->highlight2->c_str()] retain];
 		if(pProd->price)
 		{
-			if(pProd->stores)
+			if( (pProd->stores) && (*(pProd->stores)) )
 				storesCnt=[[NSString stringWithFormat:@"(in %d stores)",*(pProd->stores)] retain];
 			else
 				storesCnt=[[NSString stringWithString:@"(Not in stock)"] retain];
@@ -155,6 +155,7 @@ UITableViewCell *cell;
 	{
 		loadMoreCell.label.text=[NSString stringWithFormat:@"Load %d More ...",BATCH_SIZE];
 		loadMoreCell.secondLabel.text=[NSString stringWithFormat:@"Total %d %@, loaded %d of %d",itemsCnt,categoryName,itemsWasLoaded,itemsCnt];
+		[loadMoreCell initLabelsFont];
 		cell=loadMoreCell;
 	}
 	else
@@ -234,12 +235,10 @@ MobileServiceSoap12Binding client;
 	}
 	else
 	{
-/*	temporary for font testing
 	ProductDetailsViewController *pDetails;
 		pDetails=[[ProductDetailsViewController alloc] initWithNibName:@"ProductDetails" bundle:nil];
 		pDetails.productId=pProducts->products[indexPath.row].id;
 		[[self navigationController] pushViewController:pDetails animated:YES];
-*/
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

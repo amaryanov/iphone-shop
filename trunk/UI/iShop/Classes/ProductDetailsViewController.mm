@@ -187,7 +187,8 @@ public:
 
 @synthesize productId;
 @synthesize firstCell, secondCell, buttonsCell, videoButton;
-@synthesize fullStar,halfStar,emptyStar;
+@synthesize loadIndicator;
+@synthesize table;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -197,22 +198,30 @@ public:
 	return self;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
+{
 	return 2;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-	NSInteger retVal=0;
-	switch (section) {
-		case 0:
-			retVal = 2;
-			break;
-		case 1:
-			retVal = 1;
-		default:
-			break;
+NSInteger retVal=0;
+	@synchronized(self)
+	{
+		if(itemWasLoad)
+		{
+			switch (section) 
+			{
+				case 0:
+					retVal = 2;
+					break;
+				case 1:
+					retVal = 1;
+				default:
+					break;
+			}
+		}
 	}
 	return retVal;
 }
@@ -354,8 +363,7 @@ public:
 - (void)loadView {
 }
  */
-//- (void)loadThread:(id)param
-- (void)viewDidLoad
+- (void)loadThread:(id)param
 {
 MobileServiceSoap12Binding client;
 _ns2__getProductDetails srvRequest;
@@ -396,8 +404,8 @@ _ns2__getProductDetailsResponse srvResp;
 		}
 		firstCell.highlight1.text=pProdData->highlight1;
 		firstCell.highlight2.text=pProdData->highlight2;
-		[firstCell initLabelsFont];
 		[firstCell loadingImage:pProdData->imageURL];
+		[firstCell initLabelsFont];
 		secondCell.details.text=pProdData->details;
 		MyYouTube* t = [[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];
 		galleryImageUrls = pProdData->galleryImageUrls;
@@ -406,15 +414,23 @@ _ns2__getProductDetailsResponse srvResp;
 	}
 	if(pProdData)
 		[self.navigationItem setTitle:pProdData->name];
+	[loadIndicator stopAnimating];
+	sleep(1);
+	@synchronized(self)
+	{
+		itemWasLoad=true;
+	}
+	[table reloadData];
 }
 // If you need to do additional setup after loading the view, override viewDidLoad.
-/*
 - (void) viewDidLoad
 {
+	itemWasLoad=false;
+	[loadIndicator startAnimating];
 	[NSThread detachNewThreadSelector:@selector(loadThread:) toTarget:self withObject:nil];
 
 }
-*/
+
 
 - (IBAction)PlayGallery:(id)sender {
  	ImageViewController *imageViewer;
