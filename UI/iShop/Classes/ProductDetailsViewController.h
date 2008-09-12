@@ -14,6 +14,7 @@
 class CProductDataContainer;
 @class ProductDetailCellView;
 @class ProductDescriptCellView;
+@class OffersTable;
 @interface ProductDetailsViewController : UIViewController {
 	int		productId;
 	bool	itemWasLoad;
@@ -27,6 +28,8 @@ class CProductDataContainer;
 	IBOutlet UIButton					*videoButton;
 	IBOutlet UIActivityIndicatorView	*loadIndicator;
 	IBOutlet UITableView				*table;
+	IBOutlet OffersTable				*offersTable;
+	IBOutlet UIScrollView				*scrollView;
 }
 @property(readwrite) int productId;
 @property(retain, nonatomic) ProductDetailCellView		*firstCell;
@@ -35,6 +38,8 @@ class CProductDataContainer;
 @property(retain, nonatomic) UIButton					*videoButton;
 @property(retain, nonatomic) UIActivityIndicatorView	*loadIndicator;
 @property(retain, nonatomic) UITableView				*table;
+@property(retain, nonatomic) OffersTable				*offersTable;
+@property(retain, nonatomic) UIScrollView				*scrollView;
 
 - (IBAction)PlayVideo:(id)sender;
 - (IBAction)PlayGallery:(id)sender;

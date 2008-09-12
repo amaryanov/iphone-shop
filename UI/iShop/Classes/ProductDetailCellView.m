@@ -25,12 +25,13 @@
 
 - (void)initLabelsFont
 {
-	[name setFont:[name.font fontWithSize:16.5]];
-	[highlight1 setFont:[highlight1.font fontWithSize:15]];
-	[highlight2 setFont:[highlight2.font fontWithSize:15]];
+	[name setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
+	[highlight1 setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
+	[highlight2 setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
 	[name setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
-	[highlight1 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
-	[highlight2 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
+	[highlight1 setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
+	[highlight2 setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
+	
 }
 
 
