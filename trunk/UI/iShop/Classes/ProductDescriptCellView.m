@@ -20,10 +20,10 @@
 }
 - (void)initLabelsFont
 {
-	[details setFont:[details.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
-	[details setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
-	[descriptionLabel setFont:[descriptionLabel.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
-	[descriptionLabel setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(128) blue:RGB(0) alpha:1.0]];
+	[details setFont:[UIFont fontWithName:@"ArialMT" size:12.5]];
+	[details setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
+	[descriptionLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
+	[descriptionLabel setTextColor:[UIColor colorWithRed:RGB(128) green:RGB(128) blue:RGB(128) alpha:1.0]];
 }
 
 

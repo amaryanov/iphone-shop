@@ -30,8 +30,8 @@
 	[price setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
 	[storesCount setFont:[UIFont fontWithName:@"ArialMT" size:12.5]];
 	[name setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
-	[highlight1 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
-	[highlight2 setTextColor:[UIColor colorWithRed:RGB(25) green:RGB(56) blue:RGB(102) alpha:1.0]];
+	[highlight1 setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
+	[highlight2 setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
 	[price setTextColor:[UIColor colorWithRed:RGB(201) green:RGB(0) blue:RGB(0) alpha:1.0]];	
 	[storesCount setTextColor:[UIColor colorWithRed:RGB(105) green:RGB(105) blue:RGB(105) alpha:1.0]];	
 }

@@ -9,102 +9,10 @@
 #import "ProductDetailsViewController.h"
 #import "ProductDetailCellView.h"
 #import "ProductDescriptCellView.h"
+#import "OffersTable.h"
 
 #include "soapMobileServiceSoap12BindingProxy.h"
 using namespace std;
-
-
-class CProductOffer
-{
-public:
-	CProductOffer():id(-1),price(0),shipmentCost(0)
-	{
-		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
-			arr[i]=nil;
-	}
-	CProductOffer(const CProductOffer &po):id(po.id),shipmentCost(po.shipmentCost),price(po.price)
-	{
-		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
-		{
-			arr[i]=po.arr[i];
-			if(arr[i])
-				[arr[i] retain];
-		}
-	}
-	CProductOffer(const ns2__MProductOffer *pMp)
-	{
-		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
-			arr[i]=nil;
-		if(pMp)
-			copyMemebers(pMp);
-	}
-	~CProductOffer()
-	{
-		for(int i=0;i<sizeof(arr)/sizeof(NSString*);i++)
-		{
-			if(arr[i])
-				[arr[i] release];
-		}
-	}
-	
-	CProductOffer &operator =(const ns2__MProductOffer *pMp)
-	{
-		if(pMp)
-			copyMemebers(pMp);
-		return *this;
-	}
-public:
-	union
-	{
-		struct
-		{
-			NSString *currency;
-			NSString *details;
-			NSString *imageURL;
-			NSString *manufacturer;
-			NSString *model;
-			NSString *name;
-			NSString *productURL;
-		};
-		NSString *arr[7];
-	};
-	int			id;
-	float 		shipmentCost;
-	float		price;
-private:
-	void copyMemebers(const ns2__MProductOffer *pMp)
-	{
-/*
-		if(pMp->currency)
-			currency=[NSString stringWithUTF8String:pMp->currency->c_str()];
- */
-		if(pMp->details)
-			details=[NSString stringWithUTF8String:pMp->details->c_str()];
-		if(pMp->id)
-			this->id=*(pMp->id);
-		else
-			this->id=-1;
-/*
-		if(pMp->imageURL)
-			imageURL=[NSString stringWithUTF8String:pMp->imageURL->c_str()];
-		if(pMp->manufacturer)
-			manufacturer=[NSString stringWithUTF8String:pMp->manufacturer->c_str()];
-		if(pMp->model)
-			model=[NSString stringWithUTF8String:pMp->model->c_str()];
-		if(pMp->name)
-			name=[NSString stringWithUTF8String:pMp->name->c_str()];
-*/
-		if(pMp->price)
-			price=*(pMp->price);
-		else
-			price=0;
-		if(pMp->productURL)
-			productURL=[NSString stringWithUTF8String:pMp->productURL->c_str()];
-		if(pMp->shipmentCost)
-			shipmentCost=*(pMp->shipmentCost);
-	}
-	
-};
 class CProductDataContainer
 {
 public:
@@ -121,7 +29,6 @@ public:
 	}
 	CProductDataContainer &operator = (const ns2__MDetailedProduct *pProd)
 	{
-	std::vector<ns2__MProductOffer * >::const_iterator iter;
 		if(pProd->id)
 			this->id=*(pProd->id);
 		if(pProd->details)
@@ -132,6 +39,7 @@ public:
 			features=[[NSMutableString alloc] init];
 			for(iter=pProd->features.begin();iter!=pProd->features.end();iter++)
 			{
+				[features appendString:@"• "];
 				[features appendString:[NSString stringWithUTF8String:iter->c_str()]];
 				[features appendString:@"\r"];
 			}
@@ -152,10 +60,6 @@ public:
 			highlight1=[NSString stringWithUTF8String:pProd->highlight1->c_str()];
 		if(pProd->highlight2)
 			highlight2=[NSString stringWithUTF8String:pProd->highlight2->c_str()];
-		for(iter=pProd->offers.begin();iter != pProd->offers.end();iter++)
-		{
-			offers.push_back(*iter);
-		}
 		if(pProd->galleryImageUrls.size())
 		{
 		std::vector<std::string >::const_iterator linksIter;
@@ -190,7 +94,6 @@ public:
 		};
 		NSObject *arr[10];
 	};
-	std::vector<CProductOffer> offers;
 };
 
 @implementation ProductDetailsViewController
@@ -198,7 +101,7 @@ public:
 @synthesize productId;
 @synthesize firstCell, secondCell, buttonsCell, videoButton;
 @synthesize loadIndicator;
-@synthesize table;
+@synthesize table,offersTable,scrollView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -375,6 +278,7 @@ NSInteger retVal=0;
  */
 - (void)loadThread:(id)param
 {
+NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 MobileServiceSoap12Binding client;
 _ns2__getProductDetails srvRequest;
 _ns2__getProductDetailsResponse srvResp;
@@ -387,6 +291,7 @@ _ns2__getProductDetailsResponse srvResp;
 	vector<ns2__MProductOffer * >::iterator iter=srvResp.return_->offers.begin();
 		pProdData=new CProductDataContainer();
 		*pProdData=srvResp.return_;
+		[offersTable setOffers:(void*)(&srvResp.return_->offers)];
 		firstCell.name.text=pProdData->name;
 		//firstCell.rang.text=[[NSString alloc] initWithFormat:@"%1.2f",pProdData->rating];
 		NSString *fullStarPath=[NSString stringWithFormat:@"%@/full-star.png",[[NSBundle mainBundle] bundlePath]];
@@ -418,26 +323,35 @@ _ns2__getProductDetailsResponse srvResp;
 		[firstCell initLabelsFont];
 		secondCell.details.text=pProdData->features;
 		[secondCell initLabelsFont];
-		MyYouTube* t = [[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];
+		/*MyYouTube* t =*/[[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];
 		galleryImageUrls = pProdData->galleryImageUrls;
 		[galleryImageUrls retain];
 
-	}
-	if(pProdData)
 		[self.navigationItem setTitle:pProdData->name];
-	[loadIndicator stopAnimating];
-	sleep(1);
-	@synchronized(self)
-	{
-		itemWasLoad=true;
+		@synchronized(self)
+		{
+			itemWasLoad=true;
+		}
+		scrollView.contentSize=CGSizeMake(320, 289/*detail table*/+27/*header*/+(srvResp.return_->offers.size()*68));
+		CGRect frame=offersTable.frame;
+		frame.size.height=27/*header*/+(srvResp.return_->offers.size()*68);
+		[offersTable setFrame:frame];
+		[table reloadData];
+		[offersTable reloadData];
 	}
-	[table reloadData];
+	[loadIndicator stopAnimating];
+	[pool release];
 }
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void) viewDidLoad
 {
+CGRect oldR=scrollView.bounds;
+//	scrollView.frame=CGRectMake(oldR.origin.x,oldR.origin.y,320,500);
+	
 	itemWasLoad=false;
 	[loadIndicator startAnimating];
+	[offersTable setDelegate:offersTable];
+	[offersTable setDataSource:offersTable];
 	[NSThread detachNewThreadSelector:@selector(loadThread:) toTarget:self withObject:nil];
 
 }
@@ -459,7 +373,7 @@ _ns2__getProductDetailsResponse srvResp;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-CGFloat retVal=44;
+CGFloat retVal=37;
 	if(indexPath.section == 0)
 	{
 		switch(indexPath.row)

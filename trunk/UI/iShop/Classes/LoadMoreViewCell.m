@@ -23,10 +23,10 @@
 
 - (void)initLabelsFont
 {
-	[label setFont:[label.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
-	[label setTextColor:[UIColor colorWithRed:RGB(0x8d) green:RGB(0x2d) blue:RGB(0x2d) alpha:1.0]];
-	[secondLabel setFont:[label.font fontWithSize:12.5]];//[UIFont systemFontOfSize:12.5]];//
-	[secondLabel setTextColor:[UIColor colorWithRed:RGB(0x8d) green:RGB(0x2d) blue:RGB(0x2d) alpha:1.0]];
+	[label setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
+	[secondLabel setFont:[UIFont fontWithName:@"ArialMT" size:11.5]];
+	[label setTextColor:[UIColor colorWithRed:RGB(35) green:RGB(110) blue:RGB(216) alpha:1.0]];
+	[secondLabel setTextColor:[UIColor colorWithRed:RGB(105) green:RGB(105) blue:RGB(105) alpha:1.0]];
 }
 
 
