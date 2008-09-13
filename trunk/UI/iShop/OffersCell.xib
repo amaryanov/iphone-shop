@@ -95,7 +95,6 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<bool key="IBUIHidesWhenStopped">NO</bool>
 								<int key="IBUIStyle">2</int>
 							</object>
 							<object class="IBUIView" id="465058347">

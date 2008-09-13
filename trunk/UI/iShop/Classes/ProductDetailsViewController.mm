@@ -11,6 +11,8 @@
 #import "ProductDescriptCellView.h"
 #import "OffersTable.h"
 
+#import "ShopDetailViewController.h"
+
 #include "soapMobileServiceSoap12BindingProxy.h"
 using namespace std;
 class CProductDataContainer
@@ -347,11 +349,11 @@ _ns2__getProductDetailsResponse srvResp;
 {
 CGRect oldR=scrollView.bounds;
 //	scrollView.frame=CGRectMake(oldR.origin.x,oldR.origin.y,320,500);
-	
 	itemWasLoad=false;
 	[loadIndicator startAnimating];
 	[offersTable setDelegate:offersTable];
 	[offersTable setDataSource:offersTable];
+	offersTable.parentController=self;
 	[NSThread detachNewThreadSelector:@selector(loadThread:) toTarget:self withObject:nil];
 
 }

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OffersTable : UITableView <UITableViewDataSource, UITableViewDelegate>
+@interface OffersTable : UITableView <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 {
-
+	UIViewController *parentController;
 }
+@property (assign,readwrite) UIViewController *parentController;
+
 -(void) setOffers:(void */*std::vector<ns2__MProductOffer * >**/)offersVector;
 @end
