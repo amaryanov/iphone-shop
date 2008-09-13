@@ -8,6 +8,7 @@
 
 #import "OffersTable.h"
 #import "OffersViewCell.h"
+#import "ShopDetailViewController.h"
 
 #include <vector>
 #include "soapMobileServiceSoap12BindingProxy.h"
@@ -86,6 +87,8 @@ private:
 @end
 
 @implementation OffersTable
+@synthesize parentController;
+
 //delegate methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -133,6 +136,16 @@ UIButton *but=[UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[but setTitle:@"Price from button" forState:UIControlStateNormal];
 	return but;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ShopDetailViewController *shop;
+	shop=[[ShopDetailViewController alloc] initWithNibName:@"ShowShopDetail" bundle:nil];
+	shop.url=offers[indexPath.row].storeUrl;
+	shop.name=offers[indexPath.row].storeUrl;
+	[[parentController navigationController] pushViewController:shop animated:YES];
+}
+
 //////
 -(void) setOffers:(void */*std::vector<ns2__MProductOffer * >**/)offersVector
 {
@@ -144,5 +157,6 @@ std::vector<ns2__MProductOffer * >::const_iterator iter=vect->begin();
 	}
 	
 }
+
 
 @end

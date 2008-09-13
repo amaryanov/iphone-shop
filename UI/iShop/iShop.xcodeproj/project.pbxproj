@@ -131,6 +131,7 @@
 		55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A6FE820E5C1DC700285F99 /* ProductDetails.xib */; };
 		55A6FE870E5C1DF100285F99 /* ProductDetailsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */; };
 		55A8B5600E71E169007D6CAE /* Soviet_Union.png in Resources */ = {isa = PBXBuildFile; fileRef = 55A8B55F0E71E169007D6CAE /* Soviet_Union.png */; };
+		55AF18610E7C5CD4001CA57C /* ShopBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AF18600E7C5CD4001CA57C /* ShopBarTitleView.m */; };
 		55AFB9550E6C94D400DDEC6B /* LoadMoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AFB9540E6C94D400DDEC6B /* LoadMoreViewCell.m */; };
 		55AFB9A30E6C9AEC00DDEC6B /* empty-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AFB9A00E6C9AEC00DDEC6B /* empty-star.png */; };
 		55AFB9A40E6C9AEC00DDEC6B /* full-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 55AFB9A10E6C9AEC00DDEC6B /* full-star.png */; };
@@ -138,12 +139,14 @@
 		55B11FF70E78680500575FB4 /* OffersTable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55B11FF60E78680500575FB4 /* OffersTable.mm */; };
 		55B1C59E0E7AE72300FCA392 /* OffersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B1C59D0E7AE72300FCA392 /* OffersCell.xib */; };
 		55B1C5B20E7AE7B300FCA392 /* OffersViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B1C5B10E7AE7B300FCA392 /* OffersViewCell.m */; };
+		55B4F3DE0E7C192B007BB045 /* ShowShopDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F3DD0E7C192B007BB045 /* ShowShopDetail.xib */; };
 		55B679D00E65C8A300DABBF5 /* BaseCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B679CF0E65C8A300DABBF5 /* BaseCellView.m */; };
 		55B67A580E65D83500DABBF5 /* MobileServiceSoap11Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B67A4E0E65D83400DABBF5 /* MobileServiceSoap11Binding.nsmap */; };
 		55B67A590E65D83500DABBF5 /* MobileServiceSoap12Binding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 55B67A4F0E65D83400DABBF5 /* MobileServiceSoap12Binding.nsmap */; };
 		55B67A5A0E65D83500DABBF5 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B67A500E65D83400DABBF5 /* soapC.cpp */; };
 		55B67A5B0E65D83500DABBF5 /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B67A510E65D83400DABBF5 /* soapClient.cpp */; };
 		55B67A5C0E65D83500DABBF5 /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55B67A560E65D83400DABBF5 /* stdsoap2.cpp */; };
+		55CD5A9B0E7C2D1F00D7A820 /* ShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CD5A9A0E7C2D1F00D7A820 /* ShopDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -385,6 +388,8 @@
 		55A6FE850E5C1DF100285F99 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductDetailsViewController.mm; sourceTree = "<group>"; };
 		55A8B55F0E71E169007D6CAE /* Soviet_Union.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Soviet_Union.png; sourceTree = "<group>"; };
+		55AF185F0E7C5CD4001CA57C /* ShopBarTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopBarTitleView.h; sourceTree = "<group>"; };
+		55AF18600E7C5CD4001CA57C /* ShopBarTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopBarTitleView.m; sourceTree = "<group>"; };
 		55AFB9530E6C94D400DDEC6B /* LoadMoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreViewCell.h; sourceTree = "<group>"; };
 		55AFB9540E6C94D400DDEC6B /* LoadMoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreViewCell.m; sourceTree = "<group>"; };
 		55AFB9A00E6C9AEC00DDEC6B /* empty-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-star.png"; sourceTree = "<group>"; };
@@ -395,6 +400,7 @@
 		55B1C59D0E7AE72300FCA392 /* OffersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersCell.xib; sourceTree = "<group>"; };
 		55B1C5B00E7AE7B300FCA392 /* OffersViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffersViewCell.h; sourceTree = "<group>"; };
 		55B1C5B10E7AE7B300FCA392 /* OffersViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffersViewCell.m; sourceTree = "<group>"; };
+		55B4F3DD0E7C192B007BB045 /* ShowShopDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowShopDetail.xib; sourceTree = "<group>"; };
 		55B679CE0E65C8A300DABBF5 /* BaseCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellView.h; sourceTree = "<group>"; };
 		55B679CF0E65C8A300DABBF5 /* BaseCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCellView.m; sourceTree = "<group>"; };
 		55B67A4E0E65D83400DABBF5 /* MobileServiceSoap11Binding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MobileServiceSoap11Binding.nsmap; sourceTree = "<group>"; };
@@ -407,6 +413,8 @@
 		55B67A550E65D83400DABBF5 /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
 		55B67A560E65D83400DABBF5 /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
 		55B67A570E65D83500DABBF5 /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
+		55CD5A990E7C2D1F00D7A820 /* ShopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopDetailViewController.h; sourceTree = "<group>"; };
+		55CD5A9A0E7C2D1F00D7A820 /* ShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopDetailViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -442,6 +450,8 @@
 				55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */,
 				3ADD58890E5E438400477062 /* TestYoutube.h */,
 				3ADD588A0E5E438400477062 /* TestYoutube.m */,
+				55CD5A990E7C2D1F00D7A820 /* ShopDetailViewController.h */,
+				55CD5A9A0E7C2D1F00D7A820 /* ShopDetailViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -802,7 +812,7 @@
 		5555F4B60E59836400873B98 /* TableCellView */ = {
 			isa = PBXGroup;
 			children = (
-				55B11FF20E7867C300575FB4 /* OffersTable */,
+				55B11FF20E7867C300575FB4 /* Offers */,
 				55417D630E647D6D00594296 /* ProductDetails */,
 				5555F4B70E5983AC00873B98 /* ProductViewCell.h */,
 				5555F4B80E5983AC00873B98 /* ProductViewCell.m */,
@@ -816,15 +826,17 @@
 			name = TableCellView;
 			sourceTree = "<group>";
 		};
-		55B11FF20E7867C300575FB4 /* OffersTable */ = {
+		55B11FF20E7867C300575FB4 /* Offers */ = {
 			isa = PBXGroup;
 			children = (
 				55B11FF50E78680500575FB4 /* OffersTable.h */,
 				55B11FF60E78680500575FB4 /* OffersTable.mm */,
 				55B1C5B00E7AE7B300FCA392 /* OffersViewCell.h */,
 				55B1C5B10E7AE7B300FCA392 /* OffersViewCell.m */,
+				55AF185F0E7C5CD4001CA57C /* ShopBarTitleView.h */,
+				55AF18600E7C5CD4001CA57C /* ShopBarTitleView.m */,
 			);
-			name = OffersTable;
+			name = Offers;
 			sourceTree = "<group>";
 		};
 		55B1C59F0E7AE72A00FCA392 /* Offers */ = {
@@ -832,6 +844,7 @@
 			children = (
 				55A6FE820E5C1DC700285F99 /* ProductDetails.xib */,
 				55B1C59D0E7AE72300FCA392 /* OffersCell.xib */,
+				55B4F3DD0E7C192B007BB045 /* ShowShopDetail.xib */,
 			);
 			name = Offers;
 			sourceTree = "<group>";
@@ -913,6 +926,7 @@
 				3AC4775E0E6F48CF00971DD5 /* main_icon.png in Resources */,
 				55A8B5600E71E169007D6CAE /* Soviet_Union.png in Resources */,
 				55B1C59E0E7AE72300FCA392 /* OffersCell.xib in Resources */,
+				55B4F3DE0E7C192B007BB045 /* ShowShopDetail.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,6 +1052,8 @@
 				55AFB9550E6C94D400DDEC6B /* LoadMoreViewCell.m in Sources */,
 				55B11FF70E78680500575FB4 /* OffersTable.mm in Sources */,
 				55B1C5B20E7AE7B300FCA392 /* OffersViewCell.m in Sources */,
+				55CD5A9B0E7C2D1F00D7A820 /* ShopDetailViewController.m in Sources */,
+				55AF18610E7C5CD4001CA57C /* ShopBarTitleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
