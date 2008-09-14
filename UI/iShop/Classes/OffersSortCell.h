@@ -11,8 +11,12 @@
 
 @interface OffersSortCell : UITableViewCell 
 {
+	IBOutlet UILabel *staticLabel;
 	IBOutlet UILabel *label;
 }
+
 @property (nonatomic, retain) UILabel	*label;
+@property (nonatomic, retain) UILabel	*staticLabel;
+-(void) initLabelsFont;
 
 @end

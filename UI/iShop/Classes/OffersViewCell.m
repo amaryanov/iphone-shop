@@ -63,13 +63,13 @@ UIImageView *imgV;
 
 - (void)configureLabels
 {
-	[price setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
+	[price setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
 	[shipping setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
 	[total setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
 	
-	[price setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
+	[price setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
 	[shipping setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
-	[total setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
+	[total setTextColor:[UIColor colorWithRed:RGB(201) green:RGB(0) blue:RGB(0) alpha:1.0]];
 }
 
 - (void)dealloc {
