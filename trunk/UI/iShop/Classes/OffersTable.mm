@@ -182,6 +182,11 @@ NSInteger cnt=0;
 {
 	return 1;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 22;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
 	return [NSString stringWithFormat:@"%d Seller%s from %1.2f₪",totalWithMinPrice,((totalWithMinPrice > 1)?"s":""),minPrice];
@@ -190,10 +195,10 @@ NSInteger cnt=0;
 /*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-UIButton *but=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[but setFrame:CGRectMake(0, 0, 310, 27)];
-	[but setTitle:@"Price from button" forState:UIControlStateNormal];
-	return but;
+UILabel *label=[[UILabel alloc] init];
+//	[label setFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)a(0,0,
+	[label setText:[NSString stringWithFormat:@"%d Seller%s from %1.2f₪",totalWithMinPrice,((totalWithMinPrice > 1)?"s":""),minPrice]];
+	return label;
 }
 */
 
@@ -249,6 +254,7 @@ std::vector<ns2__MProductOffer * >::const_iterator iter=vect->begin();
 		}
 	}
 	[sortCell.label setText:@"Price"];
+	[sortCell initLabelsFont];
 	cmpType=COffersComparator::byPrice;
 	NSLog(@"===== Sorting ======");
 	std::sort(pOffers->begin(),pOffers->end(),COffersComparator(COffersComparator::byPrice));
