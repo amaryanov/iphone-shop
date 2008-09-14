@@ -118,6 +118,9 @@
 		3AF0695F0E4A54AA00670BC7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF0695E0E4A54AA00670BC7 /* MediaPlayer.framework */; };
 		5506DAFF0E5AB4B9000846DB /* ProductViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5506DAFE0E5AB4B9000846DB /* ProductViewController.mm */; };
 		55175A5E0E634F510094191E /* ProductDescriptCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55175A5D0E634F510094191E /* ProductDescriptCellView.m */; };
+		553944CB0E7D6AD400679EF1 /* OffersSortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553944CA0E7D6AD400679EF1 /* OffersSortCell.m */; };
+		553945C90E7D890600679EF1 /* OffersSortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553945C80E7D890600679EF1 /* OffersSortController.m */; };
+		553945CB0E7D892500679EF1 /* OffersSortController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553945CA0E7D892500679EF1 /* OffersSortController.xib */; };
 		55417D660E647E3F00594296 /* ProductDetailCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55417D650E647E3F00594296 /* ProductDetailCellView.m */; };
 		5555F4B90E5983AC00873B98 /* ProductViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5555F4B80E5983AC00873B98 /* ProductViewCell.m */; };
 		5555F5050E59905100873B98 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5555F5040E59905100873B98 /* ProductViewCell.xib */; };
@@ -370,6 +373,11 @@
 		5506DAFE0E5AB4B9000846DB /* ProductViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductViewController.mm; sourceTree = "<group>"; };
 		55175A5C0E634F510094191E /* ProductDescriptCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDescriptCellView.h; sourceTree = "<group>"; };
 		55175A5D0E634F510094191E /* ProductDescriptCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDescriptCellView.m; sourceTree = "<group>"; };
+		553944C90E7D6AD400679EF1 /* OffersSortCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffersSortCell.h; sourceTree = "<group>"; };
+		553944CA0E7D6AD400679EF1 /* OffersSortCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffersSortCell.m; sourceTree = "<group>"; };
+		553945C70E7D890600679EF1 /* OffersSortController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffersSortController.h; sourceTree = "<group>"; };
+		553945C80E7D890600679EF1 /* OffersSortController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffersSortController.m; sourceTree = "<group>"; };
+		553945CA0E7D892500679EF1 /* OffersSortController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersSortController.xib; sourceTree = "<group>"; };
 		55417D640E647E3F00594296 /* ProductDetailCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailCellView.h; sourceTree = "<group>"; };
 		55417D650E647E3F00594296 /* ProductDetailCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailCellView.m; sourceTree = "<group>"; };
 		5555F4B70E5983AC00873B98 /* ProductViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewCell.h; sourceTree = "<group>"; };
@@ -835,6 +843,10 @@
 				55B1C5B10E7AE7B300FCA392 /* OffersViewCell.m */,
 				55AF185F0E7C5CD4001CA57C /* ShopBarTitleView.h */,
 				55AF18600E7C5CD4001CA57C /* ShopBarTitleView.m */,
+				553944C90E7D6AD400679EF1 /* OffersSortCell.h */,
+				553944CA0E7D6AD400679EF1 /* OffersSortCell.m */,
+				553945C70E7D890600679EF1 /* OffersSortController.h */,
+				553945C80E7D890600679EF1 /* OffersSortController.m */,
 			);
 			name = Offers;
 			sourceTree = "<group>";
@@ -845,6 +857,7 @@
 				55A6FE820E5C1DC700285F99 /* ProductDetails.xib */,
 				55B1C59D0E7AE72300FCA392 /* OffersCell.xib */,
 				55B4F3DD0E7C192B007BB045 /* ShowShopDetail.xib */,
+				553945CA0E7D892500679EF1 /* OffersSortController.xib */,
 			);
 			name = Offers;
 			sourceTree = "<group>";
@@ -927,6 +940,7 @@
 				55A8B5600E71E169007D6CAE /* Soviet_Union.png in Resources */,
 				55B1C59E0E7AE72300FCA392 /* OffersCell.xib in Resources */,
 				55B4F3DE0E7C192B007BB045 /* ShowShopDetail.xib in Resources */,
+				553945CB0E7D892500679EF1 /* OffersSortController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,6 +1068,8 @@
 				55B1C5B20E7AE7B300FCA392 /* OffersViewCell.m in Sources */,
 				55CD5A9B0E7C2D1F00D7A820 /* ShopDetailViewController.m in Sources */,
 				55AF18610E7C5CD4001CA57C /* ShopBarTitleView.m in Sources */,
+				553944CB0E7D6AD400679EF1 /* OffersSortCell.m in Sources */,
+				553945C90E7D890600679EF1 /* OffersSortController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

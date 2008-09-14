@@ -42,7 +42,7 @@ public:
 			for(iter=pProd->features.begin();iter!=pProd->features.end();iter++)
 			{
 				[features appendString:@"• "];
-				[features appendString:[NSString stringWithUTF8String:iter->c_str()]];
+				[features appendString:[[NSString stringWithUTF8String:iter->c_str()] stringByReplacingOccurrencesOfString:@"=" withString:@": "]];
 				[features appendString:@"\r"];
 			}
 		}
@@ -334,9 +334,9 @@ _ns2__getProductDetailsResponse srvResp;
 		{
 			itemWasLoad=true;
 		}
-		scrollView.contentSize=CGSizeMake(320, 289/*detail table*/+27/*header*/+(srvResp.return_->offers.size()*68));
+		scrollView.contentSize=CGSizeMake(320, 289/*detail table*/+27/*header*/+/*sort cell*/28+(srvResp.return_->offers.size()*68));
 		CGRect frame=offersTable.frame;
-		frame.size.height=27/*header*/+(srvResp.return_->offers.size()*68);
+		frame.size.height=27/*header*/+/*sort cell*/28+(srvResp.return_->offers.size()*68);
 		[offersTable setFrame:frame];
 		[table reloadData];
 		[offersTable reloadData];
@@ -347,10 +347,9 @@ _ns2__getProductDetailsResponse srvResp;
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void) viewDidLoad
 {
-CGRect oldR=scrollView.bounds;
-//	scrollView.frame=CGRectMake(oldR.origin.x,oldR.origin.y,320,500);
 	itemWasLoad=false;
 	[loadIndicator startAnimating];
+	[offersTable eraseData];
 	[offersTable setDelegate:offersTable];
 	[offersTable setDataSource:offersTable];
 	offersTable.parentController=self;
@@ -404,8 +403,8 @@ CGFloat retVal=37;
 
 
 - (void)dealloc {
-	[super dealloc];
 	[youtubeVideoMP4URL release];
+	[super dealloc];
 }
 
 
