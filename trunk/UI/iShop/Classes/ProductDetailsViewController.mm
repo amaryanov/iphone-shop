@@ -38,8 +38,9 @@ public:
 		if(pProd->features.size())
 		{
 		std::vector<std::string >::const_iterator iter;
+		int i;
 			features=[[NSMutableString alloc] init];
-			for(iter=pProd->features.begin();iter!=pProd->features.end();iter++)
+			for(i=0,iter=pProd->features.begin();(iter != pProd->features.end()) && (i < 6);iter++,i++)
 			{
 				[features appendString:@"• "];
 				[features appendString:[[NSString stringWithUTF8String:iter->c_str()] stringByReplacingOccurrencesOfString:@"=" withString:@": "]];
@@ -115,7 +116,15 @@ public:
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
 {
-	return 2;
+NSInteger ret=2;
+	@synchronized(self)
+	{
+		if( (pProdData) && ((pProdData->videoURL == nil) || ([pProdData->galleryImageUrls count] == 0)) )
+		{
+			ret=1;
+		}
+	}
+	return ret;
 }
 
 
@@ -334,10 +343,21 @@ _ns2__getProductDetailsResponse srvResp;
 		{
 			itemWasLoad=true;
 		}
-		scrollView.contentSize=CGSizeMake(320, 289/*detail table*/+27/*header*/+/*sort cell*/28+(srvResp.return_->offers.size()*68));
-		CGRect frame=offersTable.frame;
-		frame.size.height=27/*header*/+/*sort cell*/28+(srvResp.return_->offers.size()*68);
-		[offersTable setFrame:frame];
+		
+		CGRect tableFrame=table.frame;
+		CGRect offersFrame=offersTable.frame;
+		tableFrame.size.height=242;
+		if( (pProdData->videoURL != nil) && ([pProdData->galleryImageUrls count] != 0) )
+		{
+			tableFrame.size.height+=(37+10);
+		}
+		offersFrame.origin.y=tableFrame.origin.y+tableFrame.size.height;
+		offersFrame.size.height=25/*header*/+/*sort cell*/28+(srvResp.return_->offers.size()*68);
+		scrollView.contentSize=CGSizeMake(320, tableFrame.size.height+offersFrame.size.height);
+		[table setFrame:tableFrame];
+		[offersTable setFrame:offersFrame];
+		
+
 		[table reloadData];
 		[offersTable reloadData];
 	}

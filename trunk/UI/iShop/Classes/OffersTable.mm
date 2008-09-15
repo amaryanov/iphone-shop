@@ -184,19 +184,28 @@ NSInteger cnt=0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return 22;
+	return 25;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	return [NSString stringWithFormat:@"%d Seller%s from %1.2f₪",totalWithMinPrice,((totalWithMinPrice > 1)?"s":""),minPrice];
+NSString *ret;
+	if( (pOffers == NULL) || (pOffers->size() == 0) )
+	{
+		ret=[NSString stringWithString:@"Currently this product is not available for sale"];
+	}
+	else
+	{
+		ret=[NSString stringWithFormat:@"%d Seller%s from %1.2f₪",pOffers->size(),((totalWithMinPrice > 1)?"s":""),minPrice];
+	}
+	return ret;
 }
 
 /*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
 UILabel *label=[[UILabel alloc] init];
-//	[label setFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)a(0,0,
+	[label setFrame:CGRectMake(0, 0, 320, 20)];
 	[label setText:[NSString stringWithFormat:@"%d Seller%s from %1.2f₪",totalWithMinPrice,((totalWithMinPrice > 1)?"s":""),minPrice]];
 	return label;
 }

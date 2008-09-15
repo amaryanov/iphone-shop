@@ -19,4 +19,6 @@
 @property (nonatomic, retain) UILabel		*name;
 @property (nonatomic, retain) UILabel		*productsCount;
 - (void) placeProductCounts;
+- (void)initLabelsFont;
+
 @end

@@ -137,6 +137,7 @@ static NSString *MyIdentifier = @"CategoryCellIdentifier";
 			[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategs->categs[indexPath.row].itemsCnt]];
 		}
 		[categCell placeProductCounts];
+		[categCell initLabelsFont];
 //		[categCell loadingImage:@"http://kenlo.gotdns.com/assets/categoryImage/Computer.png"];
 	}
 	return cell;

@@ -32,7 +32,7 @@
 	[name setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
 	[highlight1 setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
 	[highlight2 setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
-	[price setTextColor:[UIColor colorWithRed:RGB(201) green:RGB(0) blue:RGB(0) alpha:1.0]];	
+	[price setTextColor:[UIColor colorWithRed:RGB(161) green:RGB(41) blue:RGB(4) alpha:1.0]];
 	[storesCount setTextColor:[UIColor colorWithRed:RGB(105) green:RGB(105) blue:RGB(105) alpha:1.0]];	
 }
 /*

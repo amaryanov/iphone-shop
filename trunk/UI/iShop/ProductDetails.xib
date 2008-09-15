@@ -8,11 +8,12 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="59"/>
 			<integer value="4"/>
-			<integer value="14"/>
 			<integer value="92"/>
-			<integer value="17"/>
 			<integer value="9"/>
+			<integer value="14"/>
+			<integer value="17"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -42,14 +43,14 @@
 				<float key="IBUIAlpha">0.000000e+00</float>
 			</object>
 			<object class="IBUIView" id="461782769">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUITableView" id="515105402">
 						<reference key="NSNextResponder" ref="461782769"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{320, 289}</string>
+						<string key="NSFrameSize">{320, 256}</string>
 						<reference key="NSSuperview" ref="461782769"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -72,7 +73,7 @@
 					<object class="IBUITableView" id="877046937">
 						<reference key="NSNextResponder" ref="461782769"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 286}, {320, 95}}</string>
+						<string key="NSFrame">{{0, 242}, {320, 81}}</string>
 						<reference key="NSSuperview" ref="461782769"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="265916303">
 							<int key="NSColorSpace">3</int>
@@ -85,11 +86,12 @@
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 						<float key="IBUIRowHeight">6.800000e+01</float>
-						<float key="IBUISectionHeaderHeight">2.700000e+01</float>
+						<float key="IBUISectionHeaderHeight">2.500000e+01</float>
 						<float key="IBUISectionFooterHeight">2.700000e+01</float>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 370}</string>
+				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor" id="967618631">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -844,7 +846,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIScrollView</string>
-					<string>{{469, 451}, {320, 370}}</string>
+					<string>{{325, 138}, {320, 370}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
