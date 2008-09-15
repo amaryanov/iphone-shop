@@ -69,7 +69,7 @@ UIImageView *imgV;
 	
 	[price setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
 	[shipping setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
-	[total setTextColor:[UIColor colorWithRed:RGB(201) green:RGB(0) blue:RGB(0) alpha:1.0]];
+	[total setTextColor:[UIColor colorWithRed:RGB(161) green:RGB(41) blue:RGB(4) alpha:1.0]];
 }
 
 - (void)dealloc {

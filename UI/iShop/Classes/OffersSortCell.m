@@ -27,7 +27,7 @@
 	[label setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
 
 	[staticLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
-	[staticLabel setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
+	[staticLabel setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
