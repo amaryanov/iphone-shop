@@ -216,7 +216,6 @@ NSString *ret;
 	
 	[headerLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:14]];
 	[headerLabel setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(255) blue:RGB(255) alpha:1.0]];
-	
 	return tableHeader;
 }
 
