@@ -131,6 +131,7 @@
 		5585F5DA0E4872EA00CD7F8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5585F5D90E4872EA00CD7F8A /* CoreGraphics.framework */; };
 		558E1A1B0E4ADA0300FFE537 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 558E1A1A0E4ADA0300FFE537 /* main.mm */; };
 		559B7FA60E4C3E7E00B453FE /* CategoryViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */; };
+		55A572C80E801E8400682E91 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 55A572C70E801E8400682E91 /* line.png */; };
 		55A6FE830E5C1DC700285F99 /* ProductDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A6FE820E5C1DC700285F99 /* ProductDetails.xib */; };
 		55A6FE870E5C1DF100285F99 /* ProductDetailsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */; };
 		55A8B5600E71E169007D6CAE /* Soviet_Union.png in Resources */ = {isa = PBXBuildFile; fileRef = 55A8B55F0E71E169007D6CAE /* Soviet_Union.png */; };
@@ -392,6 +393,7 @@
 		558E1A170E4AD9F600FFE537 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		558E1A1A0E4ADA0300FFE537 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CategoryViewController.mm; sourceTree = "<group>"; };
+		55A572C70E801E8400682E91 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		55A6FE820E5C1DC700285F99 /* ProductDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetails.xib; sourceTree = "<group>"; };
 		55A6FE850E5C1DF100285F99 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProductDetailsViewController.mm; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55A572C70E801E8400682E91 /* line.png */,
 				55B1C59F0E7AE72A00FCA392 /* Offers */,
 				55A8B55F0E71E169007D6CAE /* Soviet_Union.png */,
 				3AC4775D0E6F48CF00971DD5 /* main_icon.png */,
@@ -941,6 +944,7 @@
 				55B1C59E0E7AE72300FCA392 /* OffersCell.xib in Resources */,
 				55B4F3DE0E7C192B007BB045 /* ShowShopDetail.xib in Resources */,
 				553945CB0E7D892500679EF1 /* OffersSortController.xib in Resources */,
+				55A572C80E801E8400682E91 /* line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

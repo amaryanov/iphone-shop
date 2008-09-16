@@ -30,10 +30,11 @@
 }
 - (void)initLabelsFont
 {
-//	[name setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
-	[productsCount setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
+	[name setFont:[UIFont fontWithName:@"ArialMT" size:14]];
 //	[name setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
-	[productsCount setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
+	
+	[productsCount setFont:[UIFont fontWithName:@"ArialMT" size:14]];
+	[productsCount setTextColor:[UIColor colorWithRed:RGB(105) green:RGB(105) blue:RGB(105) alpha:1.0]];	
 }
 - (void) placeProductCounts
 {
