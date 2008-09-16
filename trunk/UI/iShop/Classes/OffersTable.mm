@@ -133,7 +133,7 @@ private:
 @end
 @implementation OffersTable
 @synthesize parentController;
-@synthesize sortCell;
+@synthesize sortCell,tableHeader,headerLabel;
 
 //delegate methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,15 +201,25 @@ NSString *ret;
 	return ret;
 }
 
-/*
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-UILabel *label=[[UILabel alloc] init];
-	[label setFrame:CGRectMake(0, 0, 320, 20)];
-	[label setText:[NSString stringWithFormat:@"%d Seller%s from %1.2f₪",totalWithMinPrice,((totalWithMinPrice > 1)?"s":""),minPrice]];
-	return label;
+	if( (pOffers == NULL) || (pOffers->size() == 0) )
+	{
+		[headerLabel setText:[NSString stringWithString:@"Currently this product is not available for sale"]];
+	}
+	else
+	{
+		[headerLabel setText:
+		 [NSString stringWithFormat:@"%d Seller%s from %1.2f₪",pOffers->size(),((totalWithMinPrice > 1)?"s":""),minPrice]];
+	}
+	
+	[headerLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
+	[headerLabel setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
+	
+	return tableHeader;
 }
-*/
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

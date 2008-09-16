@@ -12,9 +12,13 @@
 {
 	UIViewController *parentController;
 	IBOutlet OffersSortCell *sortCell;
+	IBOutlet UIView *tableHeader;
+	IBOutlet UILabel *headerLabel;
 }
 @property (assign,readwrite) UIViewController *parentController;
 @property (nonatomic, retain) OffersSortCell *sortCell;
+@property (nonatomic, retain) UIView *tableHeader;
+@property (nonatomic, retain) UILabel *headerLabel;
 
 -(void) setSortingType:(NSInteger)type;//0-price,1-shipping,2-total
 -(void) eraseData;

@@ -51,7 +51,7 @@ UIImageView *imgV;
 		else
 			img=[UIImage imageWithContentsOfFile:emptyStarPath];
 		imgV=[[UIImageView alloc] initWithImage:img];
-		[imgV setFrame:CGRectMake(i*14,1,14,14)];
+		[imgV setFrame:CGRectMake(i*(14+1),1,14,14)];
 		[ratingView addSubview:imgV];
 	}
 /*
