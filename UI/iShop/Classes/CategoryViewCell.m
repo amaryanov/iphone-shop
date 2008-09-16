@@ -30,7 +30,7 @@
 }
 - (void)initLabelsFont
 {
-	[name setFont:[UIFont fontWithName:@"ArialMT" size:14]];
+	[name setFont:[UIFont fontWithName:@"ArialMT" size:15]];
 //	[name setTextColor:[UIColor colorWithRed:RGB(0) green:RGB(0) blue:RGB(0) alpha:1.0]];
 	
 	[productsCount setFont:[UIFont fontWithName:@"ArialMT" size:14]];

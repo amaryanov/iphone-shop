@@ -214,8 +214,8 @@ NSString *ret;
 		 [NSString stringWithFormat:@"%d Seller%s from %1.2f₪",pOffers->size(),((totalWithMinPrice > 1)?"s":""),minPrice]];
 	}
 	
-	[headerLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12.5]];
-	[headerLabel setTextColor:[UIColor colorWithRed:RGB(50) green:RGB(79) blue:RGB(133) alpha:1.0]];
+	[headerLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:14]];
+	[headerLabel setTextColor:[UIColor colorWithRed:RGB(255) green:RGB(255) blue:RGB(255) alpha:1.0]];
 	
 	return tableHeader;
 }

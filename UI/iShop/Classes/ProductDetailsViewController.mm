@@ -343,23 +343,27 @@ _ns2__getProductDetailsResponse srvResp;
 		{
 			itemWasLoad=true;
 		}
-		
+		if(srvResp.return_->offers.size() > 0)
+		{
 		CGRect tableFrame=table.frame;
 		CGRect offersFrame=offersTable.frame;
-		tableFrame.size.height=242;
-		if( (pProdData->videoURL != nil) && ([pProdData->galleryImageUrls count] != 0) )
-		{
-			tableFrame.size.height+=(37+10);
+			tableFrame.size.height=245;
+			if( (pProdData->videoURL != nil) && ([pProdData->galleryImageUrls count] != 0) )
+			{
+				tableFrame.size.height+=(37+10);
+			}
+			offersFrame.origin.y=tableFrame.origin.y+tableFrame.size.height;
+			offersFrame.size.height=25/*header*/+/*sort cell*/28+(srvResp.return_->offers.size()*68);
+			scrollView.contentSize=CGSizeMake(320, tableFrame.size.height+offersFrame.size.height+2);
+			[table setFrame:tableFrame];
+			[offersTable setFrame:offersFrame];
+			offersTable.hidden=NO;
+			[offersTable reloadData];
 		}
-		offersFrame.origin.y=tableFrame.origin.y+tableFrame.size.height;
-		offersFrame.size.height=25/*header*/+/*sort cell*/28+(srvResp.return_->offers.size()*68);
-		scrollView.contentSize=CGSizeMake(320, tableFrame.size.height+offersFrame.size.height);
-		[table setFrame:tableFrame];
-		[offersTable setFrame:offersFrame];
 		
 
 		[table reloadData];
-		[offersTable reloadData];
+		
 	}
 	[loadIndicator stopAnimating];
 	[pool release];
