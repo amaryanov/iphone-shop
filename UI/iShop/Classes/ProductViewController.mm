@@ -204,7 +204,7 @@ void buildProducts(vector<CProduct> &products,std::vector<class ns2__MProduct * 
 {
 NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 MobileServiceSoap12Binding client;
-	if(isFavControl == NO)
+	if(isFavControl != NO)
 	{
 	_ns2__getProductList srvRequest;//=new _ns1__getProductList();
 	_ns2__getProductListResponse srvResp;
@@ -223,13 +223,18 @@ MobileServiceSoap12Binding client;
 	}
 	else
 	{
-/*
-	_ns2__getPopularItems request;
-	_ns2__getPopularItemsResponse response
-		if( SOAP_OK == client.__ns4__getPopularItems(&request,response) )
+	_ns2__getPopularProducts request;
+	_ns2__getPopularProductsResponse response;
+		request.languageId=new int(0);
+		if( SOAP_OK == client.__ns4__getPopularProducts(&request,&response) )
 		{
+			@synchronized(self)
+			{
+				buildProducts(pProducts->products,response.return_);
+				itemsCnt=itemsWasLoaded=pProducts->products.size();
+				
+			}
 		}
-*/
 	}
 	if(param.iVal != 0)
 	{

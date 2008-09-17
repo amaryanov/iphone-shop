@@ -34,15 +34,21 @@ class MobileServiceSoap12Binding
 	virtual int __ns4__getCategory(_ns2__getCategory *ns2__getCategory, _ns2__getCategoryResponse *ns2__getCategoryResponse) { return soap ? soap_call___ns4__getCategory(soap, endpoint, NULL, ns2__getCategory, ns2__getCategoryResponse) : SOAP_EOM; };
 	/// Invoke 'getProductDetails' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
 	virtual int __ns4__getProductDetails(_ns2__getProductDetails *ns2__getProductDetails, _ns2__getProductDetailsResponse *ns2__getProductDetailsResponse) { return soap ? soap_call___ns4__getProductDetails(soap, endpoint, NULL, ns2__getProductDetails, ns2__getProductDetailsResponse) : SOAP_EOM; };
-	/// Invoke 'getPopularItems' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
-	virtual int __ns4__getPopularItems(_ns2__getPopularItems *ns2__getPopularItems, _ns2__getPopularItemsResponse *ns2__getPopularItemsResponse) { return soap ? soap_call___ns4__getPopularItems(soap, endpoint, NULL, ns2__getPopularItems, ns2__getPopularItemsResponse) : SOAP_EOM; };
+	/// Invoke 'getProductListByIds' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
+	virtual int __ns4__getProductListByIds(_ns2__getProductListByIds *ns2__getProductListByIds, _ns2__getProductListByIdsResponse *ns2__getProductListByIdsResponse) { return soap ? soap_call___ns4__getProductListByIds(soap, endpoint, NULL, ns2__getProductListByIds, ns2__getProductListByIdsResponse) : SOAP_EOM; };
+	/// Invoke 'getPopularProducts' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
+	virtual int __ns4__getPopularProducts(_ns2__getPopularProducts *ns2__getPopularProducts, _ns2__getPopularProductsResponse *ns2__getPopularProductsResponse) { return soap ? soap_call___ns4__getPopularProducts(soap, endpoint, NULL, ns2__getPopularProducts, ns2__getPopularProductsResponse) : SOAP_EOM; };
 	/// Invoke 'getCategoryList' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
 	virtual int __ns4__getCategoryList(_ns2__getCategoryList *ns2__getCategoryList, _ns2__getCategoryListResponse *ns2__getCategoryListResponse) { return soap ? soap_call___ns4__getCategoryList(soap, endpoint, NULL, ns2__getCategoryList, ns2__getCategoryListResponse) : SOAP_EOM; };
+	/// Invoke 'getPriceHistory' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
+	virtual int __ns4__getPriceHistory(_ns2__getPriceHistory *ns2__getPriceHistory, _ns2__getPriceHistoryResponse *ns2__getPriceHistoryResponse) { return soap ? soap_call___ns4__getPriceHistory(soap, endpoint, NULL, ns2__getPriceHistory, ns2__getPriceHistoryResponse) : SOAP_EOM; };
 	/// Invoke 'getBusinessList' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
 	virtual int __ns4__getBusinessList(_ns2__getBusinessList *ns2__getBusinessList, _ns2__getBusinessListResponse *ns2__getBusinessListResponse) { return soap ? soap_call___ns4__getBusinessList(soap, endpoint, NULL, ns2__getBusinessList, ns2__getBusinessListResponse) : SOAP_EOM; };
 	/// Invoke 'getProductList' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
 	virtual int __ns4__getProductList(_ns2__getProductList *ns2__getProductList, _ns2__getProductListResponse *ns2__getProductListResponse) { return soap ? soap_call___ns4__getProductList(soap, endpoint, NULL, ns2__getProductList, ns2__getProductListResponse) : SOAP_EOM; };
 	/// Invoke 'getBusinessDetails' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
 	virtual int __ns4__getBusinessDetails(_ns2__getBusinessDetails *ns2__getBusinessDetails, _ns2__getBusinessDetailsResponse *ns2__getBusinessDetailsResponse) { return soap ? soap_call___ns4__getBusinessDetails(soap, endpoint, NULL, ns2__getBusinessDetails, ns2__getBusinessDetailsResponse) : SOAP_EOM; };
+	/// Invoke 'searchProducts' of service 'MobileServiceSoap12Binding' and return error code (or SOAP_OK)
+	virtual int __ns4__searchProducts(_ns2__searchProducts *ns2__searchProducts, _ns2__searchProductsResponse *ns2__searchProductsResponse) { return soap ? soap_call___ns4__searchProducts(soap, endpoint, NULL, ns2__searchProducts, ns2__searchProductsResponse) : SOAP_EOM; };
 };
 #endif

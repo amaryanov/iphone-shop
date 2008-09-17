@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ProductViewController;
 @interface iShopAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
 	IBOutlet UIWindow *window;
 	IBOutlet UITabBarController *tabBarController;
 	IBOutlet UINavigationController *navController;
 	IBOutlet UITabBar *tabBar;
+	IBOutlet ProductViewController *populars;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UITabBarController *tabBarController;
 @property (nonatomic, retain) UINavigationController *navController;
 @property (nonatomic, retain) UITabBar *tabBar;
+@property (nonatomic, retain) ProductViewController *populars;
 +(iShopAppDelegate*)MainDelegate;
 
 @end

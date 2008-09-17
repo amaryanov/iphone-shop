@@ -60,7 +60,7 @@
 						<object class="IBUIViewController" id="820007376">
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="144161954">
 								<reference key="IBUINavigationBar"/>
-								<string key="IBUITitle">Navigation Item</string>
+								<string key="IBUITitle">Populars</string>
 							</object>
 							<reference key="IBUIParentViewController" ref="456246979"/>
 							<string key="IBUINibName">ProductViewController</string>
@@ -516,7 +516,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>UIResponder</string>
-					<string>{{296, 500}, {320, 480}}</string>
+					<string>{{267, 500}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
