@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-class CProductListContainer;
+//class CProductListContainer;
 @class LoadMoreViewCell;
 
 @interface ProductViewController : UIViewController
