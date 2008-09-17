@@ -10,18 +10,17 @@
 
 class CProductListContainer;
 @class LoadMoreViewCell;
+
 @interface ProductViewController : UIViewController
 {
 	IBOutlet LoadMoreViewCell	*loadMoreCell;
 	IBOutlet UITableView		*mainTable;
 	IBOutlet UIActivityIndicatorView *indicator;
 
-		
-	CProductListContainer	*pProducts;
-	int						categoryId;
-	int						itemsCnt;
-	NSString				*categoryName;
-	@private int			itemsWasLoaded;
+	int				categoryId;
+	int				itemsCnt;
+	Boolean			isFavControl;
+	NSString		*categoryName;
 }
 @property (nonatomic, retain) UITableViewCell	*loadMoreCell;
 @property (nonatomic, retain) UITableView		*mainTable;
@@ -30,6 +29,7 @@ class CProductListContainer;
 
 @property(readwrite) int categoryId;
 @property(readwrite) int itemsCnt;
+@property(readwrite) Boolean isFavControl;
 @property (nonatomic, retain) NSString *categoryName;
 
 @end

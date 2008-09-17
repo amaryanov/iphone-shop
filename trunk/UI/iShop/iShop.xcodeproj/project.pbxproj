@@ -448,16 +448,13 @@
 			children = (
 				3AC40D700E6B7CC2005580EB /* ImageViewer */,
 				5555F4B60E59836400873B98 /* TableCellView */,
-				5506DAFD0E5AB4B9000846DB /* ProductViewController.h */,
-				5506DAFE0E5AB4B9000846DB /* ProductViewController.mm */,
+				55A573640E8036C900682E91 /* ProductsControler */,
 				559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */,
 				558E1A170E4AD9F600FFE537 /* CategoryViewController.h */,
 				3AF0654E0E4A3BF000670BC7 /* YoutubeViewController.h */,
 				3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */,
 				1D3623240D0F684500981E51 /* iShopAppDelegate.h */,
 				1D3623250D0F684500981E51 /* iShopAppDelegate.m */,
-				55A6FE850E5C1DF100285F99 /* ProductDetailsViewController.h */,
-				55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */,
 				3ADD58890E5E438400477062 /* TestYoutube.h */,
 				3ADD588A0E5E438400477062 /* TestYoutube.m */,
 				55CD5A990E7C2D1F00D7A820 /* ShopDetailViewController.h */,
@@ -500,9 +497,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				55A572C70E801E8400682E91 /* line.png */,
 				55B1C59F0E7AE72A00FCA392 /* Offers */,
 				55A8B55F0E71E169007D6CAE /* Soviet_Union.png */,
+				55A572C70E801E8400682E91 /* line.png */,
 				3AC4775D0E6F48CF00971DD5 /* main_icon.png */,
 				3AC40ABB0E6B6281005580EB /* play.png */,
 				3AC40ABC0E6B6281005580EB /* right.png */,
@@ -835,6 +832,17 @@
 				55AFB9540E6C94D400DDEC6B /* LoadMoreViewCell.m */,
 			);
 			name = TableCellView;
+			sourceTree = "<group>";
+		};
+		55A573640E8036C900682E91 /* ProductsControler */ = {
+			isa = PBXGroup;
+			children = (
+				55A6FE850E5C1DF100285F99 /* ProductDetailsViewController.h */,
+				55A6FE860E5C1DF100285F99 /* ProductDetailsViewController.mm */,
+				5506DAFD0E5AB4B9000846DB /* ProductViewController.h */,
+				5506DAFE0E5AB4B9000846DB /* ProductViewController.mm */,
+			);
+			name = ProductsControler;
 			sourceTree = "<group>";
 		};
 		55B11FF20E7867C300575FB4 /* Offers */ = {

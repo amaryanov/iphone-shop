@@ -38,6 +38,7 @@
 								<string key="NSFrame">{{7, 4}, {88, 44}}</string>
 								<reference key="NSSuperview" ref="468086365"/>
 								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 								<int key="IBUIContentMode">4</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -100,7 +101,7 @@
 							<object class="IBUIView" id="465058347">
 								<reference key="NSNextResponder" ref="468086365"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{13, 49}, {75, 12}}</string>
+								<string key="NSFrame">{{13, 41}, {75, 12}}</string>
 								<reference key="NSSuperview" ref="468086365"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
