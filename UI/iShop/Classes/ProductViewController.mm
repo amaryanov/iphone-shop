@@ -111,12 +111,18 @@ ThreadParameter *param;
 }
 @end
 /***********************************************/
+@interface ProductViewController(PrivateMethods)
+	CProductListContainer	*pProducts;
+	int						itemsWasLoaded;
+@end
+
 @implementation ProductViewController
 @synthesize loadMoreCell,mainTable;
 @synthesize categoryId;
 @synthesize itemsCnt;
 @synthesize indicator;
 @synthesize categoryName;
+@synthesize isFavControl;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -198,20 +204,32 @@ void buildProducts(vector<CProduct> &products,std::vector<class ns2__MProduct * 
 {
 NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 MobileServiceSoap12Binding client;
+	if(isFavControl == NO)
+	{
 	_ns2__getProductList srvRequest;//=new _ns1__getProductList();
 	_ns2__getProductListResponse srvResp;
-	srvRequest.categoryId=new int(categoryId);
-	srvRequest.startItemId=new int(param.iVal);
-	srvRequest.batchSize=new int(BATCH_SIZE);
-	srvRequest.languageId=new int(0);
-	if( SOAP_OK == client.__ns4__getProductList(&srvRequest,&srvResp) )
-	{
-		@synchronized(self)
+		srvRequest.categoryId=new int(categoryId);
+		srvRequest.startItemId=new int(param.iVal);
+		srvRequest.batchSize=new int(BATCH_SIZE);
+		srvRequest.languageId=new int(0);
+		if( SOAP_OK == client.__ns4__getProductList(&srvRequest,&srvResp) )
 		{
-			buildProducts(pProducts->products,srvResp.return_);
-//			itemsWasLoaded+=(itemsCnt > BATCH_SIZE)?BATCH_SIZE:itemsCnt;
-			itemsWasLoaded=pProducts->products.size();
+			@synchronized(self)
+			{
+				buildProducts(pProducts->products,srvResp.return_);
+				itemsWasLoaded=pProducts->products.size();
+			}
 		}
+	}
+	else
+	{
+/*
+	_ns2__getPopularItems request;
+	_ns2__getPopularItemsResponse response
+		if( SOAP_OK == client.__ns4__getPopularItems(&request,response) )
+		{
+		}
+*/
 	}
 	if(param.iVal != 0)
 	{
@@ -253,11 +271,8 @@ MobileServiceSoap12Binding client;
 {
 	pProducts=new CProductListContainer();
 	itemsWasLoaded=0;
-	//[loadMoreCell.indicator startAnimating];
 	[indicator startAnimating];
 	[NSThread detachNewThreadSelector:@selector(requestItemsFromId:) toTarget:self withObject:[ThreadParameter initIntWithVal:0]];
-
-//	[self requestItemsFromId:[ThreadParameter initIntWithVal:0]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
