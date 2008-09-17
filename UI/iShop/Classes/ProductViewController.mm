@@ -204,7 +204,7 @@ void buildProducts(vector<CProduct> &products,std::vector<class ns2__MProduct * 
 {
 NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 MobileServiceSoap12Binding client;
-	if(isFavControl != NO)
+	if(isFavControl == NO)
 	{
 	_ns2__getProductList srvRequest;//=new _ns1__getProductList();
 	_ns2__getProductListResponse srvResp;
