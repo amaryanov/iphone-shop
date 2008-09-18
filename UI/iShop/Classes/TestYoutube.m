@@ -57,9 +57,9 @@
     static GDataServiceGoogleYouTube *service = nil;
     if (!service) {
         service = [[GDataServiceGoogleYouTube alloc] init];
-		[service setUserAgent:@"Apple iPhone v1.1.4 YouTube v1.0.0.4A102"];
+		//[service setUserAgent:@"Apple iPhone v1.1.4 YouTube v1.0.0.4A102"];
         //[service setShouldCacheDatedData:YES];
-		[service setAuthToken:@"AIwbFAT5d7FIz8ZMy158BEM9eGNRMnodkPtAh2BrxyNx3gksiu95lNW5z9abJoabSmeIQUztXcghhqCw-wxQ9pst1SU5DV0SH1IQNr8KeOCWAVi78WB13S7BxkzYYxATWgaYJyk2Jz214F2icTfV37XavhH39acp5QPa4LwwnZvWJR_y9layHCI"];
+		//[service setAuthToken:@"AIwbFAT5d7FIz8ZMy158BEM9eGNRMnodkPtAh2BrxyNx3gksiu95lNW5z9abJoabSmeIQUztXcghhqCw-wxQ9pst1SU5DV0SH1IQNr8KeOCWAVi78WB13S7BxkzYYxATWgaYJyk2Jz214F2icTfV37XavhH39acp5QPa4LwwnZvWJR_y9layHCI"];
     }
     return service;
 }

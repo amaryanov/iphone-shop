@@ -21,11 +21,19 @@
 #import "GDataServiceGoogleYouTube.h"
 
 #import "GDataEntryYouTubeVideo.h"
+#import "YTAuth.h"
 
 // These routines are all simple wrappers around GDataServiceGoogle methods
 
 @implementation GDataServiceGoogleYouTube
 
+- (GDataServiceGoogleYouTube*) init
+{
+	[super init];
+	[self setAuthToken:[YTAuth getToken]];
+	[self setUserAgent:@"Apple iPhone v1.1.4 YouTube v1.0.0.4A102"];
+	return self;
+}
 - (void)dealloc {
   [developerKey_ release]; 
   [super dealloc];

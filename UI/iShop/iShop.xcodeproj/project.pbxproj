@@ -20,6 +20,11 @@
 		3AC40D7B0E6B7CD8005580EB /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC40D780E6B7CD8005580EB /* ImageViewController.m */; };
 		3AC4775E0E6F48CF00971DD5 /* main_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC4775D0E6F48CF00971DD5 /* main_icon.png */; };
 		3ADD588B0E5E438400477062 /* TestYoutube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD588A0E5E438400477062 /* TestYoutube.m */; };
+		3AED1DFE0E81E5E0000BA304 /* data_ark.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AED1DF60E81E5E0000BA304 /* data_ark.plist */; };
+		3AED1DFF0E81E5E0000BA304 /* my_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3AED1DF70E81E5E0000BA304 /* my_key.pem */; };
+		3AED1E000E81E5E0000BA304 /* YTAuth.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3AED1DF90E81E5E0000BA304 /* YTAuth.mm */; };
+		3AED1E010E81E5E0000BA304 /* NSData-Base64Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AED1DFB0E81E5E0000BA304 /* NSData-Base64Extensions.m */; };
+		3AED1E020E81E5E0000BA304 /* NSString-Base64Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AED1DFD0E81E5E0000BA304 /* NSString-Base64Extensions.m */; };
 		3AF065500E4A3BF000670BC7 /* YoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */; };
 		3AF067840E4A3FB700670BC7 /* GDataFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0661B0E4A3FB600670BC7 /* GDataFramework.m */; };
 		3AF067850E4A3FB700670BC7 /* GDataUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0661D0E4A3FB600670BC7 /* GDataUtilities.m */; };
@@ -174,6 +179,14 @@
 		3AC4775D0E6F48CF00971DD5 /* main_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_icon.png; sourceTree = "<group>"; };
 		3ADD58890E5E438400477062 /* TestYoutube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestYoutube.h; sourceTree = "<group>"; };
 		3ADD588A0E5E438400477062 /* TestYoutube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestYoutube.m; sourceTree = "<group>"; };
+		3AED1DF60E81E5E0000BA304 /* data_ark.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data_ark.plist; sourceTree = "<group>"; };
+		3AED1DF70E81E5E0000BA304 /* my_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = my_key.pem; sourceTree = "<group>"; };
+		3AED1DF80E81E5E0000BA304 /* YTAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTAuth.h; sourceTree = "<group>"; };
+		3AED1DF90E81E5E0000BA304 /* YTAuth.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YTAuth.mm; sourceTree = "<group>"; };
+		3AED1DFA0E81E5E0000BA304 /* NSData-Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-Base64Extensions.h"; sourceTree = "<group>"; };
+		3AED1DFB0E81E5E0000BA304 /* NSData-Base64Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-Base64Extensions.m"; sourceTree = "<group>"; };
+		3AED1DFC0E81E5E0000BA304 /* NSString-Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-Base64Extensions.h"; sourceTree = "<group>"; };
+		3AED1DFD0E81E5E0000BA304 /* NSString-Base64Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-Base64Extensions.m"; sourceTree = "<group>"; };
 		3AF0654E0E4A3BF000670BC7 /* YoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeViewController.h; sourceTree = "<group>"; };
 		3AF0654F0E4A3BF000670BC7 /* YoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeViewController.m; sourceTree = "<group>"; };
 		3AF066180E4A3FB600670BC7 /* GData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GData.h; path = GData/GData.h; sourceTree = "<group>"; };
@@ -542,9 +555,25 @@
 			name = ImageViewer;
 			sourceTree = "<group>";
 		};
+		3AED1DF50E81E5E0000BA304 /* YTAuth */ = {
+			isa = PBXGroup;
+			children = (
+				3AED1DF60E81E5E0000BA304 /* data_ark.plist */,
+				3AED1DF70E81E5E0000BA304 /* my_key.pem */,
+				3AED1DF80E81E5E0000BA304 /* YTAuth.h */,
+				3AED1DF90E81E5E0000BA304 /* YTAuth.mm */,
+				3AED1DFA0E81E5E0000BA304 /* NSData-Base64Extensions.h */,
+				3AED1DFB0E81E5E0000BA304 /* NSData-Base64Extensions.m */,
+				3AED1DFC0E81E5E0000BA304 /* NSString-Base64Extensions.h */,
+				3AED1DFD0E81E5E0000BA304 /* NSString-Base64Extensions.m */,
+			);
+			name = YTAuth;
+			sourceTree = "<group>";
+		};
 		3AF066160E4A3FB600670BC7 /* GData Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3AED1DF50E81E5E0000BA304 /* YTAuth */,
 				3AF0674A0E4A3FB700670BC7 /* YouTube */,
 				3AF066170E4A3FB600670BC7 /* Common */,
 			);
@@ -953,6 +982,8 @@
 				55B4F3DE0E7C192B007BB045 /* ShowShopDetail.xib in Resources */,
 				553945CB0E7D892500679EF1 /* OffersSortController.xib in Resources */,
 				55A572C80E801E8400682E91 /* line.png in Resources */,
+				3AED1DFE0E81E5E0000BA304 /* data_ark.plist in Resources */,
+				3AED1DFF0E81E5E0000BA304 /* my_key.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,6 +1113,9 @@
 				55AF18610E7C5CD4001CA57C /* ShopBarTitleView.m in Sources */,
 				553944CB0E7D6AD400679EF1 /* OffersSortCell.m in Sources */,
 				553945C90E7D890600679EF1 /* OffersSortController.m in Sources */,
+				3AED1E000E81E5E0000BA304 /* YTAuth.mm in Sources */,
+				3AED1E010E81E5E0000BA304 /* NSData-Base64Extensions.m in Sources */,
+				3AED1E020E81E5E0000BA304 /* NSString-Base64Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1100,11 +1134,13 @@
 				INFOPLIST_FILE = Info.plist;
 				"OTHER_LDFLAGS[sdk=iphoneos2.0][arch=*]" = (
 					"-lxml2",
+					"-lcrypto",
 					"-framework",
 					CFNetwork,
 				);
 				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*]" = (
 					"-lxml2",
+					"-lcrypto",
 					"-framework",
 					CoreServices,
 				);
@@ -1134,7 +1170,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				SDKROOT = iphoneos2.0;
 			};
@@ -1149,7 +1185,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				SDKROOT = iphoneos2.0;
 			};
