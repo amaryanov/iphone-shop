@@ -12,4 +12,5 @@
 }
 + (NSString*) getToken;
 + (NSData*) signTheData:(NSData*) data;
++ (NSString*) updateToken;
 @end

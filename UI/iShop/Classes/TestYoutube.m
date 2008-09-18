@@ -7,6 +7,7 @@
 //
 
 #import "TestYoutube.h"
+#import "YTAuth.h"
 @implementation MyYouTube
 
 -(MyYouTube*)initWithYoutubeUrl:(NSString*)urlString postToObject:(id)ObjToPost
@@ -39,7 +40,13 @@
 
 - (void)entryListFetchTicket:(GDataServiceTicket *)ticket failedWithError:(NSError *)error {
     NSLog(@"Error %@", error);
-	[self release];
+	if([error code] == 401)
+	{
+		[YTAuth updateToken];
+		[self getVidUrl];
+	}
+	else
+		[self release];
 }
 - (void)entryListFetchTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedBase *)feed {
 	if (![feed respondsToSelector:@selector(mediaGroup)]) return;

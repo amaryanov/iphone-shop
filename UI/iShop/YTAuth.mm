@@ -53,7 +53,18 @@
 
 + (NSString*) getToken
 {
-	NSString *res = @"";
+	NSString *res = [[NSUserDefaults standardUserDefaults] stringForKey:@"YTAUTHTOKEN"];
+	if(res == nil)
+	{
+		res = [YTAuth updateToken];
+	}
+	//[res retain];
+	return res;
+}
+
++ (NSString*) updateToken
+{
+	NSString *res;
 	NSData* r1;
 	NSData* hr1;
 	NSData *r2;
@@ -76,7 +87,7 @@
 	req = [NSString stringWithFormat:@"hr1=%s", [[hr1 webSafeBase64Encode] UTF8String]];
 	requestData = [req dataUsingEncoding: NSUTF8StringEncoding allowLossyConversion:YES];
 	
-    NSURL *applelogin1 = [NSURL URLWithString:@"http://www.google.com/youtube/accounts/applelogin1"];
+	NSURL *applelogin1 = [NSURL URLWithString:@"http://www.google.com/youtube/accounts/applelogin1"];
 	urlRequest = [NSMutableURLRequest  requestWithURL:applelogin1];
 	[urlRequest setHTTPMethod:@"POST"];
 	[urlRequest setHTTPBody:requestData];
@@ -98,11 +109,11 @@
 	NSData* sig = [YTAuth signTheData:signData];
 	
 	req = [NSString stringWithFormat:@"r1=%s&r2=%s&cert=%s&sig=%s&hr1=%s&hmackr2=%s",
-	[[r1 webSafeBase64Encode] UTF8String], [[r2 webSafeBase64Encode] UTF8String],
-	[[cert webSafeBase64Encode] UTF8String], [[sig webSafeBase64Encode] UTF8String],
-	[[hr1 webSafeBase64Encode] UTF8String], [[hmackr2 webSafeBase64Encode] UTF8String]];
+		   [[r1 webSafeBase64Encode] UTF8String], [[r2 webSafeBase64Encode] UTF8String],
+		   [[cert webSafeBase64Encode] UTF8String], [[sig webSafeBase64Encode] UTF8String],
+		   [[hr1 webSafeBase64Encode] UTF8String], [[hmackr2 webSafeBase64Encode] UTF8String]];
 	requestData = [req dataUsingEncoding: NSUTF8StringEncoding];
-    NSURL *applelogin2 = [NSURL URLWithString:@"http://www.google.com/youtube/accounts/applelogin2"];
+	NSURL *applelogin2 = [NSURL URLWithString:@"http://www.google.com/youtube/accounts/applelogin2"];
 	urlRequest = [NSMutableURLRequest  requestWithURL:applelogin2];
 	[urlRequest setHTTPMethod:@"POST"];
 	[urlRequest setHTTPBody:requestData];
@@ -112,7 +123,7 @@
 	resStr = [responseArr objectAtIndex:0];
 	authArr = [resStr componentsSeparatedByString:@"="];
 	res = [authArr objectAtIndex:1];
-	//[res retain];
+	[[NSUserDefaults standardUserDefaults] setObject:res forKey:@"YTAUTHTOKEN"];
 	return res;
 }
 @end
