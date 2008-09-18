@@ -10,6 +10,32 @@
 #import "YTAuth.h"
 @implementation YTAuth
 
++ (NSData*) cert
+{
+	NSData *cert;
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"data_ark.plist" ofType:nil];
+	NSData *plistData;
+	NSString *error;
+	NSPropertyListFormat format;
+	id plist;
+	plistData = [NSData dataWithContentsOfFile:path];
+	plist = [NSPropertyListSerialization propertyListFromData:plistData
+											 mutabilityOption:NSPropertyListImmutable
+													   format:&format
+											 errorDescription:&error];
+	if(!plist)
+	{
+		NSLog(error);
+		[error release];
+	}
+	else
+	{
+		NSDictionary *dict = plist;
+		cert = [dict objectForKey:@"-DeviceCertificate"];
+	}
+	return cert;
+}
+
 + (NSData*) signTheData:(NSData*) data
 {
 	NSData* sig;
@@ -81,7 +107,7 @@
 	NSString *resStr;
 	resp = [NSURLResponse alloc];
 	err = [NSError alloc];
-	NSData* cert = [@"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURQekNDQXFpZ0F3SUJBZ0lLQTRCUllCOVBRUms3NlRBTkJna3Foa2lHOXcwQkFRc0ZBREJhTVFzd0NRWUQKVlFRR0V3SlZVekVUTUJFR0ExVUVDaE1LUVhCd2JHVWdTVzVqTGpFVk1CTUdBMVVFQ3hNTVFYQndiR1VnYVZCbwpiMjVsTVI4d0hRWURWUVFERXhaQmNIQnNaU0JwVUdodmJtVWdSR1YyYVdObElFTkJNQjRYRFRBM01EY3dOekl6Ck1EZ3dNMW9YRFRFd01EY3dOekl6TURnd00xb3dnWWN4TVRBdkJnTlZCQU1US0RNNE5URmhOamRqT0dFM01ETTMKTnpjek9HWXhOVEJsTTJGaFlUWTJOV1U1TkRFNU5tUXpOekV4Q3pBSkJnTlZCQVlUQWxWVE1Rc3dDUVlEVlFRSQpFd0pEUVRFU01CQUdBMVVFQnhNSlEzVndaWEowYVc1dk1STXdFUVlEVlFRS0V3cEJjSEJzWlNCSmJtTXVNUTh3CkRRWURWUVFMRXdacFVHaHZibVV3Z1o4d0RRWUpLb1pJaHZjTkFRRUJCUUFEZ1kwQU1JR0pBb0dCQU9XTEIxejYKMEI0M0l3SVRudFFNS0JacW51YmkxSjR4cnJOSmtvWC9GUmtjS1NoemQwZnBTRXplNi9ZcTE2ZDVjaTg1dUt0agpUSnRHRFpjcTltaFltTWc2anZUelB4b3g1Z09ib0h1NGFVeGNlZ2NHUDhtRFpUcjdPM21rZU1rV0RRVkd2Z3NLCkwwdWE0WGJZVXdiYnB6aFJTN041aWZERXJSWUt3UlljWXovVkFnTUJBQUdqZ2Qwd2dkb3dnWUlHQTFVZEl3UjcKTUhtQUZMTCtJU05FaHBWcWVkV0JKbzV6RU5pblRJNTBvVjZrWERCYU1Rc3dDUVlEVlFRR0V3SlZVekVUTUJFRwpBMVVFQ2hNS1FYQndiR1VnU1c1akxqRVZNQk1HQTFVRUN4TU1RWEJ3YkdVZ2FWQm9iMjVsTVI4d0hRWURWUVFECkV4WkJjSEJzWlNCcFVHaHZibVVnUkdWMmFXTmxJRU5CZ2dFQk1CMEdBMVVkRGdRV0JCVHBsVTJrZE5zeFpFbmEKTXFUSnVaVWdaQzM1WHpBTUJnTlZIUk1CQWY4RUFqQUFNQTRHQTFVZER3RUIvd1FFQXdJRm9EQVdCZ05WSFNVQgpBZjhFRERBS0JnZ3JCZ0VGQlFjREFUQU5CZ2txaGtpRzl3MEJBUXNGQUFPQmdRQ3FjbVNyTnFnWldGdkZJYzluCkNwMktacUVRK0ozdTNLS2h4ZUwzR05KZ2twS3JQa3R3RC8rRGhIMlFDRUNtRUNMNTI0MHVLWGkvTzFlZjZZMkIKWjM4SVFuOHVoci9oYkRXUWFpV1o2OFhQWUEvTzRFZ3lKMHp6cmlzMks3UzBPSG9vTm1uZVowcEVMMElib2ZaOApKRjhHbjRaK0I2dHR6MEtQSDdJWTJ3LzRYZz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K" decodeBase64WithNewlines:NO];
+	NSData* cert = [YTAuth cert];
 	r1 = [NSData randomData:20];
 	hr1 = [r1 SHA];
 	req = [NSString stringWithFormat:@"hr1=%s", [[hr1 webSafeBase64Encode] UTF8String]];
