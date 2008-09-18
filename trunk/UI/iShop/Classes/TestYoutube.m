@@ -11,6 +11,7 @@
 
 -(MyYouTube*)initWithYoutubeUrl:(NSString*)urlString postToObject:(id)ObjToPost
 {
+	self->objToPost = ObjToPost;
 	
 	NSRange videoIdPlace = [urlString rangeOfString:@"v=" options:NSCaseInsensitiveSearch];
 	NSRange r;
@@ -21,17 +22,19 @@
 		r.length = youtubeIdPlaceTo.location - videoIdPlace.location - 2;
 	else
 		r.length = [urlString length] - videoIdPlace.location - 2;
-	NSString *movieId = [urlString substringWithRange:r];
-	self->objToPost = ObjToPost;
+	movieId = [urlString substringWithRange:r];
+	return self;
+}
+-(void)getVidUrl
+{
     GDataServiceTicket *ticket;
-	GDataServiceGoogleYouTube *service = [MyYouTube youTubeService];
+	GDataServiceGoogleYouTube *service = [[self class] youTubeService];
 	
 	NSURL *feedURL = [GDataServiceGoogleYouTube youTubeURLForVideoID:movieId];
     ticket = [service fetchYouTubeFeedWithURL:feedURL
                                      delegate:self
                             didFinishSelector:@selector(entryListFetchTicket:finishedWithFeed:)
                               didFailSelector:@selector(entryListFetchTicket:failedWithError:)];
-	return self;
 }
 
 - (void)entryListFetchTicket:(GDataServiceTicket *)ticket failedWithError:(NSError *)error {
