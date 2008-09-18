@@ -334,7 +334,8 @@ _ns2__getProductDetailsResponse srvResp;
 		[firstCell initLabelsFont];
 		secondCell.details.text=pProdData->features;
 		[secondCell initLabelsFont];
-		/*MyYouTube* t =*/[[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];
+		MyYouTube* t =[[MyYouTube alloc] initWithYoutubeUrl:pProdData->videoURL postToObject:self];
+		[t performSelectorOnMainThread:@selector(getVidUrl) withObject:nil waitUntilDone:YES];
 		galleryImageUrls = pProdData->galleryImageUrls;
 		[galleryImageUrls retain];
 
