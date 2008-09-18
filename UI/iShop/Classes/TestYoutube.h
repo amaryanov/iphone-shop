@@ -12,6 +12,7 @@
 
 @interface MyYouTube : NSObject
 {
+	NSString *movieId;
 	id objToPost;
 }
 
