@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#include <vector>
 //class CProductListContainer;
 @class LoadMoreViewCell;
-
 @interface ProductViewController : UIViewController
 {
 	IBOutlet LoadMoreViewCell	*loadMoreCell;
@@ -21,6 +20,7 @@
 	int				itemsCnt;
 	Boolean			isFavControl;
 	NSString		*categoryName;
+	std::vector<int> *pProductIds;
 }
 @property (nonatomic, retain) UITableViewCell	*loadMoreCell;
 @property (nonatomic, retain) UITableView		*mainTable;
@@ -30,6 +30,7 @@
 @property(readwrite) int categoryId;
 @property(readwrite) int itemsCnt;
 @property(readwrite) Boolean isFavControl;
+@property(readwrite) std::vector<int> *pProductIds;
 @property (nonatomic, retain) NSString *categoryName;
 
 @end
