@@ -9,8 +9,8 @@
 
 #include "Categories.h"
 #include "soapMobileServiceSoap12BindingProxy.h"
-
 using namespace std;
+
 
 CCategory::CCategory():id(-1),itemsCnt(0)
 {
@@ -51,7 +51,9 @@ CCategory::~CCategory()
 /****************
  *
  ****************/
-void CCategories::buildCategs(vector<CCategory*> &category,std::vector<ns2__MCategory*> &val)
+CCategory *CCategory::instance=NULL;
+
+void CCategory::buildCategs(vector<CCategory*> &category,std::vector<ns2__MCategory*> &val)
 {
 vector<ns2__MCategory*>::iterator iter=val.begin();
 CCategory *pCt;
@@ -66,3 +68,42 @@ CCategory *pCt;
 		}
 	}
 }
+CCategory *CCategory::getInstance()
+{
+	if(instance == NULL)
+	{
+	MobileServiceSoap12Binding client;
+	_ns2__getCategoryList catList;
+	_ns2__getCategoryListResponse catListResp;
+		catList.categoryType=new int(0);
+		if( SOAP_OK == client.__ns4__getCategoryList(&catList,&catListResp) )
+		{
+			instance=new CCategory();
+			instance->buildCategs(instance->childs,catListResp.return_);
+		}
+	}
+	return instance;
+}
+CCategory *CCategory::getSubCategory(int categoryId)
+{
+CCategory *pRet=NULL;
+	if(instance)
+	{
+		pRet=instance->categoryMap.find(categoryId)->second;
+	}
+	return pRet;
+	
+}
+/*
+void printCategs(vector<CCategory*> &category,string ident)
+{
+	vector<CCategory*>::iterator iter=category.begin();
+	for(;iter!=category.end();iter++)
+	{
+		cout<<ident<<(*iter)->id<<endl
+		<<ident<<(*iter)->name<<endl
+		<<ident<<"--------------"<<endl;
+		printCategs((*iter)->childs,string(ident+"\t"));
+	}
+}
+*/

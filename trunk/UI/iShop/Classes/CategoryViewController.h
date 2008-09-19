@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-class CCategories;
+class CCategory;
 @interface CategoryViewController : UIViewController 
 {
 	IBOutlet UIView *theView;
 	IBOutlet UITableView *table;
 	IBOutlet UIActivityIndicatorView *indicator;
 
-	CCategories *pCategs;
+	CCategory *pCategory;
 }
 @property (nonatomic, retain) UIView *theView;
 @property (nonatomic, retain) UITableView *table;

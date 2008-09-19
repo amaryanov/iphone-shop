@@ -22,16 +22,16 @@
 			<object class="IBProxyObject" id="236814937">
 				<string key="IBProxiedObjectIdentifier">IBFirstResponder</string>
 			</object>
-			<object class="IBUIView" id="332925017">
+			<object class="IBUIView" id="324283234">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUITableView" id="457822417">
-						<reference key="NSNextResponder" ref="332925017"/>
+						<reference key="NSNextResponder" ref="324283234"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 460}</string>
-						<reference key="NSSuperview" ref="332925017"/>
+						<reference key="NSSuperview" ref="324283234"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -39,15 +39,15 @@
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-						<float key="IBUIRowHeight">4.400000e+01</float>
+						<float key="IBUIRowHeight">7.900000e+01</float>
 						<float key="IBUISectionHeaderHeight">2.700000e+01</float>
 						<float key="IBUISectionFooterHeight">2.700000e+01</float>
 					</object>
-					<object class="IBUIActivityIndicatorView" id="149589389">
-						<reference key="NSNextResponder" ref="332925017"/>
+					<object class="IBUIActivityIndicatorView" id="869818813">
+						<reference key="NSNextResponder" ref="324283234"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{150, 220}, {20, 20}}</string>
-						<reference key="NSSuperview" ref="332925017"/>
+						<reference key="NSSuperview" ref="324283234"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -89,7 +89,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">indicator</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="149589389"/>
+						<reference key="destination" ref="869818813"/>
 					</object>
 					<int key="connectionID">8</int>
 				</object>
@@ -105,7 +105,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">view</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="332925017"/>
+						<reference key="destination" ref="324283234"/>
 					</object>
 					<int key="connectionID">10</int>
 				</object>
@@ -134,10 +134,10 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
-						<reference key="object" ref="332925017"/>
+						<reference key="object" ref="324283234"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="149589389"/>
+							<reference ref="869818813"/>
 							<reference ref="457822417"/>
 						</object>
 						<reference key="parent" ref="957960031"/>
@@ -145,12 +145,12 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">2</int>
 						<reference key="object" ref="457822417"/>
-						<reference key="parent" ref="332925017"/>
+						<reference key="parent" ref="324283234"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">7</int>
-						<reference key="object" ref="149589389"/>
-						<reference key="parent" ref="332925017"/>
+						<reference key="object" ref="869818813"/>
+						<reference key="parent" ref="324283234"/>
 					</object>
 				</object>
 			</object>

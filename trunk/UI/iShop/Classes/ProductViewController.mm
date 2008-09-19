@@ -123,6 +123,7 @@ ThreadParameter *param;
 @synthesize indicator;
 @synthesize categoryName;
 @synthesize isFavControl;
+@synthesize pProductIds;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -271,13 +272,38 @@ MobileServiceSoap12Binding client;
 }
  */
 
+-(void) requestArrayItems:(id)parameter
+{
+NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+MobileServiceSoap12Binding client;
+_ns2__getProductListByIds request;
+_ns2__getProductListByIdsResponse response;
+	request.productIds=*pProductIds;
+	request.languageId=new int(0);
+	if( SOAP_OK == client.__ns4__getProductListByIds(&request,&response) )
+	{
+		@synchronized(self)
+		{
+			buildProducts(pProducts->products,response.return_);
+			itemsCnt=itemsWasLoaded=pProducts->products.size();
+		}
+	}
+	[indicator stopAnimating];
+	[mainTable reloadData];
+	[pool release];
+}
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void)viewDidLoad 
 {
+SEL sl;
 	pProducts=new CProductListContainer();
 	itemsWasLoaded=0;
 	[indicator startAnimating];
-	[NSThread detachNewThreadSelector:@selector(requestItemsFromId:) toTarget:self withObject:[ThreadParameter initIntWithVal:0]];
+	if(pProductIds)
+		sl=@selector(requestArrayItems:);
+	else
+		sl=@selector(requestItemsFromId:);
+	[NSThread detachNewThreadSelector:sl toTarget:self withObject:[ThreadParameter initIntWithVal:0]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -303,7 +329,11 @@ CGFloat retVal;
 }
 
 
-- (void)dealloc {
+- (void)dealloc 
+{
+	if(pProductIds)
+		delete pProductIds;
+	delete pProducts;
 	[super dealloc];
 }
 

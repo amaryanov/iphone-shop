@@ -30,7 +30,7 @@ void printCategs(std::vector<CCategory> &category,std::string ident);
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) 
 	{
 		// Initialization code
-		self->pCategs=NULL;
+		self->pCategory=NULL;
 	}
 	return self;
 }
@@ -47,8 +47,8 @@ void printCategs(std::vector<CCategory> &category,std::string ident);
 NSInteger retVal=0;
 	@synchronized(self)
 	{
-		if(pCategs)
-			retVal=pCategs->categs.size();
+		if(pCategory)
+			retVal=pCategory->childs.size();
 	}
 	return retVal;
 }
@@ -68,17 +68,17 @@ static NSString *MyIdentifier = @"CategoryCellIdentifier";
 		}
 	}
 	// Configure the cell
-	if( (pCategs) && (cell) )
+	if( (pCategory) && (cell) )
 	{
 	CategoryViewCell *categCell=(CategoryViewCell *)cell;
-		[categCell.name setText:pCategs->categs[indexPath.row]->name];
-		if(pCategs->categs[indexPath.row]->imageUrl)
+		[categCell.name setText:pCategory->childs[indexPath.row]->name];
+		if(pCategory->childs[indexPath.row]->imageUrl)
 		{
-			[categCell loadingImage:pCategs->categs[indexPath.row]->imageUrl];
+			[categCell loadingImage:pCategory->childs[indexPath.row]->imageUrl];
 		}
-		if(pCategs->categs[indexPath.row]->childs.size() == 0)
+		if(pCategory->childs[indexPath.row]->childs.size() == 0)
 		{
-			[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategs->categs[indexPath.row]->itemsCnt]];
+			[categCell.productsCount setText:[NSString stringWithFormat:@"(%d)", pCategory->childs[indexPath.row]->itemsCnt]];
 		}
 		[categCell initLabelsFont];
 		[categCell placeProductCounts];
@@ -96,26 +96,25 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	//[targetViewController setDelegate:prefControl];
-	if(pCategs->categs.size() > indexPath.row)
+	if(pCategory->childs.size() > indexPath.row)
 	{
-		if(pCategs->categs[indexPath.row]->childs.size())
+		if(pCategory->childs[indexPath.row]->childs.size())
 		{
 		CategoryViewController *root;
 			root=[[[CategoryViewController alloc] initWithNibName:self.nibName bundle:nil] autorelease];
-			root->pCategs=new CCategories();
-			root->pCategs->categs=pCategs->categs[indexPath.row]->childs;
+			root->pCategory=CCategory::getSubCategory(pCategory->childs[indexPath.row]->id);
 //			printCategs(pCategs->categs,"");
-			[[root navigationItem] setTitle:pCategs->categs[indexPath.row]->title];
+			[[root navigationItem] setTitle:root->pCategory->title];
 			[[self navigationController] pushViewController:root animated:YES];
 		}
 		else
 		{
 		ProductViewController *prods;
-			prods=[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil];
-			prods.categoryId=pCategs->categs[indexPath.row]->id;
-			prods.itemsCnt=pCategs->categs[indexPath.row]->itemsCnt;
-			prods.categoryName=pCategs->categs[indexPath.row]->name;
-			[prods.navigationItem setTitle:pCategs->categs[indexPath.row]->name];
+			prods=[[[ProductViewController alloc] initWithNibName:@"ProductViewController" bundle:nil] autorelease];
+			prods.categoryId=pCategory->childs[indexPath.row]->id;
+			prods.itemsCnt=pCategory->childs[indexPath.row]->itemsCnt;
+			prods.categoryName=pCategory->childs[indexPath.row]->name;
+			[prods.navigationItem setTitle:pCategory->childs[indexPath.row]->name];
 			[[self navigationController] pushViewController:prods animated:YES];
 		}
 	}
@@ -127,34 +126,13 @@ UITableViewCellAccessoryType retVal=UITableViewCellAccessoryDisclosureIndicator;
 - (void)loadView {
 }
 */
-void printCategs(vector<CCategory*> &category,string ident)
-{
-vector<CCategory*>::iterator iter=category.begin();
-	for(;iter!=category.end();iter++)
-	{
-		cout<<ident<<(*iter)->id<<endl
-			<<ident<<(*iter)->name<<endl
-			<<ident<<"--------------"<<endl;
-		printCategs((*iter)->childs,string(ident+"\t"));
-	}
-}
-
 // If you need to do additional setup after loading the view, override viewDidLoad.
 - (void)loadThread:(id)param
 {
 NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-CCategories *pNewCategs=NULL;
+	@synchronized(self)
 	{
-	MobileServiceSoap12Binding client;
-	_ns2__getCategoryList catList;
-	_ns2__getCategoryListResponse catListResp;
-		catList.categoryType=new int(0);
-		if( SOAP_OK == client.__ns4__getCategoryList(&catList,&catListResp) )
-		{
-			pNewCategs=new CCategories();
-			pNewCategs->buildCategs(pNewCategs->categs,catListResp.return_);
-		}
-		@synchronized(self) {pCategs=pNewCategs;}
+		pCategory=CCategory::getInstance();
 	}
 	[indicator stopAnimating];
 	[table reloadData];
@@ -162,7 +140,7 @@ CCategories *pNewCategs=NULL;
 }
 - (void)viewDidLoad 
 {
-	if(pCategs == NULL)
+	if(pCategory == NULL)
 	{
 		[self.navigationItem setTitle:@"Categories"];
 		[indicator startAnimating];
@@ -185,8 +163,6 @@ CCategories *pNewCategs=NULL;
 
 - (void)dealloc 
 {
-	if(pCategs)
-		delete pCategs;
 	[super dealloc];
 }
 
