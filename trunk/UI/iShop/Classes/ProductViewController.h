@@ -10,11 +10,12 @@
 #include <vector>
 //class CProductListContainer;
 @class LoadMoreViewCell;
-@interface ProductViewController : UIViewController
+@interface ProductViewController : UIViewController <UIActionSheetDelegate>
 {
 	IBOutlet LoadMoreViewCell	*loadMoreCell;
 	IBOutlet UITableView		*mainTable;
 	IBOutlet UIActivityIndicatorView *indicator;
+	IBOutlet UIBarButtonItem	*optionButton;
 
 	int				categoryId;
 	int				itemsCnt;
@@ -32,5 +33,7 @@
 @property(readwrite) Boolean isFavControl;
 @property(readwrite) std::vector<int> *pProductIds;
 @property (nonatomic, retain) NSString *categoryName;
+
+- (IBAction)optionButtonWasPressed:(id)sender;
 
 @end

@@ -41,7 +41,8 @@ public:
 	std::vector<ns2__SearchResult * >::iterator iter;
 		for(iter=result.begin();iter!=result.end();iter++)
 		{
-			categories.push_back(*iter);
+			if(*iter)
+				categories.push_back(*iter);
 		}
 	}
 public:
@@ -87,12 +88,21 @@ NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	MobileServiceSoap12Binding client;
 	_ns2__searchProducts request;
 	_ns2__searchProductsResponse response;
-		request.categoryId=new int(0);
-		request.freeText=new string("canon");
-		if( SOAP_OK == client.__ns4__searchProducts(&request,&response) )
+	NSString *searchText=param;
+		if(pSearchResult)
 		{
-			pSearchResult=new CSearchResult(response.return_);
-			(void)CCategory::getInstance();
+			delete pSearchResult;
+			pSearchResult=NULL;
+		}
+		if( (searchText) && ([searchText length]) )
+		{
+			request.categoryId=new int(0);
+			request.freeText=new string([searchText UTF8String]);
+			if( SOAP_OK == client.__ns4__searchProducts(&request,&response) )
+			{
+				pSearchResult=new CSearchResult(response.return_);
+				(void)CCategory::getInstance();
+			}
 		}
 	}
 	[indicator stopAnimating];
@@ -109,9 +119,8 @@ NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	{
 		[self.navigationItem setTitle:@"Search categories"];
 		[indicator startAnimating];
-		[NSThread detachNewThreadSelector:@selector(loadThread:) toTarget:self withObject:nil];
+		[NSThread detachNewThreadSelector:@selector(loadThread:) toTarget:self withObject:[NSString stringWithCString:"canon"]];
 	}
-	
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -158,6 +167,19 @@ CCategory *pCategory=CCategory::getSubCategory(pSearchResult->categories[indexPa
 		[[self navigationController] pushViewController:prods animated:YES];
 	}
 }
+/************************************************************
+ * UISearchBarDelegate
+ ************************************************************/
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+	[indicator startAnimating];
+	[searchBar resignFirstResponder];
+	[NSThread detachNewThreadSelector:@selector(loadThread:) 
+							 toTarget:self 
+						   withObject:searchBar.text];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
