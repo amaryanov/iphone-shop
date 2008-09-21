@@ -296,6 +296,8 @@ _ns2__getProductListByIdsResponse response;
 - (void)viewDidLoad 
 {
 SEL sl;
+
+	[self.navigationItem setRightBarButtonItem:optionButton animated:YES];
 	pProducts=new CProductListContainer();
 	itemsWasLoaded=0;
 	[indicator startAnimating];
@@ -327,7 +329,24 @@ CGFloat retVal;
 	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
 	// Release anything that's not essential, such as cached data
 }
-
+/*******************************************************************
+ * UIActionSheetDelegate Protocol
+ *******************************************************************/
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+}
+- (IBAction)optionButtonWasPressed:(id)param
+{
+	// open a dialog with two custom buttons
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Options"
+															 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil
+													otherButtonTitles:@"Sort by Price & Number of Stores", @"Compare",@"Filter Products", nil];
+	actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+	//actionSheet.destructiveButtonIndex = 1;	// make the second button red (destructive)
+	[actionSheet showInView:self.view]; // show from our table view (pops up in the middle of the table)
+	[actionSheet release];
+	
+}
 
 - (void)dealloc 
 {

@@ -862,8 +862,6 @@
 				55417D630E647D6D00594296 /* ProductDetails */,
 				5555F4B70E5983AC00873B98 /* ProductViewCell.h */,
 				5555F4B80E5983AC00873B98 /* ProductViewCell.m */,
-				5555F54F0E59975600873B98 /* CategoryViewCell.h */,
-				5555F5500E59975600873B98 /* CategoryViewCell.m */,
 				55B679CE0E65C8A300DABBF5 /* BaseCellView.h */,
 				55B679CF0E65C8A300DABBF5 /* BaseCellView.m */,
 				55AFB9530E6C94D400DDEC6B /* LoadMoreViewCell.h */,
@@ -903,6 +901,8 @@
 		55AF25A60E82E2E000234081 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				5555F54F0E59975600873B98 /* CategoryViewCell.h */,
+				5555F5500E59975600873B98 /* CategoryViewCell.m */,
 				559B7FA50E4C3E7E00B453FE /* CategoryViewController.mm */,
 				558E1A170E4AD9F600FFE537 /* CategoryViewController.h */,
 				55AF25A70E82E32E00234081 /* Categories.h */,
